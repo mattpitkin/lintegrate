@@ -20,8 +20,7 @@
 
 /* set various Gauss-Kronrod rule - copied/modified from GSL integration qk[15,21,31,41,51,61].c */
 
-#ifndef _QKRULES_H
-#define _QKRULES_H
+
 
 #include <gsl/gsl_integration.h>
 
@@ -70,4 +69,3 @@ void lintegration_qk61 (const gsl_function * f, double a, double b,
   gsl_integration_qk (31, xgk61, wg61, wgk61, fv1, fv2, f, a, b, result, abserr, resabs, resasc);
 }
 
-#endif

@@ -22,6 +22,9 @@
 
 #include <gsl/gsl_integration.h>
 
+#ifndef _QKRULES_H
+#define _QKRULES_H
+
 /* Gauss quadrature weights and kronrod quadrature abscissae and
    weights as evaluated with 80 decimal digit arithmetic by
    L. W. Fullerton, Bell Labs, Nov. 1981. */
@@ -422,4 +425,6 @@ const double wgk61[31] =   /* weights of the 61-point kronrod rule */
 void lintegration_qk61 (const gsl_function * f, double a, double b,
                         double *result, double *abserr,
                         double *resabs, double *resasc);
+
+#endif
 

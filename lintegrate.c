@@ -17,7 +17,6 @@
  */
 
 #include "lintegrate.h"
-#include "qkrules.h"
 
 /* function to perform log(exp(lna) + exp(lnb)) maintaining numerical precision */
 double logaddexp(const double x, const double y){
