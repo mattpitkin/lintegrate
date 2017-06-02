@@ -24,8 +24,6 @@
 #include <gsl/gsl_math.h>
 #include <gsl/gsl_errno.h>
 
-#include "qkrules.h"
-
 /* function to perform log(exp(lna) + exp(lnb)) maintaining numerical precision */
 double logaddexp(const double x, const double y);
 
@@ -34,12 +32,36 @@ double logsubexp(const double x, const double y);
 
 #define LOGSUBCHOOSE(x, y) ((x) < (y) ? logsubexp(y, x) : logsubexp(x, y))
 
-void  lintegration_qk (const int n, const double xgk[], 
-                       const double wg[], const double wgk[],
-                       double fv1[], double fv2[],
-                       const gsl_function *f, double a, double b,
-                       double * result, double * abserr, 
-                       double * resabs, double * resasc);
+void lintegration_qk (const int n, const double xgk[], 
+                      const double wg[], const double wgk[],
+                      double fv1[], double fv2[],
+                      const gsl_function *f, double a, double b,
+                      double * result, double * abserr, 
+                      double * resabs, double * resasc);
+
+void lintegration_qk15 (const gsl_function * f, double a, double b,
+                        double *result, double *abserr,
+                        double *resabs, double *resasc);
+
+void lintegration_qk21 (const gsl_function * f, double a, double b,
+                        double *result, double *abserr,
+                        double *resabs, double *resasc);
+
+void lintegration_qk31 (const gsl_function * f, double a, double b,
+                        double *result, double *abserr,
+                        double *resabs, double *resasc);
+
+void lintegration_qk41 (const gsl_function * f, double a, double b,
+                        double *result, double *abserr,
+                        double *resabs, double *resasc);
+
+void lintegration_qk51 (const gsl_function * f, double a, double b,
+                        double *result, double *abserr,
+                        double *resabs, double *resasc);
+
+void lintegration_qk61 (const gsl_function * f, double a, double b,
+                        double *result, double *abserr,
+                        double *resabs, double *resasc);
 
 #if HAVE_EXTENDED_PRECISION_REGISTERS
 #define GSL_COERCE_DBL(x) (gsl_coerce_double(x))
@@ -48,3 +70,4 @@ void  lintegration_qk (const int n, const double xgk[],
 #endif
 
 #endif /* _LINTEGRATE_H */
+

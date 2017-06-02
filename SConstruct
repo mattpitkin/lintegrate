@@ -1,4 +1,10 @@
 import os
+import sys
+
+# add a --prefix option for the installation path
+AddOption('--prefix', dest='prefix', type='string', nargs=1,
+          action='store', metavar='DIR', default='/usr/local',
+          help='Installation Prefix')
 
 env = Environment()
 
@@ -10,6 +16,9 @@ env.Append(LIBPATH=['/usr/lib', '/usr/local/lib', '/usr/lib/x86_64-linux-gnu'])
 
 # set potential include paths
 env.Append(CPPPATH=['/usr/include/', '/usr/local/include/'])
+
+# install prefix
+env = Environment(PREFIX=GetOption('prefix'))
 
 # set some compiler flags
 env.Append(CCFLAGS=['-O3', '-Wall', '-Wextra', '-m64', '-ffast-math', '-fno-finite-math-only', '-flto', '-march=native', '-funroll-loops'])
@@ -27,6 +36,36 @@ if not conf.CheckLib('gslcblas'):
 
 env = conf.Finish()
 
-# build library
-env.Library('lintegrate', ['lintegrate.c', 'qkrules.c'])
+# create libraries
+sharedlib = env.SharedLibrary('liblintegrate', ['lintegrate.c', 'qkrules.c'])
+staticlib = env.StaticLibrary('liblintegrate', ['lintegrate.c', 'qkrules.c'])
+
+# install libraries
+installlibDir = os.path.join(env['PREFIX'], 'lib')
+if not os.path.isdir(installlibDir):
+  print("Error... install directory '%s' is not present" % installlibDir)
+  sys.exit(1)
+
+sharedinstall = env.Install(installlibDir, sharedlib)
+staticinstall = env.Install(installlibDir, staticlib)
+
+installlist = [sharedinstall, staticinstall]
+
+# install headers
+hfiles = Glob('*.h')
+
+installhdir = os.path.join(env['PREFIX'], 'include/lintegrate')
+if not os.path.isdir(installhdir):
+  # try making directory
+  try:
+    os.makedirs(installhdir)
+  except:
+    print("Error... could not create '%s' directory" % installhdir)
+    sys.exit(1)
+
+hinstall = env.Install(installhdir, hfiles)
+installlist.append(hinstall)
+
+# create an 'install' target
+env.Alias('install', installlist)
 
