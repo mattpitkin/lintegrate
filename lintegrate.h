@@ -32,6 +32,13 @@ double logsubexp(const double x, const double y);
 
 #define LOGSUBCHOOSE(x, y) ((x) < (y) ? logsubexp(y, x) : logsubexp(x, y))
 
+int lintegration_qag (const gsl_function *f,
+                      double a, double b,
+                      double epsabs, double epsrel, size_t limit,
+                      int key,
+                      gsl_integration_workspace * workspace,
+                      double * result, double * abserr);
+
 void lintegration_qk (const int n, const double xgk[], 
                       const double wg[], const double wgk[],
                       double fv1[], double fv2[],
