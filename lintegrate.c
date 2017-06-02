@@ -336,13 +336,12 @@ subinterval_too_small (double a1, double a2, double b2)
 
 
 /* function to perform part of integral - heavily based on the GSL gsl_integration_qk function */
-void
-lintegration_qk (const int n, 
-                    const double xgk[], const double wg[], const double wgk[],
-                    double fv1[], double fv2[],
-                    const gsl_function * f, double a, double b,
-                    double *result, double *abserr,
-                    double *resabs, double *resasc)
+void lintegration_qk (const int n, 
+                      const double xgk[], const double wg[], const double wgk[],
+                      double fv1[], double fv2[],
+                      const gsl_function * f, double a, double b,
+                      double *result, double *abserr,
+                      double *resabs, double *resasc)
 {
 
   const double center = 0.5 * (a + b);
@@ -396,11 +395,10 @@ lintegration_qk (const int n,
   }
 
   /* scale by the width of the integration region */
-
   err = exp(logsubexp(result_kronrod, result_gauss)) * half_length;
 
-  result_kronrod *= half_length;
-  result_abs *= abs_half_length;
+  result_kronrod += log(half_length);
+  result_abs += log(abs_half_length);
   result_asc *= abs_half_length;
 
   *result = result_kronrod;
@@ -410,22 +408,20 @@ lintegration_qk (const int n,
 
 }
 
-static int
-lqag (const gsl_function *f,
-     const double a, const double b,
-     const double epsabs, const double epsrel,
-     const size_t limit,
-     gsl_integration_workspace * workspace,
-     double * result, double * abserr,
-     gsl_integration_rule * q);
+static int lqag (const gsl_function *f,
+                 const double a, const double b,
+                 const double epsabs, const double epsrel,
+                 const size_t limit,
+                 gsl_integration_workspace * workspace,
+                 double * result, double * abserr,
+                 gsl_integration_rule * q);
 
-int
-lintegration_qag (const gsl_function *f,
-                     double a, double b,
-                     double epsabs, double epsrel, size_t limit,
-                     int key,
-                     gsl_integration_workspace * workspace,
-                     double * result, double * abserr)
+int lintegration_qag (const gsl_function *f,
+                      double a, double b,
+                      double epsabs, double epsrel, size_t limit,
+                      int key,
+                      gsl_integration_workspace * workspace,
+                      double * result, double * abserr)
 {
   int status ;
   gsl_integration_rule * integration_rule = lintegration_qk15 ;
@@ -464,7 +460,7 @@ lintegration_qag (const gsl_function *f,
                 GSL_EINVAL) ;
     }
 
-  status = lqag (f, a, b, epsabs, epsrel, limit,
+  status = lqag(f, a, b, epsabs, epsrel, limit,
                 workspace, 
                 result, abserr, 
                 integration_rule) ;
@@ -472,14 +468,13 @@ lintegration_qag (const gsl_function *f,
   return status ;
 }
 
-static int
-lqag (const gsl_function * f,
-     const double a, const double b,
-     const double epsabs, const double epsrel,
-     const size_t limit,
-     gsl_integration_workspace * workspace,
-     double *result, double *abserr,
-     gsl_integration_rule * q)
+static int lqag (const gsl_function * f,
+                 const double a, const double b,
+                 const double epsabs, const double epsrel,
+                 const size_t limit,
+                 gsl_integration_workspace * workspace,
+                 double *result, double *abserr,
+                 gsl_integration_rule * q)
 {
   double area, errsum;
   double result0, abserr0, resabs0, resasc0;
@@ -508,7 +503,6 @@ lqag (const gsl_function * f,
     }
 
   /* perform the first integration */
-
   q (f, a, b, &result0, &abserr0, &resabs0, &resasc0);
 
   set_initial_result (workspace, result0, abserr0);
@@ -612,7 +606,6 @@ lqag (const gsl_function * f,
       retrieve (workspace, &a_i, &b_i, &r_i, &e_i);
 
       iteration++;
-
     }
   while (iteration < limit && !error_type && errsum > tolerance);
 
@@ -642,6 +635,4 @@ lqag (const gsl_function * f,
       GSL_ERROR ("could not integrate function", GSL_EFAILED);
     }
 }
-
-
 
