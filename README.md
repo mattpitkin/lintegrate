@@ -6,6 +6,7 @@ This library provides a couple of numerical integration functions, heavily based
 natural logarithm is given, and return the natural logarithm of that integral. The two functions are equivalents of the GSL functions:
  * [`gsl_integration_qag`](https://www.gnu.org/software/gsl/manual/html_node/QAG-adaptive-integration.html#QAG-adaptive-integration)
  * [`gsl_integration_qng`](https://www.gnu.org/software/gsl/manual/html_node/QNG-non_002dadaptive-Gauss_002dKronrod-integration.html#QNG-non_002dadaptive-Gauss_002dKronrod-integration)
+
 and are called `lintegrate_qag` and `lintegrate_qng` respectively. These can be useful when, e.g., you have a log Gaussian likelihood function
 (in cases where the exponentiation of the Gaussian function would lead to zeros or infinities) and you want to numerically find the integral of
 the Gaussian function itself.
