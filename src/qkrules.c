@@ -20,10 +20,6 @@
 
 /* set various Gauss-Kronrod rule - copied/modified from GSL integration qk[15,21,31,41,51,61].c */
 
-#include <gsl/gsl_integration.h>
-
-#include "lintegrate.h"
-
 /* Gauss quadrature weights and kronrod quadrature abscissae and
    weights as evaluated with 80 decimal digit arithmetic by
    L. W. Fullerton, Bell Labs, Nov. 1981. */

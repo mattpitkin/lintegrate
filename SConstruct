@@ -37,8 +37,8 @@ if not conf.CheckLib('gslcblas'):
 env = conf.Finish()
 
 # create libraries
-sharedlib = env.SharedLibrary('liblintegrate', ['src/lintegrate_qag.c', 'src/qkrules.c', 'src/lintegrate_qng.c'])
-staticlib = env.StaticLibrary('liblintegrate', ['src/lintegrate_qag.c', 'src/qkrules.c', 'src/lintegrate_qng.c'])
+sharedlib = env.SharedLibrary('liblintegrate', ['src/lintegrate_qag.c', 'src/lintegrate_qng.c'])
+staticlib = env.StaticLibrary('liblintegrate', ['src/lintegrate_qag.c', 'src/lintegrate_qng.c'])
 
 # install libraries
 installlibDir = os.path.join(env['PREFIX'], 'lib')

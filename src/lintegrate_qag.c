@@ -19,6 +19,7 @@
 #include "lintegrate.h"
 #include "err.c"
 #include "logadd.c"
+#include "qkrules.c"
 
 /* copied from GSL integration initialise.c http://git.savannah.gnu.org/cgit/gsl.git/tree/integration/initialise.c */
 static inline

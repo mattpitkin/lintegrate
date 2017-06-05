@@ -21,11 +21,10 @@
 #include "err.c"
 #include "logadd.c"
 
-int
-lintegration_qng (const gsl_function *f,
-                  double a, double b,
-                  double epsabs, double epsrel,
-                  double * result, double * abserr, size_t * neval) {
+int lintegration_qng (const gsl_function *f,
+                      double a, double b,
+                      double epsabs, double epsrel,
+                      double * result, double * abserr, size_t * neval) {
   double fv1[5], fv2[5], fv3[5], fv4[5];
   double savfun[21];  /* array of function values which have been computed */
   double res10, res21, res43, res87;    /* 10, 21, 43 and 87 point results */
