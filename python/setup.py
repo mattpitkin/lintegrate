@@ -3,8 +3,6 @@
 from setuptools import setup, find_packages
 from setuptools import Extension
 
-from lintegrate import __version__
-
 import os, sys, numpy, re
 
 ext_modules = [ Extension("lintegrate", 
