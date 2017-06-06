@@ -21,10 +21,17 @@
 #include "err.c"
 #include "logadd.c"
 
+#ifdef HAVE_PYTHON_LINTEGRATE
+int lintegration_qng (pylintfunc f, void *funcdata, void *args,
+                      double a, double b,
+                      double epsabs, double epsrel,
+                      double * result, double * abserr, size_t * neval) {
+#else
 int lintegration_qng (const gsl_function *f,
                       double a, double b,
                       double epsabs, double epsrel,
                       double * result, double * abserr, size_t * neval) {
+#endif
   double fv1[5], fv2[5], fv3[5], fv4[5];
   double savfun[21];  /* array of function values which have been computed */
   double res10, res21, res43, res87;    /* 10, 21, 43 and 87 point results */
@@ -35,7 +42,11 @@ int lintegration_qng (const gsl_function *f,
   const double half_length =  0.5 * (b - a);
   const double abs_half_length = fabs (half_length);
   const double center = 0.5 * (b + a);
+#ifdef HAVE_PYTHON_LINTEGRATE
+  const double f_center = f(center, funcdata, args);
+#else
   const double f_center = GSL_FN_EVAL(f, center);
+#endif
 
   int k ;
 
@@ -54,8 +65,13 @@ int lintegration_qng (const gsl_function *f,
 
   for (k = 0; k < 5; k++) {
     const double abscissa = half_length * x1[k];
+#ifdef HAVE_PYTHON_LINTEGRATE
+    const double fval1 = f(center + abscissa, funcdata, args);
+    const double fval2 = f(center - abscissa, funcdata, args);
+#else
     const double fval1 = GSL_FN_EVAL(f, center + abscissa);
     const double fval2 = GSL_FN_EVAL(f, center - abscissa);
+#endif
     const double fval = logaddexp(fval1, fval2);
     res10 = logaddexp(res10, log(w10[k]) + fval);
     res21 = logaddexp(res21, log(w21a[k]) + fval);
@@ -66,8 +82,13 @@ int lintegration_qng (const gsl_function *f,
 
   for (k = 0; k < 5; k++) {
     const double abscissa = half_length * x2[k];
+#ifdef HAVE_PYTHON_LINTEGRATE
+    const double fval1 = f(center + abscissa, funcdata, args);
+    const double fval2 = f(center - abscissa, funcdata, args);
+#else
     const double fval1 = GSL_FN_EVAL(f, center + abscissa);
     const double fval2 = GSL_FN_EVAL(f, center - abscissa);
+#endif
     const double fval = logaddexp(fval1, fval2);
     res21 = logaddexp(res21, log(w21b[k]) + fval);
     savfun[k + 5] = fval;
@@ -110,7 +131,11 @@ int lintegration_qng (const gsl_function *f,
 
   for (k = 0; k < 11; k++){
     const double abscissa = half_length * x3[k];
+#ifdef HAVE_PYTHON_LINTEGRATE
+    const double fval = logaddexp(f(center + abscissa, funcdata, args), f(center - abscissa, funcdata, args));
+#else
     const double fval = logaddexp(GSL_FN_EVAL(f, center + abscissa), GSL_FN_EVAL(f, center - abscissa));
+#endif
     res43 = logaddexp(res43, fval + log(w43b[k]));
     savfun[k + 10] = fval;
   }
@@ -137,7 +162,11 @@ int lintegration_qng (const gsl_function *f,
 
   for (k = 0; k < 22; k++){
     const double abscissa = half_length * x4[k];
+#ifdef HAVE_PYTHON_LINTEGRATE
+    res87 = logaddexp(res87, log(w87b[k]) + logaddexp(f(center + abscissa, funcdata, args), f(center - abscissa, funcdata, args)));
+#else
     res87 = logaddexp(res87, log(w87b[k]) + logaddexp(GSL_FN_EVAL(f, center + abscissa), GSL_FN_EVAL(f, center - abscissa)));
+#endif
   }
 
   /*  test for convergence */

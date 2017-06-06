@@ -397,6 +397,49 @@ static const double wgk61[31] =   /* weights of the 61-point kronrod rule */
   0.051494729429451567558340433647099
 };
 
+#ifdef HAVE_PYTHON_LINTEGRATE
+void lintegration_qk15 (pylintfunc f, void *funcdata, void *args, double a, double b,
+                        double *result, double *abserr,
+                        double *resabs, double *resasc){
+  double fv1[8], fv2[8];
+  lintegration_qk (8, xgk15, wg15, wgk15, fv1, fv2, f, funcdata, args, a, b, result, abserr, resabs, resasc);
+}
+
+void lintegration_qk21 (pylintfunc f, void *funcdata, void *args, double a, double b,
+                        double *result, double *abserr,
+                        double *resabs, double *resasc){
+  double fv1[11], fv2[11];
+  lintegration_qk (11, xgk21, wg21, wgk21, fv1, fv2, f, funcdata, args, a, b, result, abserr, resabs, resasc);
+}
+
+void lintegration_qk31 (pylintfunc f, void *funcdata, void *args, double a, double b,
+                        double *result, double *abserr,
+                        double *resabs, double *resasc){
+  double fv1[16], fv2[16];
+  lintegration_qk (16, xgk31, wg31, wgk31, fv1, fv2, f, funcdata, args, a, b, result, abserr, resabs, resasc);
+}
+
+void lintegration_qk41 (pylintfunc f, void *funcdata, void *args, double a, double b,
+                        double *result, double *abserr,
+                        double *resabs, double *resasc){
+  double fv1[21], fv2[21];
+  lintegration_qk (21, xgk41, wg41, wgk41, fv1, fv2, f, funcdata, args, a, b, result, abserr, resabs, resasc);
+}
+
+void lintegration_qk51 (pylintfunc f, void *funcdata, void *args, double a, double b,
+                        double *result, double *abserr,
+                        double *resabs, double *resasc){
+  double fv1[26], fv2[26];
+  lintegration_qk (26, xgk51, wg51, wgk51, fv1, fv2, f, funcdata, args, a, b, result, abserr, resabs, resasc);
+}
+
+void lintegration_qk61 (pylintfunc f, void *funcdata, void *args, double a, double b,
+                        double *result, double *abserr,
+                        double *resabs, double *resasc){
+  double fv1[31], fv2[31];
+  lintegration_qk (31, xgk61, wg61, wgk61, fv1, fv2, f, funcdata, args, a, b, result, abserr, resabs, resasc);
+}
+#else
 void lintegration_qk15 (const gsl_function * f, double a, double b,
                         double *result, double *abserr,
                         double *resabs, double *resasc){
@@ -438,4 +481,5 @@ void lintegration_qk61 (const gsl_function * f, double a, double b,
   double fv1[31], fv2[31];
   lintegration_qk (31, xgk61, wg61, wgk61, fv1, fv2, f, a, b, result, abserr, resabs, resasc);
 }
+#endif
 
