@@ -137,7 +137,7 @@ xmax = 6.
 mu = 0.
 sig = 1.
 
-res = lqag(chi, xmin, xmax, args=(mu, sig))
+res = lqag(chisqfunc, xmin, xmax, args=(mu, sig))
 ```
 
 &copy; 2017 Matthew Pitkin
