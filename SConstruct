@@ -6,22 +6,41 @@ AddOption('--prefix', dest='prefix', type='string', nargs=1,
           action='store', metavar='DIR', default='/usr/local',
           help='Installation Prefix')
 
-env = Environment()
+# install prefix
+env = Environment(PREFIX=GetOption('prefix'))
 
 # set the compiler
 env['CC'] = 'gcc'
 
 # set potential library paths
-env.Append(LIBPATH=['/usr/lib', '/usr/local/lib', '/usr/lib/x86_64-linux-gnu'])
+libpaths = ['/usr/lib', '/usr/local/lib', '/usr/lib/x86_64-linux-gnu']
+try:
+  gsllib = os.popen('gsl-config --libs').read().split()[0][2:]
+  if gsllib not in libpaths:
+    libpaths.append(gsllib)
+except:
+  print("Could not find GSL libraries")  
+  Exit(1)
+
+env.Append(LIBPATH=libpaths)
+
+libs = ['-lm']
+for cl in os.popen('gsl-config --libs').read().strip().split()[1:]: # add GSL flags
+  if cl not in libs:
+    libs.append(cl)
+
+env.Append(LIBS=libs)
 
 # set potential include paths
-env.Append(CPPPATH=['/usr/include/', '/usr/local/include/'])
+includepaths = ['/usr/include/', '/usr/local/include/']
+includepaths.append(os.popen('gsl-config --cflags').read()[2:-1])
 
-# install prefix
-env = Environment(PREFIX=GetOption('prefix'))
+env.Append(CPPPATH=includepaths)
 
 # set some compiler flags
-env.Append(CCFLAGS=['-O3', '-Wall', '-Wextra', '-m64', '-ffast-math', '-fno-finite-math-only', '-flto', '-march=native', '-funroll-loops'])
+ccflags = ['-O3', '-Wall', '-Wextra', '-m64', '-ffast-math', '-fno-finite-math-only', '-march=native', '-funroll-loops']
+env.Append(CCFLAGS=ccflags)
+
 
 conf = Configure(env)
 
