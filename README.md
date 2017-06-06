@@ -122,7 +122,8 @@ The `lqng` and `lqag` functions are used in a similar way to the scipy [`quad`](
 An example of their use would be:
 
 ```python
-from lintegrate import lqag
+from lintegrate import lqag, lqng, logtrapz
+import numpy as np
 
 # define the log of the function to be integrated
 def chisqfunc(x, args):
@@ -137,7 +138,9 @@ xmax = 6.
 mu = 0.
 sig = 1.
 
-res = lqag(chisqfunc, xmin, xmax, args=(mu, sig))
+resqag = lqag(chisqfunc, xmin, xmax, args=(mu, sig))
+resqng = lqng(chisqfunc, xmin, xmax, args=(mu, sig))
+restrapz = logtrapz(chisqfunc, np.linspace(xmin, xmax, 100), args=(mu, sig))
 ```
 
 &copy; 2017 Matthew Pitkin
