@@ -3,6 +3,8 @@
 from setuptools import setup, find_packages
 from setuptools import Extension
 
+from lintegrate import __version__
+
 import os, sys, numpy
 
 ext_modules = [ Extension("lintegrate", 
@@ -13,7 +15,7 @@ ext_modules = [ Extension("lintegrate",
 
 setup(
   name = 'lintegrate',
-  version = '0.0.1',
+  version = __version__,
   url = 'https://github.com/mattpitkin/lintegrate',
   description = 'Python functions implementing numerical integration of functions in log-space.',
   author = 'Matthew Pitkin',
