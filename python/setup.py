@@ -9,7 +9,7 @@ ext_modules = [ Extension("lintegrate",
                           sources =[ "lintegrate.pyx", "../src/lintegrate_qag.c", "../src/lintegrate_qng.c"], 
                           include_dirs=[numpy.get_include(), '.', os.popen('gsl-config --cflags').read()[2:-1], '../src'],  
                           library_dirs=['.', os.popen('gsl-config --libs').read().split()[0][2:]], 
-                          libraries=['gsl', 'gslcblas'], extra_compile_args=['-O3']) ]
+                          libraries=['gsl', 'gslcblas'], extra_compile_args=['-O3', '-DHAVE_PYTHON_LINTEGRATE']) ]
 
 setup(
   name = 'lintegrate',
