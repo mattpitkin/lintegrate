@@ -1,5 +1,21 @@
 # -*- coding: utf-8 -*-
 
+# Copyright (C) 2017 Matthew Pitkin
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 3 of the License, or (at
+# your option) any later version.
+#
+# This program is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
 import cython
 cimport cython
 
@@ -11,6 +27,8 @@ from numpy.math cimport LOGE2
 from scipy.misc import logsumexp
 
 from libc.math cimport exp, sqrt, log
+
+__version__ = '0.0.1'
 
 cdef extern from "gsl/gsl_integration.h":
     void gsl_integration_workspace_free (gsl_integration_workspace * w)
@@ -40,7 +58,8 @@ def logtrapz(f, x, args=()):
         `f` is also an array, a single value giving the spacing between evalation points (if the
         function has been evaluated on an evenly spaced grid).
     args : tuple
-        A tuple of any additional parameters required by the function `f`
+        A tuple of any additional parameters required by the function `f` (to be unpacked within
+        the function).
 
     Returns
     -------
@@ -65,7 +84,7 @@ def logtrapz(f, x, args=()):
             assert x > 0., "Evaluation spacings must be positive"
 
             # perform trapezium rule
-            return np.log(x/2.) + logsumexp([logsumexp(f[:-1]), logsumexp(f[1:])])
+            return -LOGE2 + logsumexp([logsumexp(f[:-1]), logsumexp(f[1:])])
         else:
             raise Exception('Error... value of "x" must be a numpy array or a float')
     elif callable(f): # f is a function
@@ -75,7 +94,7 @@ def logtrapz(f, x, args=()):
             try:
                 if not isinstance(args, tuple):
                     args = (args,)
-                vs = f(np.array(x), *args) # make sure x is an array when passed to function
+                vs = f(np.array(x), args) # make sure x is an array when passed to function
             except:
                 raise Exception('Error... could not evaluate function "f"')
 
