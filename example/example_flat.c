@@ -49,7 +49,7 @@ int main( int argv, char **argc ){
   fprintf(stdout, "Answer \"lintegrate QAG\" = %.8lf\n", qaganswer);
   fprintf(stdout, "Answer \"lintegrate QNG\" = %.8lf\n", qnganswer);
   fprintf(stdout, "Answer \"gsl_integrate_qag\" = %.8lf\n", log(answer));
-  fprintf(stdout, "Analytic answer = %.8lf\n", log(maxlim-minlim) + 10.);
+  fprintf(stdout, "Analytic answer = %.8lf\n", log(maxlim-minlim) + 50.);
 
   return 0;
 }
