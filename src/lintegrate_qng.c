@@ -171,7 +171,7 @@ int lintegration_qng (const gsl_function *f,
 
   /*  test for convergence */
 
-  result_kronrod = res87 * half_length ;
+  result_kronrod = res87 + log(half_length);
   
   err = rescale_error (exp(LOGDIFF(res87, res43)) * half_length, resabs, resasc);
   
