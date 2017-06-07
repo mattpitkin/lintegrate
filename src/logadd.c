@@ -45,15 +45,11 @@ double logaddexp(const double x, const double y){
 
 /* function to perform log(exp(lna) - exp(lnb)) maintaining numerical precision */
 double logsubexp(const double x, const double y){
-  if ( x == y ){ return x - M_LN2; }
+  double tmp = x - y;
+  if ( tmp/fabs(x) > GSL_DBL_EPSILON ){ /* numbers smaller than just cause numerical noise */
+    return x + gsl_sf_log_1plusx(-exp(-tmp));
+  }
   else{
-    double tmp = x - y;
-    if ( tmp > 0. ){
-      return x + gsl_sf_log_1plusx(-exp(-tmp));
-    }
-    else{
-      return -INFINITY;
-    }
+    return -INFINITY;
   }
 }
-

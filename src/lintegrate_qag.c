@@ -355,7 +355,8 @@ void lintegration_qk (const int n,
   }
 
   /* scale by the width of the integration region */
-  err = exp(logsubexp(result_kronrod, result_gauss)) * half_length;
+  err = exp(LOGDIFF(result_kronrod, result_gauss)) * half_length;
+
 
   result_kronrod += log(half_length);
   result_abs += log(abs_half_length);
@@ -365,7 +366,6 @@ void lintegration_qk (const int n,
   *resabs = result_abs;
   *resasc = result_asc;
   *abserr = rescale_error (err, result_abs, result_asc);
-
 }
 
 #ifdef HAVE_PYTHON_LINTEGRATE

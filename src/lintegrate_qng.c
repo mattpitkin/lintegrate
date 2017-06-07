@@ -110,7 +110,7 @@ int lintegration_qng (const gsl_function *f,
 
   result_kronrod = res21 + log(half_length);
   
-  err = rescale_error (exp(logsubexp(res21, res10)) * half_length, resabs, resasc) ;
+  err = rescale_error (exp(LOGDIFF(res21, res10)) * half_length, resabs, resasc) ;
 
   /*   test for convergence. */
 
@@ -143,7 +143,7 @@ int lintegration_qng (const gsl_function *f,
   /*  test for convergence */
 
   result_kronrod = res43 + log(half_length);
-  err = rescale_error (exp(logsubexp(res43, res21)) * half_length, resabs, resasc);
+  err = rescale_error (exp(LOGDIFF(res43, res21)) * half_length, resabs, resasc);
 
   if (err < epsabs || err < epsrel * fabs (result_kronrod)) {
     * result = result_kronrod ;
@@ -173,7 +173,7 @@ int lintegration_qng (const gsl_function *f,
 
   result_kronrod = res87 * half_length ;
   
-  err = rescale_error (exp(logsubexp(res87, res43)) * half_length, resabs, resasc);
+  err = rescale_error (exp(LOGDIFF(res87, res43)) * half_length, resabs, resasc);
   
   if (err < epsabs || err < epsrel * fabs (result_kronrod)){
     * result = result_kronrod ;

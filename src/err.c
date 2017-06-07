@@ -1,5 +1,6 @@
-/* integration/qng.c
+/* qng.c
  * 
+ * Copyright (C) 2017 Matthew Pitkin
  * Copyright (C) 1996, 1997, 1998, 1999, 2000, 2007 Brian Gough
  * 
  * This program is free software; you can redistribute it and/or modify
@@ -17,14 +18,12 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
 
-/* GSL rescale error function from http://git.savannah.gnu.org/cgit/gsl.git/tree/integration/err.c */
+/* slightly modified GSL rescale error function from http://git.savannah.gnu.org/cgit/gsl.git/tree/integration/err.c */
 static double rescale_error (double err, const double result_abs, const double result_asc);
 
 static double
 rescale_error (double err, const double result_abs, const double result_asc)
 {
-  err = fabs(err);
-
   if (result_asc != 0 && err != 0) {
     double scale = pow((200 * err / result_asc), 1.5);
 
