@@ -348,10 +348,10 @@ void lintegration_qk (const int n,
 
   mean = result_kronrod - M_LN2;
 
-  result_asc = wgk[n - 1] *exp(LOGSUBCHOOSE(f_center, mean));
+  result_asc = wgk[n - 1] *exp(LOGDIFF(f_center, mean));
 
   for (j = 0; j < n - 1; j++){
-    result_asc += wgk[j] * (exp(LOGSUBCHOOSE(fv1[j], mean)) + exp(LOGSUBCHOOSE(fv2[j], mean)));
+    result_asc += wgk[j] * (exp(LOGDIFF(fv1[j], mean)) + exp(LOGDIFF(fv2[j], mean)));
   }
 
   /* scale by the width of the integration region */
@@ -567,7 +567,7 @@ static int lqag (const gsl_function * f,
     area = logsubexp(logaddexp(area, area12), r_i);
 
     if (resasc1 != error1 && resasc2 != error2) {
-      double delta = exp(LOGSUBCHOOSE(r_i, area12));
+      double delta = exp(LOGDIFF(r_i, area12));
 
       if (fabs (delta) <= 1.0e-5 * fabs (area12) && error12 >= 0.99 * e_i) {
         roundoff_type1++;

@@ -24,7 +24,7 @@ static double logaddexp(const double x, const double y);
 /* function to perform log(exp(lna) - exp(lnb)) maintaining numerical precision */
 static double logsubexp(const double x, const double y);
 
-#define LOGSUBCHOOSE(x, y) ((x) < (y) ? logsubexp(y, x) : logsubexp(x, y))
+#define LOGDIFF(x, y) ((x) < (y) ? logsubexp(y, x) : logsubexp(x, y))
 
 /* function to perform log(exp(lna) + exp(lnb)) maintaining numerical precision */
 double logaddexp(const double x, const double y){

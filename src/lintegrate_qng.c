@@ -100,11 +100,11 @@ int lintegration_qng (const gsl_function *f,
 
   const double mean = -M_LN2 + res21;
   
-  resasc = w21b[5] * exp(LOGSUBCHOOSE(f_center, mean));
+  resasc = w21b[5] * exp(LOGDIFF(f_center, mean));
 
   for (k = 0; k < 5; k++) {
-    resasc += (w21a[k] * (exp(LOGSUBCHOOSE(fv1[k], mean)) + exp(LOGSUBCHOOSE(fv2[k], mean)))
-             + w21b[k] * (exp(LOGSUBCHOOSE(fv3[k], mean)) + exp(LOGSUBCHOOSE(fv4[k], mean))));
+    resasc += (w21a[k] * (exp(LOGDIFF(fv1[k], mean)) + exp(LOGDIFF(fv2[k], mean)))
+             + w21b[k] * (exp(LOGDIFF(fv3[k], mean)) + exp(LOGDIFF(fv4[k], mean))));
   }
   resasc *= abs_half_length ;
 
