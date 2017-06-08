@@ -566,9 +566,8 @@ static int lqag (const gsl_function * f,
     area = logsubexp(logaddexp(area, area12), r_i);
 
     if (resasc1 != error1 && resasc2 != error2) {
-      double delta = r_i - area12; /* stay in log-space when checking round off error */
-
-      if ( fabs(delta) <= 1.0e-5 * area12 && error12 >= 0.99 * e_i) {
+      double delta = LOGDIFF(r_i, area12); /* stay in log-space when checking round off error */
+      if ( delta <= log(1.0e-5) - fabs(area12) && error12 >= 0.99 * e_i) {
         roundoff_type1++;
       }
       if (iteration >= 10 && error12 > e_i) {
