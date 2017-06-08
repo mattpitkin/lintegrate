@@ -122,6 +122,18 @@ int lintegration_qng (const gsl_function *f,
                       double * result, double * abserr, size_t * neval);
 #endif
 
+#ifdef HAVE_PYTHON_LINTEGRATE
+int lintegration_cquad (pylintfunc f, void *funcdata, void *args, double a, double b,
+                        double epsabs, double epsrel,
+                        gsl_integration_cquad_workspace * ws,
+                        double *result, double *abserr, size_t * nevals);
+#else
+int lintegration_cquad (const gsl_function * f, double a, double b,
+                        double epsabs, double epsrel,
+                        gsl_integration_cquad_workspace * ws,
+                        double *result, double *abserr, size_t * nevals);
+#endif
+
 #if HAVE_EXTENDED_PRECISION_REGISTERS
 #define GSL_COERCE_DBL(x) (gsl_coerce_double(x))
 #else
