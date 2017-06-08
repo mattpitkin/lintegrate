@@ -28,17 +28,21 @@ from scipy.misc import logsumexp
 
 from libc.math cimport exp, sqrt, log
 
-__version__ = '0.0.2'
+__version__ = '0.0.3'
 
 cdef extern from "gsl/gsl_integration.h":
     void gsl_integration_workspace_free (gsl_integration_workspace * w)
     ctypedef struct gsl_integration_workspace
     gsl_integration_workspace * gsl_integration_workspace_alloc (size_t n)
+    void gsl_integration_cquad_workspace_free (gsl_integration_cquad_workspace * w)
+    ctypedef struct gsl_integration_cquad_workspace
+    gsl_integration_cquad_workspace * gsl_integration_cquad_workspace_alloc (size_t n)
 
 cdef extern from "lintegrate.h":
     ctypedef double (*pylintfunc)(double x, void *funcdata, void *args)
-    int lintegration_qng (pylintfunc f, void *funcdata, void *args, double a, double b, double epsabs, double epsrel, double *result, double *abserr, size_t *neval);
+    int lintegration_qng (pylintfunc f, void *funcdata, void *args, double a, double b, double epsabs, double epsrel, double *result, double *abserr, size_t *neval)
     int lintegration_qag (pylintfunc f, void *funcdata, void *args, double a, double b, double epsabs, double epsrel, size_t limit, int key, gsl_integration_workspace * workspace, double * result, double * abserr)
+    int lintegration_cquad (pylintfunc f, void *funcdata, void *args, double a, double b, double epsabs, double epsrel, gsl_integration_cquad_workspace * ws, double *result, double *abserr, size_t * nevals)
 
 """
 Simple function to perform trapezium rule integration of a function when given its natural log
@@ -173,7 +177,7 @@ def lqng(func, a, b, args=(), epsabs=1.49e-8, epsrel=1.49e-8):
 def lqag(func, a, b, args=(), epsabs=1.49e-8, epsrel=1.49e-8, limit=50, intkey=1):
     """
     Python wrapper to the :func:`lintegration_qag` function. This will integrate `exp(func)`, whilst staying
-    in log-space to ensure numerical precission, using a  simple adaptive proceedure (see
+    in log-space to ensure numerical precision, using a simple adaptive procedure (see
     `gsl_integration_qag <https://www.gnu.org/software/gsl/manual/html_node/QAG-adaptive-integration.html#QAG-adaptive-integration>`_).
 
     Parameters
@@ -239,6 +243,71 @@ def lqag(func, a, b, args=(), epsabs=1.49e-8, epsrel=1.49e-8, limit=50, intkey=1
     assert suc == 0, "'lintegration_qag' failed"
 
     return (result, abserr)
+
+
+def lcquad(func, a, b, args=(), epsabs=1.49e-8, epsrel=1.49e-8, intervals=100):
+    """
+    Python wrapper to the :func:`lintegration_cquad` function. This will integrate `exp(func)`, whilst staying
+    in log-space to ensure numerical precision, using a doubly adaptive procedure (see
+    `gsl_integration_cquad <https://www.gnu.org/software/gsl/manual/html_node/CQUAD-doubly_002dadaptive-integration.html>`_).
+
+    Parameters
+    ----------
+    func : function
+        A callable Python function which returns the natural logarithm of the underlying function
+        being integrated over.
+    a : float
+        Lower limit of integration
+    b : float
+        Upper limit of integration
+    args : tuple, optional
+        Extra arguments to pass to `func`. These must be unpacked within `func`, e.g.::
+
+            def myfunc(x, args):
+                y, z = args
+                return x + y + z
+
+    Returns
+    -------
+    result : float
+        The natural logarithm of the integral of exp(func)
+    abserr : float
+        An estimate of the absolute error in the result
+    neval : int
+        The number of evaluations used in the integration
+
+    Other parameters
+    ----------------
+    epsabs : float, optional
+        The absolute error tolerance for the integral
+    epsrel : float, optional
+        The relative error tolerance for the integral
+    intervals : int, optional
+        A sufficient number of subintervals for the integration (if the workspace is full the smallest intervals will be discarded)
+    """
+
+    if not callable(func):
+        raise Exception('"func" must be a callable function')
+
+    if not isinstance(args, tuple):
+        args = (args,) # convert to tuple
+
+    cdef double result = 0.
+    cdef double abserr = 0.
+    cdef size_t neval = 0
+    cdef int suc = 0
+
+    assert intervals > 0 and isinstance(intervals, int), '"intervals" must be a positive integer'
+
+    cdef gsl_integration_cquad_workspace *w = gsl_integration_cquad_workspace_alloc(intervals)
+
+    suc = lintegration_cquad(lintegrate_callback, <void*>func, <void*>args, a, b, epsabs, epsrel, w, &result, &abserr, &neval)
+
+    gsl_integration_cquad_workspace_free(w)
+
+    assert suc == 0, "'lintegration_cquad' failed"
+
+    return (result, abserr, neval)
 
 
 # callback function to allow python functions to be passed to C lintegration functions

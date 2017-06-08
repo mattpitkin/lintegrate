@@ -166,7 +166,7 @@ int lintegration_cquad (const gsl_function * f, double a, double b,
   nnans = 0;
   for (i = 0; i <= n[3]; i++){
 #ifdef HAVE_PYTHON_LINTEGRATE
-    iv->fx[i] = f(m + xi[i] * h, funcdata, args)
+    iv->fx[i] = f(m + xi[i] * h, funcdata, args);
 #else
     iv->fx[i] = GSL_FN_EVAL (f, m + xi[i] * h);
 #endif
@@ -243,7 +243,7 @@ int lintegration_cquad (const gsl_function * f, double a, double b,
 	  for (i = skip[d]; i <= 32; i += 2 * skip[d])
 	    {
 #ifdef HAVE_PYTHON_LINTEGRATE
-              iv->fx[i] = f(m + xi[i] * h, funcdata, args)
+              iv->fx[i] = f(m + xi[i] * h, funcdata, args);
 #else
               iv->fx[i] = GSL_FN_EVAL (f, m + xi[i] * h);
 #endif
@@ -361,7 +361,7 @@ int lintegration_cquad (const gsl_function * f, double a, double b,
 	  ivl->fx[32] = iv->fx[16];
 	  for (i = skip[0]; i < 32; i += skip[0]) {
 #ifdef HAVE_PYTHON_LINTEGRATE
-              ivl->fx[i] = f((ivl->a + ivl->b) / 2. + xi[i] * h / 2., funcdata, args)
+              ivl->fx[i] = f((ivl->a + ivl->b) / 2. + xi[i] * h / 2., funcdata, args);
 #else
               ivl->fx[i] = GSL_FN_EVAL (f, (ivl->a + ivl->b) / 2. + xi[i] * h / 2.);
 #endif
@@ -425,7 +425,7 @@ int lintegration_cquad (const gsl_function * f, double a, double b,
 	  ivr->fx[32] = iv->fx[32];
 	  for (i = skip[0]; i < 32; i += skip[0]) {
 #ifdef HAVE_PYTHON_LINTEGRATE
-              ivr->fx[i] = f((ivr->a + ivr->b) / 2. + xi[i] * h / 2., funcdata, args)
+              ivr->fx[i] = f((ivr->a + ivr->b) / 2. + xi[i] * h / 2., funcdata, args);
 #else
               ivr->fx[i] = GSL_FN_EVAL (f, (ivr->a + ivr->b) / 2. + xi[i] * h / 2.);
 #endif
