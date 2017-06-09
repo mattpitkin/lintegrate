@@ -29,7 +29,7 @@ static double logsubexp(const double x, const double y);
 /* function to perform log(exp(lna) + exp(lnb)) maintaining numerical precision */
 double logaddexp(const double x, const double y){
   double tmp = x - y;
-  if ( x == y || fabs(tmp/GSL_MAX_DBL(fabs(x), fabs(y))) < GSL_DBL_EPSILON ){ return x + M_LN2; }
+  if ( x == y || fabs(tmp) < 1e3*GSL_DBL_EPSILON ){ return x + M_LN2; } /* require the x == y to deal with cases when x and y are both -inf */
   else{
     if ( tmp > 0. ){
       return x + gsl_sf_log_1plusx(exp(-tmp));
@@ -46,7 +46,7 @@ double logaddexp(const double x, const double y){
 /* function to perform log(exp(lna) - exp(lnb)) maintaining numerical precision */
 double logsubexp(const double x, const double y){
   double tmp = x - y;
-  if ( fabs(tmp/x) > GSL_DBL_EPSILON ){ /* numbers smaller than this can cause numerical noise */
+  if ( x > y && fabs(tmp) > 1e3*GSL_DBL_EPSILON ){ /* numbers smaller than this can just give numerical noise in the gsl_sf_log_1plusx function */
     return x + gsl_sf_log_1plusx(-exp(-tmp));
   }
   else{
