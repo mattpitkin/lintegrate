@@ -59,7 +59,7 @@ def logtrapz(f, x, args=()):
        function handle of the log function to be evaluated.
     x : :class:`numpy.ndarray`, list, or float
         An array of values at which `f` has been evaluated, or is to be evaluated at. Or, provided
-        `f` is also an array, a single value giving the spacing between evalation points (if the
+        `f` is also an array, a single value giving the spacing between evaluation points (if the
         function has been evaluated on an evenly spaced grid).
     args : tuple
         A tuple of any additional parameters required by the function `f` (to be unpacked within
@@ -88,7 +88,7 @@ def logtrapz(f, x, args=()):
             assert x > 0., "Evaluation spacings must be positive"
 
             # perform trapezium rule
-            return -LOGE2 + logsumexp([logsumexp(f[:-1]), logsumexp(f[1:])])
+            return -LOGE2 + log(x) + logsumexp([logsumexp(f[:-1]), logsumexp(f[1:])])
         else:
             raise Exception('Error... value of "x" must be a numpy array or a float')
     elif callable(f): # f is a function
