@@ -22,11 +22,11 @@ cimport cython
 import numpy as np
 cimport numpy as np
 
-from numpy.math cimport LOGE2
+from numpy.math cimport LOGE2, INFINITY
 
 from scipy.misc import logsumexp
 
-from libc.math cimport exp, sqrt, log
+from libc.math cimport exp, sqrt, log, isinf
 
 __version__ = '0.0.3'
 
@@ -43,6 +43,37 @@ cdef extern from "lintegrate.h":
     int lintegration_qng (pylintfunc f, void *funcdata, void *args, double a, double b, double epsabs, double epsrel, double *result, double *abserr, size_t *neval)
     int lintegration_qag (pylintfunc f, void *funcdata, void *args, double a, double b, double epsabs, double epsrel, size_t limit, int key, gsl_integration_workspace * workspace, double * result, double * abserr)
     int lintegration_cquad (pylintfunc f, void *funcdata, void *args, double a, double b, double epsabs, double epsrel, gsl_integration_cquad_workspace * ws, double *result, double *abserr, size_t * nevals)
+
+
+DTYPE = np.float64
+ctypedef np.float64_t DTYPE_t
+
+
+cdef double logtrapzC(np.ndarray[DTYPE_t, ndim=1] lx, np.ndarray[DTYPE_t, ndim=1] t):
+    cdef double B = -INFINITY
+
+    cdef int i = 0
+    cdef double z
+    cdef int loopmax = len(lx)-1
+
+    for i in range(loopmax):
+        z = logplus(lx[i], lx[i+1])
+        z = z + log(t[i+1]-t[i])
+
+        B = logplus(z,B)
+    return B - LOGE2
+
+
+cdef logplus(double x, double y):
+    cdef double z = INFINITY
+    if isinf(x) and isinf(y) and (x < 0.) and (y < 0.):
+        z = -INFINITY
+    elif x > y:
+        z = x + log(1 + exp(y - x))
+    elif x <= y:
+        z = y + log(1 + exp(x - y))
+    return z
+
 
 """
 Simple function to perform trapezium rule integration of a function when given its natural log
@@ -68,7 +99,7 @@ def logtrapz(f, x, args=()):
     Returns
     -------
     I : double
-        The natural logarithm of the intergal of the function
+        The natural logarithm of the integral of the function
 
     """
 
@@ -80,10 +111,8 @@ def logtrapz(f, x, args=()):
             # make sure x values are in ascending order (keeping f values associated to their x evaluation points)
             zp = np.array(sorted(zip(x, f)))
 
-            deltas = np.log(np.diff(zp[:,0])) # get the differences between evaluation points
-
-            # perform trapezium rule
-            return -LOGE2 + logsumexp([logsumexp(zp[:-1,1]+deltas), logsumexp(zp[1:,1]+deltas)])
+            # perform trapezium rule (internal logtrapzC function is faster than using scipy logsumexp)
+            return logtrapzC(zp[:,1], zp[:,0])
         elif isinstance(x, float):
             assert x > 0., "Evaluation spacings must be positive"
 
@@ -105,10 +134,8 @@ def logtrapz(f, x, args=()):
             # make sure x values are in ascending order (keeping f values associated to their x evaluation points)
             zp = np.array(sorted(zip(x, vs)))
 
-            deltas = np.log(np.diff(zp[:,0])) # get the differences between evaluation points
-
-            # perform trapezium rule
-            return -LOGE2 + logsumexp([logsumexp(zp[:-1,1]+deltas), logsumexp(zp[1:,1]+deltas)])
+            # perform trapezium rule (internal logtrapzC function is faster than using scipy logsumexp)
+            return logtrapzC(zp[:,1], zp[:,0])
         else:
             raise Exception('Error... "x" must be a numpy array or list')
     else:
