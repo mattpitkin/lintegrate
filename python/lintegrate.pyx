@@ -50,6 +50,8 @@ ctypedef np.float64_t DTYPE_t
 
 
 cdef double logtrapzC(np.ndarray[DTYPE_t, ndim=1] lx, np.ndarray[DTYPE_t, ndim=1] t):
+    assert len(lx) == len(t) or len(t) == 1, "Function and function evaluation points must be the same length, or there must be a single evaluation point spacing given"
+
     cdef double B = -INFINITY
 
     cdef int i = 0
@@ -58,13 +60,36 @@ cdef double logtrapzC(np.ndarray[DTYPE_t, ndim=1] lx, np.ndarray[DTYPE_t, ndim=1
 
     for i in range(loopmax):
         z = logplus(lx[i], lx[i+1])
-        z = z + log(t[i+1]-t[i])
+        if len(t) > 1:
+          z = z + log(t[i+1]-t[i])
 
-        B = logplus(z,B)
-    return B - LOGE2
+        B = logplus(B,z)
+
+    B -= LOGE2
+
+    if len(t) > 1:
+        return B
+    else:
+        return B + log(t[0])
 
 
 cdef logplus(double x, double y):
+    """
+    Calculate :math:`\log{(e^x + e^y)}` in a way that preserves numerical precision.
+
+    .. note:: This is faster than using the :func:`numpy.logaddexp` function
+
+    Parameters
+    ----------
+    x, y : double
+        The natural logarithm of two values.
+
+    Returns
+    -------
+    z : double
+        The value of :math:`\log{(e^x + e^y)}`.
+    """
+
     cdef double z = INFINITY
     if isinf(x) and isinf(y) and (x < 0.) and (y < 0.):
         z = -INFINITY
@@ -117,7 +142,7 @@ def logtrapz(f, x, args=()):
             assert x > 0., "Evaluation spacings must be positive"
 
             # perform trapezium rule
-            return -LOGE2 + log(x) + logsumexp([logsumexp(f[:-1]), logsumexp(f[1:])])
+            return logtrapzC(f, np.array([x]))
         else:
             raise Exception('Error... value of "x" must be a numpy array or a float')
     elif callable(f): # f is a function
