@@ -26,7 +26,7 @@ from numpy.math cimport LOGE2, INFINITY
 
 from scipy.misc import logsumexp
 
-from libc.math cimport exp, sqrt, log, isinf
+from libc.math cimport exp, sqrt, log, isinf, fabs
 
 __version__ = '0.0.3'
 
@@ -38,6 +38,9 @@ cdef extern from "gsl/gsl_integration.h":
     ctypedef struct gsl_integration_cquad_workspace
     gsl_integration_cquad_workspace * gsl_integration_cquad_workspace_alloc (size_t n)
 
+cdef extern from "gsl/gsl_sf_log.h":
+    double gsl_sf_log_1plusx(double x)
+
 cdef extern from "lintegrate.h":
     ctypedef double (*pylintfunc)(double x, void *funcdata, void *args)
     int lintegration_qng (pylintfunc f, void *funcdata, void *args, double a, double b, double epsabs, double epsrel, double *result, double *abserr, size_t *neval)
@@ -48,6 +51,7 @@ cdef extern from "lintegrate.h":
 DTYPE = np.float64
 ctypedef np.float64_t DTYPE_t
 
+GSL_DBL_EPSILON = 2.2204460492503131e-16
 
 cdef double logtrapzC(np.ndarray[DTYPE_t, ndim=1] lx, np.ndarray[DTYPE_t, ndim=1] t):
     assert len(lx) == len(t) or len(t) == 1, "Function and function evaluation points must be the same length, or there must be a single evaluation point spacing given"
@@ -91,12 +95,13 @@ cdef logplus(double x, double y):
     """
 
     cdef double z = INFINITY
-    if isinf(x) and isinf(y) and (x < 0.) and (y < 0.):
-        z = -INFINITY
+    cdef double tmp = x - y
+    if x == y or fabs(tmp) < 1e3*GSL_DBL_EPSILON:
+        z = x + LOGE2
     elif x > y:
-        z = x + log(1 + exp(y - x))
+        z = x + gsl_sf_log_1plusx(exp(-tmp))
     elif x <= y:
-        z = y + log(1 + exp(x - y))
+        z = y + gsl_sf_log_1plusx(exp(tmp))
     return z
 
 
