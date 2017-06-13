@@ -35,7 +35,7 @@ int lintegration_qng (const gsl_function *f,
   double fv1[5], fv2[5], fv3[5], fv4[5];
   double savfun[21];  /* array of function values which have been computed */
   double res10, res21, res43, res87;    /* 10, 21, 43 and 87 point results */
-  double result_kronrod, err ; 
+  double result_kronrod, err ;
   double resabs; /* approximation to the integral of abs(f) */
   double resasc; /* approximation to the integral of abs(f-i/(b-a)) */
 
@@ -47,6 +47,8 @@ int lintegration_qng (const gsl_function *f,
 #else
   const double f_center = GSL_FN_EVAL(f, center);
 #endif
+
+  const double lepsabs = log(epsabs), lepsrel = log(epsrel);
 
   int k ;
 
@@ -99,25 +101,26 @@ int lintegration_qng (const gsl_function *f,
   resabs = res21 + log(abs_half_length);
 
   const double mean = -M_LN2 + res21;
-  
-  resasc = w21b[5] * exp(LOGDIFF(f_center, mean));
 
+  resasc = log(w21b[5]) + LOGDIFF(f_center, mean);
+
+  double resasctmp = 0.;
   for (k = 0; k < 5; k++) {
-    resasc += (w21a[k] * (exp(LOGDIFF(fv1[k], mean)) + exp(LOGDIFF(fv2[k], mean)))
-             + w21b[k] * (exp(LOGDIFF(fv3[k], mean)) + exp(LOGDIFF(fv4[k], mean))));
+    resasctmp = logaddexp(log(w21a[k]) + logaddexp(LOGDIFF(fv1[k], mean), LOGDIFF(fv2[k], mean)),  log(w21b[k]) + logaddexp(LOGDIFF(fv3[k], mean), LOGDIFF(fv4[k], mean)));
+    resasc = logaddexp(resasc, resasctmp);
   }
-  resasc *= abs_half_length ;
+  resasc += log(abs_half_length);
 
   result_kronrod = res21 + log(half_length);
-  
-  err = rescale_error (exp(LOGDIFF(res21, res10)) * half_length, resabs, resasc) ;
+
+  err = rescale_error (LOGDIFF(res21, res10) + log(half_length), resabs, resasc) ;
 
   /*   test for convergence. */
 
-  if (err < epsabs || err < epsrel * fabs (result_kronrod)){
-    * result = result_kronrod ;
-    * abserr = err ;
-    * neval = 21;
+  if (err < lepsabs || err < lepsrel + fabs (result_kronrod)){
+    *result = result_kronrod;
+    *abserr = err;
+    *neval = 21;
     return GSL_SUCCESS;
   }
 
@@ -143,12 +146,12 @@ int lintegration_qng (const gsl_function *f,
   /*  test for convergence */
 
   result_kronrod = res43 + log(half_length);
-  err = rescale_error (exp(LOGDIFF(res43, res21)) * half_length, resabs, resasc);
+  err = rescale_error(LOGDIFF(res43, res21) + log(half_length), resabs, resasc);
 
-  if (err < epsabs || err < epsrel * fabs (result_kronrod)) {
-    * result = result_kronrod ;
-    * abserr = err ;
-    * neval = 43;
+  if (err < lepsabs || err < lepsrel + fabs (result_kronrod)) {
+    *result = result_kronrod;
+    *abserr = err;
+    *neval = 43;
     return GSL_SUCCESS;
   }
 
@@ -172,21 +175,21 @@ int lintegration_qng (const gsl_function *f,
   /*  test for convergence */
 
   result_kronrod = res87 + log(half_length);
-  
-  err = rescale_error (exp(LOGDIFF(res87, res43)) * half_length, resabs, resasc);
-  
-  if (err < epsabs || err < epsrel * fabs (result_kronrod)){
-    * result = result_kronrod ;
-    * abserr = err ;
-    * neval = 87;
+
+  err = rescale_error (LOGDIFF(res87, res43) + log(half_length), resabs, resasc);
+
+  if (err < lepsabs || err < lepsrel + fabs (result_kronrod)){
+    *result = result_kronrod;
+    *abserr = err;
+    *neval = 87;
     return GSL_SUCCESS;
   }
 
   /* failed to converge */
 
-  * result = result_kronrod ;
-  * abserr = err ;
-  * neval = 87;
+  *result = result_kronrod;
+  *abserr = err;
+  *neval = 87;
 
   GSL_ERROR("failed to reach tolerance with highest-order rule", GSL_ETOL) ;
 }

@@ -303,7 +303,7 @@ void lintegration_qk (const int n,
   double result_kronrod = f_center + log(wgk[n - 1]);
 
   double result_abs = 0.;
-  double result_asc = 0;
+  double result_asc = -INFINITY;
   double mean = 0, err = 0;
 
   int j;
@@ -348,19 +348,18 @@ void lintegration_qk (const int n,
 
   mean = result_kronrod - M_LN2;
 
-  result_asc = wgk[n - 1] *exp(LOGDIFF(f_center, mean));
+  result_asc = log(wgk[n - 1]) + LOGDIFF(f_center, mean);
 
   for (j = 0; j < n - 1; j++){
-    result_asc += wgk[j] * (exp(LOGDIFF(fv1[j], mean)) + exp(LOGDIFF(fv2[j], mean)));
+    result_asc = logaddexp(result_asc, log(wgk[j]) + logaddexp(LOGDIFF(fv1[j], mean), LOGDIFF(fv2[j], mean)));
   }
 
   /* scale by the width of the integration region */
-  err = exp(LOGDIFF(result_kronrod, result_gauss)) * half_length;
-
+  err = LOGDIFF(result_kronrod, result_gauss) + log(half_length);
 
   result_kronrod += log(half_length);
   result_abs += log(abs_half_length);
-  result_asc *= abs_half_length;
+  result_asc += log(abs_half_length);
 
   *result = result_kronrod;
   *resabs = result_abs;
@@ -435,8 +434,7 @@ int lintegration_qag (const gsl_function *f,
       integration_rule = lintegration_qk61;
       break;
     default:
-      GSL_ERROR("value of key does specify a known integration rule",
-                GSL_EINVAL) ;
+      GSL_ERROR("value of key does specify a known integration rule", GSL_EINVAL) ;
     }
 
 #ifdef HAVE_PYTHON_LINTEGRATE
@@ -478,6 +476,7 @@ static int lqag (const gsl_function * f,
   int roundoff_type1 = 0, roundoff_type2 = 0, error_type = 0;
 
   double round_off;
+  const double lepsabs = log(epsabs), lepsrel = log(epsrel);
 
   /* Initialize results */
 
@@ -505,11 +504,11 @@ static int lqag (const gsl_function * f,
 
   /* Test on accuracy */
 
-  tolerance = GSL_MAX_DBL (epsabs, epsrel * fabs (result0));
+  tolerance = GSL_MAX_DBL (lepsabs, lepsrel + fabs (result0));
 
   /* need IEEE rounding here to match original quadpack behavior */
 
-  round_off = GSL_COERCE_DBL (50 * GSL_DBL_EPSILON * resabs0);
+  round_off = GSL_COERCE_DBL (log(50 * GSL_DBL_EPSILON) + resabs0);
 
   if (abserr0 <= round_off && abserr0 > tolerance){
     *result = result0;
@@ -517,7 +516,7 @@ static int lqag (const gsl_function * f,
 
     GSL_ERROR ("cannot reach tolerance because of roundoff error on first attempt", GSL_EROUND);
   }
-  else if ((abserr0 <= tolerance && abserr0 != resasc0) || abserr0 == 0.0) {
+  else if ((abserr0 <= tolerance && abserr0 != resasc0) || gsl_isinf(abserr0) == -1) {
     *result = result0;
     *abserr = abserr0;
     return GSL_SUCCESS;
@@ -560,14 +559,14 @@ static int lqag (const gsl_function * f,
 #endif
 
     area12 = logaddexp(area1, area2);
-    error12 = error1 + error2;
+    error12 = logaddexp(error1, error2);
 
-    errsum += (error12 - e_i);
+    errsum = logsubexp(logaddexp(errsum, error12), e_i);
     area = logsubexp(logaddexp(area, area12), r_i);
 
     if (resasc1 != error1 && resasc2 != error2) {
       double delta = LOGDIFF(r_i, area12); /* stay in log-space when checking round off error */
-      if ( delta <= log(1.0e-5) - fabs(area12) && error12 >= 0.99 * e_i) {
+      if ( delta <= log(1.0e-5) - fabs(area12) && error12 >= log(0.99) + e_i) {
         roundoff_type1++;
       }
       if (iteration >= 10 && error12 > e_i) {
@@ -575,7 +574,7 @@ static int lqag (const gsl_function * f,
       }
     }
 
-    tolerance = GSL_MAX_DBL (epsabs, epsrel * fabs (area));
+    tolerance = GSL_MAX_DBL (lepsabs, lepsrel + fabs (area));
 
     if (errsum > tolerance) {
       if (roundoff_type1 >= 6 || roundoff_type2 >= 20) {
