@@ -30,16 +30,30 @@ An [example](example/example.c) of the use the functions is:
 /* create function for integration */
 double lintegrand(double x, void *params);
 
+struct intparams {
+  double mu;
+  double sig;
+};
+
 double lintegrand(double x, void *params){
-  return 50.;
+  struct intparams * p = (struct intparams *)params;
+  double mu = p->mu;
+  double sig = p->sig;
+
+  return -0.5*(mu-x)*(mu-x)/(sig*sig);
 }
 
 double integrand(double x, void *params){
-  return exp(50.);
+  struct intparams * p = (struct intparams *)params;
+  double mu = p->mu;
+  double sig = p->sig;
+
+  return exp(-0.5*(mu-x)*(mu-x)/(sig*sig));
 }
 
 int main( int argv, char **argc ){
   gsl_function F;
+  struct intparams params;
   gsl_integration_workspace *w = gsl_integration_workspace_alloc (100);
   gsl_integration_cquad_workspace *cw = gsl_integration_cquad_workspace_alloc(50);
   double qaganswer = 0., qnganswer = 0., cquadanswer = 0., answer = 0.;
@@ -52,7 +66,11 @@ int main( int argv, char **argc ){
   double abstol = 1e-10; /* absolute tolerance */
   double reltol = 1e-10; /* relative tolerance */
 
+  params.mu = 0.;
+  params.sig = 1.;
+
   F.function = &lintegrand;
+  F.params = &params;
 
   /* integrate log of function using QAG */
   lintegration_qag(&F, minlim, maxlim, abstol, reltol, 100, GSL_INTEG_GAUSS31, w, &qaganswer, &abserr);
@@ -74,7 +92,7 @@ int main( int argv, char **argc ){
   fprintf(stdout, "Answer \"lintegrate QNG\" = %.8lf\n", qnganswer);
   fprintf(stdout, "Answer \"lintegrate CQUAD\" = %.8lf\n", cquadanswer);
   fprintf(stdout, "Answer \"gsl_integrate_qag\" = %.8lf\n", log(answer));
-  fprintf(stdout, "Analytic answer = %.8lf\n", log(maxlim-minlim) + 50.);
+  fprintf(stdout, "Analytical answer = %.8lf\n", log(sqrt(2.*M_PI)));
 
   return 0;
 }
