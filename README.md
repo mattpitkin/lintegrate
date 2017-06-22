@@ -1,9 +1,9 @@
 # lintegrate
 
-A numerical integration routine that works for the natural logarithm of functions
+A numerical integration routine for when you want to work with the natural logarithm of the function requiring integration.
 
-This library provides three numerical integration functions, heavily based on the GSL functions, to integrate a function when only its
-natural logarithm is given, and return the natural logarithm of that integral. The two functions are equivalents of the GSL functions:
+This library provides three numerical integration functions, heavily based on GSL functions, to integrate a function when only its
+natural logarithm is given, and return the natural logarithm of that integral. The three functions are equivalents of the GSL functions:
  * [`gsl_integration_qag`](https://www.gnu.org/software/gsl/manual/html_node/QAG-adaptive-integration.html#QAG-adaptive-integration)
  * [`gsl_integration_qng`](https://www.gnu.org/software/gsl/manual/html_node/QNG-non_002dadaptive-Gauss_002dKronrod-integration.html#QNG-non_002dadaptive-Gauss_002dKronrod-integration)
  * [`gsl_integration_cquad`](https://www.gnu.org/software/gsl/manual/html_node/CQUAD-doubly_002dadaptive-integration.html)
@@ -86,7 +86,7 @@ int main( int argv, char **argc ){
 
 ## Installation
 
-The library can be built using [scons](http://scons.org) by just typing `scons` in the base directory. To install
+The library can be built using [scons](http://scons.org) by just typing `sudo scons` in the base directory. To install
 the library system-wide (in `/usr/local/lib` by default) run:
 ```
 sudo scons
@@ -97,7 +97,7 @@ Python wrappers to the functions can be built in the `python` directory by runni
 ```
 sudo python setup.py install
 ```
-for a system-wide install (add `--user` and remove `sudo` if just wanting to install for a single user).
+for a system-wide install (add `--user` and remove `sudo` if just wanting to install for a single user, and using `--prefix=INSTALLPATH` if wanting to specify this install location).
 
 ## Python
 
@@ -107,7 +107,7 @@ If the Python module has been installed it has the following functions:
  * `lcquad` - a wrapper to `lintegration_cquad`
  * `logtrapz` - using the trapezium rule for integration on a grid of values
 
-The `lqng` and `lqag` functions are used in a similar way to the scipy [`quad`](https://docs.scipy.org/doc/scipy-0.19.0/reference/generated/scipy.integrate.quad.html) function.
+The `lqng`, `lqag`, and `lcquad` functions are used in a similar way to the scipy [`quad`](https://docs.scipy.org/doc/scipy-0.19.0/reference/generated/scipy.integrate.quad.html) function.
 
 An example of their use would be:
 
