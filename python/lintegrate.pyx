@@ -26,9 +26,9 @@ from numpy.math cimport LOGE2, INFINITY
 
 from scipy.misc import logsumexp
 
-from libc.math cimport exp, sqrt, log, isinf, fabs
+from libc.math cimport exp, sqrt, log, log10, isinf, fabs
 
-__version__ = '0.0.3'
+__version__ = '0.0.4'
 
 cdef extern from "gsl/gsl_integration.h":
     void gsl_integration_workspace_free (gsl_integration_workspace * w)
@@ -172,10 +172,10 @@ def logtrapz(f, x, args=()):
         raise Exception('Error... "f" must be a numpy array, list, or callable function')
 
 
-def lqng(func, a, b, args=(), epsabs=1.49e-8, epsrel=1.49e-8):
+def lqng(func, a=0., b=0., args=(), epsabs=1.49e-8, epsrel=1.49e-8, intervals=None, nintervals=0, intervaltype='linear'):
     """
     Python wrapper to the :func:`lintegration_qng` function. This will integrate `exp(func)`, whilst staying
-    in log-space to ensure numerical precission, using a non-adaptive proceedure. It uses fixed
+    in log-space to ensure numerical precision, using a non-adaptive procedure. It uses fixed
     Gauss-Kronrod-Patterson abscisae to sample the integrand at a maximum of 87 points (see
     `gsl_integration_qng <https://www.gnu.org/software/gsl/manual/html_node/QNG-non_002dadaptive-Gauss_002dKronrod-integration.html#QNG-non_002dadaptive-Gauss_002dKronrod-integration>`_).
 
@@ -211,27 +211,62 @@ def lqng(func, a, b, args=(), epsabs=1.49e-8, epsrel=1.49e-8):
         The absolute error tolerance for the integral
     epsrel : float, optional
         The relative error tolerance for the integral
+    intervals : :class:`numpy.ndarray`, list, optional
+        An array of values bounding intervals into which the integral will be split (this could be
+        used, for example, if you have a very tightly peaked function and require small intervals
+        around the peak).
+    nintervals : int, optional
+        If `intervals` is not given then split the range between `a` and `b` into `nintervals'
+        intervals
+    intervaltype : string, optional
+        If splitting into `nintervals` intervals then choose whether to split the range in equal
+        intervals in 'linear', 'log', or 'log10' space
     """
 
     if not callable(func):
         raise Exception('"func" must be a callable function')
 
+    assert b > a or intervals is not None or (nintervals != 0 and b > a), "Integral range must have b > a"
+
     if not isinstance(args, tuple):
         args = (args,) # convert to tuple
 
-    cdef double result = 0.
-    cdef double abserr = 0.
-    cdef size_t neval = 0
+    cdef double result = 0., sumres = -INFINITY
+    cdef double abserr = 0., sumabserr = -INFINITY
+    cdef size_t neval = 0, nevaltmp = 0
     cdef int suc = 0
 
-    suc = lintegration_qng(lintegrate_callback, <void*>func, <void*> args, a, b, epsabs, epsrel, &result, &abserr, &neval)
+    if intervals is None:
+        if nintervals == 0: # just use a and b
+            nintervals = 1
 
-    assert suc == 0, "'lintegration_qng' failed"
+        assert nintervals > 0, "Number of intervals must be positive"
+
+        if intervaltype.lower() == 'linear':
+            intervals = np.linspace(a, b, nintervals+1)
+        elif intervaltype.lower() == 'log':
+            intervals = np.logspace(log(a), log(b), nintervals+1, base=exp(1.))
+        elif intervaltype.lower() == 'log10':
+            intervals = np.logspace(log10(a), log10(b), nintervals+1)
+        else:
+            raise Exception("Interval type must be 'linear', 'log', or 'log10'")
+    else:
+        if isinstance(intervals, np.ndarray) or isinstance(intervals, list):
+            intervals = np.array(sorted(intervals)) # make sure array is in ascending order
+
+    for i in xrange(len(intervals)-1):
+        suc = lintegration_qng(lintegrate_callback, <void*>func, <void*> args, intervals[i], intervals[i+1], epsabs, epsrel, &result, &abserr, &nevaltmp)
+        assert suc == 0, "'lintegration_qng' failed"
+        sumres = logplus(sumres, result)
+        sumabserr = logplus(sumabserr, abserr)
+        neval += nevaltmp
+    result = sumres
+    abserr = sumabserr
 
     return (result, abserr, neval)
 
 
-def lqag(func, a, b, args=(), epsabs=1.49e-8, epsrel=1.49e-8, limit=50, intkey=1):
+def lqag(func, a=0., b=0., args=(), epsabs=1.49e-8, epsrel=1.49e-8, limit=50, intkey=1, intervals=None, nintervals=0, intervaltype='linear'):
     """
     Python wrapper to the :func:`lintegration_qag` function. This will integrate `exp(func)`, whilst staying
     in log-space to ensure numerical precision, using a simple adaptive procedure (see
@@ -271,10 +306,22 @@ def lqag(func, a, b, args=(), epsabs=1.49e-8, epsrel=1.49e-8, limit=50, intkey=1
     intkey : int, optional
         A key given the integration rule following those for the `gsl_integration_qag` function. This can be
         1, 2, 3, 4, 5, or 6, corresponding to the 15, 21, 31, 41, 51 and 61 point Gauss-Kronrod rules respectively.
+    intervals : :class:`numpy.ndarray`, list, optional
+        An array of values bounding intervals into which the integral will be split (this could be
+        used, for example, if you have a very tightly peaked function and require small intervals
+        around the peak).
+    nintervals : int, optional
+        If `intervals` is not given then split the range between `a` and `b` into `nintervals'
+        intervals
+    intervaltype : string, optional
+        If splitting into `nintervals` intervals then choose whether to split the range in equal
+        intervals in 'linear', 'log', or 'log10' space
     """
 
     if not callable(func):
         raise Exception('"func" must be a callable function')
+
+    assert b > a or intervals is not None or (nintervals != 0 and b > a), "Integral range must have b > a"
 
     if not isinstance(args, tuple):
         args = (args,) # convert to tuple
@@ -285,24 +332,46 @@ def lqag(func, a, b, args=(), epsabs=1.49e-8, epsrel=1.49e-8, limit=50, intkey=1
     if isinstance(intkey, float):
         intket = int(intkey)
 
-    cdef double result = 0.
-    cdef double abserr = 0.
+    cdef double result = 0., sumres = -INFINITY
+    cdef double abserr = 0., sumabserr = -INFINITY
     cdef int suc = 0
 
     assert limit > 0 and isinstance(limit, int), '"limit" must be a positive integer'
 
     cdef gsl_integration_workspace *w = gsl_integration_workspace_alloc(limit)
 
-    suc = lintegration_qag(lintegrate_callback, <void*>func, <void*>args, a, b, epsabs, epsrel, limit, intkey, w, &result, &abserr)
+    if intervals is None:
+        if nintervals == 0: # just use a and b
+            nintervals = 1
+
+        assert nintervals > 0, "Number of intervals must be positive"
+
+        if intervaltype.lower() == 'linear':
+            intervals = np.linspace(a, b, nintervals+1)
+        elif intervaltype.lower() == 'log':
+            intervals = np.logspace(log(a), log(b), nintervals+1, base=exp(1.))
+        elif intervaltype.lower() == 'log10':
+            intervals = np.logspace(log10(a), log10(b), nintervals+1)
+        else:
+            raise Exception("Interval type must be 'linear', 'log', or 'log10'")
+    else:
+        if isinstance(intervals, np.ndarray) or isinstance(intervals, list):
+            intervals = np.array(sorted(intervals)) # make sure array is in ascending order
+
+    for i in xrange(len(intervals)-1):
+        suc = lintegration_qag(lintegrate_callback, <void*>func, <void*>args, intervals[i], intervals[i+1], epsabs, epsrel, limit, intkey, w, &result, &abserr)
+        assert suc == 0, "'lintegration_qag' failed"
+        sumres = logplus(sumres, result)
+        sumabserr = logplus(sumabserr, abserr)
+    result = sumres
+    abserr = sumabserr
 
     gsl_integration_workspace_free(w)
-
-    assert suc == 0, "'lintegration_qag' failed"
 
     return (result, abserr)
 
 
-def lcquad(func, a, b, args=(), epsabs=1.49e-8, epsrel=1.49e-8, intervals=100):
+def lcquad(func, a, b, args=(), epsabs=1.49e-8, epsrel=1.49e-8, wsintervals=100, intervals=None, nintervals=0, intervaltype='linear'):
     """
     Python wrapper to the :func:`lintegration_cquad` function. This will integrate `exp(func)`, whilst staying
     in log-space to ensure numerical precision, using a doubly adaptive procedure (see
@@ -339,30 +408,65 @@ def lcquad(func, a, b, args=(), epsabs=1.49e-8, epsrel=1.49e-8, intervals=100):
         The absolute error tolerance for the integral
     epsrel : float, optional
         The relative error tolerance for the integral
-    intervals : int, optional
+    wsintervals : int, optional
         A sufficient number of subintervals for the integration (if the workspace is full the smallest intervals will be discarded)
+    intervals : :class:`numpy.ndarray`, list, optional
+        An array of values bounding intervals into which the integral will be split (this could be
+        used, for example, if you have a very tightly peaked function and require small intervals
+        around the peak).
+    nintervals : int, optional
+        If `intervals` is not given then split the range between `a` and `b` into `nintervals'
+        intervals
+    intervaltype : string, optional
+        If splitting into `nintervals` intervals then choose whether to split the range in equal
+        intervals in 'linear', 'log', or 'log10' space
     """
 
     if not callable(func):
         raise Exception('"func" must be a callable function')
 
+    assert b > a or intervals is not None or (nintervals != 0 and b > a), "Integral range must have b > a"
+
     if not isinstance(args, tuple):
         args = (args,) # convert to tuple
 
-    cdef double result = 0.
-    cdef double abserr = 0.
-    cdef size_t neval = 0
+    cdef double result = 0., sumres = -INFINITY
+    cdef double abserr = 0., sumabserr = -INFINITY
+    cdef size_t neval = 0, nevaltmp = 0
     cdef int suc = 0
 
-    assert intervals > 0 and isinstance(intervals, int), '"intervals" must be a positive integer'
+    assert wsintervals > 0 and isinstance(wsintervals, int), '"intervals" must be a positive integer'
 
-    cdef gsl_integration_cquad_workspace *w = gsl_integration_cquad_workspace_alloc(intervals)
+    cdef gsl_integration_cquad_workspace *w = gsl_integration_cquad_workspace_alloc(wsintervals)
 
-    suc = lintegration_cquad(lintegrate_callback, <void*>func, <void*>args, a, b, epsabs, epsrel, w, &result, &abserr, &neval)
+    if intervals is None:
+        if nintervals == 0: # just use a and b
+            nintervals = 1
+
+        assert nintervals > 0, "Number of intervals must be positive"
+
+        if intervaltype.lower() == 'linear':
+            intervals = np.linspace(a, b, nintervals+1)
+        elif intervaltype.lower() == 'log':
+            intervals = np.logspace(log(a), log(b), nintervals+1, base=exp(1.))
+        elif intervaltype.lower() == 'log10':
+            intervals = np.logspace(log10(a), log10(b), nintervals+1)
+        else:
+            raise Exception("Interval type must be 'linear', 'log', or 'log10'")
+    else:
+        if isinstance(intervals, np.ndarray) or isinstance(intervals, list):
+            intervals = np.array(sorted(intervals)) # make sure array is in ascending order
+
+    for i in xrange(len(intervals)-1):
+        suc = lintegration_cquad(lintegrate_callback, <void*>func, <void*>args, intervals[i], intervals[i+1], epsabs, epsrel, w, &result, &abserr, &nevaltmp)
+        assert suc == 0, "'lintegration_cquad' failed"
+        sumres = logplus(sumres, result)
+        sumabserr = logplus(sumabserr, abserr)
+        neval += nevaltmp
+    result = sumres
+    abserr = sumabserr
 
     gsl_integration_cquad_workspace_free(w)
-
-    assert suc == 0, "'lintegration_cquad' failed"
 
     return (result, abserr, neval)
 
@@ -371,4 +475,3 @@ def lcquad(func, a, b, args=(), epsabs=1.49e-8, epsrel=1.49e-8, intervals=100):
 # (see e.g. https://github.com/cython/cython/tree/master/Demos/callback)
 cdef double lintegrate_callback(double x, void *f, void *args):
     return (<object>f)(x, <object>args)
-
