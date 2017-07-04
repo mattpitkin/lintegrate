@@ -26,15 +26,9 @@
 #include "logadd.c"
 
 /* wrapper for lintegrate_qag */
-#ifdef HAVE_PYTHON_LINTEGRATE
-int lintegration_qag_split (pylintfunc f, void *funcdata, void *args, double *splitpts, size_t npts,
-                            double epsabs, double epsrel, size_t limit,
-                            int key, double * result, double * abserr) {
-#else
 int lintegration_qag_split (const gsl_function *f, double *splitpts, size_t npts,
                             double epsabs, double epsrel, size_t limit,
                             int key, double * result, double * abserr) {
-#endif
   const size_t nint = npts - 1; /* number of intervals */
   size_t i = 0;
 
@@ -52,11 +46,7 @@ int lintegration_qag_split (const gsl_function *f, double *splitpts, size_t npts
     int retval;
     gsl_integration_workspace *w = gsl_integration_workspace_alloc (limit);
 
-#ifdef HAVE_PYTHON_LINTEGRATE
-    retval = lintegration_qag(f, funcdata, args, splitpts[i], splitpts[i+1], epsabs, epsrel, limit, key, w, &tmpresult, &tmperror);
-#else
     retval = lintegration_qag(f, splitpts[i], splitpts[i+1], epsabs, epsrel, limit, key, w, &tmpresult, &tmperror);
-#endif
 
     if ( retval != GSL_SUCCESS ){ return retval; }
 
@@ -75,15 +65,9 @@ int lintegration_qag_split (const gsl_function *f, double *splitpts, size_t npts
 
 
 /* wrapper for lintegrate_qng */
-#ifdef HAVE_PYTHON_LINTEGRATE
-int lintegration_qng_split (pylintfunc f, void *funcdata, void *args, double *splitpts, size_t npts,
-                            double epsabs, double epsrel, double * result, double * abserr,
-                            size_t * nevals) {
-#else
 int lintegration_qng_split (const gsl_function *f, double *splitpts, size_t npts,
                             double epsabs, double epsrel, double * result, double * abserr,
                             size_t * nevals) {
-#endif
   const size_t nint = npts - 1; /* number of intervals */
   size_t i = 0;
 
@@ -101,11 +85,7 @@ int lintegration_qng_split (const gsl_function *f, double *splitpts, size_t npts
     int retval;
     size_t tmpnevals;
 
-#ifdef HAVE_PYTHON_LINTEGRATE
-    retval = lintegration_qng(f, funcdata, args, splitpts[i], splitpts[i+1], epsabs, epsrel, &tmpresult, &tmperror, &tmpnevals);
-#else
     retval = lintegration_qng(f, splitpts[i], splitpts[i+1], epsabs, epsrel, &tmpresult, &tmperror, &tmpnevals);
-#endif
 
     if ( retval != GSL_SUCCESS ){ return retval; }
 
@@ -123,15 +103,9 @@ int lintegration_qng_split (const gsl_function *f, double *splitpts, size_t npts
 
 
 /* wrapper for lintegrate_cquad */
-#ifdef HAVE_PYTHON_LINTEGRATE
-int lintegration_cquad_split (pylintfunc f, void *funcdata, void *args, double *splitpts, size_t npts,
-                              double epsabs, double epsrel, size_t wsints,
-                              double *result, double *abserr, size_t * nevals) {
-#else
 int lintegration_cquad_split (const gsl_function * f, double *splitpts, size_t npts,
                               double epsabs, double epsrel, size_t wsints,
                               double *result, double *abserr, size_t * nevals) {
-#endif
   const size_t nint = npts - 1; /* number of intervals */
   size_t i = 0;
 
@@ -150,11 +124,7 @@ int lintegration_cquad_split (const gsl_function * f, double *splitpts, size_t n
     size_t tmpnevals;
     gsl_integration_cquad_workspace *w = gsl_integration_cquad_workspace_alloc(wsints);
 
-#ifdef HAVE_PYTHON_LINTEGRATE
-    retval = lintegration_cquad(f, funcdata, args, splitpts[i], splitpts[i+1], epsabs, epsrel, w, &tmpresult, &tmperror, &tmpnevals);
-#else
     retval = lintegration_cquad(f, splitpts[i], splitpts[i+1], epsabs, epsrel, w, &tmpresult, &tmperror, &tmpnevals);
-#endif
 
     if ( retval != GSL_SUCCESS ){ return retval; }
 

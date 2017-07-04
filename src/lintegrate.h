@@ -40,11 +40,6 @@ int lintegration_qag (pylintfunc f, void *funcdata, void *args,
                       gsl_integration_workspace * workspace,
                       double * result, double * abserr);
 
-int lintegration_qag_split (pylintfunc f, void *funcdata, void *args,
-                            double *splitpts, size_t npts,
-                            double epsabs, double epsrel, size_t limit,
-                            int key, double * result, double * abserr);
-
 void lintegration_qk (const int n, const double xgk[],
                       const double wg[], const double wgk[],
                       double fv1[], double fv2[],
@@ -124,10 +119,6 @@ int lintegration_qng (pylintfunc f, void *funcdata, void *args,
                       double a, double b,
                       double epsabs, double epsrel,
                       double * result, double * abserr, size_t * neval);
-
-int lintegration_qng_split (pylintfunc f, void *funcdata, void *args, double *splitpts, size_t npts,
-                            double epsabs, double epsrel,
-                            double * result, double * abserr, size_t * neval);
 #else
 int lintegration_qng (const gsl_function *f,
                       double a, double b,
@@ -144,10 +135,6 @@ int lintegration_cquad (pylintfunc f, void *funcdata, void *args, double a, doub
                         double epsabs, double epsrel,
                         gsl_integration_cquad_workspace * ws,
                         double *result, double *abserr, size_t * nevals);
-
-int lintegration_cquad_split (pylintfunc f, void *funcdata, void *args, double *splitpts, size_t npts,
-                              double epsabs, double epsrel, size_t wsints,
-                              double *result, double *abserr, size_t * nevals);
 #else
 int lintegration_cquad (const gsl_function * f, double a, double b,
                         double epsabs, double epsrel,
