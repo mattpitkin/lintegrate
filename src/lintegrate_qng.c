@@ -20,6 +20,7 @@
 #include "qng.h"
 #include "err.c"
 #include "logadd.c"
+#include "logsub.c"
 
 #ifdef HAVE_PYTHON_LINTEGRATE
 int lintegration_qng (pylintfunc f, void *funcdata, void *args,

@@ -1,4 +1,4 @@
-/* lintegration_cquad.c
+/* lintegrate_cquad.c
  *
  * Copyright (C) 2017 Matthew Pitkin
  * Copyright (C) 2010 Pedro Gonnet
@@ -22,6 +22,7 @@
 
 #include "cquad_const.c"
 #include "logadd.c"
+#include "logsub.c"
 
 /* Compute the product of the fx with one of the inverse
     Vandermonde-like matrices. */
