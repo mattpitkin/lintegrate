@@ -12,6 +12,11 @@ and are called `lintegrate_qag`, `lintegrate_qng`, and `lintegrate_cquad` respec
 (in cases where the exponentiation of the Gaussian function would lead to zeros or infinities) and you want to numerically find the integral of
 the Gaussian function itself.
 
+The functions `lintegrate_qag`, `lintegrate_qng`, and `lintegrate_cquad`, all have wrappers functions (with `_split`
+appended to their names) that allow the user to specify a set of intervals that the integrals will be split into
+when performing the calculation. The intervals could, for example, be spaced evenly in log-space, for cases where the
+integral function has a very pronounced peak as it approached zero.
+
 ## Example
 
 An [example](example/example.c) of the use the functions is:
