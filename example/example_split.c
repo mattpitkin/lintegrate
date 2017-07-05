@@ -6,6 +6,8 @@
 #include <gsl/gsl_math.h>
 #include <gsl/gsl_integration.h>
 
+#include <time.h>
+
 #include <lintegrate.h>
 
 /* create function for integration */
@@ -37,15 +39,25 @@ int main( int argv, char **argc ){
 
   F.function = &lintegrand;
 
+  clock_t t1, t2;
+
   /* integrate log of function using QAG */
+  t1 = clock();
   lintegration_qag_split(&F, splits, nints+1, abstol, reltol, 100, GSL_INTEG_GAUSS31, &qaganswer, &abserr);
+  t2 = clock();
+  fprintf(stderr, "lintegration_qag_split: run time = %ld mus\n", (t2-t1)*1000000/CLOCKS_PER_SEC);
 
   /* integrate log of function using QNG */
+  t1 = clock();
   lintegration_qng_split(&F, splits, nints+1, abstol, reltol, &qnganswer, &abserr, &neval);
+  t2 = clock();
+  fprintf(stderr, "lintegration_qng_split: run time = %ld mus\n", (t2-t1)*1000000/CLOCKS_PER_SEC);
 
   /* integrate log of function using CQUAD */
+  t1 = clock();
   lintegration_cquad_split(&F, splits, nints+1, abstol, reltol, 50, &cquadanswer, &abserr, &neval);
-
+  t2 = clock();
+  fprintf(stderr, "lintegration_cquad_split: run time = %ld mus\n", (t2-t1)*1000000/CLOCKS_PER_SEC);
 
   fprintf(stdout, "Answer \"lintegrate QAG\" = %.8lf\n", qaganswer);
   fprintf(stdout, "Answer \"lintegrate QNG\" = %.8lf\n", qnganswer);
