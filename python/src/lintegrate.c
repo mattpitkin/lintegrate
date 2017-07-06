@@ -1326,7 +1326,6 @@ static const char __pyx_k_lqag[] = "lqag";
 static const char __pyx_k_lqng[] = "lqng";
 static const char __pyx_k_main[] = "__main__";
 static const char __pyx_k_test[] = "__test__";
-static const char __pyx_k_0_0_9[] = "0.0.9";
 static const char __pyx_k_DTYPE[] = "DTYPE";
 static const char __pyx_k_array[] = "array";
 static const char __pyx_k_limit[] = "limit";
@@ -1335,6 +1334,7 @@ static const char __pyx_k_lower[] = "lower";
 static const char __pyx_k_neval[] = "neval";
 static const char __pyx_k_numpy[] = "numpy";
 static const char __pyx_k_range[] = "range";
+static const char __pyx_k_0_0_10[] = "0.0.10";
 static const char __pyx_k_abserr[] = "abserr";
 static const char __pyx_k_epsabs[] = "epsabs";
 static const char __pyx_k_epsrel[] = "epsrel";
@@ -1389,7 +1389,7 @@ static const char __pyx_k_Number_of_intervals_must_be_posi[] = "Number of interv
 static const char __pyx_k_ndarray_is_not_Fortran_contiguou[] = "ndarray is not Fortran contiguous";
 static const char __pyx_k_Format_string_allocated_too_shor_2[] = "Format string allocated too short.";
 static const char __pyx_k_Function_and_function_evaluation_2[] = "Function and function evaluation points are not the same length";
-static PyObject *__pyx_kp_s_0_0_9;
+static PyObject *__pyx_kp_s_0_0_10;
 static PyObject *__pyx_n_s_DTYPE;
 static PyObject *__pyx_kp_s_Error_could_not_evaluate_functio;
 static PyObject *__pyx_kp_s_Error_f_must_be_a_numpy_array_li;
@@ -8149,7 +8149,7 @@ static struct PyModuleDef __pyx_moduledef = {
 #endif
 
 static __Pyx_StringTabEntry __pyx_string_tab[] = {
-  {&__pyx_kp_s_0_0_9, __pyx_k_0_0_9, sizeof(__pyx_k_0_0_9), 0, 0, 1, 0},
+  {&__pyx_kp_s_0_0_10, __pyx_k_0_0_10, sizeof(__pyx_k_0_0_10), 0, 0, 1, 0},
   {&__pyx_n_s_DTYPE, __pyx_k_DTYPE, sizeof(__pyx_k_DTYPE), 0, 0, 1, 1},
   {&__pyx_kp_s_Error_could_not_evaluate_functio, __pyx_k_Error_could_not_evaluate_functio, sizeof(__pyx_k_Error_could_not_evaluate_functio), 0, 0, 1, 0},
   {&__pyx_kp_s_Error_f_must_be_a_numpy_array_li, __pyx_k_Error_f_must_be_a_numpy_array_li, sizeof(__pyx_k_Error_f_must_be_a_numpy_array_li), 0, 0, 1, 0},
@@ -8695,11 +8695,11 @@ PyMODINIT_FUNC PyInit_lintegrate(void)
   /* "lintegrate.pyx":31
  * from libc.math cimport exp, sqrt, log, log10, isinf, fabs
  *
- * __version__ = '0.0.9'             # <<<<<<<<<<<<<<
+ * __version__ = '0.0.10'             # <<<<<<<<<<<<<<
  *
  * cdef extern from "gsl/gsl_integration.h":
  */
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_version, __pyx_kp_s_0_0_9) < 0) __PYX_ERR(0, 31, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_version, __pyx_kp_s_0_0_10) < 0) __PYX_ERR(0, 31, __pyx_L1_error)
 
   /* "lintegrate.pyx":51
  *
