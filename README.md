@@ -157,4 +157,6 @@ rescquad = lcquad(chisqfunc, xmin, xmax, args=(mu, sig))
 restrapz = logtrapz(chisqfunc, np.linspace(xmin, xmax, 100), args=(mu, sig))
 ```
 
+[![DOI](https://zenodo.org/badge/93165960.svg)](https://zenodo.org/badge/latestdoi/93165960)
+
 &copy; 2017 Matthew Pitkin
