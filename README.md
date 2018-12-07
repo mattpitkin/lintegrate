@@ -160,7 +160,7 @@ restrapz = logtrapz(chisqfunc, np.linspace(xmin, xmax, 100), args=(mu, sig))
 
 ## R
 
-In R one can use the [**reticulate**](https://github.com/rstudio/reticulate) package to call the functions in `lintegrate`.
+In [R](https://www.r-project.org/) one can use the [**reticulate**](https://github.com/rstudio/reticulate) package to call the functions in `lintegrate`.
 The above example would be:
 ```R
 library(reticulate)
