@@ -158,6 +158,38 @@ rescquad = lcquad(chisqfunc, xmin, xmax, args=(mu, sig))
 restrapz = logtrapz(chisqfunc, np.linspace(xmin, xmax, 100), args=(mu, sig))
 ```
 
+## R
+
+In R one can use the [**reticulate**](https://github.com/rstudio/reticulate) package to call the functions in `lintegrate`.
+The above example would be:
+```R
+library(reticulate)
+lint <- import("lintegrate", convert = FALSE)
+integrand <- function(x, args){
+  mu = args[1]
+  sig = args[2]
+  return(-.5 * ((x-mu)/sig)^2 )
+} 
+integrand <- Vectorize(integrand)
+mu <- 0
+sig <- 1
+mmin <- -10
+mmax <- 10
+library(reticulate)
+lint <- import("lintegrate", convert = FALSE)
+integrand <- function(x, args){
+  mu = args[1]
+  sig = args[2]
+  return(-.5 * ((x-mu)/sig)^2 )
+} 
+integrand <- Vectorize(integrand)
+mu <- 0
+sig <- 1
+mmin <- -10
+mmax <- 10
+lint$lqag(py_func(integrand), r_to_py(mmin), r_to_py(mmax), c(mu, sig))
+```
+
 [![DOI](https://zenodo.org/badge/93165960.svg)](https://zenodo.org/badge/latestdoi/93165960)
 
 &copy; 2017 Matthew Pitkin
