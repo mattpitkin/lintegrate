@@ -175,18 +175,6 @@ mu <- 0
 sig <- 1
 mmin <- -10
 mmax <- 10
-library(reticulate)
-lint <- import("lintegrate", convert = FALSE)
-integrand <- function(x, args){
-  mu = args[1]
-  sig = args[2]
-  return(-.5 * ((x-mu)/sig)^2 )
-} 
-integrand <- Vectorize(integrand)
-mu <- 0
-sig <- 1
-mmin <- -10
-mmax <- 10
 lint$lqag(py_func(integrand), r_to_py(mmin), r_to_py(mmax), c(mu, sig))
 ```
 
