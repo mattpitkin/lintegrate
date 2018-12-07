@@ -14,7 +14,7 @@ This library provides three numerical integration functions, heavily based on [G
  * [`gsl_integration_qng`](https://www.gnu.org/software/gsl/doc/html/integration.html#qng-non-adaptive-gauss-kronrod-integration)
  * [`gsl_integration_cquad`](https://www.gnu.org/software/gsl/doc/html/integration.html#cquad-doubly-adaptive-integration)
 
-respectively. These can be useful when, e.g., you have a log Gaussian likelihood function (in cases where the exponentiation of the Gaussian function would lead to zeros or infinities) and you want to numerically find the integral of the Gaussian function itself.
+respectively. These can be useful when, e.g., you can calculate the natural logarithm of a Gaussian likelihood function (in cases where the exponentiation of the Gaussian function would lead to zeros or infinities) and you want to numerically find the integral of the Gaussian function itself.
 
 The functions `lintegrate_qag`, `lintegrate_qng`, and `lintegrate_cquad`, all have wrappers functions (with `_split` appended to their names) that allow the user to specify a set of intervals that the integrals will be split into when performing the calculation. The intervals could, for example, be spaced evenly in log-space, for cases where the integral function has a very pronounced peak as it approaches zero.
 
