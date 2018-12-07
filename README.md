@@ -140,7 +140,7 @@ from lintegrate import lqag, lqng, lcquad, logtrapz
 import numpy as np
 
 # define the log of the function to be integrated
-def chisqfunc(x, args):
+def integrand(x, args):
     mu, sig = args # unpack extra arguments
     return -0.5*((x-mu)/sig)**2
 
@@ -152,10 +152,10 @@ xmax = 6.
 mu = 0.
 sig = 1.
 
-resqag = lqag(chisqfunc, xmin, xmax, args=(mu, sig))
-resqng = lqng(chisqfunc, xmin, xmax, args=(mu, sig))
-rescquad = lcquad(chisqfunc, xmin, xmax, args=(mu, sig))
-restrapz = logtrapz(chisqfunc, np.linspace(xmin, xmax, 100), args=(mu, sig))
+resqag = lqag(integrand, xmin, xmax, args=(mu, sig))
+resqng = lqng(integrand, xmin, xmax, args=(mu, sig))
+rescquad = lcquad(integrand, xmin, xmax, args=(mu, sig))
+restrapz = logtrapz(integrand, np.linspace(xmin, xmax, 100), args=(mu, sig))
 ```
 
 ## R
