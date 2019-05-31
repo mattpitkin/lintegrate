@@ -28,7 +28,7 @@ from scipy.misc import logsumexp
 
 from libc.math cimport exp, sqrt, log, log10, isinf, fabs
 
-__version__ = '0.0.11'
+__version__ = '0.0.12'
 
 cdef extern from "gsl/gsl_integration.h":
     void gsl_integration_workspace_free (gsl_integration_workspace * w)

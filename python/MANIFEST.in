@@ -1,0 +1,3 @@
+include src/lintegrate.h
+include src/lintegrate.c
+include ../LICENSE
