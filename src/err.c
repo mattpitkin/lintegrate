@@ -1,4 +1,4 @@
-/* qng.c
+/* err.c
  *
  * Copyright (C) 2017 Matthew Pitkin
  * Copyright (C) 1996, 1997, 1998, 1999, 2000, 2007 Brian Gough
