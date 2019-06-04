@@ -24,8 +24,6 @@ cimport numpy as np
 
 from numpy.math cimport LOGE2, INFINITY
 
-from scipy.misc import logsumexp
-
 from libc.math cimport exp, sqrt, log, log10, isinf, fabs
 
 cdef extern from "gsl/gsl_integration.h":

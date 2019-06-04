@@ -68,7 +68,7 @@ setup(
     author_email = 'matthew.pitkin@glasgow.ac.uk',
     packages = find_packages(),
     setup_requires = ['numpy'],
-    install_requires = ['numpy', 'scipy'],
+    install_requires = ['numpy'],
     cmdclass = cmdclass,
     ext_modules = ext_modules,
     license = "GPL",
