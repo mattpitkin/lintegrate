@@ -13,7 +13,7 @@ import re
 
 """
 When making a new distribution use:
-$ python setup.py sdist bdist_egg --universal
+$ python setup.py sdist bdist_egg
 """
 
 cmdclass = { 'build_ext': build_ext }
