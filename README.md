@@ -117,11 +117,16 @@ sudo scons
 sudo scons install
 ```
 
-Python wrappers to the functions can be built in the `python` directory by running, e.g.:
+A Python module containing wrappers to the functions can be built by running, e.g.:
 ```
 sudo python setup.py install
 ```
 for a system-wide install (add `--user` and remove `sudo` if just wanting to install for a single user, and using `--prefix=INSTALLPATH` if wanting to specify this install location).
+
+The Python module can also be installed from [PyPI](https://pypi.org/project/lintegrate/) using pip with:
+```
+pip install lintegrate
+```
 
 ## Python
 

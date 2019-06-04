@@ -11,7 +11,13 @@ import numpy
 import re
 
 
+"""
+When making a new distribution use:
+$ python setup.py sdist bdist_egg --universal
+"""
+
 cmdclass = { 'build_ext': build_ext }
+
 
 # Make sure that when a source distribution gets rolled that the Cython files get rebuilt into C
 class sdist(_sdist):
@@ -34,7 +40,12 @@ ext_modules = [Extension("lintegrate.lintegrate",
                          library_dirs=['.',
                                        os.popen('gsl-config --libs').read().split()[0][2:]],
                          libraries=['gsl', 'gslcblas'],
-                         extra_compile_args=['-O3', '-DHAVE_PYTHON_LINTEGRATE'])]
+                         extra_compile_args=['-O3', '-Wall', '-Wextra', '-m64',
+                                             '-ffast-math',
+                                             '-fno-finite-math-only',
+                                             '-march=native',
+                                             '-funroll-loops',
+                                             '-DHAVE_PYTHON_LINTEGRATE'])]
 
 
 # get version string for pyx file (see e.g. https://packaging.python.org/single_source_version/)
