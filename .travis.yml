@@ -18,7 +18,7 @@ install:
   # install packages for testing
   - pip install pytest
   # build lintegrate
-  - python setup.py install sdist
+  - pip install -e .
 script:
   # run the test script
   - pytest
