@@ -88,7 +88,7 @@ libs = []
 # compile libraries
 libsources = ['src/lintegrate_qag.c', 'src/lintegrate_qng.c', 'src/lintegrate_cquad.c', 'lintegrate/lintegrate.c']
 sharedlib = env.SharedLibrary(target='lintegrate/liblintegrate', source=libsources)
-staticlib = env.StaticLibrary(target='lintegrate/liblintegrate', source=libsources)
+#staticlib = env.StaticLibrary(target='lintegrate/liblintegrate', source=libsources)
 libs += sharedlib
 
 py_source = Glob('lintegrate/*.py', 'lintegrate/liblintegrate.so')
