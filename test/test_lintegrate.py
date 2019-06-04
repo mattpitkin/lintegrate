@@ -73,3 +73,78 @@ class TestLintegrate(object):
 
         # check result is a small number, i.e., np.exp(res) ~ 1
         assert np.abs(r1) < 1e-9
+
+    def test_lqag(self):
+        """
+        Test QAG integration.
+        """
+
+        from lintegrate import lqag
+
+        f = integrand
+
+        with pytest.raises(RuntimeError):
+            lqag('blah', self.xmin, self.xmax, args=(self.mu, self.sigma))
+
+        with pytest.raises(AssertionError):
+            # interval ranges are the wrong way round
+            lqag(f, self.xmax, self.xmin, args=(self.mu, self.sigma))
+
+        with pytest.raises(ValueError):
+            lqag(f, self.xmin, self.xmax, args=(self.mu, self.sigma),
+                 intervaltype='Blah')
+
+        res = lqag(f, self.xmin, self.xmax, args=(self.mu, self.sigma))
+
+        assert len(res) == 2
+        assert np.abs(res[0]) < 1e-9
+
+    def test_lqng(self):
+        """
+        Test QNG integration.
+        """
+
+        from lintegrate import lqng
+
+        f = integrand
+
+        with pytest.raises(RuntimeError):
+            lqng('blah', self.xmin, self.xmax, args=(self.mu, self.sigma))
+
+        with pytest.raises(AssertionError):
+            # interval ranges are the wrong way round
+            lqng(f, self.xmax, self.xmin, args=(self.mu, self.sigma))
+
+        with pytest.raises(ValueError):
+            lqng(f, self.xmin, self.xmax, args=(self.mu, self.sigma),
+                 intervaltype='Blah')
+
+        res = lqng(f, self.xmin, self.xmax, args=(self.mu, self.sigma))
+
+        assert len(res) == 3
+        assert np.abs(res[0]) < 1e-9
+
+    def test_lcquad(self):
+        """
+        Test CQUAD integration.
+        """
+
+        from lintegrate import lcquad
+
+        f = integrand
+
+        with pytest.raises(RuntimeError):
+            lcquad('blah', self.xmin, self.xmax, args=(self.mu, self.sigma))
+
+        with pytest.raises(AssertionError):
+            # interval ranges are the wrong way round
+            lcquad(f, self.xmax, self.xmin, args=(self.mu, self.sigma))
+
+        with pytest.raises(ValueError):
+            lcquad(f, self.xmin, self.xmax, args=(self.mu, self.sigma),
+                   intervaltype='Blah')
+
+        res = lcquad(f, self.xmin, self.xmax, args=(self.mu, self.sigma))
+
+        assert len(res) == 3
+        assert np.abs(res[0]) < 1e-9
