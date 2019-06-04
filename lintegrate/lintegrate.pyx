@@ -147,7 +147,7 @@ def logtrapz(f, x, args=()):
             # perform trapezium rule
             return logtrapzC(f, np.array([x]))
         else:
-            raise Exception('Error... value of "x" must be a numpy array or a float')
+            raise TypeError('Error... value of "x" must be a numpy array or a float')
     elif callable(f): # f is a function
         if isinstance(x, np.ndarray) or isinstance(x, list):
             assert len(x) > 1, "Function must be evaluated at more than one point"
@@ -156,8 +156,8 @@ def logtrapz(f, x, args=()):
                 if not isinstance(args, tuple):
                     args = (args,)
                 vs = f(np.array(x), args) # make sure x is an array when passed to function
-            except:
-                raise Exception('Error... could not evaluate function "f"')
+            except Exception as e:
+                raise RuntimeError('Error... could not evaluate function "f": {}'.format(e))
 
             # make sure x values are in ascending order (keeping f values associated to their x evaluation points)
             zp = np.array(sorted(zip(x, vs)))
@@ -165,9 +165,9 @@ def logtrapz(f, x, args=()):
             # perform trapezium rule (internal logtrapzC function is faster than using scipy logsumexp)
             return logtrapzC(zp[:,1], zp[:,0])
         else:
-            raise Exception('Error... "x" must be a numpy array or list')
+            raise TypeError('Error... "x" must be a numpy array or list')
     else:
-        raise Exception('Error... "f" must be a numpy array, list, or callable function')
+        raise RuntimeError('Error... "f" must be a numpy array, list, or callable function')
 
 
 def lqng(func, a=0., b=0., args=(), epsabs=1.49e-8, epsrel=1.49e-8, intervals=None, nintervals=0, intervaltype='linear'):
@@ -222,7 +222,7 @@ def lqng(func, a=0., b=0., args=(), epsabs=1.49e-8, epsrel=1.49e-8, intervals=No
     """
 
     if not callable(func):
-        raise Exception('"func" must be a callable function')
+        raise RuntimeError('"func" must be a callable function')
 
     assert b > a or intervals is not None or (nintervals != 0 and b > a), "Integral range must have b > a"
 
@@ -247,7 +247,7 @@ def lqng(func, a=0., b=0., args=(), epsabs=1.49e-8, epsrel=1.49e-8, intervals=No
         elif intervaltype.lower() == 'log10':
             intervals = np.logspace(log10(a), log10(b), nintervals+1)
         else:
-            raise Exception("Interval type must be 'linear', 'log', or 'log10'")
+            raise ValueError("Interval type must be 'linear', 'log', or 'log10'")
     else:
         if isinstance(intervals, np.ndarray) or isinstance(intervals, list):
             intervals = np.array(sorted(intervals)) # make sure array is in ascending order
@@ -317,7 +317,7 @@ def lqag(func, a=0., b=0., args=(), epsabs=1.49e-8, epsrel=1.49e-8, limit=50, in
     """
 
     if not callable(func):
-        raise Exception('"func" must be a callable function')
+        raise RuntimeError('"func" must be a callable function')
 
     assert b > a or intervals is not None or (nintervals != 0 and b > a), "Integral range must have b > a"
 
@@ -325,7 +325,7 @@ def lqag(func, a=0., b=0., args=(), epsabs=1.49e-8, epsrel=1.49e-8, limit=50, in
         args = (args,) # convert to tuple
 
     if intkey not in [1, 2, 3, 4, 5, 6]:
-        raise Exception('"intkey" must be 1, 2, 3, 4, 5, or 6')
+        raise ValueError('"intkey" must be 1, 2, 3, 4, 5, or 6')
 
     if isinstance(intkey, float):
         intket = int(intkey)
@@ -351,7 +351,7 @@ def lqag(func, a=0., b=0., args=(), epsabs=1.49e-8, epsrel=1.49e-8, limit=50, in
         elif intervaltype.lower() == 'log10':
             intervals = np.logspace(log10(a), log10(b), nintervals+1)
         else:
-            raise Exception("Interval type must be 'linear', 'log', or 'log10'")
+            raise ValueError("Interval type must be 'linear', 'log', or 'log10'")
     else:
         if isinstance(intervals, np.ndarray) or isinstance(intervals, list):
             intervals = np.array(sorted(intervals)) # make sure array is in ascending order
@@ -421,7 +421,7 @@ def lcquad(func, a, b, args=(), epsabs=1.49e-8, epsrel=1.49e-8, wsintervals=100,
     """
 
     if not callable(func):
-        raise Exception('"func" must be a callable function')
+        raise RuntimeError('"func" must be a callable function')
 
     assert b > a or intervals is not None or (nintervals != 0 and b > a), "Integral range must have b > a"
 
@@ -450,7 +450,7 @@ def lcquad(func, a, b, args=(), epsabs=1.49e-8, epsrel=1.49e-8, wsintervals=100,
         elif intervaltype.lower() == 'log10':
             intervals = np.logspace(log10(a), log10(b), nintervals+1)
         else:
-            raise Exception("Interval type must be 'linear', 'log', or 'log10'")
+            raise ValueError("Interval type must be 'linear', 'log', or 'log10'")
     else:
         if isinstance(intervals, np.ndarray) or isinstance(intervals, list):
             intervals = np.array(sorted(intervals)) # make sure array is in ascending order
