@@ -1,0 +1,7 @@
+include src/*.h
+include src/*.c
+include lintegrate/*.pyx
+include lintegrate/*.c
+include lintegrate/*.py
+include LICENSE
+include requirements.txt

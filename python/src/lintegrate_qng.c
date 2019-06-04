@@ -1,1 +1,0 @@
-../../src/lintegrate_qng.c
