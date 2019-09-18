@@ -27,17 +27,17 @@ platforms=( linux-64 )
 find $CONDA_PREFIX/conda-bld/linux-64/ -name ${pkg}*.tar.bz2 | while read file
 do
     echo $file
-    #conda convert --platform all $file  -o $HOME/conda-bld/
+    #conda convert --platform all $file  -o $CONDA_PREFIX/conda-bld/
     for platform in "${platforms[@]}"
     do
-       conda convert --platform $platform $file  -o $HOME/conda-bld/
+       conda convert --platform $platform $file  -o $CONDA_PREFIX/conda-bld/
     done
 done
 
 # upload packages to conda
-#find $CONDA_PREFIX/conda-bld/ -name ${pkg}*.tar.bz2 | while read file
-#do
-#    echo $file
-#    anaconda upload $file
-#done
-#echo "Building conda package done!"
+find $CONDA_PREFIX/conda-bld/ -name ${pkg}*.tar.bz2 | while read file
+do
+    echo $file
+    anaconda upload $file
+done
+echo "Building conda package done!"
