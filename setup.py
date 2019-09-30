@@ -9,12 +9,25 @@ import os
 import sys
 import numpy
 import re
+import platform
+import distutils
 
 
 """
 When making a new distribution use:
 $ python setup.py sdist bdist_egg
 """
+
+
+MAJOR, MINOR1, MINOR2, RELEASE, SERIAL = sys.version_info
+
+READFILE_KWARGS = {"encoding": "utf-8"} if MAJOR >= 3 else {}
+
+def readfile(filename):
+    with open(filename, **READFILE_KWARGS) as fp:
+        filecontents = fp.read()
+    return filecontents
+
 
 cmdclass = { 'build_ext': build_ext }
 
@@ -28,6 +41,22 @@ class sdist(_sdist):
         _sdist.run(self)
 cmdclass['sdist'] = sdist
 
+# check for Windows
+WINDOWS = platform.system() == 'Windows'
+
+
+extra_compile_args = ["-Wall", "-DHAVE_PYTHON_LINTEGRATE"]
+
+if WINDOWS:
+    extra_compile_args += ["-O2", "-DGSL_DLL", "-DWIN32"]
+else:
+    extra_compile_args += ["-O3",
+                           "-Wextra",
+                           "-m64",
+                           "-ffast-math",
+                           "-fno-finite-math-only",
+                           "-march=native",
+                           "-funroll-loops"]
 
 ext_modules = [Extension("lintegrate.lintegrate",
                          sources=["lintegrate/lintegrate.c",
@@ -40,12 +69,7 @@ ext_modules = [Extension("lintegrate.lintegrate",
                          library_dirs=['.',
                                        os.popen('gsl-config --libs').read().split()[0][2:]],
                          libraries=['gsl', 'gslcblas'],
-                         extra_compile_args=['-O3', '-Wall', '-Wextra', '-m64',
-                                             '-ffast-math',
-                                             '-fno-finite-math-only',
-                                             '-march=native',
-                                             '-funroll-loops',
-                                             '-DHAVE_PYTHON_LINTEGRATE'])]
+                         extra_compile_args=extra_compile_args)]
 
 
 # get version string for pyx file (see e.g. https://packaging.python.org/single_source_version/)
@@ -64,8 +88,10 @@ setup(
     version = find_version(),
     url = 'https://github.com/mattpitkin/lintegrate',
     description = 'Python functions implementing numerical integration of functions in log-space.',
+    long_description = readfile(os.path.join(os.path.dirname(__file__), "README.md")),
+    long_description_content_type="text/markdown",
     author = 'Matthew Pitkin',
-    author_email = 'matthew.pitkin@glasgow.ac.uk',
+    author_email = 'm.pitkin@lancaster.ac.uk',
     packages = find_packages(),
     setup_requires = ['numpy'],
     install_requires = ['numpy'],
