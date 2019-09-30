@@ -130,7 +130,7 @@ pip install lintegrate
 
 or in a Conda environment with:
 ```bash
-conda install -c mattpitkin lintegrate
+conda install -c conda-forge lintegrate
 ```
 
 ## Python
