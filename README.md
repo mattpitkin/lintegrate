@@ -191,6 +191,6 @@ lint$lqag(py_func(integrand), r_to_py(mmin), r_to_py(mmax), c(mu, sig))
 [![DOI](https://zenodo.org/badge/93165960.svg)](https://zenodo.org/badge/latestdoi/93165960)
 [![Build Status](https://travis-ci.org/mattpitkin/lintegrate.svg?branch=master)](https://travis-ci.org/mattpitkin/lintegrate)
 [![PyPI version](https://badge.fury.io/py/lintegrate.svg)](https://badge.fury.io/py/lintegrate)
-[![Anaconda-Server Badge](https://anaconda.org/mattpitkin/lintegrate/badges/version.svg)](https://anaconda.org/mattpitkin/lintegrate)
+[![Anaconda-Server Badge](https://anaconda.org/conda-forge/lintegrate/badges/version.svg)](https://anaconda.org/conda-forge/lintegrate)
 
 &copy; 2017 Matthew Pitkin
