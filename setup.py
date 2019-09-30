@@ -10,6 +10,7 @@ import sys
 import numpy
 import re
 import platform
+import distutils
 
 
 """
@@ -44,18 +45,18 @@ cmdclass['sdist'] = sdist
 WINDOWS = platform.system() == 'Windows'
 
 
-extra_compile_args = ["-O3", "-Wall", "-DHAVE_PYTHON_LINTEGRATE"]
+extra_compile_args = ["-Wall", "-DHAVE_PYTHON_LINTEGRATE"]
 
 if WINDOWS:
-    extra_compile_args += ["-DGSL_DLL", "-DWIN32"]
+    extra_compile_args += ["-O2", "-DGSL_DLL", "-DWIN32"]
 else:
-    extra_compile_args += ["-Wextra",
+    extra_compile_args += ["-O3",
+                           "-Wextra",
                            "-m64",
                            "-ffast-math",
                            "-fno-finite-math-only",
                            "-march=native",
                            "-funroll-loops"]
-    
 
 ext_modules = [Extension("lintegrate.lintegrate",
                          sources=["lintegrate/lintegrate.c",
