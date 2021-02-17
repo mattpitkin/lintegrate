@@ -194,6 +194,7 @@ In R one can use the [**reticulate**](https://github.com/rstudio/reticulate) pac
 The above example would be:
 ```R
 library(reticulate)
+py_install("lintegrate", pip = TRUE) ## run once to make sure lintegrate is installed and visible to reticulate.
 lint <- import("lintegrate", convert = FALSE)
 integrand <- function(x, args){
   mu = args[1]
