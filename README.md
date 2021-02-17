@@ -174,39 +174,7 @@ In [R](https://www.r-project.org/) one can use the [**reticulate**](https://gith
 The above example would be:
 ```R
 library(reticulate)
-lint <- import("lintegrate", convert = FALSE)
-integrand <- function(x, args){
-  mu = args[1]
-  sig = args[2]
-  return(-.5 * ((x-mu)/sig)^2 )
-} 
-integrand <- Vectorize(integrand)
-mu <- 0
-sig <- 1
-mmin <- -10
-mmax <- 10
-lint$lqag(py_func(integrand), r_to_py(mmin), r_to_py(mmax), c(mu, sig))
-```
-
-## R
-
-In R one can use the [**reticulate**](https://github.com/rstudio/reticulate) package to call the functions in `lintegrate`.
-The above example would be:
-```R
-library(reticulate)
 py_install("lintegrate", pip = TRUE) ## run once to make sure lintegrate is installed and visible to reticulate.
-lint <- import("lintegrate", convert = FALSE)
-integrand <- function(x, args){
-  mu = args[1]
-  sig = args[2]
-  return(-.5 * ((x-mu)/sig)^2 )
-} 
-integrand <- Vectorize(integrand)
-mu <- 0
-sig <- 1
-mmin <- -10
-mmax <- 10
-library(reticulate)
 lint <- import("lintegrate", convert = FALSE)
 integrand <- function(x, args){
   mu = args[1]
