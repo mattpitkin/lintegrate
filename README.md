@@ -14,7 +14,7 @@ This library provides three numerical integration functions, heavily based on [G
  * [`gsl_integration_qng`](https://www.gnu.org/software/gsl/doc/html/integration.html#qng-non-adaptive-gauss-kronrod-integration)
  * [`gsl_integration_cquad`](https://www.gnu.org/software/gsl/doc/html/integration.html#cquad-doubly-adaptive-integration)
 
-respectively. These can be useful when, e.g., you have a log Gaussian likelihood function (in cases where the exponentiation of the Gaussian function would lead to zeros or infinities) and you want to numerically find the integral of the Gaussian function itself.
+respectively. These can be useful when, e.g., you can calculate the natural logarithm of a Gaussian likelihood function (in cases where the exponentiation of the Gaussian function would lead to zeros or infinities) and you want to numerically find the integral of the Gaussian function itself.
 
 The functions `lintegrate_qag`, `lintegrate_qng`, and `lintegrate_cquad`, all have wrappers functions (with `_split` appended to their names) that allow the user to specify a set of intervals that the integrals will be split into when performing the calculation. The intervals could, for example, be spaced evenly in log-space, for cases where the integral function has a very pronounced peak as it approaches zero.
 
@@ -117,11 +117,21 @@ sudo scons
 sudo scons install
 ```
 
-Python wrappers to the functions can be built in the `python` directory by running, e.g.:
+A Python module containing wrappers to the functions can be built by running, e.g.:
 ```
 sudo python setup.py install
 ```
 for a system-wide install (add `--user` and remove `sudo` if just wanting to install for a single user, and using `--prefix=INSTALLPATH` if wanting to specify this install location).
+
+The Python module can also be installed from [PyPI](https://pypi.org/project/lintegrate/) using pip with:
+```bash
+pip install lintegrate
+```
+
+or in a Conda environment with:
+```bash
+conda install -c conda-forge lintegrate
+```
 
 ## Python
 
@@ -140,7 +150,7 @@ from lintegrate import lqag, lqng, lcquad, logtrapz
 import numpy as np
 
 # define the log of the function to be integrated
-def chisqfunc(x, args):
+def integrand(x, args):
     mu, sig = args # unpack extra arguments
     return -0.5*((x-mu)/sig)**2
 
@@ -152,10 +162,30 @@ xmax = 6.
 mu = 0.
 sig = 1.
 
-resqag = lqag(chisqfunc, xmin, xmax, args=(mu, sig))
-resqng = lqng(chisqfunc, xmin, xmax, args=(mu, sig))
-rescquad = lcquad(chisqfunc, xmin, xmax, args=(mu, sig))
-restrapz = logtrapz(chisqfunc, np.linspace(xmin, xmax, 100), args=(mu, sig))
+resqag = lqag(integrand, xmin, xmax, args=(mu, sig))
+resqng = lqng(integrand, xmin, xmax, args=(mu, sig))
+rescquad = lcquad(integrand, xmin, xmax, args=(mu, sig))
+restrapz = logtrapz(integrand, np.linspace(xmin, xmax, 100), args=(mu, sig))
+```
+
+## R
+
+In [R](https://www.r-project.org/) one can use the [**reticulate**](https://github.com/rstudio/reticulate) package to call the functions in `lintegrate`.
+The above example would be:
+```R
+library(reticulate)
+lint <- import("lintegrate", convert = FALSE)
+integrand <- function(x, args){
+  mu = args[1]
+  sig = args[2]
+  return(-.5 * ((x-mu)/sig)^2 )
+} 
+integrand <- Vectorize(integrand)
+mu <- 0
+sig <- 1
+mmin <- -10
+mmax <- 10
+lint$lqag(py_func(integrand), r_to_py(mmin), r_to_py(mmax), c(mu, sig))
 ```
 
 ## R
@@ -191,5 +221,8 @@ lint$lqag(py_func(integrand), r_to_py(mmin), r_to_py(mmax), c(mu, sig))
 ```
 
 [![DOI](https://zenodo.org/badge/93165960.svg)](https://zenodo.org/badge/latestdoi/93165960)
+[![Build Status](https://travis-ci.org/mattpitkin/lintegrate.svg?branch=master)](https://travis-ci.org/mattpitkin/lintegrate)
+[![PyPI version](https://badge.fury.io/py/lintegrate.svg)](https://badge.fury.io/py/lintegrate)
+[![Anaconda-Server Badge](https://anaconda.org/conda-forge/lintegrate/badges/version.svg)](https://anaconda.org/conda-forge/lintegrate)
 
 &copy; 2017 Matthew Pitkin
