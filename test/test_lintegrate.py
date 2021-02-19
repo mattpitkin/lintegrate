@@ -65,11 +65,13 @@ class TestLintegrate(object):
 
         # check consistency of results
         r1 = logtrapz(f, self.xs, args=(self.mu, self.sigma))
-        r2 = logtrapz(feval, self.xs, args=(self.mu, self.sigma))
-        r3 = logtrapz(feval, np.diff(self.xs)[0], args=(self.mu, self.sigma))
+        r2 = logtrapz(feval, self.xs)
+        r3 = logtrapz(feval, np.diff(self.xs)[0])
+        r4 = logtrapz(feval, self.xs, disable_checks=True)
 
         assert (r1 == r2)
         assert np.abs(r2 - r3) < 1e-13
+        assert np.abs(r2 - r4) < 1e-13
 
         # check result is a small number, i.e., np.exp(res) ~ 1
         assert np.abs(r1) < 1e-9

@@ -621,6 +621,9 @@ static CYTHON_INLINE float __PYX_NAN() {
 #include <string.h>
 #include <stdio.h>
 #include "numpy/arrayobject.h"
+#include "numpy/ndarrayobject.h"
+#include "numpy/ndarraytypes.h"
+#include "numpy/arrayscalars.h"
 #include "numpy/ufuncobject.h"
 
     /* NumPy API declarations from "numpy/__init__.pxd" */
@@ -860,7 +863,7 @@ static const char *__pyx_filename;
 
 
 static const char *__pyx_f[] = {
-  "lintegrate/lintegrate.pyx",
+  "lintegrate.pyx",
   "__init__.pxd",
   "type.pxd",
 };
@@ -901,7 +904,7 @@ typedef struct {
 } __Pyx_BufFmt_Context;
 
 
-/* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":689
+/* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":690
  * # in Cython to enable them only on the right systems.
  * 
  * ctypedef npy_int8       int8_t             # <<<<<<<<<<<<<<
@@ -910,7 +913,7 @@ typedef struct {
  */
 typedef npy_int8 __pyx_t_5numpy_int8_t;
 
-/* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":690
+/* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":691
  * 
  * ctypedef npy_int8       int8_t
  * ctypedef npy_int16      int16_t             # <<<<<<<<<<<<<<
@@ -919,7 +922,7 @@ typedef npy_int8 __pyx_t_5numpy_int8_t;
  */
 typedef npy_int16 __pyx_t_5numpy_int16_t;
 
-/* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":691
+/* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":692
  * ctypedef npy_int8       int8_t
  * ctypedef npy_int16      int16_t
  * ctypedef npy_int32      int32_t             # <<<<<<<<<<<<<<
@@ -928,7 +931,7 @@ typedef npy_int16 __pyx_t_5numpy_int16_t;
  */
 typedef npy_int32 __pyx_t_5numpy_int32_t;
 
-/* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":692
+/* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":693
  * ctypedef npy_int16      int16_t
  * ctypedef npy_int32      int32_t
  * ctypedef npy_int64      int64_t             # <<<<<<<<<<<<<<
@@ -937,7 +940,7 @@ typedef npy_int32 __pyx_t_5numpy_int32_t;
  */
 typedef npy_int64 __pyx_t_5numpy_int64_t;
 
-/* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":696
+/* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":697
  * #ctypedef npy_int128     int128_t
  * 
  * ctypedef npy_uint8      uint8_t             # <<<<<<<<<<<<<<
@@ -946,7 +949,7 @@ typedef npy_int64 __pyx_t_5numpy_int64_t;
  */
 typedef npy_uint8 __pyx_t_5numpy_uint8_t;
 
-/* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":697
+/* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":698
  * 
  * ctypedef npy_uint8      uint8_t
  * ctypedef npy_uint16     uint16_t             # <<<<<<<<<<<<<<
@@ -955,7 +958,7 @@ typedef npy_uint8 __pyx_t_5numpy_uint8_t;
  */
 typedef npy_uint16 __pyx_t_5numpy_uint16_t;
 
-/* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":698
+/* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":699
  * ctypedef npy_uint8      uint8_t
  * ctypedef npy_uint16     uint16_t
  * ctypedef npy_uint32     uint32_t             # <<<<<<<<<<<<<<
@@ -964,7 +967,7 @@ typedef npy_uint16 __pyx_t_5numpy_uint16_t;
  */
 typedef npy_uint32 __pyx_t_5numpy_uint32_t;
 
-/* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":699
+/* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":700
  * ctypedef npy_uint16     uint16_t
  * ctypedef npy_uint32     uint32_t
  * ctypedef npy_uint64     uint64_t             # <<<<<<<<<<<<<<
@@ -973,7 +976,7 @@ typedef npy_uint32 __pyx_t_5numpy_uint32_t;
  */
 typedef npy_uint64 __pyx_t_5numpy_uint64_t;
 
-/* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":703
+/* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":704
  * #ctypedef npy_uint128    uint128_t
  * 
  * ctypedef npy_float32    float32_t             # <<<<<<<<<<<<<<
@@ -982,7 +985,7 @@ typedef npy_uint64 __pyx_t_5numpy_uint64_t;
  */
 typedef npy_float32 __pyx_t_5numpy_float32_t;
 
-/* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":704
+/* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":705
  * 
  * ctypedef npy_float32    float32_t
  * ctypedef npy_float64    float64_t             # <<<<<<<<<<<<<<
@@ -991,7 +994,7 @@ typedef npy_float32 __pyx_t_5numpy_float32_t;
  */
 typedef npy_float64 __pyx_t_5numpy_float64_t;
 
-/* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":713
+/* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":714
  * # The int types are mapped a bit surprising --
  * # numpy.int corresponds to 'l' and numpy.long to 'q'
  * ctypedef npy_long       int_t             # <<<<<<<<<<<<<<
@@ -1000,7 +1003,7 @@ typedef npy_float64 __pyx_t_5numpy_float64_t;
  */
 typedef npy_long __pyx_t_5numpy_int_t;
 
-/* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":714
+/* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":715
  * # numpy.int corresponds to 'l' and numpy.long to 'q'
  * ctypedef npy_long       int_t
  * ctypedef npy_longlong   long_t             # <<<<<<<<<<<<<<
@@ -1009,7 +1012,7 @@ typedef npy_long __pyx_t_5numpy_int_t;
  */
 typedef npy_longlong __pyx_t_5numpy_long_t;
 
-/* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":715
+/* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":716
  * ctypedef npy_long       int_t
  * ctypedef npy_longlong   long_t
  * ctypedef npy_longlong   longlong_t             # <<<<<<<<<<<<<<
@@ -1018,7 +1021,7 @@ typedef npy_longlong __pyx_t_5numpy_long_t;
  */
 typedef npy_longlong __pyx_t_5numpy_longlong_t;
 
-/* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":717
+/* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":718
  * ctypedef npy_longlong   longlong_t
  * 
  * ctypedef npy_ulong      uint_t             # <<<<<<<<<<<<<<
@@ -1027,7 +1030,7 @@ typedef npy_longlong __pyx_t_5numpy_longlong_t;
  */
 typedef npy_ulong __pyx_t_5numpy_uint_t;
 
-/* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":718
+/* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":719
  * 
  * ctypedef npy_ulong      uint_t
  * ctypedef npy_ulonglong  ulong_t             # <<<<<<<<<<<<<<
@@ -1036,7 +1039,7 @@ typedef npy_ulong __pyx_t_5numpy_uint_t;
  */
 typedef npy_ulonglong __pyx_t_5numpy_ulong_t;
 
-/* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":719
+/* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":720
  * ctypedef npy_ulong      uint_t
  * ctypedef npy_ulonglong  ulong_t
  * ctypedef npy_ulonglong  ulonglong_t             # <<<<<<<<<<<<<<
@@ -1045,7 +1048,7 @@ typedef npy_ulonglong __pyx_t_5numpy_ulong_t;
  */
 typedef npy_ulonglong __pyx_t_5numpy_ulonglong_t;
 
-/* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":721
+/* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":722
  * ctypedef npy_ulonglong  ulonglong_t
  * 
  * ctypedef npy_intp       intp_t             # <<<<<<<<<<<<<<
@@ -1054,7 +1057,7 @@ typedef npy_ulonglong __pyx_t_5numpy_ulonglong_t;
  */
 typedef npy_intp __pyx_t_5numpy_intp_t;
 
-/* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":722
+/* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":723
  * 
  * ctypedef npy_intp       intp_t
  * ctypedef npy_uintp      uintp_t             # <<<<<<<<<<<<<<
@@ -1063,7 +1066,7 @@ typedef npy_intp __pyx_t_5numpy_intp_t;
  */
 typedef npy_uintp __pyx_t_5numpy_uintp_t;
 
-/* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":724
+/* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":725
  * ctypedef npy_uintp      uintp_t
  * 
  * ctypedef npy_double     float_t             # <<<<<<<<<<<<<<
@@ -1072,7 +1075,7 @@ typedef npy_uintp __pyx_t_5numpy_uintp_t;
  */
 typedef npy_double __pyx_t_5numpy_float_t;
 
-/* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":725
+/* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":726
  * 
  * ctypedef npy_double     float_t
  * ctypedef npy_double     double_t             # <<<<<<<<<<<<<<
@@ -1081,7 +1084,7 @@ typedef npy_double __pyx_t_5numpy_float_t;
  */
 typedef npy_double __pyx_t_5numpy_double_t;
 
-/* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":726
+/* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":727
  * ctypedef npy_double     float_t
  * ctypedef npy_double     double_t
  * ctypedef npy_longdouble longdouble_t             # <<<<<<<<<<<<<<
@@ -1125,7 +1128,7 @@ static CYTHON_INLINE __pyx_t_double_complex __pyx_t_double_complex_from_parts(do
 
 /*--- Type declarations ---*/
 
-/* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":728
+/* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":729
  * ctypedef npy_longdouble longdouble_t
  * 
  * ctypedef npy_cfloat      cfloat_t             # <<<<<<<<<<<<<<
@@ -1134,7 +1137,7 @@ static CYTHON_INLINE __pyx_t_double_complex __pyx_t_double_complex_from_parts(do
  */
 typedef npy_cfloat __pyx_t_5numpy_cfloat_t;
 
-/* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":729
+/* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":730
  * 
  * ctypedef npy_cfloat      cfloat_t
  * ctypedef npy_cdouble     cdouble_t             # <<<<<<<<<<<<<<
@@ -1143,7 +1146,7 @@ typedef npy_cfloat __pyx_t_5numpy_cfloat_t;
  */
 typedef npy_cdouble __pyx_t_5numpy_cdouble_t;
 
-/* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":730
+/* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":731
  * ctypedef npy_cfloat      cfloat_t
  * ctypedef npy_cdouble     cdouble_t
  * ctypedef npy_clongdouble clongdouble_t             # <<<<<<<<<<<<<<
@@ -1152,7 +1155,7 @@ typedef npy_cdouble __pyx_t_5numpy_cdouble_t;
  */
 typedef npy_clongdouble __pyx_t_5numpy_clongdouble_t;
 
-/* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":732
+/* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":733
  * ctypedef npy_clongdouble clongdouble_t
  * 
  * ctypedef npy_cdouble     complex_t             # <<<<<<<<<<<<<<
@@ -1743,6 +1746,16 @@ static PyTypeObject *__pyx_ptype_5numpy_dtype = 0;
 static PyTypeObject *__pyx_ptype_5numpy_flatiter = 0;
 static PyTypeObject *__pyx_ptype_5numpy_broadcast = 0;
 static PyTypeObject *__pyx_ptype_5numpy_ndarray = 0;
+static PyTypeObject *__pyx_ptype_5numpy_generic = 0;
+static PyTypeObject *__pyx_ptype_5numpy_number = 0;
+static PyTypeObject *__pyx_ptype_5numpy_integer = 0;
+static PyTypeObject *__pyx_ptype_5numpy_signedinteger = 0;
+static PyTypeObject *__pyx_ptype_5numpy_unsignedinteger = 0;
+static PyTypeObject *__pyx_ptype_5numpy_inexact = 0;
+static PyTypeObject *__pyx_ptype_5numpy_floating = 0;
+static PyTypeObject *__pyx_ptype_5numpy_complexfloating = 0;
+static PyTypeObject *__pyx_ptype_5numpy_flexible = 0;
+static PyTypeObject *__pyx_ptype_5numpy_character = 0;
 static PyTypeObject *__pyx_ptype_5numpy_ufunc = 0;
 
 /* Module declarations from 'numpy.math' */
@@ -1821,12 +1834,13 @@ static const char __pyx_k_ImportError[] = "ImportError";
 static const char __pyx_k_wsintervals[] = "wsintervals";
 static const char __pyx_k_RuntimeError[] = "RuntimeError";
 static const char __pyx_k_intervaltype[] = "intervaltype";
+static const char __pyx_k_disable_checks[] = "disable_checks";
+static const char __pyx_k_lintegrate_pyx[] = "lintegrate.pyx";
 static const char __pyx_k_GSL_DBL_EPSILON[] = "GSL_DBL_EPSILON";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
 static const char __pyx_k_lintegrate_lintegrate[] = "lintegrate.lintegrate";
 static const char __pyx_k_lintegration_qag_failed[] = "'lintegration_qag' failed";
 static const char __pyx_k_lintegration_qng_failed[] = "'lintegration_qng' failed";
-static const char __pyx_k_lintegrate_lintegrate_pyx[] = "lintegrate/lintegrate.pyx";
 static const char __pyx_k_lintegration_cquad_failed[] = "'lintegration_cquad' failed";
 static const char __pyx_k_Integral_range_must_have_b_a[] = "Integral range must have b > a";
 static const char __pyx_k_intkey_must_be_1_2_3_4_5_or_6[] = "\"intkey\" must be 1, 2, 3, 4, 5, or 6";
@@ -1869,6 +1883,7 @@ static PyObject *__pyx_n_s_array;
 static PyObject *__pyx_n_s_b;
 static PyObject *__pyx_n_s_base;
 static PyObject *__pyx_n_s_cline_in_traceback;
+static PyObject *__pyx_n_s_disable_checks;
 static PyObject *__pyx_n_s_e;
 static PyObject *__pyx_n_s_epsabs;
 static PyObject *__pyx_n_s_epsrel;
@@ -1891,7 +1906,7 @@ static PyObject *__pyx_kp_s_limit_must_be_a_positive_intege;
 static PyObject *__pyx_n_s_linear;
 static PyObject *__pyx_n_s_linspace;
 static PyObject *__pyx_n_s_lintegrate_lintegrate;
-static PyObject *__pyx_kp_s_lintegrate_lintegrate_pyx;
+static PyObject *__pyx_kp_s_lintegrate_pyx;
 static PyObject *__pyx_kp_s_lintegration_cquad_failed;
 static PyObject *__pyx_kp_s_lintegration_qag_failed;
 static PyObject *__pyx_kp_s_lintegration_qng_failed;
@@ -1924,7 +1939,7 @@ static PyObject *__pyx_n_s_x;
 static PyObject *__pyx_n_s_xrange;
 static PyObject *__pyx_n_s_zip;
 static PyObject *__pyx_n_s_zp;
-static PyObject *__pyx_pf_10lintegrate_10lintegrate_logtrapz(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_f, PyObject *__pyx_v_x, PyObject *__pyx_v_args); /* proto */
+static PyObject *__pyx_pf_10lintegrate_10lintegrate_logtrapz(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_f, PyObject *__pyx_v_x, PyObject *__pyx_v_disable_checks, PyObject *__pyx_v_args); /* proto */
 static PyObject *__pyx_pf_10lintegrate_10lintegrate_2lqng(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_func, PyObject *__pyx_v_a, PyObject *__pyx_v_b, PyObject *__pyx_v_args, PyObject *__pyx_v_epsabs, PyObject *__pyx_v_epsrel, PyObject *__pyx_v_intervals, PyObject *__pyx_v_nintervals, PyObject *__pyx_v_intervaltype); /* proto */
 static PyObject *__pyx_pf_10lintegrate_10lintegrate_4lqag(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_func, PyObject *__pyx_v_a, PyObject *__pyx_v_b, PyObject *__pyx_v_args, PyObject *__pyx_v_epsabs, PyObject *__pyx_v_epsrel, PyObject *__pyx_v_limit, PyObject *__pyx_v_intkey, PyObject *__pyx_v_intervals, PyObject *__pyx_v_nintervals, PyObject *__pyx_v_intervaltype); /* proto */
 static PyObject *__pyx_pf_10lintegrate_10lintegrate_6lcquad(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_func, PyObject *__pyx_v_a, PyObject *__pyx_v_b, PyObject *__pyx_v_args, PyObject *__pyx_v_epsabs, PyObject *__pyx_v_epsrel, PyObject *__pyx_v_wsintervals, PyObject *__pyx_v_intervals, PyObject *__pyx_v_nintervals, PyObject *__pyx_v_intervaltype); /* proto */
@@ -2455,18 +2470,19 @@ static PyObject *__pyx_f_10lintegrate_10lintegrate_logplus(double __pyx_v_x, dou
 /* "lintegrate/lintegrate.pyx":107
  * Simple function to perform trapezium rule integration of a function when given its natural log
  * """
- * def logtrapz(f, x, args=()):             # <<<<<<<<<<<<<<
+ * def logtrapz(f, x, disable_checks=False, args=()):             # <<<<<<<<<<<<<<
  *     """
  *     Given the natural logarithm "f" of some function "g" (i.e., f = log(g)), compute the natural logarithm of the
  */
 
 /* Python wrapper */
 static PyObject *__pyx_pw_10lintegrate_10lintegrate_1logtrapz(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_10lintegrate_10lintegrate_logtrapz[] = "\n    Given the natural logarithm \"f\" of some function \"g\" (i.e., f = log(g)), compute the natural logarithm of the\n    integral of that function using the trapezium rule.\n\n    Parameters\n    ----------\n    f : :class:`numpy.ndarray`, list, or function handle\n        A set of values of the logarithm of a function evaluated at points given by `x`, or a\n       function handle of the log function to be evaluated.\n    x : :class:`numpy.ndarray`, list, or float\n        An array of values at which `f` has been evaluated, or is to be evaluated at. Or, provided\n        `f` is also an array, a single value giving the spacing between evaluation points (if the\n        function has been evaluated on an evenly spaced grid).\n    args : tuple\n        A tuple of any additional parameters required by the function `f` (to be unpacked within\n        the function).\n\n    Returns\n    -------\n    I : double\n        The natural logarithm of the integral of the function\n\n    ";
+static char __pyx_doc_10lintegrate_10lintegrate_logtrapz[] = "\n    Given the natural logarithm \"f\" of some function \"g\" (i.e., f = log(g)), compute the natural logarithm of the\n    integral of that function using the trapezium rule.\n\n    Parameters\n    ----------\n    f : :class:`numpy.ndarray`, list, or function handle\n        A set of values of the logarithm of a function evaluated at points given by `x`, or a\n       function handle of the log function to be evaluated.\n    x : :class:`numpy.ndarray`, list, or float\n        An array of values at which `f` has been evaluated, or is to be evaluated at. Or, provided\n        `f` is also an array, a single value giving the spacing between evaluation points (if the\n        function has been evaluated on an evenly spaced grid).\n    disable_checks : bool\n        Set this to True to disable checks, such as making sure x values are in ascending order.\n        Defaults to False.\n    args : tuple\n        A tuple of any additional parameters required by the function `f` (to be unpacked within\n        the function).\n\n    Returns\n    -------\n    I : double\n        The natural logarithm of the integral of the function\n\n    ";
 static PyMethodDef __pyx_mdef_10lintegrate_10lintegrate_1logtrapz = {"logtrapz", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_10lintegrate_10lintegrate_1logtrapz, METH_VARARGS|METH_KEYWORDS, __pyx_doc_10lintegrate_10lintegrate_logtrapz};
 static PyObject *__pyx_pw_10lintegrate_10lintegrate_1logtrapz(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_f = 0;
   PyObject *__pyx_v_x = 0;
+  PyObject *__pyx_v_disable_checks = 0;
   PyObject *__pyx_v_args = 0;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
@@ -2475,13 +2491,16 @@ static PyObject *__pyx_pw_10lintegrate_10lintegrate_1logtrapz(PyObject *__pyx_se
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("logtrapz (wrapper)", 0);
   {
-    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_f,&__pyx_n_s_x,&__pyx_n_s_args,0};
-    PyObject* values[3] = {0,0,0};
-    values[2] = ((PyObject *)__pyx_empty_tuple);
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_f,&__pyx_n_s_x,&__pyx_n_s_disable_checks,&__pyx_n_s_args,0};
+    PyObject* values[4] = {0,0,0,0};
+    values[2] = ((PyObject *)Py_False);
+    values[3] = ((PyObject *)__pyx_empty_tuple);
     if (unlikely(__pyx_kwds)) {
       Py_ssize_t kw_args;
       const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
       switch (pos_args) {
+        case  4: values[3] = PyTuple_GET_ITEM(__pyx_args, 3);
+        CYTHON_FALLTHROUGH;
         case  3: values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
         CYTHON_FALLTHROUGH;
         case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
@@ -2500,13 +2519,19 @@ static PyObject *__pyx_pw_10lintegrate_10lintegrate_1logtrapz(PyObject *__pyx_se
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_x)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("logtrapz", 0, 2, 3, 1); __PYX_ERR(0, 107, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("logtrapz", 0, 2, 4, 1); __PYX_ERR(0, 107, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (kw_args > 0) {
-          PyObject* value = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_args);
+          PyObject* value = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_disable_checks);
           if (value) { values[2] = value; kw_args--; }
+        }
+        CYTHON_FALLTHROUGH;
+        case  3:
+        if (kw_args > 0) {
+          PyObject* value = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_args);
+          if (value) { values[3] = value; kw_args--; }
         }
       }
       if (unlikely(kw_args > 0)) {
@@ -2514,6 +2539,8 @@ static PyObject *__pyx_pw_10lintegrate_10lintegrate_1logtrapz(PyObject *__pyx_se
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
+        case  4: values[3] = PyTuple_GET_ITEM(__pyx_args, 3);
+        CYTHON_FALLTHROUGH;
         case  3: values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
         CYTHON_FALLTHROUGH;
         case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
@@ -2524,24 +2551,25 @@ static PyObject *__pyx_pw_10lintegrate_10lintegrate_1logtrapz(PyObject *__pyx_se
     }
     __pyx_v_f = values[0];
     __pyx_v_x = values[1];
-    __pyx_v_args = values[2];
+    __pyx_v_disable_checks = values[2];
+    __pyx_v_args = values[3];
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("logtrapz", 0, 2, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 107, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("logtrapz", 0, 2, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 107, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("lintegrate.lintegrate.logtrapz", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_10lintegrate_10lintegrate_logtrapz(__pyx_self, __pyx_v_f, __pyx_v_x, __pyx_v_args);
+  __pyx_r = __pyx_pf_10lintegrate_10lintegrate_logtrapz(__pyx_self, __pyx_v_f, __pyx_v_x, __pyx_v_disable_checks, __pyx_v_args);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10lintegrate_10lintegrate_logtrapz(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_f, PyObject *__pyx_v_x, PyObject *__pyx_v_args) {
+static PyObject *__pyx_pf_10lintegrate_10lintegrate_logtrapz(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_f, PyObject *__pyx_v_x, PyObject *__pyx_v_disable_checks, PyObject *__pyx_v_args) {
   PyObject *__pyx_v_zp = NULL;
   PyObject *__pyx_v_vs = NULL;
   PyObject *__pyx_v_e = NULL;
@@ -2569,7 +2597,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_logtrapz(CYTHON_UNUSED PyObj
   __Pyx_RefNannySetupContext("logtrapz", 0);
   __Pyx_INCREF(__pyx_v_args);
 
-  /* "lintegrate/lintegrate.pyx":132
+  /* "lintegrate/lintegrate.pyx":135
  *     """
  * 
  *     if isinstance(f, np.ndarray) or isinstance(f, list):             # <<<<<<<<<<<<<<
@@ -2589,12 +2617,12 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_logtrapz(CYTHON_UNUSED PyObj
   __pyx_L4_bool_binop_done:;
   if (__pyx_t_1) {
 
-    /* "lintegrate/lintegrate.pyx":133
+    /* "lintegrate/lintegrate.pyx":136
  * 
  *     if isinstance(f, np.ndarray) or isinstance(f, list):
  *         if isinstance(x, np.ndarray) or isinstance(x, list):             # <<<<<<<<<<<<<<
  *             # check arrays are the same length
- *             assert len(f) == len(x) and len(x) > 1, "Function and function evaluation points are not the same length"
+ *             if not disable_checks:
  */
     __pyx_t_2 = __Pyx_TypeCheck(__pyx_v_x, __pyx_ptype_5numpy_ndarray); 
     __pyx_t_3 = (__pyx_t_2 != 0);
@@ -2609,116 +2637,216 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_logtrapz(CYTHON_UNUSED PyObj
     __pyx_L7_bool_binop_done:;
     if (__pyx_t_1) {
 
-      /* "lintegrate/lintegrate.pyx":135
+      /* "lintegrate/lintegrate.pyx":138
  *         if isinstance(x, np.ndarray) or isinstance(x, list):
  *             # check arrays are the same length
- *             assert len(f) == len(x) and len(x) > 1, "Function and function evaluation points are not the same length"             # <<<<<<<<<<<<<<
+ *             if not disable_checks:             # <<<<<<<<<<<<<<
+ *                 assert len(f) == len(x) and len(x) > 1, "Function and function evaluation points are not the same length"
  * 
- *             # make sure x values are in ascending order (keeping f values associated to their x evaluation points)
  */
-      #ifndef CYTHON_WITHOUT_ASSERTIONS
-      if (unlikely(!Py_OptimizeFlag)) {
-        __pyx_t_4 = PyObject_Length(__pyx_v_f); if (unlikely(__pyx_t_4 == ((Py_ssize_t)-1))) __PYX_ERR(0, 135, __pyx_L1_error)
-        __pyx_t_5 = PyObject_Length(__pyx_v_x); if (unlikely(__pyx_t_5 == ((Py_ssize_t)-1))) __PYX_ERR(0, 135, __pyx_L1_error)
-        __pyx_t_2 = ((__pyx_t_4 == __pyx_t_5) != 0);
-        if (__pyx_t_2) {
-        } else {
-          __pyx_t_1 = __pyx_t_2;
-          goto __pyx_L9_bool_binop_done;
-        }
-        __pyx_t_5 = PyObject_Length(__pyx_v_x); if (unlikely(__pyx_t_5 == ((Py_ssize_t)-1))) __PYX_ERR(0, 135, __pyx_L1_error)
-        __pyx_t_2 = ((__pyx_t_5 > 1) != 0);
-        __pyx_t_1 = __pyx_t_2;
-        __pyx_L9_bool_binop_done:;
-        if (unlikely(!__pyx_t_1)) {
-          PyErr_SetObject(PyExc_AssertionError, __pyx_kp_s_Function_and_function_evaluation_2);
-          __PYX_ERR(0, 135, __pyx_L1_error)
-        }
-      }
-      #endif
+      __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_disable_checks); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 138, __pyx_L1_error)
+      __pyx_t_2 = ((!__pyx_t_1) != 0);
+      if (__pyx_t_2) {
 
-      /* "lintegrate/lintegrate.pyx":138
+        /* "lintegrate/lintegrate.pyx":139
+ *             # check arrays are the same length
+ *             if not disable_checks:
+ *                 assert len(f) == len(x) and len(x) > 1, "Function and function evaluation points are not the same length"             # <<<<<<<<<<<<<<
  * 
- *             # make sure x values are in ascending order (keeping f values associated to their x evaluation points)
- *             zp = np.array(sorted(zip(x, f)))             # <<<<<<<<<<<<<<
- * 
- *             # perform trapezium rule (internal logtrapzC function is faster than using scipy logsumexp)
+ *             if not disable_checks:
  */
-      __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_np); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 138, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_7);
-      __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_array); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 138, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_8);
-      __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-      __pyx_t_9 = PyTuple_New(2); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 138, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_9);
-      __Pyx_INCREF(__pyx_v_x);
-      __Pyx_GIVEREF(__pyx_v_x);
-      PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_v_x);
-      __Pyx_INCREF(__pyx_v_f);
-      __Pyx_GIVEREF(__pyx_v_f);
-      PyTuple_SET_ITEM(__pyx_t_9, 1, __pyx_v_f);
-      __pyx_t_10 = __Pyx_PyObject_Call(__pyx_builtin_zip, __pyx_t_9, NULL); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 138, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_10);
-      __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-      __pyx_t_9 = PySequence_List(__pyx_t_10); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 138, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_9);
-      __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-      __pyx_t_7 = ((PyObject*)__pyx_t_9);
-      __pyx_t_9 = 0;
-      __pyx_t_11 = PyList_Sort(__pyx_t_7); if (unlikely(__pyx_t_11 == ((int)-1))) __PYX_ERR(0, 138, __pyx_L1_error)
-      __pyx_t_9 = NULL;
-      if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_8))) {
-        __pyx_t_9 = PyMethod_GET_SELF(__pyx_t_8);
-        if (likely(__pyx_t_9)) {
-          PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_8);
-          __Pyx_INCREF(__pyx_t_9);
-          __Pyx_INCREF(function);
-          __Pyx_DECREF_SET(__pyx_t_8, function);
+        #ifndef CYTHON_WITHOUT_ASSERTIONS
+        if (unlikely(!Py_OptimizeFlag)) {
+          __pyx_t_4 = PyObject_Length(__pyx_v_f); if (unlikely(__pyx_t_4 == ((Py_ssize_t)-1))) __PYX_ERR(0, 139, __pyx_L1_error)
+          __pyx_t_5 = PyObject_Length(__pyx_v_x); if (unlikely(__pyx_t_5 == ((Py_ssize_t)-1))) __PYX_ERR(0, 139, __pyx_L1_error)
+          __pyx_t_1 = ((__pyx_t_4 == __pyx_t_5) != 0);
+          if (__pyx_t_1) {
+          } else {
+            __pyx_t_2 = __pyx_t_1;
+            goto __pyx_L10_bool_binop_done;
+          }
+          __pyx_t_5 = PyObject_Length(__pyx_v_x); if (unlikely(__pyx_t_5 == ((Py_ssize_t)-1))) __PYX_ERR(0, 139, __pyx_L1_error)
+          __pyx_t_1 = ((__pyx_t_5 > 1) != 0);
+          __pyx_t_2 = __pyx_t_1;
+          __pyx_L10_bool_binop_done:;
+          if (unlikely(!__pyx_t_2)) {
+            PyErr_SetObject(PyExc_AssertionError, __pyx_kp_s_Function_and_function_evaluation_2);
+            __PYX_ERR(0, 139, __pyx_L1_error)
+          }
         }
+        #endif
+
+        /* "lintegrate/lintegrate.pyx":138
+ *         if isinstance(x, np.ndarray) or isinstance(x, list):
+ *             # check arrays are the same length
+ *             if not disable_checks:             # <<<<<<<<<<<<<<
+ *                 assert len(f) == len(x) and len(x) > 1, "Function and function evaluation points are not the same length"
+ * 
+ */
       }
-      __pyx_t_6 = (__pyx_t_9) ? __Pyx_PyObject_Call2Args(__pyx_t_8, __pyx_t_9, __pyx_t_7) : __Pyx_PyObject_CallOneArg(__pyx_t_8, __pyx_t_7);
-      __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
-      __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-      if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 138, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_6);
-      __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-      __pyx_v_zp = __pyx_t_6;
-      __pyx_t_6 = 0;
 
       /* "lintegrate/lintegrate.pyx":141
+ *                 assert len(f) == len(x) and len(x) > 1, "Function and function evaluation points are not the same length"
  * 
- *             # perform trapezium rule (internal logtrapzC function is faster than using scipy logsumexp)
- *             return logtrapzC(zp[:,1], zp[:,0])             # <<<<<<<<<<<<<<
+ *             if not disable_checks:             # <<<<<<<<<<<<<<
+ *                 # make sure x values are in ascending order (keeping f values associated to their x evaluation points)
+ *                 zp = np.array(sorted(zip(x, f)))
+ */
+      __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_v_disable_checks); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 141, __pyx_L1_error)
+      __pyx_t_1 = ((!__pyx_t_2) != 0);
+      if (__pyx_t_1) {
+
+        /* "lintegrate/lintegrate.pyx":143
+ *             if not disable_checks:
+ *                 # make sure x values are in ascending order (keeping f values associated to their x evaluation points)
+ *                 zp = np.array(sorted(zip(x, f)))             # <<<<<<<<<<<<<<
+ * 
+ *                 # perform trapezium rule (internal logtrapzC function is faster than using scipy logsumexp)
+ */
+        __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_np); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 143, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_7);
+        __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_array); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 143, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_8);
+        __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+        __pyx_t_9 = PyTuple_New(2); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 143, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_9);
+        __Pyx_INCREF(__pyx_v_x);
+        __Pyx_GIVEREF(__pyx_v_x);
+        PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_v_x);
+        __Pyx_INCREF(__pyx_v_f);
+        __Pyx_GIVEREF(__pyx_v_f);
+        PyTuple_SET_ITEM(__pyx_t_9, 1, __pyx_v_f);
+        __pyx_t_10 = __Pyx_PyObject_Call(__pyx_builtin_zip, __pyx_t_9, NULL); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 143, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_10);
+        __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
+        __pyx_t_9 = PySequence_List(__pyx_t_10); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 143, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_9);
+        __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
+        __pyx_t_7 = ((PyObject*)__pyx_t_9);
+        __pyx_t_9 = 0;
+        __pyx_t_11 = PyList_Sort(__pyx_t_7); if (unlikely(__pyx_t_11 == ((int)-1))) __PYX_ERR(0, 143, __pyx_L1_error)
+        __pyx_t_9 = NULL;
+        if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_8))) {
+          __pyx_t_9 = PyMethod_GET_SELF(__pyx_t_8);
+          if (likely(__pyx_t_9)) {
+            PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_8);
+            __Pyx_INCREF(__pyx_t_9);
+            __Pyx_INCREF(function);
+            __Pyx_DECREF_SET(__pyx_t_8, function);
+          }
+        }
+        __pyx_t_6 = (__pyx_t_9) ? __Pyx_PyObject_Call2Args(__pyx_t_8, __pyx_t_9, __pyx_t_7) : __Pyx_PyObject_CallOneArg(__pyx_t_8, __pyx_t_7);
+        __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
+        __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+        if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 143, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_6);
+        __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+        __pyx_v_zp = __pyx_t_6;
+        __pyx_t_6 = 0;
+
+        /* "lintegrate/lintegrate.pyx":146
+ * 
+ *                 # perform trapezium rule (internal logtrapzC function is faster than using scipy logsumexp)
+ *                 return logtrapzC(zp[:,1], zp[:,0])             # <<<<<<<<<<<<<<
+ *             else:
+ *                 return logtrapzC(np.array(f), np.array(x))
+ */
+        __Pyx_XDECREF(__pyx_r);
+        __pyx_t_6 = __Pyx_PyObject_GetItem(__pyx_v_zp, __pyx_tuple__2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 146, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_6);
+        if (!(likely(((__pyx_t_6) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_6, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 146, __pyx_L1_error)
+        __pyx_t_8 = __Pyx_PyObject_GetItem(__pyx_v_zp, __pyx_tuple__3); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 146, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_8);
+        if (!(likely(((__pyx_t_8) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_8, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 146, __pyx_L1_error)
+        __pyx_t_7 = PyFloat_FromDouble(__pyx_f_10lintegrate_10lintegrate_logtrapzC(((PyArrayObject *)__pyx_t_6), ((PyArrayObject *)__pyx_t_8))); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 146, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_7);
+        __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+        __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+        __pyx_r = __pyx_t_7;
+        __pyx_t_7 = 0;
+        goto __pyx_L0;
+
+        /* "lintegrate/lintegrate.pyx":141
+ *                 assert len(f) == len(x) and len(x) > 1, "Function and function evaluation points are not the same length"
+ * 
+ *             if not disable_checks:             # <<<<<<<<<<<<<<
+ *                 # make sure x values are in ascending order (keeping f values associated to their x evaluation points)
+ *                 zp = np.array(sorted(zip(x, f)))
+ */
+      }
+
+      /* "lintegrate/lintegrate.pyx":148
+ *                 return logtrapzC(zp[:,1], zp[:,0])
+ *             else:
+ *                 return logtrapzC(np.array(f), np.array(x))             # <<<<<<<<<<<<<<
  *         elif isinstance(x, float):
  *             assert x > 0., "Evaluation spacings must be positive"
  */
-      __Pyx_XDECREF(__pyx_r);
-      __pyx_t_6 = __Pyx_PyObject_GetItem(__pyx_v_zp, __pyx_tuple__2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 141, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_6);
-      if (!(likely(((__pyx_t_6) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_6, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 141, __pyx_L1_error)
-      __pyx_t_8 = __Pyx_PyObject_GetItem(__pyx_v_zp, __pyx_tuple__3); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 141, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_8);
-      if (!(likely(((__pyx_t_8) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_8, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 141, __pyx_L1_error)
-      __pyx_t_7 = PyFloat_FromDouble(__pyx_f_10lintegrate_10lintegrate_logtrapzC(((PyArrayObject *)__pyx_t_6), ((PyArrayObject *)__pyx_t_8))); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 141, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_7);
-      __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-      __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-      __pyx_r = __pyx_t_7;
-      __pyx_t_7 = 0;
-      goto __pyx_L0;
+      /*else*/ {
+        __Pyx_XDECREF(__pyx_r);
+        __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_np); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 148, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_8);
+        __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_array); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 148, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_6);
+        __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+        __pyx_t_8 = NULL;
+        if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_6))) {
+          __pyx_t_8 = PyMethod_GET_SELF(__pyx_t_6);
+          if (likely(__pyx_t_8)) {
+            PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_6);
+            __Pyx_INCREF(__pyx_t_8);
+            __Pyx_INCREF(function);
+            __Pyx_DECREF_SET(__pyx_t_6, function);
+          }
+        }
+        __pyx_t_7 = (__pyx_t_8) ? __Pyx_PyObject_Call2Args(__pyx_t_6, __pyx_t_8, __pyx_v_f) : __Pyx_PyObject_CallOneArg(__pyx_t_6, __pyx_v_f);
+        __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
+        if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 148, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_7);
+        __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+        if (!(likely(((__pyx_t_7) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_7, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 148, __pyx_L1_error)
+        __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_np); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 148, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_8);
+        __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_array); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 148, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_9);
+        __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+        __pyx_t_8 = NULL;
+        if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_9))) {
+          __pyx_t_8 = PyMethod_GET_SELF(__pyx_t_9);
+          if (likely(__pyx_t_8)) {
+            PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_9);
+            __Pyx_INCREF(__pyx_t_8);
+            __Pyx_INCREF(function);
+            __Pyx_DECREF_SET(__pyx_t_9, function);
+          }
+        }
+        __pyx_t_6 = (__pyx_t_8) ? __Pyx_PyObject_Call2Args(__pyx_t_9, __pyx_t_8, __pyx_v_x) : __Pyx_PyObject_CallOneArg(__pyx_t_9, __pyx_v_x);
+        __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
+        if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 148, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_6);
+        __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
+        if (!(likely(((__pyx_t_6) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_6, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 148, __pyx_L1_error)
+        __pyx_t_9 = PyFloat_FromDouble(__pyx_f_10lintegrate_10lintegrate_logtrapzC(((PyArrayObject *)__pyx_t_7), ((PyArrayObject *)__pyx_t_6))); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 148, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_9);
+        __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+        __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+        __pyx_r = __pyx_t_9;
+        __pyx_t_9 = 0;
+        goto __pyx_L0;
+      }
 
-      /* "lintegrate/lintegrate.pyx":133
+      /* "lintegrate/lintegrate.pyx":136
  * 
  *     if isinstance(f, np.ndarray) or isinstance(f, list):
  *         if isinstance(x, np.ndarray) or isinstance(x, list):             # <<<<<<<<<<<<<<
  *             # check arrays are the same length
- *             assert len(f) == len(x) and len(x) > 1, "Function and function evaluation points are not the same length"
+ *             if not disable_checks:
  */
     }
 
-    /* "lintegrate/lintegrate.pyx":142
- *             # perform trapezium rule (internal logtrapzC function is faster than using scipy logsumexp)
- *             return logtrapzC(zp[:,1], zp[:,0])
+    /* "lintegrate/lintegrate.pyx":149
+ *             else:
+ *                 return logtrapzC(np.array(f), np.array(x))
  *         elif isinstance(x, float):             # <<<<<<<<<<<<<<
  *             assert x > 0., "Evaluation spacings must be positive"
  * 
@@ -2727,8 +2855,8 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_logtrapz(CYTHON_UNUSED PyObj
     __pyx_t_2 = (__pyx_t_1 != 0);
     if (likely(__pyx_t_2)) {
 
-      /* "lintegrate/lintegrate.pyx":143
- *             return logtrapzC(zp[:,1], zp[:,0])
+      /* "lintegrate/lintegrate.pyx":150
+ *                 return logtrapzC(np.array(f), np.array(x))
  *         elif isinstance(x, float):
  *             assert x > 0., "Evaluation spacings must be positive"             # <<<<<<<<<<<<<<
  * 
@@ -2736,17 +2864,17 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_logtrapz(CYTHON_UNUSED PyObj
  */
       #ifndef CYTHON_WITHOUT_ASSERTIONS
       if (unlikely(!Py_OptimizeFlag)) {
-        __pyx_t_7 = PyObject_RichCompare(__pyx_v_x, __pyx_float_0_, Py_GT); __Pyx_XGOTREF(__pyx_t_7); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 143, __pyx_L1_error)
-        __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_7); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 143, __pyx_L1_error)
-        __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+        __pyx_t_9 = PyObject_RichCompare(__pyx_v_x, __pyx_float_0_, Py_GT); __Pyx_XGOTREF(__pyx_t_9); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 150, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_9); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 150, __pyx_L1_error)
+        __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
         if (unlikely(!__pyx_t_2)) {
           PyErr_SetObject(PyExc_AssertionError, __pyx_kp_s_Evaluation_spacings_must_be_posi);
-          __PYX_ERR(0, 143, __pyx_L1_error)
+          __PYX_ERR(0, 150, __pyx_L1_error)
         }
       }
       #endif
 
-      /* "lintegrate/lintegrate.pyx":146
+      /* "lintegrate/lintegrate.pyx":153
  * 
  *             # perform trapezium rule
  *             return logtrapzC(f, np.array([x]))             # <<<<<<<<<<<<<<
@@ -2754,51 +2882,51 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_logtrapz(CYTHON_UNUSED PyObj
  *             raise TypeError('Error... value of "x" must be a numpy array or a float')
  */
       __Pyx_XDECREF(__pyx_r);
-      if (!(likely(((__pyx_v_f) == Py_None) || likely(__Pyx_TypeTest(__pyx_v_f, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 146, __pyx_L1_error)
-      __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_np); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 146, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_8);
-      __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_array); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 146, __pyx_L1_error)
+      if (!(likely(((__pyx_v_f) == Py_None) || likely(__Pyx_TypeTest(__pyx_v_f, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 153, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_np); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 153, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
-      __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-      __pyx_t_8 = PyList_New(1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 146, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_8);
-      __Pyx_INCREF(__pyx_v_x);
-      __Pyx_GIVEREF(__pyx_v_x);
-      PyList_SET_ITEM(__pyx_t_8, 0, __pyx_v_x);
-      __pyx_t_9 = NULL;
-      if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_6))) {
-        __pyx_t_9 = PyMethod_GET_SELF(__pyx_t_6);
-        if (likely(__pyx_t_9)) {
-          PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_6);
-          __Pyx_INCREF(__pyx_t_9);
-          __Pyx_INCREF(function);
-          __Pyx_DECREF_SET(__pyx_t_6, function);
-        }
-      }
-      __pyx_t_7 = (__pyx_t_9) ? __Pyx_PyObject_Call2Args(__pyx_t_6, __pyx_t_9, __pyx_t_8) : __Pyx_PyObject_CallOneArg(__pyx_t_6, __pyx_t_8);
-      __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
-      __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-      if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 146, __pyx_L1_error)
+      __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_array); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 153, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-      if (!(likely(((__pyx_t_7) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_7, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 146, __pyx_L1_error)
-      __pyx_t_6 = PyFloat_FromDouble(__pyx_f_10lintegrate_10lintegrate_logtrapzC(((PyArrayObject *)__pyx_v_f), ((PyArrayObject *)__pyx_t_7))); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 146, __pyx_L1_error)
+      __pyx_t_6 = PyList_New(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 153, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
+      __Pyx_INCREF(__pyx_v_x);
+      __Pyx_GIVEREF(__pyx_v_x);
+      PyList_SET_ITEM(__pyx_t_6, 0, __pyx_v_x);
+      __pyx_t_8 = NULL;
+      if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_7))) {
+        __pyx_t_8 = PyMethod_GET_SELF(__pyx_t_7);
+        if (likely(__pyx_t_8)) {
+          PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_7);
+          __Pyx_INCREF(__pyx_t_8);
+          __Pyx_INCREF(function);
+          __Pyx_DECREF_SET(__pyx_t_7, function);
+        }
+      }
+      __pyx_t_9 = (__pyx_t_8) ? __Pyx_PyObject_Call2Args(__pyx_t_7, __pyx_t_8, __pyx_t_6) : __Pyx_PyObject_CallOneArg(__pyx_t_7, __pyx_t_6);
+      __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
+      __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+      if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 153, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_9);
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-      __pyx_r = __pyx_t_6;
-      __pyx_t_6 = 0;
+      if (!(likely(((__pyx_t_9) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_9, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 153, __pyx_L1_error)
+      __pyx_t_7 = PyFloat_FromDouble(__pyx_f_10lintegrate_10lintegrate_logtrapzC(((PyArrayObject *)__pyx_v_f), ((PyArrayObject *)__pyx_t_9))); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 153, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_7);
+      __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
+      __pyx_r = __pyx_t_7;
+      __pyx_t_7 = 0;
       goto __pyx_L0;
 
-      /* "lintegrate/lintegrate.pyx":142
- *             # perform trapezium rule (internal logtrapzC function is faster than using scipy logsumexp)
- *             return logtrapzC(zp[:,1], zp[:,0])
+      /* "lintegrate/lintegrate.pyx":149
+ *             else:
+ *                 return logtrapzC(np.array(f), np.array(x))
  *         elif isinstance(x, float):             # <<<<<<<<<<<<<<
  *             assert x > 0., "Evaluation spacings must be positive"
  * 
  */
     }
 
-    /* "lintegrate/lintegrate.pyx":148
+    /* "lintegrate/lintegrate.pyx":155
  *             return logtrapzC(f, np.array([x]))
  *         else:
  *             raise TypeError('Error... value of "x" must be a numpy array or a float')             # <<<<<<<<<<<<<<
@@ -2806,14 +2934,14 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_logtrapz(CYTHON_UNUSED PyObj
  *         if isinstance(x, np.ndarray) or isinstance(x, list):
  */
     /*else*/ {
-      __pyx_t_6 = __Pyx_PyObject_Call(__pyx_builtin_TypeError, __pyx_tuple__4, NULL); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 148, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_6);
-      __Pyx_Raise(__pyx_t_6, 0, 0, 0);
-      __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-      __PYX_ERR(0, 148, __pyx_L1_error)
+      __pyx_t_7 = __Pyx_PyObject_Call(__pyx_builtin_TypeError, __pyx_tuple__4, NULL); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 155, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_7);
+      __Pyx_Raise(__pyx_t_7, 0, 0, 0);
+      __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+      __PYX_ERR(0, 155, __pyx_L1_error)
     }
 
-    /* "lintegrate/lintegrate.pyx":132
+    /* "lintegrate/lintegrate.pyx":135
  *     """
  * 
  *     if isinstance(f, np.ndarray) or isinstance(f, list):             # <<<<<<<<<<<<<<
@@ -2822,56 +2950,76 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_logtrapz(CYTHON_UNUSED PyObj
  */
   }
 
-  /* "lintegrate/lintegrate.pyx":149
+  /* "lintegrate/lintegrate.pyx":156
  *         else:
  *             raise TypeError('Error... value of "x" must be a numpy array or a float')
  *     elif callable(f): # f is a function             # <<<<<<<<<<<<<<
  *         if isinstance(x, np.ndarray) or isinstance(x, list):
- *             assert len(x) > 1, "Function must be evaluated at more than one point"
+ *             if not disable_checks:
  */
-  __pyx_t_2 = __Pyx_PyCallable_Check(__pyx_v_f); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 149, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyCallable_Check(__pyx_v_f); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 156, __pyx_L1_error)
   __pyx_t_1 = (__pyx_t_2 != 0);
   if (likely(__pyx_t_1)) {
 
-    /* "lintegrate/lintegrate.pyx":150
+    /* "lintegrate/lintegrate.pyx":157
  *             raise TypeError('Error... value of "x" must be a numpy array or a float')
  *     elif callable(f): # f is a function
  *         if isinstance(x, np.ndarray) or isinstance(x, list):             # <<<<<<<<<<<<<<
- *             assert len(x) > 1, "Function must be evaluated at more than one point"
- * 
+ *             if not disable_checks:
+ *                 assert len(x) > 1, "Function must be evaluated at more than one point"
  */
     __pyx_t_2 = __Pyx_TypeCheck(__pyx_v_x, __pyx_ptype_5numpy_ndarray); 
     __pyx_t_3 = (__pyx_t_2 != 0);
     if (!__pyx_t_3) {
     } else {
       __pyx_t_1 = __pyx_t_3;
-      goto __pyx_L12_bool_binop_done;
+      goto __pyx_L14_bool_binop_done;
     }
     __pyx_t_3 = PyList_Check(__pyx_v_x); 
     __pyx_t_2 = (__pyx_t_3 != 0);
     __pyx_t_1 = __pyx_t_2;
-    __pyx_L12_bool_binop_done:;
+    __pyx_L14_bool_binop_done:;
     if (likely(__pyx_t_1)) {
 
-      /* "lintegrate/lintegrate.pyx":151
+      /* "lintegrate/lintegrate.pyx":158
  *     elif callable(f): # f is a function
  *         if isinstance(x, np.ndarray) or isinstance(x, list):
- *             assert len(x) > 1, "Function must be evaluated at more than one point"             # <<<<<<<<<<<<<<
+ *             if not disable_checks:             # <<<<<<<<<<<<<<
+ *                 assert len(x) > 1, "Function must be evaluated at more than one point"
+ * 
+ */
+      __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_disable_checks); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 158, __pyx_L1_error)
+      __pyx_t_2 = ((!__pyx_t_1) != 0);
+      if (__pyx_t_2) {
+
+        /* "lintegrate/lintegrate.pyx":159
+ *         if isinstance(x, np.ndarray) or isinstance(x, list):
+ *             if not disable_checks:
+ *                 assert len(x) > 1, "Function must be evaluated at more than one point"             # <<<<<<<<<<<<<<
  * 
  *             try:
  */
-      #ifndef CYTHON_WITHOUT_ASSERTIONS
-      if (unlikely(!Py_OptimizeFlag)) {
-        __pyx_t_5 = PyObject_Length(__pyx_v_x); if (unlikely(__pyx_t_5 == ((Py_ssize_t)-1))) __PYX_ERR(0, 151, __pyx_L1_error)
-        if (unlikely(!((__pyx_t_5 > 1) != 0))) {
-          PyErr_SetObject(PyExc_AssertionError, __pyx_kp_s_Function_must_be_evaluated_at_mo);
-          __PYX_ERR(0, 151, __pyx_L1_error)
+        #ifndef CYTHON_WITHOUT_ASSERTIONS
+        if (unlikely(!Py_OptimizeFlag)) {
+          __pyx_t_5 = PyObject_Length(__pyx_v_x); if (unlikely(__pyx_t_5 == ((Py_ssize_t)-1))) __PYX_ERR(0, 159, __pyx_L1_error)
+          if (unlikely(!((__pyx_t_5 > 1) != 0))) {
+            PyErr_SetObject(PyExc_AssertionError, __pyx_kp_s_Function_must_be_evaluated_at_mo);
+            __PYX_ERR(0, 159, __pyx_L1_error)
+          }
         }
-      }
-      #endif
+        #endif
 
-      /* "lintegrate/lintegrate.pyx":153
- *             assert len(x) > 1, "Function must be evaluated at more than one point"
+        /* "lintegrate/lintegrate.pyx":158
+ *     elif callable(f): # f is a function
+ *         if isinstance(x, np.ndarray) or isinstance(x, list):
+ *             if not disable_checks:             # <<<<<<<<<<<<<<
+ *                 assert len(x) > 1, "Function must be evaluated at more than one point"
+ * 
+ */
+      }
+
+      /* "lintegrate/lintegrate.pyx":161
+ *                 assert len(x) > 1, "Function must be evaluated at more than one point"
  * 
  *             try:             # <<<<<<<<<<<<<<
  *                 if not isinstance(args, tuple):
@@ -2886,33 +3034,33 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_logtrapz(CYTHON_UNUSED PyObj
         __Pyx_XGOTREF(__pyx_t_14);
         /*try:*/ {
 
-          /* "lintegrate/lintegrate.pyx":154
+          /* "lintegrate/lintegrate.pyx":162
  * 
  *             try:
  *                 if not isinstance(args, tuple):             # <<<<<<<<<<<<<<
  *                     args = (args,)
  *                 vs = f(np.array(x), args) # make sure x is an array when passed to function
  */
-          __pyx_t_1 = PyTuple_Check(__pyx_v_args); 
-          __pyx_t_2 = ((!(__pyx_t_1 != 0)) != 0);
-          if (__pyx_t_2) {
+          __pyx_t_2 = PyTuple_Check(__pyx_v_args); 
+          __pyx_t_1 = ((!(__pyx_t_2 != 0)) != 0);
+          if (__pyx_t_1) {
 
-            /* "lintegrate/lintegrate.pyx":155
+            /* "lintegrate/lintegrate.pyx":163
  *             try:
  *                 if not isinstance(args, tuple):
  *                     args = (args,)             # <<<<<<<<<<<<<<
  *                 vs = f(np.array(x), args) # make sure x is an array when passed to function
  *             except Exception as e:
  */
-            __pyx_t_6 = PyTuple_New(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 155, __pyx_L14_error)
-            __Pyx_GOTREF(__pyx_t_6);
+            __pyx_t_7 = PyTuple_New(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 163, __pyx_L17_error)
+            __Pyx_GOTREF(__pyx_t_7);
             __Pyx_INCREF(__pyx_v_args);
             __Pyx_GIVEREF(__pyx_v_args);
-            PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_v_args);
-            __Pyx_DECREF_SET(__pyx_v_args, __pyx_t_6);
-            __pyx_t_6 = 0;
+            PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_v_args);
+            __Pyx_DECREF_SET(__pyx_v_args, __pyx_t_7);
+            __pyx_t_7 = 0;
 
-            /* "lintegrate/lintegrate.pyx":154
+            /* "lintegrate/lintegrate.pyx":162
  * 
  *             try:
  *                 if not isinstance(args, tuple):             # <<<<<<<<<<<<<<
@@ -2921,86 +3069,86 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_logtrapz(CYTHON_UNUSED PyObj
  */
           }
 
-          /* "lintegrate/lintegrate.pyx":156
+          /* "lintegrate/lintegrate.pyx":164
  *                 if not isinstance(args, tuple):
  *                     args = (args,)
  *                 vs = f(np.array(x), args) # make sure x is an array when passed to function             # <<<<<<<<<<<<<<
  *             except Exception as e:
  *                 raise RuntimeError('Error... could not evaluate function "f": {}'.format(e))
  */
-          __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_np); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 156, __pyx_L14_error)
+          __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_np); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 164, __pyx_L17_error)
+          __Pyx_GOTREF(__pyx_t_6);
+          __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_array); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 164, __pyx_L17_error)
           __Pyx_GOTREF(__pyx_t_8);
-          __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_array); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 156, __pyx_L14_error)
-          __Pyx_GOTREF(__pyx_t_9);
-          __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-          __pyx_t_8 = NULL;
-          if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_9))) {
-            __pyx_t_8 = PyMethod_GET_SELF(__pyx_t_9);
-            if (likely(__pyx_t_8)) {
-              PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_9);
-              __Pyx_INCREF(__pyx_t_8);
+          __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+          __pyx_t_6 = NULL;
+          if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_8))) {
+            __pyx_t_6 = PyMethod_GET_SELF(__pyx_t_8);
+            if (likely(__pyx_t_6)) {
+              PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_8);
+              __Pyx_INCREF(__pyx_t_6);
               __Pyx_INCREF(function);
-              __Pyx_DECREF_SET(__pyx_t_9, function);
+              __Pyx_DECREF_SET(__pyx_t_8, function);
             }
           }
-          __pyx_t_7 = (__pyx_t_8) ? __Pyx_PyObject_Call2Args(__pyx_t_9, __pyx_t_8, __pyx_v_x) : __Pyx_PyObject_CallOneArg(__pyx_t_9, __pyx_v_x);
-          __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
-          if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 156, __pyx_L14_error)
-          __Pyx_GOTREF(__pyx_t_7);
-          __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
+          __pyx_t_9 = (__pyx_t_6) ? __Pyx_PyObject_Call2Args(__pyx_t_8, __pyx_t_6, __pyx_v_x) : __Pyx_PyObject_CallOneArg(__pyx_t_8, __pyx_v_x);
+          __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
+          if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 164, __pyx_L17_error)
+          __Pyx_GOTREF(__pyx_t_9);
+          __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
           __Pyx_INCREF(__pyx_v_f);
-          __pyx_t_9 = __pyx_v_f; __pyx_t_8 = NULL;
+          __pyx_t_8 = __pyx_v_f; __pyx_t_6 = NULL;
           __pyx_t_15 = 0;
-          if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_9))) {
-            __pyx_t_8 = PyMethod_GET_SELF(__pyx_t_9);
-            if (likely(__pyx_t_8)) {
-              PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_9);
-              __Pyx_INCREF(__pyx_t_8);
+          if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_8))) {
+            __pyx_t_6 = PyMethod_GET_SELF(__pyx_t_8);
+            if (likely(__pyx_t_6)) {
+              PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_8);
+              __Pyx_INCREF(__pyx_t_6);
               __Pyx_INCREF(function);
-              __Pyx_DECREF_SET(__pyx_t_9, function);
+              __Pyx_DECREF_SET(__pyx_t_8, function);
               __pyx_t_15 = 1;
             }
           }
           #if CYTHON_FAST_PYCALL
-          if (PyFunction_Check(__pyx_t_9)) {
-            PyObject *__pyx_temp[3] = {__pyx_t_8, __pyx_t_7, __pyx_v_args};
-            __pyx_t_6 = __Pyx_PyFunction_FastCall(__pyx_t_9, __pyx_temp+1-__pyx_t_15, 2+__pyx_t_15); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 156, __pyx_L14_error)
-            __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
-            __Pyx_GOTREF(__pyx_t_6);
-            __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+          if (PyFunction_Check(__pyx_t_8)) {
+            PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_t_9, __pyx_v_args};
+            __pyx_t_7 = __Pyx_PyFunction_FastCall(__pyx_t_8, __pyx_temp+1-__pyx_t_15, 2+__pyx_t_15); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 164, __pyx_L17_error)
+            __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
+            __Pyx_GOTREF(__pyx_t_7);
+            __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
           } else
           #endif
           #if CYTHON_FAST_PYCCALL
-          if (__Pyx_PyFastCFunction_Check(__pyx_t_9)) {
-            PyObject *__pyx_temp[3] = {__pyx_t_8, __pyx_t_7, __pyx_v_args};
-            __pyx_t_6 = __Pyx_PyCFunction_FastCall(__pyx_t_9, __pyx_temp+1-__pyx_t_15, 2+__pyx_t_15); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 156, __pyx_L14_error)
-            __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
-            __Pyx_GOTREF(__pyx_t_6);
-            __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+          if (__Pyx_PyFastCFunction_Check(__pyx_t_8)) {
+            PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_t_9, __pyx_v_args};
+            __pyx_t_7 = __Pyx_PyCFunction_FastCall(__pyx_t_8, __pyx_temp+1-__pyx_t_15, 2+__pyx_t_15); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 164, __pyx_L17_error)
+            __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
+            __Pyx_GOTREF(__pyx_t_7);
+            __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
           } else
           #endif
           {
-            __pyx_t_10 = PyTuple_New(2+__pyx_t_15); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 156, __pyx_L14_error)
+            __pyx_t_10 = PyTuple_New(2+__pyx_t_15); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 164, __pyx_L17_error)
             __Pyx_GOTREF(__pyx_t_10);
-            if (__pyx_t_8) {
-              __Pyx_GIVEREF(__pyx_t_8); PyTuple_SET_ITEM(__pyx_t_10, 0, __pyx_t_8); __pyx_t_8 = NULL;
+            if (__pyx_t_6) {
+              __Pyx_GIVEREF(__pyx_t_6); PyTuple_SET_ITEM(__pyx_t_10, 0, __pyx_t_6); __pyx_t_6 = NULL;
             }
-            __Pyx_GIVEREF(__pyx_t_7);
-            PyTuple_SET_ITEM(__pyx_t_10, 0+__pyx_t_15, __pyx_t_7);
+            __Pyx_GIVEREF(__pyx_t_9);
+            PyTuple_SET_ITEM(__pyx_t_10, 0+__pyx_t_15, __pyx_t_9);
             __Pyx_INCREF(__pyx_v_args);
             __Pyx_GIVEREF(__pyx_v_args);
             PyTuple_SET_ITEM(__pyx_t_10, 1+__pyx_t_15, __pyx_v_args);
-            __pyx_t_7 = 0;
-            __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_9, __pyx_t_10, NULL); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 156, __pyx_L14_error)
-            __Pyx_GOTREF(__pyx_t_6);
+            __pyx_t_9 = 0;
+            __pyx_t_7 = __Pyx_PyObject_Call(__pyx_t_8, __pyx_t_10, NULL); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 164, __pyx_L17_error)
+            __Pyx_GOTREF(__pyx_t_7);
             __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
           }
-          __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-          __pyx_v_vs = __pyx_t_6;
-          __pyx_t_6 = 0;
+          __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+          __pyx_v_vs = __pyx_t_7;
+          __pyx_t_7 = 0;
 
-          /* "lintegrate/lintegrate.pyx":153
- *             assert len(x) > 1, "Function must be evaluated at more than one point"
+          /* "lintegrate/lintegrate.pyx":161
+ *                 assert len(x) > 1, "Function must be evaluated at more than one point"
  * 
  *             try:             # <<<<<<<<<<<<<<
  *                 if not isinstance(args, tuple):
@@ -3010,15 +3158,15 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_logtrapz(CYTHON_UNUSED PyObj
         __Pyx_XDECREF(__pyx_t_12); __pyx_t_12 = 0;
         __Pyx_XDECREF(__pyx_t_13); __pyx_t_13 = 0;
         __Pyx_XDECREF(__pyx_t_14); __pyx_t_14 = 0;
-        goto __pyx_L19_try_end;
-        __pyx_L14_error:;
+        goto __pyx_L22_try_end;
+        __pyx_L17_error:;
         __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
         __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
         __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
         __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
         __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
 
-        /* "lintegrate/lintegrate.pyx":157
+        /* "lintegrate/lintegrate.pyx":165
  *                     args = (args,)
  *                 vs = f(np.array(x), args) # make sure x is an array when passed to function
  *             except Exception as e:             # <<<<<<<<<<<<<<
@@ -3028,49 +3176,49 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_logtrapz(CYTHON_UNUSED PyObj
         __pyx_t_15 = __Pyx_PyErr_ExceptionMatches(((PyObject *)(&((PyTypeObject*)PyExc_Exception)[0])));
         if (__pyx_t_15) {
           __Pyx_AddTraceback("lintegrate.lintegrate.logtrapz", __pyx_clineno, __pyx_lineno, __pyx_filename);
-          if (__Pyx_GetException(&__pyx_t_6, &__pyx_t_9, &__pyx_t_10) < 0) __PYX_ERR(0, 157, __pyx_L16_except_error)
-          __Pyx_GOTREF(__pyx_t_6);
-          __Pyx_GOTREF(__pyx_t_9);
+          if (__Pyx_GetException(&__pyx_t_7, &__pyx_t_8, &__pyx_t_10) < 0) __PYX_ERR(0, 165, __pyx_L19_except_error)
+          __Pyx_GOTREF(__pyx_t_7);
+          __Pyx_GOTREF(__pyx_t_8);
           __Pyx_GOTREF(__pyx_t_10);
-          __Pyx_INCREF(__pyx_t_9);
-          __pyx_v_e = __pyx_t_9;
+          __Pyx_INCREF(__pyx_t_8);
+          __pyx_v_e = __pyx_t_8;
 
-          /* "lintegrate/lintegrate.pyx":158
+          /* "lintegrate/lintegrate.pyx":166
  *                 vs = f(np.array(x), args) # make sure x is an array when passed to function
  *             except Exception as e:
  *                 raise RuntimeError('Error... could not evaluate function "f": {}'.format(e))             # <<<<<<<<<<<<<<
  * 
- *             # make sure x values are in ascending order (keeping f values associated to their x evaluation points)
+ *             if not disable_checks:
  */
-          __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_kp_s_Error_could_not_evaluate_functio, __pyx_n_s_format); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 158, __pyx_L16_except_error)
-          __Pyx_GOTREF(__pyx_t_8);
+          __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_kp_s_Error_could_not_evaluate_functio, __pyx_n_s_format); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 166, __pyx_L19_except_error)
+          __Pyx_GOTREF(__pyx_t_6);
           __pyx_t_16 = NULL;
-          if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_8))) {
-            __pyx_t_16 = PyMethod_GET_SELF(__pyx_t_8);
+          if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_6))) {
+            __pyx_t_16 = PyMethod_GET_SELF(__pyx_t_6);
             if (likely(__pyx_t_16)) {
-              PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_8);
+              PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_6);
               __Pyx_INCREF(__pyx_t_16);
               __Pyx_INCREF(function);
-              __Pyx_DECREF_SET(__pyx_t_8, function);
+              __Pyx_DECREF_SET(__pyx_t_6, function);
             }
           }
-          __pyx_t_7 = (__pyx_t_16) ? __Pyx_PyObject_Call2Args(__pyx_t_8, __pyx_t_16, __pyx_v_e) : __Pyx_PyObject_CallOneArg(__pyx_t_8, __pyx_v_e);
+          __pyx_t_9 = (__pyx_t_16) ? __Pyx_PyObject_Call2Args(__pyx_t_6, __pyx_t_16, __pyx_v_e) : __Pyx_PyObject_CallOneArg(__pyx_t_6, __pyx_v_e);
           __Pyx_XDECREF(__pyx_t_16); __pyx_t_16 = 0;
-          if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 158, __pyx_L16_except_error)
-          __Pyx_GOTREF(__pyx_t_7);
-          __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-          __pyx_t_8 = __Pyx_PyObject_CallOneArg(__pyx_builtin_RuntimeError, __pyx_t_7); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 158, __pyx_L16_except_error)
-          __Pyx_GOTREF(__pyx_t_8);
-          __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-          __Pyx_Raise(__pyx_t_8, 0, 0, 0);
-          __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-          __PYX_ERR(0, 158, __pyx_L16_except_error)
+          if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 166, __pyx_L19_except_error)
+          __Pyx_GOTREF(__pyx_t_9);
+          __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+          __pyx_t_6 = __Pyx_PyObject_CallOneArg(__pyx_builtin_RuntimeError, __pyx_t_9); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 166, __pyx_L19_except_error)
+          __Pyx_GOTREF(__pyx_t_6);
+          __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
+          __Pyx_Raise(__pyx_t_6, 0, 0, 0);
+          __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+          __PYX_ERR(0, 166, __pyx_L19_except_error)
         }
-        goto __pyx_L16_except_error;
-        __pyx_L16_except_error:;
+        goto __pyx_L19_except_error;
+        __pyx_L19_except_error:;
 
-        /* "lintegrate/lintegrate.pyx":153
- *             assert len(x) > 1, "Function must be evaluated at more than one point"
+        /* "lintegrate/lintegrate.pyx":161
+ *                 assert len(x) > 1, "Function must be evaluated at more than one point"
  * 
  *             try:             # <<<<<<<<<<<<<<
  *                 if not isinstance(args, tuple):
@@ -3081,113 +3229,172 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_logtrapz(CYTHON_UNUSED PyObj
         __Pyx_XGIVEREF(__pyx_t_14);
         __Pyx_ExceptionReset(__pyx_t_12, __pyx_t_13, __pyx_t_14);
         goto __pyx_L1_error;
-        __pyx_L19_try_end:;
+        __pyx_L22_try_end:;
       }
 
-      /* "lintegrate/lintegrate.pyx":161
+      /* "lintegrate/lintegrate.pyx":168
+ *                 raise RuntimeError('Error... could not evaluate function "f": {}'.format(e))
  * 
- *             # make sure x values are in ascending order (keeping f values associated to their x evaluation points)
- *             zp = np.array(sorted(zip(x, vs)))             # <<<<<<<<<<<<<<
- * 
- *             # perform trapezium rule (internal logtrapzC function is faster than using scipy logsumexp)
+ *             if not disable_checks:             # <<<<<<<<<<<<<<
+ *                 # make sure x values are in ascending order (keeping f values associated to their x evaluation points)
+ *                 zp = np.array(sorted(zip(x, vs)))
  */
-      __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_n_s_np); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 161, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_9);
-      __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_array); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 161, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_6);
-      __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-      __pyx_t_8 = PyTuple_New(2); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 161, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_8);
-      __Pyx_INCREF(__pyx_v_x);
-      __Pyx_GIVEREF(__pyx_v_x);
-      PyTuple_SET_ITEM(__pyx_t_8, 0, __pyx_v_x);
-      __Pyx_INCREF(__pyx_v_vs);
-      __Pyx_GIVEREF(__pyx_v_vs);
-      PyTuple_SET_ITEM(__pyx_t_8, 1, __pyx_v_vs);
-      __pyx_t_7 = __Pyx_PyObject_Call(__pyx_builtin_zip, __pyx_t_8, NULL); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 161, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_7);
-      __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-      __pyx_t_8 = PySequence_List(__pyx_t_7); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 161, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_8);
-      __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-      __pyx_t_9 = ((PyObject*)__pyx_t_8);
-      __pyx_t_8 = 0;
-      __pyx_t_11 = PyList_Sort(__pyx_t_9); if (unlikely(__pyx_t_11 == ((int)-1))) __PYX_ERR(0, 161, __pyx_L1_error)
-      __pyx_t_8 = NULL;
-      if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_6))) {
-        __pyx_t_8 = PyMethod_GET_SELF(__pyx_t_6);
-        if (likely(__pyx_t_8)) {
-          PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_6);
-          __Pyx_INCREF(__pyx_t_8);
-          __Pyx_INCREF(function);
-          __Pyx_DECREF_SET(__pyx_t_6, function);
-        }
-      }
-      __pyx_t_10 = (__pyx_t_8) ? __Pyx_PyObject_Call2Args(__pyx_t_6, __pyx_t_8, __pyx_t_9) : __Pyx_PyObject_CallOneArg(__pyx_t_6, __pyx_t_9);
-      __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
-      __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-      if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 161, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_10);
-      __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-      __pyx_v_zp = __pyx_t_10;
-      __pyx_t_10 = 0;
+      __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_disable_checks); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 168, __pyx_L1_error)
+      __pyx_t_2 = ((!__pyx_t_1) != 0);
+      if (__pyx_t_2) {
 
-      /* "lintegrate/lintegrate.pyx":164
+        /* "lintegrate/lintegrate.pyx":170
+ *             if not disable_checks:
+ *                 # make sure x values are in ascending order (keeping f values associated to their x evaluation points)
+ *                 zp = np.array(sorted(zip(x, vs)))             # <<<<<<<<<<<<<<
  * 
- *             # perform trapezium rule (internal logtrapzC function is faster than using scipy logsumexp)
- *             return logtrapzC(zp[:,1], zp[:,0])             # <<<<<<<<<<<<<<
+ *                 # perform trapezium rule (internal logtrapzC function is faster than using scipy logsumexp)
+ */
+        __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_np); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 170, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_8);
+        __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_array); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 170, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_7);
+        __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+        __pyx_t_6 = PyTuple_New(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 170, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_6);
+        __Pyx_INCREF(__pyx_v_x);
+        __Pyx_GIVEREF(__pyx_v_x);
+        PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_v_x);
+        __Pyx_INCREF(__pyx_v_vs);
+        __Pyx_GIVEREF(__pyx_v_vs);
+        PyTuple_SET_ITEM(__pyx_t_6, 1, __pyx_v_vs);
+        __pyx_t_9 = __Pyx_PyObject_Call(__pyx_builtin_zip, __pyx_t_6, NULL); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 170, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_9);
+        __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+        __pyx_t_6 = PySequence_List(__pyx_t_9); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 170, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_6);
+        __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
+        __pyx_t_8 = ((PyObject*)__pyx_t_6);
+        __pyx_t_6 = 0;
+        __pyx_t_11 = PyList_Sort(__pyx_t_8); if (unlikely(__pyx_t_11 == ((int)-1))) __PYX_ERR(0, 170, __pyx_L1_error)
+        __pyx_t_6 = NULL;
+        if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_7))) {
+          __pyx_t_6 = PyMethod_GET_SELF(__pyx_t_7);
+          if (likely(__pyx_t_6)) {
+            PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_7);
+            __Pyx_INCREF(__pyx_t_6);
+            __Pyx_INCREF(function);
+            __Pyx_DECREF_SET(__pyx_t_7, function);
+          }
+        }
+        __pyx_t_10 = (__pyx_t_6) ? __Pyx_PyObject_Call2Args(__pyx_t_7, __pyx_t_6, __pyx_t_8) : __Pyx_PyObject_CallOneArg(__pyx_t_7, __pyx_t_8);
+        __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
+        __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+        if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 170, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_10);
+        __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+        __pyx_v_zp = __pyx_t_10;
+        __pyx_t_10 = 0;
+
+        /* "lintegrate/lintegrate.pyx":173
+ * 
+ *                 # perform trapezium rule (internal logtrapzC function is faster than using scipy logsumexp)
+ *                 return logtrapzC(zp[:,1], zp[:,0])             # <<<<<<<<<<<<<<
+ *             else:
+ *                 return logtrapzC(vs, np.array(x))
+ */
+        __Pyx_XDECREF(__pyx_r);
+        __pyx_t_10 = __Pyx_PyObject_GetItem(__pyx_v_zp, __pyx_tuple__2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 173, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_10);
+        if (!(likely(((__pyx_t_10) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_10, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 173, __pyx_L1_error)
+        __pyx_t_7 = __Pyx_PyObject_GetItem(__pyx_v_zp, __pyx_tuple__3); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 173, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_7);
+        if (!(likely(((__pyx_t_7) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_7, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 173, __pyx_L1_error)
+        __pyx_t_8 = PyFloat_FromDouble(__pyx_f_10lintegrate_10lintegrate_logtrapzC(((PyArrayObject *)__pyx_t_10), ((PyArrayObject *)__pyx_t_7))); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 173, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_8);
+        __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
+        __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+        __pyx_r = __pyx_t_8;
+        __pyx_t_8 = 0;
+        goto __pyx_L0;
+
+        /* "lintegrate/lintegrate.pyx":168
+ *                 raise RuntimeError('Error... could not evaluate function "f": {}'.format(e))
+ * 
+ *             if not disable_checks:             # <<<<<<<<<<<<<<
+ *                 # make sure x values are in ascending order (keeping f values associated to their x evaluation points)
+ *                 zp = np.array(sorted(zip(x, vs)))
+ */
+      }
+
+      /* "lintegrate/lintegrate.pyx":175
+ *                 return logtrapzC(zp[:,1], zp[:,0])
+ *             else:
+ *                 return logtrapzC(vs, np.array(x))             # <<<<<<<<<<<<<<
  *         else:
  *             raise TypeError('Error... "x" must be a numpy array or list')
  */
-      __Pyx_XDECREF(__pyx_r);
-      __pyx_t_10 = __Pyx_PyObject_GetItem(__pyx_v_zp, __pyx_tuple__2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 164, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_10);
-      if (!(likely(((__pyx_t_10) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_10, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 164, __pyx_L1_error)
-      __pyx_t_6 = __Pyx_PyObject_GetItem(__pyx_v_zp, __pyx_tuple__3); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 164, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_6);
-      if (!(likely(((__pyx_t_6) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_6, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 164, __pyx_L1_error)
-      __pyx_t_9 = PyFloat_FromDouble(__pyx_f_10lintegrate_10lintegrate_logtrapzC(((PyArrayObject *)__pyx_t_10), ((PyArrayObject *)__pyx_t_6))); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 164, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_9);
-      __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-      __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-      __pyx_r = __pyx_t_9;
-      __pyx_t_9 = 0;
-      goto __pyx_L0;
+      /*else*/ {
+        __Pyx_XDECREF(__pyx_r);
+        if (!(likely(((__pyx_v_vs) == Py_None) || likely(__Pyx_TypeTest(__pyx_v_vs, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 175, __pyx_L1_error)
+        __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_np); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 175, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_7);
+        __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_array); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 175, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_10);
+        __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+        __pyx_t_7 = NULL;
+        if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_10))) {
+          __pyx_t_7 = PyMethod_GET_SELF(__pyx_t_10);
+          if (likely(__pyx_t_7)) {
+            PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_10);
+            __Pyx_INCREF(__pyx_t_7);
+            __Pyx_INCREF(function);
+            __Pyx_DECREF_SET(__pyx_t_10, function);
+          }
+        }
+        __pyx_t_8 = (__pyx_t_7) ? __Pyx_PyObject_Call2Args(__pyx_t_10, __pyx_t_7, __pyx_v_x) : __Pyx_PyObject_CallOneArg(__pyx_t_10, __pyx_v_x);
+        __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
+        if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 175, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_8);
+        __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
+        if (!(likely(((__pyx_t_8) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_8, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 175, __pyx_L1_error)
+        __pyx_t_10 = PyFloat_FromDouble(__pyx_f_10lintegrate_10lintegrate_logtrapzC(((PyArrayObject *)__pyx_v_vs), ((PyArrayObject *)__pyx_t_8))); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 175, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_10);
+        __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+        __pyx_r = __pyx_t_10;
+        __pyx_t_10 = 0;
+        goto __pyx_L0;
+      }
 
-      /* "lintegrate/lintegrate.pyx":150
+      /* "lintegrate/lintegrate.pyx":157
  *             raise TypeError('Error... value of "x" must be a numpy array or a float')
  *     elif callable(f): # f is a function
  *         if isinstance(x, np.ndarray) or isinstance(x, list):             # <<<<<<<<<<<<<<
- *             assert len(x) > 1, "Function must be evaluated at more than one point"
- * 
+ *             if not disable_checks:
+ *                 assert len(x) > 1, "Function must be evaluated at more than one point"
  */
     }
 
-    /* "lintegrate/lintegrate.pyx":166
- *             return logtrapzC(zp[:,1], zp[:,0])
+    /* "lintegrate/lintegrate.pyx":177
+ *                 return logtrapzC(vs, np.array(x))
  *         else:
  *             raise TypeError('Error... "x" must be a numpy array or list')             # <<<<<<<<<<<<<<
  *     else:
  *         raise RuntimeError('Error... "f" must be a numpy array, list, or callable function')
  */
     /*else*/ {
-      __pyx_t_9 = __Pyx_PyObject_Call(__pyx_builtin_TypeError, __pyx_tuple__5, NULL); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 166, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_9);
-      __Pyx_Raise(__pyx_t_9, 0, 0, 0);
-      __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-      __PYX_ERR(0, 166, __pyx_L1_error)
+      __pyx_t_10 = __Pyx_PyObject_Call(__pyx_builtin_TypeError, __pyx_tuple__5, NULL); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 177, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_10);
+      __Pyx_Raise(__pyx_t_10, 0, 0, 0);
+      __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
+      __PYX_ERR(0, 177, __pyx_L1_error)
     }
 
-    /* "lintegrate/lintegrate.pyx":149
+    /* "lintegrate/lintegrate.pyx":156
  *         else:
  *             raise TypeError('Error... value of "x" must be a numpy array or a float')
  *     elif callable(f): # f is a function             # <<<<<<<<<<<<<<
  *         if isinstance(x, np.ndarray) or isinstance(x, list):
- *             assert len(x) > 1, "Function must be evaluated at more than one point"
+ *             if not disable_checks:
  */
   }
 
-  /* "lintegrate/lintegrate.pyx":168
+  /* "lintegrate/lintegrate.pyx":179
  *             raise TypeError('Error... "x" must be a numpy array or list')
  *     else:
  *         raise RuntimeError('Error... "f" must be a numpy array, list, or callable function')             # <<<<<<<<<<<<<<
@@ -3195,17 +3402,17 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_logtrapz(CYTHON_UNUSED PyObj
  * 
  */
   /*else*/ {
-    __pyx_t_9 = __Pyx_PyObject_Call(__pyx_builtin_RuntimeError, __pyx_tuple__6, NULL); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 168, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_9);
-    __Pyx_Raise(__pyx_t_9, 0, 0, 0);
-    __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-    __PYX_ERR(0, 168, __pyx_L1_error)
+    __pyx_t_10 = __Pyx_PyObject_Call(__pyx_builtin_RuntimeError, __pyx_tuple__6, NULL); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 179, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_10);
+    __Pyx_Raise(__pyx_t_10, 0, 0, 0);
+    __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
+    __PYX_ERR(0, 179, __pyx_L1_error)
   }
 
   /* "lintegrate/lintegrate.pyx":107
  * Simple function to perform trapezium rule integration of a function when given its natural log
  * """
- * def logtrapz(f, x, args=()):             # <<<<<<<<<<<<<<
+ * def logtrapz(f, x, disable_checks=False, args=()):             # <<<<<<<<<<<<<<
  *     """
  *     Given the natural logarithm "f" of some function "g" (i.e., f = log(g)), compute the natural logarithm of the
  */
@@ -3230,7 +3437,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_logtrapz(CYTHON_UNUSED PyObj
   return __pyx_r;
 }
 
-/* "lintegrate/lintegrate.pyx":171
+/* "lintegrate/lintegrate.pyx":182
  * 
  * 
  * def lqng(func, a=0., b=0., args=(), epsabs=1.49e-8, epsrel=1.49e-8, intervals=None, nintervals=0, intervaltype='linear'):             # <<<<<<<<<<<<<<
@@ -3349,7 +3556,7 @@ static PyObject *__pyx_pw_10lintegrate_10lintegrate_3lqng(PyObject *__pyx_self, 
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "lqng") < 0)) __PYX_ERR(0, 171, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "lqng") < 0)) __PYX_ERR(0, 182, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -3386,7 +3593,7 @@ static PyObject *__pyx_pw_10lintegrate_10lintegrate_3lqng(PyObject *__pyx_self, 
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("lqng", 0, 1, 9, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 171, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("lqng", 0, 1, 9, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 182, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("lintegrate.lintegrate.lqng", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -3436,31 +3643,31 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_2lqng(CYTHON_UNUSED PyObject
   __Pyx_INCREF(__pyx_v_intervals);
   __Pyx_INCREF(__pyx_v_nintervals);
 
-  /* "lintegrate/lintegrate.pyx":222
+  /* "lintegrate/lintegrate.pyx":233
  *     """
  * 
  *     if not callable(func):             # <<<<<<<<<<<<<<
  *         raise RuntimeError('"func" must be a callable function')
  * 
  */
-  __pyx_t_1 = __Pyx_PyCallable_Check(__pyx_v_func); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(0, 222, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyCallable_Check(__pyx_v_func); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(0, 233, __pyx_L1_error)
   __pyx_t_2 = ((!(__pyx_t_1 != 0)) != 0);
   if (unlikely(__pyx_t_2)) {
 
-    /* "lintegrate/lintegrate.pyx":223
+    /* "lintegrate/lintegrate.pyx":234
  * 
  *     if not callable(func):
  *         raise RuntimeError('"func" must be a callable function')             # <<<<<<<<<<<<<<
  * 
  *     assert b > a or intervals is not None or (nintervals != 0 and b > a), "Integral range must have b > a"
  */
-    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_RuntimeError, __pyx_tuple__7, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 223, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_RuntimeError, __pyx_tuple__7, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 234, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_Raise(__pyx_t_3, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __PYX_ERR(0, 223, __pyx_L1_error)
+    __PYX_ERR(0, 234, __pyx_L1_error)
 
-    /* "lintegrate/lintegrate.pyx":222
+    /* "lintegrate/lintegrate.pyx":233
  *     """
  * 
  *     if not callable(func):             # <<<<<<<<<<<<<<
@@ -3469,7 +3676,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_2lqng(CYTHON_UNUSED PyObject
  */
   }
 
-  /* "lintegrate/lintegrate.pyx":225
+  /* "lintegrate/lintegrate.pyx":236
  *         raise RuntimeError('"func" must be a callable function')
  * 
  *     assert b > a or intervals is not None or (nintervals != 0 and b > a), "Integral range must have b > a"             # <<<<<<<<<<<<<<
@@ -3478,8 +3685,8 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_2lqng(CYTHON_UNUSED PyObject
  */
   #ifndef CYTHON_WITHOUT_ASSERTIONS
   if (unlikely(!Py_OptimizeFlag)) {
-    __pyx_t_3 = PyObject_RichCompare(__pyx_v_b, __pyx_v_a, Py_GT); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 225, __pyx_L1_error)
-    __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 225, __pyx_L1_error)
+    __pyx_t_3 = PyObject_RichCompare(__pyx_v_b, __pyx_v_a, Py_GT); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 236, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 236, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     if (!__pyx_t_1) {
     } else {
@@ -3493,28 +3700,28 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_2lqng(CYTHON_UNUSED PyObject
       __pyx_t_2 = __pyx_t_4;
       goto __pyx_L4_bool_binop_done;
     }
-    __pyx_t_3 = __Pyx_PyInt_NeObjC(__pyx_v_nintervals, __pyx_int_0, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 225, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyInt_NeObjC(__pyx_v_nintervals, __pyx_int_0, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 236, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 225, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 236, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     if (__pyx_t_4) {
     } else {
       __pyx_t_2 = __pyx_t_4;
       goto __pyx_L4_bool_binop_done;
     }
-    __pyx_t_3 = PyObject_RichCompare(__pyx_v_b, __pyx_v_a, Py_GT); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 225, __pyx_L1_error)
-    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 225, __pyx_L1_error)
+    __pyx_t_3 = PyObject_RichCompare(__pyx_v_b, __pyx_v_a, Py_GT); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 236, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 236, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_t_2 = __pyx_t_4;
     __pyx_L4_bool_binop_done:;
     if (unlikely(!__pyx_t_2)) {
       PyErr_SetObject(PyExc_AssertionError, __pyx_kp_s_Integral_range_must_have_b_a);
-      __PYX_ERR(0, 225, __pyx_L1_error)
+      __PYX_ERR(0, 236, __pyx_L1_error)
     }
   }
   #endif
 
-  /* "lintegrate/lintegrate.pyx":227
+  /* "lintegrate/lintegrate.pyx":238
  *     assert b > a or intervals is not None or (nintervals != 0 and b > a), "Integral range must have b > a"
  * 
  *     if not isinstance(args, tuple):             # <<<<<<<<<<<<<<
@@ -3525,14 +3732,14 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_2lqng(CYTHON_UNUSED PyObject
   __pyx_t_4 = ((!(__pyx_t_2 != 0)) != 0);
   if (__pyx_t_4) {
 
-    /* "lintegrate/lintegrate.pyx":228
+    /* "lintegrate/lintegrate.pyx":239
  * 
  *     if not isinstance(args, tuple):
  *         args = (args,) # convert to tuple             # <<<<<<<<<<<<<<
  * 
  *     cdef double result = 0., sumres = -INFINITY
  */
-    __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 228, __pyx_L1_error)
+    __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 239, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_INCREF(__pyx_v_args);
     __Pyx_GIVEREF(__pyx_v_args);
@@ -3540,7 +3747,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_2lqng(CYTHON_UNUSED PyObject
     __Pyx_DECREF_SET(__pyx_v_args, __pyx_t_3);
     __pyx_t_3 = 0;
 
-    /* "lintegrate/lintegrate.pyx":227
+    /* "lintegrate/lintegrate.pyx":238
  *     assert b > a or intervals is not None or (nintervals != 0 and b > a), "Integral range must have b > a"
  * 
  *     if not isinstance(args, tuple):             # <<<<<<<<<<<<<<
@@ -3549,7 +3756,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_2lqng(CYTHON_UNUSED PyObject
  */
   }
 
-  /* "lintegrate/lintegrate.pyx":230
+  /* "lintegrate/lintegrate.pyx":241
  *         args = (args,) # convert to tuple
  * 
  *     cdef double result = 0., sumres = -INFINITY             # <<<<<<<<<<<<<<
@@ -3559,7 +3766,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_2lqng(CYTHON_UNUSED PyObject
   __pyx_v_result = 0.;
   __pyx_v_sumres = (-NPY_INFINITY);
 
-  /* "lintegrate/lintegrate.pyx":231
+  /* "lintegrate/lintegrate.pyx":242
  * 
  *     cdef double result = 0., sumres = -INFINITY
  *     cdef double abserr = 0., sumabserr = -INFINITY             # <<<<<<<<<<<<<<
@@ -3569,7 +3776,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_2lqng(CYTHON_UNUSED PyObject
   __pyx_v_abserr = 0.;
   __pyx_v_sumabserr = (-NPY_INFINITY);
 
-  /* "lintegrate/lintegrate.pyx":232
+  /* "lintegrate/lintegrate.pyx":243
  *     cdef double result = 0., sumres = -INFINITY
  *     cdef double abserr = 0., sumabserr = -INFINITY
  *     cdef size_t neval = 0, nevaltmp = 0             # <<<<<<<<<<<<<<
@@ -3579,7 +3786,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_2lqng(CYTHON_UNUSED PyObject
   __pyx_v_neval = 0;
   __pyx_v_nevaltmp = 0;
 
-  /* "lintegrate/lintegrate.pyx":233
+  /* "lintegrate/lintegrate.pyx":244
  *     cdef double abserr = 0., sumabserr = -INFINITY
  *     cdef size_t neval = 0, nevaltmp = 0
  *     cdef int suc = 0             # <<<<<<<<<<<<<<
@@ -3588,7 +3795,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_2lqng(CYTHON_UNUSED PyObject
  */
   __pyx_v_suc = 0;
 
-  /* "lintegrate/lintegrate.pyx":235
+  /* "lintegrate/lintegrate.pyx":246
  *     cdef int suc = 0
  * 
  *     if intervals is None:             # <<<<<<<<<<<<<<
@@ -3599,20 +3806,20 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_2lqng(CYTHON_UNUSED PyObject
   __pyx_t_2 = (__pyx_t_4 != 0);
   if (__pyx_t_2) {
 
-    /* "lintegrate/lintegrate.pyx":236
+    /* "lintegrate/lintegrate.pyx":247
  * 
  *     if intervals is None:
  *         if nintervals == 0: # just use a and b             # <<<<<<<<<<<<<<
  *             nintervals = 1
  * 
  */
-    __pyx_t_3 = __Pyx_PyInt_EqObjC(__pyx_v_nintervals, __pyx_int_0, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 236, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyInt_EqObjC(__pyx_v_nintervals, __pyx_int_0, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 247, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 236, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 247, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     if (__pyx_t_2) {
 
-      /* "lintegrate/lintegrate.pyx":237
+      /* "lintegrate/lintegrate.pyx":248
  *     if intervals is None:
  *         if nintervals == 0: # just use a and b
  *             nintervals = 1             # <<<<<<<<<<<<<<
@@ -3622,7 +3829,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_2lqng(CYTHON_UNUSED PyObject
       __Pyx_INCREF(__pyx_int_1);
       __Pyx_DECREF_SET(__pyx_v_nintervals, __pyx_int_1);
 
-      /* "lintegrate/lintegrate.pyx":236
+      /* "lintegrate/lintegrate.pyx":247
  * 
  *     if intervals is None:
  *         if nintervals == 0: # just use a and b             # <<<<<<<<<<<<<<
@@ -3631,7 +3838,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_2lqng(CYTHON_UNUSED PyObject
  */
     }
 
-    /* "lintegrate/lintegrate.pyx":239
+    /* "lintegrate/lintegrate.pyx":250
  *             nintervals = 1
  * 
  *         assert nintervals > 0, "Number of intervals must be positive"             # <<<<<<<<<<<<<<
@@ -3640,24 +3847,24 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_2lqng(CYTHON_UNUSED PyObject
  */
     #ifndef CYTHON_WITHOUT_ASSERTIONS
     if (unlikely(!Py_OptimizeFlag)) {
-      __pyx_t_3 = PyObject_RichCompare(__pyx_v_nintervals, __pyx_int_0, Py_GT); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 239, __pyx_L1_error)
-      __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 239, __pyx_L1_error)
+      __pyx_t_3 = PyObject_RichCompare(__pyx_v_nintervals, __pyx_int_0, Py_GT); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 250, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 250, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       if (unlikely(!__pyx_t_2)) {
         PyErr_SetObject(PyExc_AssertionError, __pyx_kp_s_Number_of_intervals_must_be_posi);
-        __PYX_ERR(0, 239, __pyx_L1_error)
+        __PYX_ERR(0, 250, __pyx_L1_error)
       }
     }
     #endif
 
-    /* "lintegrate/lintegrate.pyx":241
+    /* "lintegrate/lintegrate.pyx":252
  *         assert nintervals > 0, "Number of intervals must be positive"
  * 
  *         if intervaltype.lower() == 'linear':             # <<<<<<<<<<<<<<
  *             intervals = np.linspace(a, b, nintervals+1)
  *         elif intervaltype.lower() == 'log':
  */
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_intervaltype, __pyx_n_s_lower); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 241, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_intervaltype, __pyx_n_s_lower); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 252, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __pyx_t_6 = NULL;
     if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_5))) {
@@ -3671,26 +3878,26 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_2lqng(CYTHON_UNUSED PyObject
     }
     __pyx_t_3 = (__pyx_t_6) ? __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_6) : __Pyx_PyObject_CallNoArg(__pyx_t_5);
     __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 241, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 252, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_t_2 = (__Pyx_PyString_Equals(__pyx_t_3, __pyx_n_s_linear, Py_EQ)); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 241, __pyx_L1_error)
+    __pyx_t_2 = (__Pyx_PyString_Equals(__pyx_t_3, __pyx_n_s_linear, Py_EQ)); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 252, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     if (__pyx_t_2) {
 
-      /* "lintegrate/lintegrate.pyx":242
+      /* "lintegrate/lintegrate.pyx":253
  * 
  *         if intervaltype.lower() == 'linear':
  *             intervals = np.linspace(a, b, nintervals+1)             # <<<<<<<<<<<<<<
  *         elif intervaltype.lower() == 'log':
  *             intervals = np.logspace(log(a), log(b), nintervals+1, base=exp(1.))
  */
-      __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_np); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 242, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_np); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 253, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
-      __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_linspace); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 242, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_linspace); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 253, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-      __pyx_t_5 = __Pyx_PyInt_AddObjC(__pyx_v_nintervals, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 242, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_PyInt_AddObjC(__pyx_v_nintervals, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 253, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
       __pyx_t_7 = NULL;
       __pyx_t_8 = 0;
@@ -3707,7 +3914,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_2lqng(CYTHON_UNUSED PyObject
       #if CYTHON_FAST_PYCALL
       if (PyFunction_Check(__pyx_t_6)) {
         PyObject *__pyx_temp[4] = {__pyx_t_7, __pyx_v_a, __pyx_v_b, __pyx_t_5};
-        __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_8, 3+__pyx_t_8); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 242, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_8, 3+__pyx_t_8); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 253, __pyx_L1_error)
         __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
         __Pyx_GOTREF(__pyx_t_3);
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
@@ -3716,14 +3923,14 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_2lqng(CYTHON_UNUSED PyObject
       #if CYTHON_FAST_PYCCALL
       if (__Pyx_PyFastCFunction_Check(__pyx_t_6)) {
         PyObject *__pyx_temp[4] = {__pyx_t_7, __pyx_v_a, __pyx_v_b, __pyx_t_5};
-        __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_8, 3+__pyx_t_8); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 242, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_8, 3+__pyx_t_8); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 253, __pyx_L1_error)
         __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
         __Pyx_GOTREF(__pyx_t_3);
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       } else
       #endif
       {
-        __pyx_t_9 = PyTuple_New(3+__pyx_t_8); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 242, __pyx_L1_error)
+        __pyx_t_9 = PyTuple_New(3+__pyx_t_8); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 253, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
         if (__pyx_t_7) {
           __Pyx_GIVEREF(__pyx_t_7); PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_t_7); __pyx_t_7 = NULL;
@@ -3737,7 +3944,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_2lqng(CYTHON_UNUSED PyObject
         __Pyx_GIVEREF(__pyx_t_5);
         PyTuple_SET_ITEM(__pyx_t_9, 2+__pyx_t_8, __pyx_t_5);
         __pyx_t_5 = 0;
-        __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_t_9, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 242, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_t_9, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 253, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
         __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
       }
@@ -3745,7 +3952,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_2lqng(CYTHON_UNUSED PyObject
       __Pyx_DECREF_SET(__pyx_v_intervals, __pyx_t_3);
       __pyx_t_3 = 0;
 
-      /* "lintegrate/lintegrate.pyx":241
+      /* "lintegrate/lintegrate.pyx":252
  *         assert nintervals > 0, "Number of intervals must be positive"
  * 
  *         if intervaltype.lower() == 'linear':             # <<<<<<<<<<<<<<
@@ -3755,14 +3962,14 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_2lqng(CYTHON_UNUSED PyObject
       goto __pyx_L11;
     }
 
-    /* "lintegrate/lintegrate.pyx":243
+    /* "lintegrate/lintegrate.pyx":254
  *         if intervaltype.lower() == 'linear':
  *             intervals = np.linspace(a, b, nintervals+1)
  *         elif intervaltype.lower() == 'log':             # <<<<<<<<<<<<<<
  *             intervals = np.logspace(log(a), log(b), nintervals+1, base=exp(1.))
  *         elif intervaltype.lower() == 'log10':
  */
-    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_intervaltype, __pyx_n_s_lower); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 243, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_intervaltype, __pyx_n_s_lower); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 254, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __pyx_t_9 = NULL;
     if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_6))) {
@@ -3776,34 +3983,34 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_2lqng(CYTHON_UNUSED PyObject
     }
     __pyx_t_3 = (__pyx_t_9) ? __Pyx_PyObject_CallOneArg(__pyx_t_6, __pyx_t_9) : __Pyx_PyObject_CallNoArg(__pyx_t_6);
     __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 243, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 254, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    __pyx_t_2 = (__Pyx_PyString_Equals(__pyx_t_3, __pyx_n_s_log, Py_EQ)); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 243, __pyx_L1_error)
+    __pyx_t_2 = (__Pyx_PyString_Equals(__pyx_t_3, __pyx_n_s_log, Py_EQ)); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 254, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     if (__pyx_t_2) {
 
-      /* "lintegrate/lintegrate.pyx":244
+      /* "lintegrate/lintegrate.pyx":255
  *             intervals = np.linspace(a, b, nintervals+1)
  *         elif intervaltype.lower() == 'log':
  *             intervals = np.logspace(log(a), log(b), nintervals+1, base=exp(1.))             # <<<<<<<<<<<<<<
  *         elif intervaltype.lower() == 'log10':
  *             intervals = np.logspace(log10(a), log10(b), nintervals+1)
  */
-      __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 244, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 255, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_logspace); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 244, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_logspace); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 255, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      __pyx_t_10 = __pyx_PyFloat_AsDouble(__pyx_v_a); if (unlikely((__pyx_t_10 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 244, __pyx_L1_error)
-      __pyx_t_3 = PyFloat_FromDouble(log(__pyx_t_10)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 244, __pyx_L1_error)
+      __pyx_t_10 = __pyx_PyFloat_AsDouble(__pyx_v_a); if (unlikely((__pyx_t_10 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 255, __pyx_L1_error)
+      __pyx_t_3 = PyFloat_FromDouble(log(__pyx_t_10)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 255, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_10 = __pyx_PyFloat_AsDouble(__pyx_v_b); if (unlikely((__pyx_t_10 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 244, __pyx_L1_error)
-      __pyx_t_9 = PyFloat_FromDouble(log(__pyx_t_10)); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 244, __pyx_L1_error)
+      __pyx_t_10 = __pyx_PyFloat_AsDouble(__pyx_v_b); if (unlikely((__pyx_t_10 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 255, __pyx_L1_error)
+      __pyx_t_9 = PyFloat_FromDouble(log(__pyx_t_10)); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 255, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_9);
-      __pyx_t_5 = __Pyx_PyInt_AddObjC(__pyx_v_nintervals, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 244, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_PyInt_AddObjC(__pyx_v_nintervals, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 255, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
-      __pyx_t_7 = PyTuple_New(3); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 244, __pyx_L1_error)
+      __pyx_t_7 = PyTuple_New(3); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 255, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
       __Pyx_GIVEREF(__pyx_t_3);
       PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_t_3);
@@ -3814,13 +4021,13 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_2lqng(CYTHON_UNUSED PyObject
       __pyx_t_3 = 0;
       __pyx_t_9 = 0;
       __pyx_t_5 = 0;
-      __pyx_t_5 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 244, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 255, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
-      __pyx_t_9 = PyFloat_FromDouble(exp(1.)); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 244, __pyx_L1_error)
+      __pyx_t_9 = PyFloat_FromDouble(exp(1.)); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 255, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_9);
-      if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_base, __pyx_t_9) < 0) __PYX_ERR(0, 244, __pyx_L1_error)
+      if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_base, __pyx_t_9) < 0) __PYX_ERR(0, 255, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-      __pyx_t_9 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_t_7, __pyx_t_5); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 244, __pyx_L1_error)
+      __pyx_t_9 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_t_7, __pyx_t_5); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 255, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_9);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -3828,7 +4035,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_2lqng(CYTHON_UNUSED PyObject
       __Pyx_DECREF_SET(__pyx_v_intervals, __pyx_t_9);
       __pyx_t_9 = 0;
 
-      /* "lintegrate/lintegrate.pyx":243
+      /* "lintegrate/lintegrate.pyx":254
  *         if intervaltype.lower() == 'linear':
  *             intervals = np.linspace(a, b, nintervals+1)
  *         elif intervaltype.lower() == 'log':             # <<<<<<<<<<<<<<
@@ -3838,14 +4045,14 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_2lqng(CYTHON_UNUSED PyObject
       goto __pyx_L11;
     }
 
-    /* "lintegrate/lintegrate.pyx":245
+    /* "lintegrate/lintegrate.pyx":256
  *         elif intervaltype.lower() == 'log':
  *             intervals = np.logspace(log(a), log(b), nintervals+1, base=exp(1.))
  *         elif intervaltype.lower() == 'log10':             # <<<<<<<<<<<<<<
  *             intervals = np.logspace(log10(a), log10(b), nintervals+1)
  *         else:
  */
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_intervaltype, __pyx_n_s_lower); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 245, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_intervaltype, __pyx_n_s_lower); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 256, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __pyx_t_7 = NULL;
     if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_5))) {
@@ -3859,32 +4066,32 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_2lqng(CYTHON_UNUSED PyObject
     }
     __pyx_t_9 = (__pyx_t_7) ? __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_7) : __Pyx_PyObject_CallNoArg(__pyx_t_5);
     __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
-    if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 245, __pyx_L1_error)
+    if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 256, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_t_2 = (__Pyx_PyString_Equals(__pyx_t_9, __pyx_n_s_log10, Py_EQ)); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 245, __pyx_L1_error)
+    __pyx_t_2 = (__Pyx_PyString_Equals(__pyx_t_9, __pyx_n_s_log10, Py_EQ)); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 256, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
     if (likely(__pyx_t_2)) {
 
-      /* "lintegrate/lintegrate.pyx":246
+      /* "lintegrate/lintegrate.pyx":257
  *             intervals = np.logspace(log(a), log(b), nintervals+1, base=exp(1.))
  *         elif intervaltype.lower() == 'log10':
  *             intervals = np.logspace(log10(a), log10(b), nintervals+1)             # <<<<<<<<<<<<<<
  *         else:
  *             raise ValueError("Interval type must be 'linear', 'log', or 'log10'")
  */
-      __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_np); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 246, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_np); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 257, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
-      __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_logspace); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 246, __pyx_L1_error)
+      __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_logspace); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 257, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-      __pyx_t_10 = __pyx_PyFloat_AsDouble(__pyx_v_a); if (unlikely((__pyx_t_10 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 246, __pyx_L1_error)
-      __pyx_t_5 = PyFloat_FromDouble(log10(__pyx_t_10)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 246, __pyx_L1_error)
+      __pyx_t_10 = __pyx_PyFloat_AsDouble(__pyx_v_a); if (unlikely((__pyx_t_10 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 257, __pyx_L1_error)
+      __pyx_t_5 = PyFloat_FromDouble(log10(__pyx_t_10)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 257, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
-      __pyx_t_10 = __pyx_PyFloat_AsDouble(__pyx_v_b); if (unlikely((__pyx_t_10 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 246, __pyx_L1_error)
-      __pyx_t_6 = PyFloat_FromDouble(log10(__pyx_t_10)); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 246, __pyx_L1_error)
+      __pyx_t_10 = __pyx_PyFloat_AsDouble(__pyx_v_b); if (unlikely((__pyx_t_10 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 257, __pyx_L1_error)
+      __pyx_t_6 = PyFloat_FromDouble(log10(__pyx_t_10)); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 257, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
-      __pyx_t_3 = __Pyx_PyInt_AddObjC(__pyx_v_nintervals, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 246, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyInt_AddObjC(__pyx_v_nintervals, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 257, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __pyx_t_11 = NULL;
       __pyx_t_8 = 0;
@@ -3901,7 +4108,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_2lqng(CYTHON_UNUSED PyObject
       #if CYTHON_FAST_PYCALL
       if (PyFunction_Check(__pyx_t_7)) {
         PyObject *__pyx_temp[4] = {__pyx_t_11, __pyx_t_5, __pyx_t_6, __pyx_t_3};
-        __pyx_t_9 = __Pyx_PyFunction_FastCall(__pyx_t_7, __pyx_temp+1-__pyx_t_8, 3+__pyx_t_8); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 246, __pyx_L1_error)
+        __pyx_t_9 = __Pyx_PyFunction_FastCall(__pyx_t_7, __pyx_temp+1-__pyx_t_8, 3+__pyx_t_8); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 257, __pyx_L1_error)
         __Pyx_XDECREF(__pyx_t_11); __pyx_t_11 = 0;
         __Pyx_GOTREF(__pyx_t_9);
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
@@ -3912,7 +4119,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_2lqng(CYTHON_UNUSED PyObject
       #if CYTHON_FAST_PYCCALL
       if (__Pyx_PyFastCFunction_Check(__pyx_t_7)) {
         PyObject *__pyx_temp[4] = {__pyx_t_11, __pyx_t_5, __pyx_t_6, __pyx_t_3};
-        __pyx_t_9 = __Pyx_PyCFunction_FastCall(__pyx_t_7, __pyx_temp+1-__pyx_t_8, 3+__pyx_t_8); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 246, __pyx_L1_error)
+        __pyx_t_9 = __Pyx_PyCFunction_FastCall(__pyx_t_7, __pyx_temp+1-__pyx_t_8, 3+__pyx_t_8); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 257, __pyx_L1_error)
         __Pyx_XDECREF(__pyx_t_11); __pyx_t_11 = 0;
         __Pyx_GOTREF(__pyx_t_9);
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
@@ -3921,7 +4128,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_2lqng(CYTHON_UNUSED PyObject
       } else
       #endif
       {
-        __pyx_t_12 = PyTuple_New(3+__pyx_t_8); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 246, __pyx_L1_error)
+        __pyx_t_12 = PyTuple_New(3+__pyx_t_8); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 257, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_12);
         if (__pyx_t_11) {
           __Pyx_GIVEREF(__pyx_t_11); PyTuple_SET_ITEM(__pyx_t_12, 0, __pyx_t_11); __pyx_t_11 = NULL;
@@ -3935,7 +4142,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_2lqng(CYTHON_UNUSED PyObject
         __pyx_t_5 = 0;
         __pyx_t_6 = 0;
         __pyx_t_3 = 0;
-        __pyx_t_9 = __Pyx_PyObject_Call(__pyx_t_7, __pyx_t_12, NULL); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 246, __pyx_L1_error)
+        __pyx_t_9 = __Pyx_PyObject_Call(__pyx_t_7, __pyx_t_12, NULL); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 257, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
         __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
       }
@@ -3943,7 +4150,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_2lqng(CYTHON_UNUSED PyObject
       __Pyx_DECREF_SET(__pyx_v_intervals, __pyx_t_9);
       __pyx_t_9 = 0;
 
-      /* "lintegrate/lintegrate.pyx":245
+      /* "lintegrate/lintegrate.pyx":256
  *         elif intervaltype.lower() == 'log':
  *             intervals = np.logspace(log(a), log(b), nintervals+1, base=exp(1.))
  *         elif intervaltype.lower() == 'log10':             # <<<<<<<<<<<<<<
@@ -3953,7 +4160,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_2lqng(CYTHON_UNUSED PyObject
       goto __pyx_L11;
     }
 
-    /* "lintegrate/lintegrate.pyx":248
+    /* "lintegrate/lintegrate.pyx":259
  *             intervals = np.logspace(log10(a), log10(b), nintervals+1)
  *         else:
  *             raise ValueError("Interval type must be 'linear', 'log', or 'log10'")             # <<<<<<<<<<<<<<
@@ -3961,15 +4168,15 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_2lqng(CYTHON_UNUSED PyObject
  *         if isinstance(intervals, np.ndarray) or isinstance(intervals, list):
  */
     /*else*/ {
-      __pyx_t_9 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__8, NULL); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 248, __pyx_L1_error)
+      __pyx_t_9 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__8, NULL); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 259, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_9);
       __Pyx_Raise(__pyx_t_9, 0, 0, 0);
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-      __PYX_ERR(0, 248, __pyx_L1_error)
+      __PYX_ERR(0, 259, __pyx_L1_error)
     }
     __pyx_L11:;
 
-    /* "lintegrate/lintegrate.pyx":235
+    /* "lintegrate/lintegrate.pyx":246
  *     cdef int suc = 0
  * 
  *     if intervals is None:             # <<<<<<<<<<<<<<
@@ -3979,7 +4186,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_2lqng(CYTHON_UNUSED PyObject
     goto __pyx_L9;
   }
 
-  /* "lintegrate/lintegrate.pyx":250
+  /* "lintegrate/lintegrate.pyx":261
  *             raise ValueError("Interval type must be 'linear', 'log', or 'log10'")
  *     else:
  *         if isinstance(intervals, np.ndarray) or isinstance(intervals, list):             # <<<<<<<<<<<<<<
@@ -4000,23 +4207,23 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_2lqng(CYTHON_UNUSED PyObject
     __pyx_L13_bool_binop_done:;
     if (__pyx_t_2) {
 
-      /* "lintegrate/lintegrate.pyx":251
+      /* "lintegrate/lintegrate.pyx":262
  *     else:
  *         if isinstance(intervals, np.ndarray) or isinstance(intervals, list):
  *             intervals = np.array(sorted(intervals)) # make sure array is in ascending order             # <<<<<<<<<<<<<<
  * 
  *     for i in xrange(len(intervals)-1):
  */
-      __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_np); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 251, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_np); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 262, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
-      __pyx_t_12 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_array); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 251, __pyx_L1_error)
+      __pyx_t_12 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_array); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 262, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_12);
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-      __pyx_t_3 = PySequence_List(__pyx_v_intervals); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 251, __pyx_L1_error)
+      __pyx_t_3 = PySequence_List(__pyx_v_intervals); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 262, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __pyx_t_7 = ((PyObject*)__pyx_t_3);
       __pyx_t_3 = 0;
-      __pyx_t_13 = PyList_Sort(__pyx_t_7); if (unlikely(__pyx_t_13 == ((int)-1))) __PYX_ERR(0, 251, __pyx_L1_error)
+      __pyx_t_13 = PyList_Sort(__pyx_t_7); if (unlikely(__pyx_t_13 == ((int)-1))) __PYX_ERR(0, 262, __pyx_L1_error)
       __pyx_t_3 = NULL;
       if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_12))) {
         __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_12);
@@ -4030,13 +4237,13 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_2lqng(CYTHON_UNUSED PyObject
       __pyx_t_9 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_12, __pyx_t_3, __pyx_t_7) : __Pyx_PyObject_CallOneArg(__pyx_t_12, __pyx_t_7);
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-      if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 251, __pyx_L1_error)
+      if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 262, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_9);
       __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
       __Pyx_DECREF_SET(__pyx_v_intervals, __pyx_t_9);
       __pyx_t_9 = 0;
 
-      /* "lintegrate/lintegrate.pyx":250
+      /* "lintegrate/lintegrate.pyx":261
  *             raise ValueError("Interval type must be 'linear', 'log', or 'log10'")
  *     else:
  *         if isinstance(intervals, np.ndarray) or isinstance(intervals, list):             # <<<<<<<<<<<<<<
@@ -4047,26 +4254,26 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_2lqng(CYTHON_UNUSED PyObject
   }
   __pyx_L9:;
 
-  /* "lintegrate/lintegrate.pyx":253
+  /* "lintegrate/lintegrate.pyx":264
  *             intervals = np.array(sorted(intervals)) # make sure array is in ascending order
  * 
  *     for i in xrange(len(intervals)-1):             # <<<<<<<<<<<<<<
  *         suc = lintegration_qng(lintegrate_callback, <void*>func, <void*> args, intervals[i], intervals[i+1], epsabs, epsrel, &result, &abserr, &nevaltmp)
  *         assert suc == 0, "'lintegration_qng' failed"
  */
-  __pyx_t_14 = PyObject_Length(__pyx_v_intervals); if (unlikely(__pyx_t_14 == ((Py_ssize_t)-1))) __PYX_ERR(0, 253, __pyx_L1_error)
-  __pyx_t_9 = PyInt_FromSsize_t((__pyx_t_14 - 1)); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 253, __pyx_L1_error)
+  __pyx_t_14 = PyObject_Length(__pyx_v_intervals); if (unlikely(__pyx_t_14 == ((Py_ssize_t)-1))) __PYX_ERR(0, 264, __pyx_L1_error)
+  __pyx_t_9 = PyInt_FromSsize_t((__pyx_t_14 - 1)); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 264, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
-  __pyx_t_12 = __Pyx_PyObject_CallOneArg(__pyx_builtin_xrange, __pyx_t_9); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 253, __pyx_L1_error)
+  __pyx_t_12 = __Pyx_PyObject_CallOneArg(__pyx_builtin_xrange, __pyx_t_9); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 264, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_12);
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
   if (likely(PyList_CheckExact(__pyx_t_12)) || PyTuple_CheckExact(__pyx_t_12)) {
     __pyx_t_9 = __pyx_t_12; __Pyx_INCREF(__pyx_t_9); __pyx_t_14 = 0;
     __pyx_t_15 = NULL;
   } else {
-    __pyx_t_14 = -1; __pyx_t_9 = PyObject_GetIter(__pyx_t_12); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 253, __pyx_L1_error)
+    __pyx_t_14 = -1; __pyx_t_9 = PyObject_GetIter(__pyx_t_12); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 264, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
-    __pyx_t_15 = Py_TYPE(__pyx_t_9)->tp_iternext; if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 253, __pyx_L1_error)
+    __pyx_t_15 = Py_TYPE(__pyx_t_9)->tp_iternext; if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 264, __pyx_L1_error)
   }
   __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
   for (;;) {
@@ -4074,17 +4281,17 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_2lqng(CYTHON_UNUSED PyObject
       if (likely(PyList_CheckExact(__pyx_t_9))) {
         if (__pyx_t_14 >= PyList_GET_SIZE(__pyx_t_9)) break;
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_12 = PyList_GET_ITEM(__pyx_t_9, __pyx_t_14); __Pyx_INCREF(__pyx_t_12); __pyx_t_14++; if (unlikely(0 < 0)) __PYX_ERR(0, 253, __pyx_L1_error)
+        __pyx_t_12 = PyList_GET_ITEM(__pyx_t_9, __pyx_t_14); __Pyx_INCREF(__pyx_t_12); __pyx_t_14++; if (unlikely(0 < 0)) __PYX_ERR(0, 264, __pyx_L1_error)
         #else
-        __pyx_t_12 = PySequence_ITEM(__pyx_t_9, __pyx_t_14); __pyx_t_14++; if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 253, __pyx_L1_error)
+        __pyx_t_12 = PySequence_ITEM(__pyx_t_9, __pyx_t_14); __pyx_t_14++; if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 264, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_12);
         #endif
       } else {
         if (__pyx_t_14 >= PyTuple_GET_SIZE(__pyx_t_9)) break;
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_12 = PyTuple_GET_ITEM(__pyx_t_9, __pyx_t_14); __Pyx_INCREF(__pyx_t_12); __pyx_t_14++; if (unlikely(0 < 0)) __PYX_ERR(0, 253, __pyx_L1_error)
+        __pyx_t_12 = PyTuple_GET_ITEM(__pyx_t_9, __pyx_t_14); __Pyx_INCREF(__pyx_t_12); __pyx_t_14++; if (unlikely(0 < 0)) __PYX_ERR(0, 264, __pyx_L1_error)
         #else
-        __pyx_t_12 = PySequence_ITEM(__pyx_t_9, __pyx_t_14); __pyx_t_14++; if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 253, __pyx_L1_error)
+        __pyx_t_12 = PySequence_ITEM(__pyx_t_9, __pyx_t_14); __pyx_t_14++; if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 264, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_12);
         #endif
       }
@@ -4094,7 +4301,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_2lqng(CYTHON_UNUSED PyObject
         PyObject* exc_type = PyErr_Occurred();
         if (exc_type) {
           if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-          else __PYX_ERR(0, 253, __pyx_L1_error)
+          else __PYX_ERR(0, 264, __pyx_L1_error)
         }
         break;
       }
@@ -4103,29 +4310,29 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_2lqng(CYTHON_UNUSED PyObject
     __Pyx_XDECREF_SET(__pyx_v_i, __pyx_t_12);
     __pyx_t_12 = 0;
 
-    /* "lintegrate/lintegrate.pyx":254
+    /* "lintegrate/lintegrate.pyx":265
  * 
  *     for i in xrange(len(intervals)-1):
  *         suc = lintegration_qng(lintegrate_callback, <void*>func, <void*> args, intervals[i], intervals[i+1], epsabs, epsrel, &result, &abserr, &nevaltmp)             # <<<<<<<<<<<<<<
  *         assert suc == 0, "'lintegration_qng' failed"
  *         sumres = logplus(sumres, result)
  */
-    __pyx_t_12 = __Pyx_PyObject_GetItem(__pyx_v_intervals, __pyx_v_i); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 254, __pyx_L1_error)
+    __pyx_t_12 = __Pyx_PyObject_GetItem(__pyx_v_intervals, __pyx_v_i); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 265, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_12);
-    __pyx_t_10 = __pyx_PyFloat_AsDouble(__pyx_t_12); if (unlikely((__pyx_t_10 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 254, __pyx_L1_error)
+    __pyx_t_10 = __pyx_PyFloat_AsDouble(__pyx_t_12); if (unlikely((__pyx_t_10 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 265, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
-    __pyx_t_12 = __Pyx_PyInt_AddObjC(__pyx_v_i, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 254, __pyx_L1_error)
+    __pyx_t_12 = __Pyx_PyInt_AddObjC(__pyx_v_i, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 265, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_12);
-    __pyx_t_7 = __Pyx_PyObject_GetItem(__pyx_v_intervals, __pyx_t_12); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 254, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyObject_GetItem(__pyx_v_intervals, __pyx_t_12); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 265, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
-    __pyx_t_16 = __pyx_PyFloat_AsDouble(__pyx_t_7); if (unlikely((__pyx_t_16 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 254, __pyx_L1_error)
+    __pyx_t_16 = __pyx_PyFloat_AsDouble(__pyx_t_7); if (unlikely((__pyx_t_16 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 265, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-    __pyx_t_17 = __pyx_PyFloat_AsDouble(__pyx_v_epsabs); if (unlikely((__pyx_t_17 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 254, __pyx_L1_error)
-    __pyx_t_18 = __pyx_PyFloat_AsDouble(__pyx_v_epsrel); if (unlikely((__pyx_t_18 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 254, __pyx_L1_error)
+    __pyx_t_17 = __pyx_PyFloat_AsDouble(__pyx_v_epsabs); if (unlikely((__pyx_t_17 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 265, __pyx_L1_error)
+    __pyx_t_18 = __pyx_PyFloat_AsDouble(__pyx_v_epsrel); if (unlikely((__pyx_t_18 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 265, __pyx_L1_error)
     __pyx_v_suc = lintegration_qng(__pyx_f_10lintegrate_10lintegrate_lintegrate_callback, ((void *)__pyx_v_func), ((void *)__pyx_v_args), __pyx_t_10, __pyx_t_16, __pyx_t_17, __pyx_t_18, (&__pyx_v_result), (&__pyx_v_abserr), (&__pyx_v_nevaltmp));
 
-    /* "lintegrate/lintegrate.pyx":255
+    /* "lintegrate/lintegrate.pyx":266
  *     for i in xrange(len(intervals)-1):
  *         suc = lintegration_qng(lintegrate_callback, <void*>func, <void*> args, intervals[i], intervals[i+1], epsabs, epsrel, &result, &abserr, &nevaltmp)
  *         assert suc == 0, "'lintegration_qng' failed"             # <<<<<<<<<<<<<<
@@ -4136,38 +4343,38 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_2lqng(CYTHON_UNUSED PyObject
     if (unlikely(!Py_OptimizeFlag)) {
       if (unlikely(!((__pyx_v_suc == 0) != 0))) {
         PyErr_SetObject(PyExc_AssertionError, __pyx_kp_s_lintegration_qng_failed);
-        __PYX_ERR(0, 255, __pyx_L1_error)
+        __PYX_ERR(0, 266, __pyx_L1_error)
       }
     }
     #endif
 
-    /* "lintegrate/lintegrate.pyx":256
+    /* "lintegrate/lintegrate.pyx":267
  *         suc = lintegration_qng(lintegrate_callback, <void*>func, <void*> args, intervals[i], intervals[i+1], epsabs, epsrel, &result, &abserr, &nevaltmp)
  *         assert suc == 0, "'lintegration_qng' failed"
  *         sumres = logplus(sumres, result)             # <<<<<<<<<<<<<<
  *         sumabserr = logplus(sumabserr, abserr)
  *         neval += nevaltmp
  */
-    __pyx_t_7 = __pyx_f_10lintegrate_10lintegrate_logplus(__pyx_v_sumres, __pyx_v_result); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 256, __pyx_L1_error)
+    __pyx_t_7 = __pyx_f_10lintegrate_10lintegrate_logplus(__pyx_v_sumres, __pyx_v_result); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 267, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
-    __pyx_t_18 = __pyx_PyFloat_AsDouble(__pyx_t_7); if (unlikely((__pyx_t_18 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 256, __pyx_L1_error)
+    __pyx_t_18 = __pyx_PyFloat_AsDouble(__pyx_t_7); if (unlikely((__pyx_t_18 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 267, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     __pyx_v_sumres = __pyx_t_18;
 
-    /* "lintegrate/lintegrate.pyx":257
+    /* "lintegrate/lintegrate.pyx":268
  *         assert suc == 0, "'lintegration_qng' failed"
  *         sumres = logplus(sumres, result)
  *         sumabserr = logplus(sumabserr, abserr)             # <<<<<<<<<<<<<<
  *         neval += nevaltmp
  *     result = sumres
  */
-    __pyx_t_7 = __pyx_f_10lintegrate_10lintegrate_logplus(__pyx_v_sumabserr, __pyx_v_abserr); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 257, __pyx_L1_error)
+    __pyx_t_7 = __pyx_f_10lintegrate_10lintegrate_logplus(__pyx_v_sumabserr, __pyx_v_abserr); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 268, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
-    __pyx_t_18 = __pyx_PyFloat_AsDouble(__pyx_t_7); if (unlikely((__pyx_t_18 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 257, __pyx_L1_error)
+    __pyx_t_18 = __pyx_PyFloat_AsDouble(__pyx_t_7); if (unlikely((__pyx_t_18 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 268, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     __pyx_v_sumabserr = __pyx_t_18;
 
-    /* "lintegrate/lintegrate.pyx":258
+    /* "lintegrate/lintegrate.pyx":269
  *         sumres = logplus(sumres, result)
  *         sumabserr = logplus(sumabserr, abserr)
  *         neval += nevaltmp             # <<<<<<<<<<<<<<
@@ -4176,7 +4383,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_2lqng(CYTHON_UNUSED PyObject
  */
     __pyx_v_neval = (__pyx_v_neval + __pyx_v_nevaltmp);
 
-    /* "lintegrate/lintegrate.pyx":253
+    /* "lintegrate/lintegrate.pyx":264
  *             intervals = np.array(sorted(intervals)) # make sure array is in ascending order
  * 
  *     for i in xrange(len(intervals)-1):             # <<<<<<<<<<<<<<
@@ -4186,7 +4393,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_2lqng(CYTHON_UNUSED PyObject
   }
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
 
-  /* "lintegrate/lintegrate.pyx":259
+  /* "lintegrate/lintegrate.pyx":270
  *         sumabserr = logplus(sumabserr, abserr)
  *         neval += nevaltmp
  *     result = sumres             # <<<<<<<<<<<<<<
@@ -4195,7 +4402,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_2lqng(CYTHON_UNUSED PyObject
  */
   __pyx_v_result = __pyx_v_sumres;
 
-  /* "lintegrate/lintegrate.pyx":260
+  /* "lintegrate/lintegrate.pyx":271
  *         neval += nevaltmp
  *     result = sumres
  *     abserr = sumabserr             # <<<<<<<<<<<<<<
@@ -4204,7 +4411,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_2lqng(CYTHON_UNUSED PyObject
  */
   __pyx_v_abserr = __pyx_v_sumabserr;
 
-  /* "lintegrate/lintegrate.pyx":262
+  /* "lintegrate/lintegrate.pyx":273
  *     abserr = sumabserr
  * 
  *     return (result, abserr, neval)             # <<<<<<<<<<<<<<
@@ -4212,13 +4419,13 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_2lqng(CYTHON_UNUSED PyObject
  * 
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_9 = PyFloat_FromDouble(__pyx_v_result); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 262, __pyx_L1_error)
+  __pyx_t_9 = PyFloat_FromDouble(__pyx_v_result); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 273, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
-  __pyx_t_7 = PyFloat_FromDouble(__pyx_v_abserr); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 262, __pyx_L1_error)
+  __pyx_t_7 = PyFloat_FromDouble(__pyx_v_abserr); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 273, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  __pyx_t_12 = __Pyx_PyInt_FromSize_t(__pyx_v_neval); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 262, __pyx_L1_error)
+  __pyx_t_12 = __Pyx_PyInt_FromSize_t(__pyx_v_neval); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 273, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_12);
-  __pyx_t_3 = PyTuple_New(3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 262, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 273, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_9);
   PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_9);
@@ -4233,7 +4440,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_2lqng(CYTHON_UNUSED PyObject
   __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "lintegrate/lintegrate.pyx":171
+  /* "lintegrate/lintegrate.pyx":182
  * 
  * 
  * def lqng(func, a=0., b=0., args=(), epsabs=1.49e-8, epsrel=1.49e-8, intervals=None, nintervals=0, intervaltype='linear'):             # <<<<<<<<<<<<<<
@@ -4262,7 +4469,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_2lqng(CYTHON_UNUSED PyObject
   return __pyx_r;
 }
 
-/* "lintegrate/lintegrate.pyx":265
+/* "lintegrate/lintegrate.pyx":276
  * 
  * 
  * def lqag(func, a=0., b=0., args=(), epsabs=1.49e-8, epsrel=1.49e-8, limit=50, intkey=1, intervals=None, nintervals=0, intervaltype='linear'):             # <<<<<<<<<<<<<<
@@ -4401,7 +4608,7 @@ static PyObject *__pyx_pw_10lintegrate_10lintegrate_5lqag(PyObject *__pyx_self, 
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "lqag") < 0)) __PYX_ERR(0, 265, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "lqag") < 0)) __PYX_ERR(0, 276, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -4444,7 +4651,7 @@ static PyObject *__pyx_pw_10lintegrate_10lintegrate_5lqag(PyObject *__pyx_self, 
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("lqag", 0, 1, 11, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 265, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("lqag", 0, 1, 11, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 276, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("lintegrate.lintegrate.lqag", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -4495,31 +4702,31 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_4lqag(CYTHON_UNUSED PyObject
   __Pyx_INCREF(__pyx_v_intervals);
   __Pyx_INCREF(__pyx_v_nintervals);
 
-  /* "lintegrate/lintegrate.pyx":317
+  /* "lintegrate/lintegrate.pyx":328
  *     """
  * 
  *     if not callable(func):             # <<<<<<<<<<<<<<
  *         raise RuntimeError('"func" must be a callable function')
  * 
  */
-  __pyx_t_1 = __Pyx_PyCallable_Check(__pyx_v_func); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(0, 317, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyCallable_Check(__pyx_v_func); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(0, 328, __pyx_L1_error)
   __pyx_t_2 = ((!(__pyx_t_1 != 0)) != 0);
   if (unlikely(__pyx_t_2)) {
 
-    /* "lintegrate/lintegrate.pyx":318
+    /* "lintegrate/lintegrate.pyx":329
  * 
  *     if not callable(func):
  *         raise RuntimeError('"func" must be a callable function')             # <<<<<<<<<<<<<<
  * 
  *     assert b > a or intervals is not None or (nintervals != 0 and b > a), "Integral range must have b > a"
  */
-    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_RuntimeError, __pyx_tuple__7, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 318, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_RuntimeError, __pyx_tuple__7, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 329, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_Raise(__pyx_t_3, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __PYX_ERR(0, 318, __pyx_L1_error)
+    __PYX_ERR(0, 329, __pyx_L1_error)
 
-    /* "lintegrate/lintegrate.pyx":317
+    /* "lintegrate/lintegrate.pyx":328
  *     """
  * 
  *     if not callable(func):             # <<<<<<<<<<<<<<
@@ -4528,7 +4735,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_4lqag(CYTHON_UNUSED PyObject
  */
   }
 
-  /* "lintegrate/lintegrate.pyx":320
+  /* "lintegrate/lintegrate.pyx":331
  *         raise RuntimeError('"func" must be a callable function')
  * 
  *     assert b > a or intervals is not None or (nintervals != 0 and b > a), "Integral range must have b > a"             # <<<<<<<<<<<<<<
@@ -4537,8 +4744,8 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_4lqag(CYTHON_UNUSED PyObject
  */
   #ifndef CYTHON_WITHOUT_ASSERTIONS
   if (unlikely(!Py_OptimizeFlag)) {
-    __pyx_t_3 = PyObject_RichCompare(__pyx_v_b, __pyx_v_a, Py_GT); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 320, __pyx_L1_error)
-    __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 320, __pyx_L1_error)
+    __pyx_t_3 = PyObject_RichCompare(__pyx_v_b, __pyx_v_a, Py_GT); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 331, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 331, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     if (!__pyx_t_1) {
     } else {
@@ -4552,28 +4759,28 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_4lqag(CYTHON_UNUSED PyObject
       __pyx_t_2 = __pyx_t_4;
       goto __pyx_L4_bool_binop_done;
     }
-    __pyx_t_3 = __Pyx_PyInt_NeObjC(__pyx_v_nintervals, __pyx_int_0, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 320, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyInt_NeObjC(__pyx_v_nintervals, __pyx_int_0, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 331, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 320, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 331, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     if (__pyx_t_4) {
     } else {
       __pyx_t_2 = __pyx_t_4;
       goto __pyx_L4_bool_binop_done;
     }
-    __pyx_t_3 = PyObject_RichCompare(__pyx_v_b, __pyx_v_a, Py_GT); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 320, __pyx_L1_error)
-    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 320, __pyx_L1_error)
+    __pyx_t_3 = PyObject_RichCompare(__pyx_v_b, __pyx_v_a, Py_GT); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 331, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 331, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_t_2 = __pyx_t_4;
     __pyx_L4_bool_binop_done:;
     if (unlikely(!__pyx_t_2)) {
       PyErr_SetObject(PyExc_AssertionError, __pyx_kp_s_Integral_range_must_have_b_a);
-      __PYX_ERR(0, 320, __pyx_L1_error)
+      __PYX_ERR(0, 331, __pyx_L1_error)
     }
   }
   #endif
 
-  /* "lintegrate/lintegrate.pyx":322
+  /* "lintegrate/lintegrate.pyx":333
  *     assert b > a or intervals is not None or (nintervals != 0 and b > a), "Integral range must have b > a"
  * 
  *     if not isinstance(args, tuple):             # <<<<<<<<<<<<<<
@@ -4584,14 +4791,14 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_4lqag(CYTHON_UNUSED PyObject
   __pyx_t_4 = ((!(__pyx_t_2 != 0)) != 0);
   if (__pyx_t_4) {
 
-    /* "lintegrate/lintegrate.pyx":323
+    /* "lintegrate/lintegrate.pyx":334
  * 
  *     if not isinstance(args, tuple):
  *         args = (args,) # convert to tuple             # <<<<<<<<<<<<<<
  * 
  *     if intkey not in [1, 2, 3, 4, 5, 6]:
  */
-    __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 323, __pyx_L1_error)
+    __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 334, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_INCREF(__pyx_v_args);
     __Pyx_GIVEREF(__pyx_v_args);
@@ -4599,7 +4806,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_4lqag(CYTHON_UNUSED PyObject
     __Pyx_DECREF_SET(__pyx_v_args, __pyx_t_3);
     __pyx_t_3 = 0;
 
-    /* "lintegrate/lintegrate.pyx":322
+    /* "lintegrate/lintegrate.pyx":333
  *     assert b > a or intervals is not None or (nintervals != 0 and b > a), "Integral range must have b > a"
  * 
  *     if not isinstance(args, tuple):             # <<<<<<<<<<<<<<
@@ -4608,7 +4815,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_4lqag(CYTHON_UNUSED PyObject
  */
   }
 
-  /* "lintegrate/lintegrate.pyx":325
+  /* "lintegrate/lintegrate.pyx":336
  *         args = (args,) # convert to tuple
  * 
  *     if intkey not in [1, 2, 3, 4, 5, 6]:             # <<<<<<<<<<<<<<
@@ -4617,54 +4824,54 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_4lqag(CYTHON_UNUSED PyObject
  */
   __Pyx_INCREF(__pyx_v_intkey);
   __pyx_t_3 = __pyx_v_intkey;
-  __pyx_t_5 = __Pyx_PyInt_NeObjC(__pyx_t_3, __pyx_int_1, 1, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 325, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyInt_NeObjC(__pyx_t_3, __pyx_int_1, 1, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 336, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 325, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 336, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   if (__pyx_t_2) {
   } else {
     __pyx_t_4 = __pyx_t_2;
     goto __pyx_L10_bool_binop_done;
   }
-  __pyx_t_5 = __Pyx_PyInt_NeObjC(__pyx_t_3, __pyx_int_2, 2, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 325, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyInt_NeObjC(__pyx_t_3, __pyx_int_2, 2, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 336, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 325, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 336, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   if (__pyx_t_2) {
   } else {
     __pyx_t_4 = __pyx_t_2;
     goto __pyx_L10_bool_binop_done;
   }
-  __pyx_t_5 = __Pyx_PyInt_NeObjC(__pyx_t_3, __pyx_int_3, 3, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 325, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyInt_NeObjC(__pyx_t_3, __pyx_int_3, 3, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 336, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 325, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 336, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   if (__pyx_t_2) {
   } else {
     __pyx_t_4 = __pyx_t_2;
     goto __pyx_L10_bool_binop_done;
   }
-  __pyx_t_5 = __Pyx_PyInt_NeObjC(__pyx_t_3, __pyx_int_4, 4, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 325, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyInt_NeObjC(__pyx_t_3, __pyx_int_4, 4, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 336, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 325, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 336, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   if (__pyx_t_2) {
   } else {
     __pyx_t_4 = __pyx_t_2;
     goto __pyx_L10_bool_binop_done;
   }
-  __pyx_t_5 = __Pyx_PyInt_NeObjC(__pyx_t_3, __pyx_int_5, 5, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 325, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyInt_NeObjC(__pyx_t_3, __pyx_int_5, 5, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 336, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 325, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 336, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   if (__pyx_t_2) {
   } else {
     __pyx_t_4 = __pyx_t_2;
     goto __pyx_L10_bool_binop_done;
   }
-  __pyx_t_5 = __Pyx_PyInt_NeObjC(__pyx_t_3, __pyx_int_6, 6, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 325, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyInt_NeObjC(__pyx_t_3, __pyx_int_6, 6, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 336, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 325, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 336, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __pyx_t_4 = __pyx_t_2;
   __pyx_L10_bool_binop_done:;
@@ -4672,20 +4879,20 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_4lqag(CYTHON_UNUSED PyObject
   __pyx_t_2 = (__pyx_t_4 != 0);
   if (unlikely(__pyx_t_2)) {
 
-    /* "lintegrate/lintegrate.pyx":326
+    /* "lintegrate/lintegrate.pyx":337
  * 
  *     if intkey not in [1, 2, 3, 4, 5, 6]:
  *         raise ValueError('"intkey" must be 1, 2, 3, 4, 5, or 6')             # <<<<<<<<<<<<<<
  * 
  *     if isinstance(intkey, float):
  */
-    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__9, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 326, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__9, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 337, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_Raise(__pyx_t_3, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __PYX_ERR(0, 326, __pyx_L1_error)
+    __PYX_ERR(0, 337, __pyx_L1_error)
 
-    /* "lintegrate/lintegrate.pyx":325
+    /* "lintegrate/lintegrate.pyx":336
  *         args = (args,) # convert to tuple
  * 
  *     if intkey not in [1, 2, 3, 4, 5, 6]:             # <<<<<<<<<<<<<<
@@ -4694,7 +4901,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_4lqag(CYTHON_UNUSED PyObject
  */
   }
 
-  /* "lintegrate/lintegrate.pyx":328
+  /* "lintegrate/lintegrate.pyx":339
  *         raise ValueError('"intkey" must be 1, 2, 3, 4, 5, or 6')
  * 
  *     if isinstance(intkey, float):             # <<<<<<<<<<<<<<
@@ -4705,19 +4912,19 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_4lqag(CYTHON_UNUSED PyObject
   __pyx_t_4 = (__pyx_t_2 != 0);
   if (__pyx_t_4) {
 
-    /* "lintegrate/lintegrate.pyx":329
+    /* "lintegrate/lintegrate.pyx":340
  * 
  *     if isinstance(intkey, float):
  *         intket = int(intkey)             # <<<<<<<<<<<<<<
  * 
  *     cdef double result = 0., sumres = -INFINITY
  */
-    __pyx_t_3 = __Pyx_PyNumber_Int(__pyx_v_intkey); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 329, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyNumber_Int(__pyx_v_intkey); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 340, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_v_intket = __pyx_t_3;
     __pyx_t_3 = 0;
 
-    /* "lintegrate/lintegrate.pyx":328
+    /* "lintegrate/lintegrate.pyx":339
  *         raise ValueError('"intkey" must be 1, 2, 3, 4, 5, or 6')
  * 
  *     if isinstance(intkey, float):             # <<<<<<<<<<<<<<
@@ -4726,7 +4933,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_4lqag(CYTHON_UNUSED PyObject
  */
   }
 
-  /* "lintegrate/lintegrate.pyx":331
+  /* "lintegrate/lintegrate.pyx":342
  *         intket = int(intkey)
  * 
  *     cdef double result = 0., sumres = -INFINITY             # <<<<<<<<<<<<<<
@@ -4736,7 +4943,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_4lqag(CYTHON_UNUSED PyObject
   __pyx_v_result = 0.;
   __pyx_v_sumres = (-NPY_INFINITY);
 
-  /* "lintegrate/lintegrate.pyx":332
+  /* "lintegrate/lintegrate.pyx":343
  * 
  *     cdef double result = 0., sumres = -INFINITY
  *     cdef double abserr = 0., sumabserr = -INFINITY             # <<<<<<<<<<<<<<
@@ -4746,7 +4953,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_4lqag(CYTHON_UNUSED PyObject
   __pyx_v_abserr = 0.;
   __pyx_v_sumabserr = (-NPY_INFINITY);
 
-  /* "lintegrate/lintegrate.pyx":333
+  /* "lintegrate/lintegrate.pyx":344
  *     cdef double result = 0., sumres = -INFINITY
  *     cdef double abserr = 0., sumabserr = -INFINITY
  *     cdef int suc = 0             # <<<<<<<<<<<<<<
@@ -4755,7 +4962,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_4lqag(CYTHON_UNUSED PyObject
  */
   __pyx_v_suc = 0;
 
-  /* "lintegrate/lintegrate.pyx":335
+  /* "lintegrate/lintegrate.pyx":346
  *     cdef int suc = 0
  * 
  *     assert limit > 0 and isinstance(limit, int), '"limit" must be a positive integer'             # <<<<<<<<<<<<<<
@@ -4764,8 +4971,8 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_4lqag(CYTHON_UNUSED PyObject
  */
   #ifndef CYTHON_WITHOUT_ASSERTIONS
   if (unlikely(!Py_OptimizeFlag)) {
-    __pyx_t_3 = PyObject_RichCompare(__pyx_v_limit, __pyx_int_0, Py_GT); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 335, __pyx_L1_error)
-    __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 335, __pyx_L1_error)
+    __pyx_t_3 = PyObject_RichCompare(__pyx_v_limit, __pyx_int_0, Py_GT); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 346, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 346, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     if (__pyx_t_2) {
     } else {
@@ -4778,22 +4985,22 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_4lqag(CYTHON_UNUSED PyObject
     __pyx_L17_bool_binop_done:;
     if (unlikely(!__pyx_t_4)) {
       PyErr_SetObject(PyExc_AssertionError, __pyx_kp_s_limit_must_be_a_positive_intege);
-      __PYX_ERR(0, 335, __pyx_L1_error)
+      __PYX_ERR(0, 346, __pyx_L1_error)
     }
   }
   #endif
 
-  /* "lintegrate/lintegrate.pyx":337
+  /* "lintegrate/lintegrate.pyx":348
  *     assert limit > 0 and isinstance(limit, int), '"limit" must be a positive integer'
  * 
  *     cdef gsl_integration_workspace *w = gsl_integration_workspace_alloc(limit)             # <<<<<<<<<<<<<<
  * 
  *     if intervals is None:
  */
-  __pyx_t_6 = __Pyx_PyInt_As_size_t(__pyx_v_limit); if (unlikely((__pyx_t_6 == (size_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 337, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyInt_As_size_t(__pyx_v_limit); if (unlikely((__pyx_t_6 == (size_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 348, __pyx_L1_error)
   __pyx_v_w = gsl_integration_workspace_alloc(__pyx_t_6);
 
-  /* "lintegrate/lintegrate.pyx":339
+  /* "lintegrate/lintegrate.pyx":350
  *     cdef gsl_integration_workspace *w = gsl_integration_workspace_alloc(limit)
  * 
  *     if intervals is None:             # <<<<<<<<<<<<<<
@@ -4804,20 +5011,20 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_4lqag(CYTHON_UNUSED PyObject
   __pyx_t_1 = (__pyx_t_4 != 0);
   if (__pyx_t_1) {
 
-    /* "lintegrate/lintegrate.pyx":340
+    /* "lintegrate/lintegrate.pyx":351
  * 
  *     if intervals is None:
  *         if nintervals == 0: # just use a and b             # <<<<<<<<<<<<<<
  *             nintervals = 1
  * 
  */
-    __pyx_t_3 = __Pyx_PyInt_EqObjC(__pyx_v_nintervals, __pyx_int_0, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 340, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyInt_EqObjC(__pyx_v_nintervals, __pyx_int_0, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 351, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 340, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 351, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     if (__pyx_t_1) {
 
-      /* "lintegrate/lintegrate.pyx":341
+      /* "lintegrate/lintegrate.pyx":352
  *     if intervals is None:
  *         if nintervals == 0: # just use a and b
  *             nintervals = 1             # <<<<<<<<<<<<<<
@@ -4827,7 +5034,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_4lqag(CYTHON_UNUSED PyObject
       __Pyx_INCREF(__pyx_int_1);
       __Pyx_DECREF_SET(__pyx_v_nintervals, __pyx_int_1);
 
-      /* "lintegrate/lintegrate.pyx":340
+      /* "lintegrate/lintegrate.pyx":351
  * 
  *     if intervals is None:
  *         if nintervals == 0: # just use a and b             # <<<<<<<<<<<<<<
@@ -4836,7 +5043,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_4lqag(CYTHON_UNUSED PyObject
  */
     }
 
-    /* "lintegrate/lintegrate.pyx":343
+    /* "lintegrate/lintegrate.pyx":354
  *             nintervals = 1
  * 
  *         assert nintervals > 0, "Number of intervals must be positive"             # <<<<<<<<<<<<<<
@@ -4845,24 +5052,24 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_4lqag(CYTHON_UNUSED PyObject
  */
     #ifndef CYTHON_WITHOUT_ASSERTIONS
     if (unlikely(!Py_OptimizeFlag)) {
-      __pyx_t_3 = PyObject_RichCompare(__pyx_v_nintervals, __pyx_int_0, Py_GT); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 343, __pyx_L1_error)
-      __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 343, __pyx_L1_error)
+      __pyx_t_3 = PyObject_RichCompare(__pyx_v_nintervals, __pyx_int_0, Py_GT); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 354, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 354, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       if (unlikely(!__pyx_t_1)) {
         PyErr_SetObject(PyExc_AssertionError, __pyx_kp_s_Number_of_intervals_must_be_posi);
-        __PYX_ERR(0, 343, __pyx_L1_error)
+        __PYX_ERR(0, 354, __pyx_L1_error)
       }
     }
     #endif
 
-    /* "lintegrate/lintegrate.pyx":345
+    /* "lintegrate/lintegrate.pyx":356
  *         assert nintervals > 0, "Number of intervals must be positive"
  * 
  *         if intervaltype.lower() == 'linear':             # <<<<<<<<<<<<<<
  *             intervals = np.linspace(a, b, nintervals+1)
  *         elif intervaltype.lower() == 'log':
  */
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_intervaltype, __pyx_n_s_lower); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 345, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_intervaltype, __pyx_n_s_lower); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 356, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __pyx_t_7 = NULL;
     if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_5))) {
@@ -4876,26 +5083,26 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_4lqag(CYTHON_UNUSED PyObject
     }
     __pyx_t_3 = (__pyx_t_7) ? __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_7) : __Pyx_PyObject_CallNoArg(__pyx_t_5);
     __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 345, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 356, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_t_1 = (__Pyx_PyString_Equals(__pyx_t_3, __pyx_n_s_linear, Py_EQ)); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 345, __pyx_L1_error)
+    __pyx_t_1 = (__Pyx_PyString_Equals(__pyx_t_3, __pyx_n_s_linear, Py_EQ)); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 356, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     if (__pyx_t_1) {
 
-      /* "lintegrate/lintegrate.pyx":346
+      /* "lintegrate/lintegrate.pyx":357
  * 
  *         if intervaltype.lower() == 'linear':
  *             intervals = np.linspace(a, b, nintervals+1)             # <<<<<<<<<<<<<<
  *         elif intervaltype.lower() == 'log':
  *             intervals = np.logspace(log(a), log(b), nintervals+1, base=exp(1.))
  */
-      __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_np); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 346, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_np); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 357, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
-      __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_linspace); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 346, __pyx_L1_error)
+      __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_linspace); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 357, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-      __pyx_t_5 = __Pyx_PyInt_AddObjC(__pyx_v_nintervals, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 346, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_PyInt_AddObjC(__pyx_v_nintervals, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 357, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
       __pyx_t_8 = NULL;
       __pyx_t_9 = 0;
@@ -4912,7 +5119,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_4lqag(CYTHON_UNUSED PyObject
       #if CYTHON_FAST_PYCALL
       if (PyFunction_Check(__pyx_t_7)) {
         PyObject *__pyx_temp[4] = {__pyx_t_8, __pyx_v_a, __pyx_v_b, __pyx_t_5};
-        __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_7, __pyx_temp+1-__pyx_t_9, 3+__pyx_t_9); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 346, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_7, __pyx_temp+1-__pyx_t_9, 3+__pyx_t_9); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 357, __pyx_L1_error)
         __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
         __Pyx_GOTREF(__pyx_t_3);
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
@@ -4921,14 +5128,14 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_4lqag(CYTHON_UNUSED PyObject
       #if CYTHON_FAST_PYCCALL
       if (__Pyx_PyFastCFunction_Check(__pyx_t_7)) {
         PyObject *__pyx_temp[4] = {__pyx_t_8, __pyx_v_a, __pyx_v_b, __pyx_t_5};
-        __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_7, __pyx_temp+1-__pyx_t_9, 3+__pyx_t_9); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 346, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_7, __pyx_temp+1-__pyx_t_9, 3+__pyx_t_9); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 357, __pyx_L1_error)
         __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
         __Pyx_GOTREF(__pyx_t_3);
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       } else
       #endif
       {
-        __pyx_t_10 = PyTuple_New(3+__pyx_t_9); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 346, __pyx_L1_error)
+        __pyx_t_10 = PyTuple_New(3+__pyx_t_9); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 357, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_10);
         if (__pyx_t_8) {
           __Pyx_GIVEREF(__pyx_t_8); PyTuple_SET_ITEM(__pyx_t_10, 0, __pyx_t_8); __pyx_t_8 = NULL;
@@ -4942,7 +5149,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_4lqag(CYTHON_UNUSED PyObject
         __Pyx_GIVEREF(__pyx_t_5);
         PyTuple_SET_ITEM(__pyx_t_10, 2+__pyx_t_9, __pyx_t_5);
         __pyx_t_5 = 0;
-        __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_7, __pyx_t_10, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 346, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_7, __pyx_t_10, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 357, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
       }
@@ -4950,7 +5157,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_4lqag(CYTHON_UNUSED PyObject
       __Pyx_DECREF_SET(__pyx_v_intervals, __pyx_t_3);
       __pyx_t_3 = 0;
 
-      /* "lintegrate/lintegrate.pyx":345
+      /* "lintegrate/lintegrate.pyx":356
  *         assert nintervals > 0, "Number of intervals must be positive"
  * 
  *         if intervaltype.lower() == 'linear':             # <<<<<<<<<<<<<<
@@ -4960,14 +5167,14 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_4lqag(CYTHON_UNUSED PyObject
       goto __pyx_L21;
     }
 
-    /* "lintegrate/lintegrate.pyx":347
+    /* "lintegrate/lintegrate.pyx":358
  *         if intervaltype.lower() == 'linear':
  *             intervals = np.linspace(a, b, nintervals+1)
  *         elif intervaltype.lower() == 'log':             # <<<<<<<<<<<<<<
  *             intervals = np.logspace(log(a), log(b), nintervals+1, base=exp(1.))
  *         elif intervaltype.lower() == 'log10':
  */
-    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_v_intervaltype, __pyx_n_s_lower); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 347, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_v_intervaltype, __pyx_n_s_lower); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 358, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __pyx_t_10 = NULL;
     if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_7))) {
@@ -4981,34 +5188,34 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_4lqag(CYTHON_UNUSED PyObject
     }
     __pyx_t_3 = (__pyx_t_10) ? __Pyx_PyObject_CallOneArg(__pyx_t_7, __pyx_t_10) : __Pyx_PyObject_CallNoArg(__pyx_t_7);
     __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 347, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 358, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-    __pyx_t_1 = (__Pyx_PyString_Equals(__pyx_t_3, __pyx_n_s_log, Py_EQ)); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 347, __pyx_L1_error)
+    __pyx_t_1 = (__Pyx_PyString_Equals(__pyx_t_3, __pyx_n_s_log, Py_EQ)); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 358, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     if (__pyx_t_1) {
 
-      /* "lintegrate/lintegrate.pyx":348
+      /* "lintegrate/lintegrate.pyx":359
  *             intervals = np.linspace(a, b, nintervals+1)
  *         elif intervaltype.lower() == 'log':
  *             intervals = np.logspace(log(a), log(b), nintervals+1, base=exp(1.))             # <<<<<<<<<<<<<<
  *         elif intervaltype.lower() == 'log10':
  *             intervals = np.logspace(log10(a), log10(b), nintervals+1)
  */
-      __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 348, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 359, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_logspace); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 348, __pyx_L1_error)
+      __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_logspace); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 359, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      __pyx_t_11 = __pyx_PyFloat_AsDouble(__pyx_v_a); if (unlikely((__pyx_t_11 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 348, __pyx_L1_error)
-      __pyx_t_3 = PyFloat_FromDouble(log(__pyx_t_11)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 348, __pyx_L1_error)
+      __pyx_t_11 = __pyx_PyFloat_AsDouble(__pyx_v_a); if (unlikely((__pyx_t_11 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 359, __pyx_L1_error)
+      __pyx_t_3 = PyFloat_FromDouble(log(__pyx_t_11)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 359, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_11 = __pyx_PyFloat_AsDouble(__pyx_v_b); if (unlikely((__pyx_t_11 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 348, __pyx_L1_error)
-      __pyx_t_10 = PyFloat_FromDouble(log(__pyx_t_11)); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 348, __pyx_L1_error)
+      __pyx_t_11 = __pyx_PyFloat_AsDouble(__pyx_v_b); if (unlikely((__pyx_t_11 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 359, __pyx_L1_error)
+      __pyx_t_10 = PyFloat_FromDouble(log(__pyx_t_11)); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 359, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
-      __pyx_t_5 = __Pyx_PyInt_AddObjC(__pyx_v_nintervals, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 348, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_PyInt_AddObjC(__pyx_v_nintervals, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 359, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
-      __pyx_t_8 = PyTuple_New(3); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 348, __pyx_L1_error)
+      __pyx_t_8 = PyTuple_New(3); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 359, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
       __Pyx_GIVEREF(__pyx_t_3);
       PyTuple_SET_ITEM(__pyx_t_8, 0, __pyx_t_3);
@@ -5019,13 +5226,13 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_4lqag(CYTHON_UNUSED PyObject
       __pyx_t_3 = 0;
       __pyx_t_10 = 0;
       __pyx_t_5 = 0;
-      __pyx_t_5 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 348, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 359, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
-      __pyx_t_10 = PyFloat_FromDouble(exp(1.)); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 348, __pyx_L1_error)
+      __pyx_t_10 = PyFloat_FromDouble(exp(1.)); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 359, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
-      if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_base, __pyx_t_10) < 0) __PYX_ERR(0, 348, __pyx_L1_error)
+      if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_base, __pyx_t_10) < 0) __PYX_ERR(0, 359, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-      __pyx_t_10 = __Pyx_PyObject_Call(__pyx_t_7, __pyx_t_8, __pyx_t_5); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 348, __pyx_L1_error)
+      __pyx_t_10 = __Pyx_PyObject_Call(__pyx_t_7, __pyx_t_8, __pyx_t_5); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 359, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
@@ -5033,7 +5240,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_4lqag(CYTHON_UNUSED PyObject
       __Pyx_DECREF_SET(__pyx_v_intervals, __pyx_t_10);
       __pyx_t_10 = 0;
 
-      /* "lintegrate/lintegrate.pyx":347
+      /* "lintegrate/lintegrate.pyx":358
  *         if intervaltype.lower() == 'linear':
  *             intervals = np.linspace(a, b, nintervals+1)
  *         elif intervaltype.lower() == 'log':             # <<<<<<<<<<<<<<
@@ -5043,14 +5250,14 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_4lqag(CYTHON_UNUSED PyObject
       goto __pyx_L21;
     }
 
-    /* "lintegrate/lintegrate.pyx":349
+    /* "lintegrate/lintegrate.pyx":360
  *         elif intervaltype.lower() == 'log':
  *             intervals = np.logspace(log(a), log(b), nintervals+1, base=exp(1.))
  *         elif intervaltype.lower() == 'log10':             # <<<<<<<<<<<<<<
  *             intervals = np.logspace(log10(a), log10(b), nintervals+1)
  *         else:
  */
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_intervaltype, __pyx_n_s_lower); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 349, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_intervaltype, __pyx_n_s_lower); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 360, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __pyx_t_8 = NULL;
     if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_5))) {
@@ -5064,32 +5271,32 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_4lqag(CYTHON_UNUSED PyObject
     }
     __pyx_t_10 = (__pyx_t_8) ? __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_8) : __Pyx_PyObject_CallNoArg(__pyx_t_5);
     __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
-    if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 349, __pyx_L1_error)
+    if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 360, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_t_1 = (__Pyx_PyString_Equals(__pyx_t_10, __pyx_n_s_log10, Py_EQ)); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 349, __pyx_L1_error)
+    __pyx_t_1 = (__Pyx_PyString_Equals(__pyx_t_10, __pyx_n_s_log10, Py_EQ)); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 360, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
     if (likely(__pyx_t_1)) {
 
-      /* "lintegrate/lintegrate.pyx":350
+      /* "lintegrate/lintegrate.pyx":361
  *             intervals = np.logspace(log(a), log(b), nintervals+1, base=exp(1.))
  *         elif intervaltype.lower() == 'log10':
  *             intervals = np.logspace(log10(a), log10(b), nintervals+1)             # <<<<<<<<<<<<<<
  *         else:
  *             raise ValueError("Interval type must be 'linear', 'log', or 'log10'")
  */
-      __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_np); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 350, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_np); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 361, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
-      __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_logspace); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 350, __pyx_L1_error)
+      __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_logspace); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 361, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-      __pyx_t_11 = __pyx_PyFloat_AsDouble(__pyx_v_a); if (unlikely((__pyx_t_11 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 350, __pyx_L1_error)
-      __pyx_t_5 = PyFloat_FromDouble(log10(__pyx_t_11)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 350, __pyx_L1_error)
+      __pyx_t_11 = __pyx_PyFloat_AsDouble(__pyx_v_a); if (unlikely((__pyx_t_11 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 361, __pyx_L1_error)
+      __pyx_t_5 = PyFloat_FromDouble(log10(__pyx_t_11)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 361, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
-      __pyx_t_11 = __pyx_PyFloat_AsDouble(__pyx_v_b); if (unlikely((__pyx_t_11 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 350, __pyx_L1_error)
-      __pyx_t_7 = PyFloat_FromDouble(log10(__pyx_t_11)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 350, __pyx_L1_error)
+      __pyx_t_11 = __pyx_PyFloat_AsDouble(__pyx_v_b); if (unlikely((__pyx_t_11 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 361, __pyx_L1_error)
+      __pyx_t_7 = PyFloat_FromDouble(log10(__pyx_t_11)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 361, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
-      __pyx_t_3 = __Pyx_PyInt_AddObjC(__pyx_v_nintervals, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 350, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyInt_AddObjC(__pyx_v_nintervals, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 361, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __pyx_t_12 = NULL;
       __pyx_t_9 = 0;
@@ -5106,7 +5313,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_4lqag(CYTHON_UNUSED PyObject
       #if CYTHON_FAST_PYCALL
       if (PyFunction_Check(__pyx_t_8)) {
         PyObject *__pyx_temp[4] = {__pyx_t_12, __pyx_t_5, __pyx_t_7, __pyx_t_3};
-        __pyx_t_10 = __Pyx_PyFunction_FastCall(__pyx_t_8, __pyx_temp+1-__pyx_t_9, 3+__pyx_t_9); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 350, __pyx_L1_error)
+        __pyx_t_10 = __Pyx_PyFunction_FastCall(__pyx_t_8, __pyx_temp+1-__pyx_t_9, 3+__pyx_t_9); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 361, __pyx_L1_error)
         __Pyx_XDECREF(__pyx_t_12); __pyx_t_12 = 0;
         __Pyx_GOTREF(__pyx_t_10);
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
@@ -5117,7 +5324,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_4lqag(CYTHON_UNUSED PyObject
       #if CYTHON_FAST_PYCCALL
       if (__Pyx_PyFastCFunction_Check(__pyx_t_8)) {
         PyObject *__pyx_temp[4] = {__pyx_t_12, __pyx_t_5, __pyx_t_7, __pyx_t_3};
-        __pyx_t_10 = __Pyx_PyCFunction_FastCall(__pyx_t_8, __pyx_temp+1-__pyx_t_9, 3+__pyx_t_9); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 350, __pyx_L1_error)
+        __pyx_t_10 = __Pyx_PyCFunction_FastCall(__pyx_t_8, __pyx_temp+1-__pyx_t_9, 3+__pyx_t_9); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 361, __pyx_L1_error)
         __Pyx_XDECREF(__pyx_t_12); __pyx_t_12 = 0;
         __Pyx_GOTREF(__pyx_t_10);
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
@@ -5126,7 +5333,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_4lqag(CYTHON_UNUSED PyObject
       } else
       #endif
       {
-        __pyx_t_13 = PyTuple_New(3+__pyx_t_9); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 350, __pyx_L1_error)
+        __pyx_t_13 = PyTuple_New(3+__pyx_t_9); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 361, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_13);
         if (__pyx_t_12) {
           __Pyx_GIVEREF(__pyx_t_12); PyTuple_SET_ITEM(__pyx_t_13, 0, __pyx_t_12); __pyx_t_12 = NULL;
@@ -5140,7 +5347,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_4lqag(CYTHON_UNUSED PyObject
         __pyx_t_5 = 0;
         __pyx_t_7 = 0;
         __pyx_t_3 = 0;
-        __pyx_t_10 = __Pyx_PyObject_Call(__pyx_t_8, __pyx_t_13, NULL); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 350, __pyx_L1_error)
+        __pyx_t_10 = __Pyx_PyObject_Call(__pyx_t_8, __pyx_t_13, NULL); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 361, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_10);
         __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
       }
@@ -5148,7 +5355,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_4lqag(CYTHON_UNUSED PyObject
       __Pyx_DECREF_SET(__pyx_v_intervals, __pyx_t_10);
       __pyx_t_10 = 0;
 
-      /* "lintegrate/lintegrate.pyx":349
+      /* "lintegrate/lintegrate.pyx":360
  *         elif intervaltype.lower() == 'log':
  *             intervals = np.logspace(log(a), log(b), nintervals+1, base=exp(1.))
  *         elif intervaltype.lower() == 'log10':             # <<<<<<<<<<<<<<
@@ -5158,7 +5365,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_4lqag(CYTHON_UNUSED PyObject
       goto __pyx_L21;
     }
 
-    /* "lintegrate/lintegrate.pyx":352
+    /* "lintegrate/lintegrate.pyx":363
  *             intervals = np.logspace(log10(a), log10(b), nintervals+1)
  *         else:
  *             raise ValueError("Interval type must be 'linear', 'log', or 'log10'")             # <<<<<<<<<<<<<<
@@ -5166,15 +5373,15 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_4lqag(CYTHON_UNUSED PyObject
  *         if isinstance(intervals, np.ndarray) or isinstance(intervals, list):
  */
     /*else*/ {
-      __pyx_t_10 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__8, NULL); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 352, __pyx_L1_error)
+      __pyx_t_10 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__8, NULL); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 363, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
       __Pyx_Raise(__pyx_t_10, 0, 0, 0);
       __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-      __PYX_ERR(0, 352, __pyx_L1_error)
+      __PYX_ERR(0, 363, __pyx_L1_error)
     }
     __pyx_L21:;
 
-    /* "lintegrate/lintegrate.pyx":339
+    /* "lintegrate/lintegrate.pyx":350
  *     cdef gsl_integration_workspace *w = gsl_integration_workspace_alloc(limit)
  * 
  *     if intervals is None:             # <<<<<<<<<<<<<<
@@ -5184,7 +5391,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_4lqag(CYTHON_UNUSED PyObject
     goto __pyx_L19;
   }
 
-  /* "lintegrate/lintegrate.pyx":354
+  /* "lintegrate/lintegrate.pyx":365
  *             raise ValueError("Interval type must be 'linear', 'log', or 'log10'")
  *     else:
  *         if isinstance(intervals, np.ndarray) or isinstance(intervals, list):             # <<<<<<<<<<<<<<
@@ -5205,23 +5412,23 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_4lqag(CYTHON_UNUSED PyObject
     __pyx_L23_bool_binop_done:;
     if (__pyx_t_1) {
 
-      /* "lintegrate/lintegrate.pyx":355
+      /* "lintegrate/lintegrate.pyx":366
  *     else:
  *         if isinstance(intervals, np.ndarray) or isinstance(intervals, list):
  *             intervals = np.array(sorted(intervals)) # make sure array is in ascending order             # <<<<<<<<<<<<<<
  * 
  *     for i in xrange(len(intervals)-1):
  */
-      __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_np); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 355, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_np); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 366, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
-      __pyx_t_13 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_array); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 355, __pyx_L1_error)
+      __pyx_t_13 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_array); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 366, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_13);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-      __pyx_t_3 = PySequence_List(__pyx_v_intervals); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 355, __pyx_L1_error)
+      __pyx_t_3 = PySequence_List(__pyx_v_intervals); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 366, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __pyx_t_8 = ((PyObject*)__pyx_t_3);
       __pyx_t_3 = 0;
-      __pyx_t_14 = PyList_Sort(__pyx_t_8); if (unlikely(__pyx_t_14 == ((int)-1))) __PYX_ERR(0, 355, __pyx_L1_error)
+      __pyx_t_14 = PyList_Sort(__pyx_t_8); if (unlikely(__pyx_t_14 == ((int)-1))) __PYX_ERR(0, 366, __pyx_L1_error)
       __pyx_t_3 = NULL;
       if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_13))) {
         __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_13);
@@ -5235,13 +5442,13 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_4lqag(CYTHON_UNUSED PyObject
       __pyx_t_10 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_13, __pyx_t_3, __pyx_t_8) : __Pyx_PyObject_CallOneArg(__pyx_t_13, __pyx_t_8);
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-      if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 355, __pyx_L1_error)
+      if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 366, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
       __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
       __Pyx_DECREF_SET(__pyx_v_intervals, __pyx_t_10);
       __pyx_t_10 = 0;
 
-      /* "lintegrate/lintegrate.pyx":354
+      /* "lintegrate/lintegrate.pyx":365
  *             raise ValueError("Interval type must be 'linear', 'log', or 'log10'")
  *     else:
  *         if isinstance(intervals, np.ndarray) or isinstance(intervals, list):             # <<<<<<<<<<<<<<
@@ -5252,26 +5459,26 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_4lqag(CYTHON_UNUSED PyObject
   }
   __pyx_L19:;
 
-  /* "lintegrate/lintegrate.pyx":357
+  /* "lintegrate/lintegrate.pyx":368
  *             intervals = np.array(sorted(intervals)) # make sure array is in ascending order
  * 
  *     for i in xrange(len(intervals)-1):             # <<<<<<<<<<<<<<
  *         suc = lintegration_qag(lintegrate_callback, <void*>func, <void*>args, intervals[i], intervals[i+1], epsabs, epsrel, limit, intkey, w, &result, &abserr)
  *         assert suc == 0, "'lintegration_qag' failed"
  */
-  __pyx_t_15 = PyObject_Length(__pyx_v_intervals); if (unlikely(__pyx_t_15 == ((Py_ssize_t)-1))) __PYX_ERR(0, 357, __pyx_L1_error)
-  __pyx_t_10 = PyInt_FromSsize_t((__pyx_t_15 - 1)); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 357, __pyx_L1_error)
+  __pyx_t_15 = PyObject_Length(__pyx_v_intervals); if (unlikely(__pyx_t_15 == ((Py_ssize_t)-1))) __PYX_ERR(0, 368, __pyx_L1_error)
+  __pyx_t_10 = PyInt_FromSsize_t((__pyx_t_15 - 1)); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 368, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
-  __pyx_t_13 = __Pyx_PyObject_CallOneArg(__pyx_builtin_xrange, __pyx_t_10); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 357, __pyx_L1_error)
+  __pyx_t_13 = __Pyx_PyObject_CallOneArg(__pyx_builtin_xrange, __pyx_t_10); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 368, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_13);
   __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
   if (likely(PyList_CheckExact(__pyx_t_13)) || PyTuple_CheckExact(__pyx_t_13)) {
     __pyx_t_10 = __pyx_t_13; __Pyx_INCREF(__pyx_t_10); __pyx_t_15 = 0;
     __pyx_t_16 = NULL;
   } else {
-    __pyx_t_15 = -1; __pyx_t_10 = PyObject_GetIter(__pyx_t_13); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 357, __pyx_L1_error)
+    __pyx_t_15 = -1; __pyx_t_10 = PyObject_GetIter(__pyx_t_13); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 368, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
-    __pyx_t_16 = Py_TYPE(__pyx_t_10)->tp_iternext; if (unlikely(!__pyx_t_16)) __PYX_ERR(0, 357, __pyx_L1_error)
+    __pyx_t_16 = Py_TYPE(__pyx_t_10)->tp_iternext; if (unlikely(!__pyx_t_16)) __PYX_ERR(0, 368, __pyx_L1_error)
   }
   __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
   for (;;) {
@@ -5279,17 +5486,17 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_4lqag(CYTHON_UNUSED PyObject
       if (likely(PyList_CheckExact(__pyx_t_10))) {
         if (__pyx_t_15 >= PyList_GET_SIZE(__pyx_t_10)) break;
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_13 = PyList_GET_ITEM(__pyx_t_10, __pyx_t_15); __Pyx_INCREF(__pyx_t_13); __pyx_t_15++; if (unlikely(0 < 0)) __PYX_ERR(0, 357, __pyx_L1_error)
+        __pyx_t_13 = PyList_GET_ITEM(__pyx_t_10, __pyx_t_15); __Pyx_INCREF(__pyx_t_13); __pyx_t_15++; if (unlikely(0 < 0)) __PYX_ERR(0, 368, __pyx_L1_error)
         #else
-        __pyx_t_13 = PySequence_ITEM(__pyx_t_10, __pyx_t_15); __pyx_t_15++; if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 357, __pyx_L1_error)
+        __pyx_t_13 = PySequence_ITEM(__pyx_t_10, __pyx_t_15); __pyx_t_15++; if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 368, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_13);
         #endif
       } else {
         if (__pyx_t_15 >= PyTuple_GET_SIZE(__pyx_t_10)) break;
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_13 = PyTuple_GET_ITEM(__pyx_t_10, __pyx_t_15); __Pyx_INCREF(__pyx_t_13); __pyx_t_15++; if (unlikely(0 < 0)) __PYX_ERR(0, 357, __pyx_L1_error)
+        __pyx_t_13 = PyTuple_GET_ITEM(__pyx_t_10, __pyx_t_15); __Pyx_INCREF(__pyx_t_13); __pyx_t_15++; if (unlikely(0 < 0)) __PYX_ERR(0, 368, __pyx_L1_error)
         #else
-        __pyx_t_13 = PySequence_ITEM(__pyx_t_10, __pyx_t_15); __pyx_t_15++; if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 357, __pyx_L1_error)
+        __pyx_t_13 = PySequence_ITEM(__pyx_t_10, __pyx_t_15); __pyx_t_15++; if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 368, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_13);
         #endif
       }
@@ -5299,7 +5506,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_4lqag(CYTHON_UNUSED PyObject
         PyObject* exc_type = PyErr_Occurred();
         if (exc_type) {
           if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-          else __PYX_ERR(0, 357, __pyx_L1_error)
+          else __PYX_ERR(0, 368, __pyx_L1_error)
         }
         break;
       }
@@ -5308,31 +5515,31 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_4lqag(CYTHON_UNUSED PyObject
     __Pyx_XDECREF_SET(__pyx_v_i, __pyx_t_13);
     __pyx_t_13 = 0;
 
-    /* "lintegrate/lintegrate.pyx":358
+    /* "lintegrate/lintegrate.pyx":369
  * 
  *     for i in xrange(len(intervals)-1):
  *         suc = lintegration_qag(lintegrate_callback, <void*>func, <void*>args, intervals[i], intervals[i+1], epsabs, epsrel, limit, intkey, w, &result, &abserr)             # <<<<<<<<<<<<<<
  *         assert suc == 0, "'lintegration_qag' failed"
  *         sumres = logplus(sumres, result)
  */
-    __pyx_t_13 = __Pyx_PyObject_GetItem(__pyx_v_intervals, __pyx_v_i); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 358, __pyx_L1_error)
+    __pyx_t_13 = __Pyx_PyObject_GetItem(__pyx_v_intervals, __pyx_v_i); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 369, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_13);
-    __pyx_t_11 = __pyx_PyFloat_AsDouble(__pyx_t_13); if (unlikely((__pyx_t_11 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 358, __pyx_L1_error)
+    __pyx_t_11 = __pyx_PyFloat_AsDouble(__pyx_t_13); if (unlikely((__pyx_t_11 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 369, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
-    __pyx_t_13 = __Pyx_PyInt_AddObjC(__pyx_v_i, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 358, __pyx_L1_error)
+    __pyx_t_13 = __Pyx_PyInt_AddObjC(__pyx_v_i, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 369, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_13);
-    __pyx_t_8 = __Pyx_PyObject_GetItem(__pyx_v_intervals, __pyx_t_13); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 358, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyObject_GetItem(__pyx_v_intervals, __pyx_t_13); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 369, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
-    __pyx_t_17 = __pyx_PyFloat_AsDouble(__pyx_t_8); if (unlikely((__pyx_t_17 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 358, __pyx_L1_error)
+    __pyx_t_17 = __pyx_PyFloat_AsDouble(__pyx_t_8); if (unlikely((__pyx_t_17 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 369, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    __pyx_t_18 = __pyx_PyFloat_AsDouble(__pyx_v_epsabs); if (unlikely((__pyx_t_18 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 358, __pyx_L1_error)
-    __pyx_t_19 = __pyx_PyFloat_AsDouble(__pyx_v_epsrel); if (unlikely((__pyx_t_19 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 358, __pyx_L1_error)
-    __pyx_t_6 = __Pyx_PyInt_As_size_t(__pyx_v_limit); if (unlikely((__pyx_t_6 == (size_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 358, __pyx_L1_error)
-    __pyx_t_9 = __Pyx_PyInt_As_int(__pyx_v_intkey); if (unlikely((__pyx_t_9 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 358, __pyx_L1_error)
+    __pyx_t_18 = __pyx_PyFloat_AsDouble(__pyx_v_epsabs); if (unlikely((__pyx_t_18 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 369, __pyx_L1_error)
+    __pyx_t_19 = __pyx_PyFloat_AsDouble(__pyx_v_epsrel); if (unlikely((__pyx_t_19 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 369, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyInt_As_size_t(__pyx_v_limit); if (unlikely((__pyx_t_6 == (size_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 369, __pyx_L1_error)
+    __pyx_t_9 = __Pyx_PyInt_As_int(__pyx_v_intkey); if (unlikely((__pyx_t_9 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 369, __pyx_L1_error)
     __pyx_v_suc = lintegration_qag(__pyx_f_10lintegrate_10lintegrate_lintegrate_callback, ((void *)__pyx_v_func), ((void *)__pyx_v_args), __pyx_t_11, __pyx_t_17, __pyx_t_18, __pyx_t_19, __pyx_t_6, __pyx_t_9, __pyx_v_w, (&__pyx_v_result), (&__pyx_v_abserr));
 
-    /* "lintegrate/lintegrate.pyx":359
+    /* "lintegrate/lintegrate.pyx":370
  *     for i in xrange(len(intervals)-1):
  *         suc = lintegration_qag(lintegrate_callback, <void*>func, <void*>args, intervals[i], intervals[i+1], epsabs, epsrel, limit, intkey, w, &result, &abserr)
  *         assert suc == 0, "'lintegration_qag' failed"             # <<<<<<<<<<<<<<
@@ -5343,38 +5550,38 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_4lqag(CYTHON_UNUSED PyObject
     if (unlikely(!Py_OptimizeFlag)) {
       if (unlikely(!((__pyx_v_suc == 0) != 0))) {
         PyErr_SetObject(PyExc_AssertionError, __pyx_kp_s_lintegration_qag_failed);
-        __PYX_ERR(0, 359, __pyx_L1_error)
+        __PYX_ERR(0, 370, __pyx_L1_error)
       }
     }
     #endif
 
-    /* "lintegrate/lintegrate.pyx":360
+    /* "lintegrate/lintegrate.pyx":371
  *         suc = lintegration_qag(lintegrate_callback, <void*>func, <void*>args, intervals[i], intervals[i+1], epsabs, epsrel, limit, intkey, w, &result, &abserr)
  *         assert suc == 0, "'lintegration_qag' failed"
  *         sumres = logplus(sumres, result)             # <<<<<<<<<<<<<<
  *         sumabserr = logplus(sumabserr, abserr)
  *     result = sumres
  */
-    __pyx_t_8 = __pyx_f_10lintegrate_10lintegrate_logplus(__pyx_v_sumres, __pyx_v_result); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 360, __pyx_L1_error)
+    __pyx_t_8 = __pyx_f_10lintegrate_10lintegrate_logplus(__pyx_v_sumres, __pyx_v_result); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 371, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
-    __pyx_t_19 = __pyx_PyFloat_AsDouble(__pyx_t_8); if (unlikely((__pyx_t_19 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 360, __pyx_L1_error)
+    __pyx_t_19 = __pyx_PyFloat_AsDouble(__pyx_t_8); if (unlikely((__pyx_t_19 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 371, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
     __pyx_v_sumres = __pyx_t_19;
 
-    /* "lintegrate/lintegrate.pyx":361
+    /* "lintegrate/lintegrate.pyx":372
  *         assert suc == 0, "'lintegration_qag' failed"
  *         sumres = logplus(sumres, result)
  *         sumabserr = logplus(sumabserr, abserr)             # <<<<<<<<<<<<<<
  *     result = sumres
  *     abserr = sumabserr
  */
-    __pyx_t_8 = __pyx_f_10lintegrate_10lintegrate_logplus(__pyx_v_sumabserr, __pyx_v_abserr); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 361, __pyx_L1_error)
+    __pyx_t_8 = __pyx_f_10lintegrate_10lintegrate_logplus(__pyx_v_sumabserr, __pyx_v_abserr); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 372, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
-    __pyx_t_19 = __pyx_PyFloat_AsDouble(__pyx_t_8); if (unlikely((__pyx_t_19 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 361, __pyx_L1_error)
+    __pyx_t_19 = __pyx_PyFloat_AsDouble(__pyx_t_8); if (unlikely((__pyx_t_19 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 372, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
     __pyx_v_sumabserr = __pyx_t_19;
 
-    /* "lintegrate/lintegrate.pyx":357
+    /* "lintegrate/lintegrate.pyx":368
  *             intervals = np.array(sorted(intervals)) # make sure array is in ascending order
  * 
  *     for i in xrange(len(intervals)-1):             # <<<<<<<<<<<<<<
@@ -5384,7 +5591,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_4lqag(CYTHON_UNUSED PyObject
   }
   __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
 
-  /* "lintegrate/lintegrate.pyx":362
+  /* "lintegrate/lintegrate.pyx":373
  *         sumres = logplus(sumres, result)
  *         sumabserr = logplus(sumabserr, abserr)
  *     result = sumres             # <<<<<<<<<<<<<<
@@ -5393,7 +5600,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_4lqag(CYTHON_UNUSED PyObject
  */
   __pyx_v_result = __pyx_v_sumres;
 
-  /* "lintegrate/lintegrate.pyx":363
+  /* "lintegrate/lintegrate.pyx":374
  *         sumabserr = logplus(sumabserr, abserr)
  *     result = sumres
  *     abserr = sumabserr             # <<<<<<<<<<<<<<
@@ -5402,7 +5609,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_4lqag(CYTHON_UNUSED PyObject
  */
   __pyx_v_abserr = __pyx_v_sumabserr;
 
-  /* "lintegrate/lintegrate.pyx":365
+  /* "lintegrate/lintegrate.pyx":376
  *     abserr = sumabserr
  * 
  *     gsl_integration_workspace_free(w)             # <<<<<<<<<<<<<<
@@ -5411,7 +5618,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_4lqag(CYTHON_UNUSED PyObject
  */
   gsl_integration_workspace_free(__pyx_v_w);
 
-  /* "lintegrate/lintegrate.pyx":367
+  /* "lintegrate/lintegrate.pyx":378
  *     gsl_integration_workspace_free(w)
  * 
  *     return (result, abserr)             # <<<<<<<<<<<<<<
@@ -5419,11 +5626,11 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_4lqag(CYTHON_UNUSED PyObject
  * 
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_10 = PyFloat_FromDouble(__pyx_v_result); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 367, __pyx_L1_error)
+  __pyx_t_10 = PyFloat_FromDouble(__pyx_v_result); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 378, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
-  __pyx_t_8 = PyFloat_FromDouble(__pyx_v_abserr); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 367, __pyx_L1_error)
+  __pyx_t_8 = PyFloat_FromDouble(__pyx_v_abserr); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 378, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
-  __pyx_t_13 = PyTuple_New(2); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 367, __pyx_L1_error)
+  __pyx_t_13 = PyTuple_New(2); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 378, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_13);
   __Pyx_GIVEREF(__pyx_t_10);
   PyTuple_SET_ITEM(__pyx_t_13, 0, __pyx_t_10);
@@ -5435,7 +5642,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_4lqag(CYTHON_UNUSED PyObject
   __pyx_t_13 = 0;
   goto __pyx_L0;
 
-  /* "lintegrate/lintegrate.pyx":265
+  /* "lintegrate/lintegrate.pyx":276
  * 
  * 
  * def lqag(func, a=0., b=0., args=(), epsabs=1.49e-8, epsrel=1.49e-8, limit=50, intkey=1, intervals=None, nintervals=0, intervaltype='linear'):             # <<<<<<<<<<<<<<
@@ -5465,7 +5672,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_4lqag(CYTHON_UNUSED PyObject
   return __pyx_r;
 }
 
-/* "lintegrate/lintegrate.pyx":370
+/* "lintegrate/lintegrate.pyx":381
  * 
  * 
  * def lcquad(func, a, b, args=(), epsabs=1.49e-8, epsrel=1.49e-8, wsintervals=100, intervals=None, nintervals=0, intervaltype='linear'):             # <<<<<<<<<<<<<<
@@ -5540,13 +5747,13 @@ static PyObject *__pyx_pw_10lintegrate_10lintegrate_7lcquad(PyObject *__pyx_self
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_a)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("lcquad", 0, 3, 10, 1); __PYX_ERR(0, 370, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("lcquad", 0, 3, 10, 1); __PYX_ERR(0, 381, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_b)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("lcquad", 0, 3, 10, 2); __PYX_ERR(0, 370, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("lcquad", 0, 3, 10, 2); __PYX_ERR(0, 381, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
@@ -5592,7 +5799,7 @@ static PyObject *__pyx_pw_10lintegrate_10lintegrate_7lcquad(PyObject *__pyx_self
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "lcquad") < 0)) __PYX_ERR(0, 370, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "lcquad") < 0)) __PYX_ERR(0, 381, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -5630,7 +5837,7 @@ static PyObject *__pyx_pw_10lintegrate_10lintegrate_7lcquad(PyObject *__pyx_self
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("lcquad", 0, 3, 10, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 370, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("lcquad", 0, 3, 10, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 381, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("lintegrate.lintegrate.lcquad", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -5682,31 +5889,31 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_6lcquad(CYTHON_UNUSED PyObje
   __Pyx_INCREF(__pyx_v_intervals);
   __Pyx_INCREF(__pyx_v_nintervals);
 
-  /* "lintegrate/lintegrate.pyx":421
+  /* "lintegrate/lintegrate.pyx":432
  *     """
  * 
  *     if not callable(func):             # <<<<<<<<<<<<<<
  *         raise RuntimeError('"func" must be a callable function')
  * 
  */
-  __pyx_t_1 = __Pyx_PyCallable_Check(__pyx_v_func); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(0, 421, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyCallable_Check(__pyx_v_func); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(0, 432, __pyx_L1_error)
   __pyx_t_2 = ((!(__pyx_t_1 != 0)) != 0);
   if (unlikely(__pyx_t_2)) {
 
-    /* "lintegrate/lintegrate.pyx":422
+    /* "lintegrate/lintegrate.pyx":433
  * 
  *     if not callable(func):
  *         raise RuntimeError('"func" must be a callable function')             # <<<<<<<<<<<<<<
  * 
  *     assert b > a or intervals is not None or (nintervals != 0 and b > a), "Integral range must have b > a"
  */
-    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_RuntimeError, __pyx_tuple__7, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 422, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_RuntimeError, __pyx_tuple__7, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 433, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_Raise(__pyx_t_3, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __PYX_ERR(0, 422, __pyx_L1_error)
+    __PYX_ERR(0, 433, __pyx_L1_error)
 
-    /* "lintegrate/lintegrate.pyx":421
+    /* "lintegrate/lintegrate.pyx":432
  *     """
  * 
  *     if not callable(func):             # <<<<<<<<<<<<<<
@@ -5715,7 +5922,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_6lcquad(CYTHON_UNUSED PyObje
  */
   }
 
-  /* "lintegrate/lintegrate.pyx":424
+  /* "lintegrate/lintegrate.pyx":435
  *         raise RuntimeError('"func" must be a callable function')
  * 
  *     assert b > a or intervals is not None or (nintervals != 0 and b > a), "Integral range must have b > a"             # <<<<<<<<<<<<<<
@@ -5724,8 +5931,8 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_6lcquad(CYTHON_UNUSED PyObje
  */
   #ifndef CYTHON_WITHOUT_ASSERTIONS
   if (unlikely(!Py_OptimizeFlag)) {
-    __pyx_t_3 = PyObject_RichCompare(__pyx_v_b, __pyx_v_a, Py_GT); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 424, __pyx_L1_error)
-    __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 424, __pyx_L1_error)
+    __pyx_t_3 = PyObject_RichCompare(__pyx_v_b, __pyx_v_a, Py_GT); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 435, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 435, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     if (!__pyx_t_1) {
     } else {
@@ -5739,28 +5946,28 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_6lcquad(CYTHON_UNUSED PyObje
       __pyx_t_2 = __pyx_t_4;
       goto __pyx_L4_bool_binop_done;
     }
-    __pyx_t_3 = __Pyx_PyInt_NeObjC(__pyx_v_nintervals, __pyx_int_0, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 424, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyInt_NeObjC(__pyx_v_nintervals, __pyx_int_0, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 435, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 424, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 435, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     if (__pyx_t_4) {
     } else {
       __pyx_t_2 = __pyx_t_4;
       goto __pyx_L4_bool_binop_done;
     }
-    __pyx_t_3 = PyObject_RichCompare(__pyx_v_b, __pyx_v_a, Py_GT); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 424, __pyx_L1_error)
-    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 424, __pyx_L1_error)
+    __pyx_t_3 = PyObject_RichCompare(__pyx_v_b, __pyx_v_a, Py_GT); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 435, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 435, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_t_2 = __pyx_t_4;
     __pyx_L4_bool_binop_done:;
     if (unlikely(!__pyx_t_2)) {
       PyErr_SetObject(PyExc_AssertionError, __pyx_kp_s_Integral_range_must_have_b_a);
-      __PYX_ERR(0, 424, __pyx_L1_error)
+      __PYX_ERR(0, 435, __pyx_L1_error)
     }
   }
   #endif
 
-  /* "lintegrate/lintegrate.pyx":426
+  /* "lintegrate/lintegrate.pyx":437
  *     assert b > a or intervals is not None or (nintervals != 0 and b > a), "Integral range must have b > a"
  * 
  *     if not isinstance(args, tuple):             # <<<<<<<<<<<<<<
@@ -5771,14 +5978,14 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_6lcquad(CYTHON_UNUSED PyObje
   __pyx_t_4 = ((!(__pyx_t_2 != 0)) != 0);
   if (__pyx_t_4) {
 
-    /* "lintegrate/lintegrate.pyx":427
+    /* "lintegrate/lintegrate.pyx":438
  * 
  *     if not isinstance(args, tuple):
  *         args = (args,) # convert to tuple             # <<<<<<<<<<<<<<
  * 
  *     cdef double result = 0., sumres = -INFINITY
  */
-    __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 427, __pyx_L1_error)
+    __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 438, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_INCREF(__pyx_v_args);
     __Pyx_GIVEREF(__pyx_v_args);
@@ -5786,7 +5993,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_6lcquad(CYTHON_UNUSED PyObje
     __Pyx_DECREF_SET(__pyx_v_args, __pyx_t_3);
     __pyx_t_3 = 0;
 
-    /* "lintegrate/lintegrate.pyx":426
+    /* "lintegrate/lintegrate.pyx":437
  *     assert b > a or intervals is not None or (nintervals != 0 and b > a), "Integral range must have b > a"
  * 
  *     if not isinstance(args, tuple):             # <<<<<<<<<<<<<<
@@ -5795,7 +6002,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_6lcquad(CYTHON_UNUSED PyObje
  */
   }
 
-  /* "lintegrate/lintegrate.pyx":429
+  /* "lintegrate/lintegrate.pyx":440
  *         args = (args,) # convert to tuple
  * 
  *     cdef double result = 0., sumres = -INFINITY             # <<<<<<<<<<<<<<
@@ -5805,7 +6012,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_6lcquad(CYTHON_UNUSED PyObje
   __pyx_v_result = 0.;
   __pyx_v_sumres = (-NPY_INFINITY);
 
-  /* "lintegrate/lintegrate.pyx":430
+  /* "lintegrate/lintegrate.pyx":441
  * 
  *     cdef double result = 0., sumres = -INFINITY
  *     cdef double abserr = 0., sumabserr = -INFINITY             # <<<<<<<<<<<<<<
@@ -5815,7 +6022,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_6lcquad(CYTHON_UNUSED PyObje
   __pyx_v_abserr = 0.;
   __pyx_v_sumabserr = (-NPY_INFINITY);
 
-  /* "lintegrate/lintegrate.pyx":431
+  /* "lintegrate/lintegrate.pyx":442
  *     cdef double result = 0., sumres = -INFINITY
  *     cdef double abserr = 0., sumabserr = -INFINITY
  *     cdef size_t neval = 0, nevaltmp = 0             # <<<<<<<<<<<<<<
@@ -5825,7 +6032,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_6lcquad(CYTHON_UNUSED PyObje
   __pyx_v_neval = 0;
   __pyx_v_nevaltmp = 0;
 
-  /* "lintegrate/lintegrate.pyx":432
+  /* "lintegrate/lintegrate.pyx":443
  *     cdef double abserr = 0., sumabserr = -INFINITY
  *     cdef size_t neval = 0, nevaltmp = 0
  *     cdef int suc = 0             # <<<<<<<<<<<<<<
@@ -5834,7 +6041,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_6lcquad(CYTHON_UNUSED PyObje
  */
   __pyx_v_suc = 0;
 
-  /* "lintegrate/lintegrate.pyx":434
+  /* "lintegrate/lintegrate.pyx":445
  *     cdef int suc = 0
  * 
  *     assert wsintervals > 0 and isinstance(wsintervals, int), '"intervals" must be a positive integer'             # <<<<<<<<<<<<<<
@@ -5843,8 +6050,8 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_6lcquad(CYTHON_UNUSED PyObje
  */
   #ifndef CYTHON_WITHOUT_ASSERTIONS
   if (unlikely(!Py_OptimizeFlag)) {
-    __pyx_t_3 = PyObject_RichCompare(__pyx_v_wsintervals, __pyx_int_0, Py_GT); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 434, __pyx_L1_error)
-    __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 434, __pyx_L1_error)
+    __pyx_t_3 = PyObject_RichCompare(__pyx_v_wsintervals, __pyx_int_0, Py_GT); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 445, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 445, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     if (__pyx_t_2) {
     } else {
@@ -5857,22 +6064,22 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_6lcquad(CYTHON_UNUSED PyObje
     __pyx_L9_bool_binop_done:;
     if (unlikely(!__pyx_t_4)) {
       PyErr_SetObject(PyExc_AssertionError, __pyx_kp_s_intervals_must_be_a_positive_in);
-      __PYX_ERR(0, 434, __pyx_L1_error)
+      __PYX_ERR(0, 445, __pyx_L1_error)
     }
   }
   #endif
 
-  /* "lintegrate/lintegrate.pyx":436
+  /* "lintegrate/lintegrate.pyx":447
  *     assert wsintervals > 0 and isinstance(wsintervals, int), '"intervals" must be a positive integer'
  * 
  *     cdef gsl_integration_cquad_workspace *w = gsl_integration_cquad_workspace_alloc(wsintervals)             # <<<<<<<<<<<<<<
  * 
  *     if intervals is None:
  */
-  __pyx_t_5 = __Pyx_PyInt_As_size_t(__pyx_v_wsintervals); if (unlikely((__pyx_t_5 == (size_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 436, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyInt_As_size_t(__pyx_v_wsintervals); if (unlikely((__pyx_t_5 == (size_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 447, __pyx_L1_error)
   __pyx_v_w = gsl_integration_cquad_workspace_alloc(__pyx_t_5);
 
-  /* "lintegrate/lintegrate.pyx":438
+  /* "lintegrate/lintegrate.pyx":449
  *     cdef gsl_integration_cquad_workspace *w = gsl_integration_cquad_workspace_alloc(wsintervals)
  * 
  *     if intervals is None:             # <<<<<<<<<<<<<<
@@ -5883,20 +6090,20 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_6lcquad(CYTHON_UNUSED PyObje
   __pyx_t_1 = (__pyx_t_4 != 0);
   if (__pyx_t_1) {
 
-    /* "lintegrate/lintegrate.pyx":439
+    /* "lintegrate/lintegrate.pyx":450
  * 
  *     if intervals is None:
  *         if nintervals == 0: # just use a and b             # <<<<<<<<<<<<<<
  *             nintervals = 1
  * 
  */
-    __pyx_t_3 = __Pyx_PyInt_EqObjC(__pyx_v_nintervals, __pyx_int_0, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 439, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyInt_EqObjC(__pyx_v_nintervals, __pyx_int_0, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 450, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 439, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 450, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     if (__pyx_t_1) {
 
-      /* "lintegrate/lintegrate.pyx":440
+      /* "lintegrate/lintegrate.pyx":451
  *     if intervals is None:
  *         if nintervals == 0: # just use a and b
  *             nintervals = 1             # <<<<<<<<<<<<<<
@@ -5906,7 +6113,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_6lcquad(CYTHON_UNUSED PyObje
       __Pyx_INCREF(__pyx_int_1);
       __Pyx_DECREF_SET(__pyx_v_nintervals, __pyx_int_1);
 
-      /* "lintegrate/lintegrate.pyx":439
+      /* "lintegrate/lintegrate.pyx":450
  * 
  *     if intervals is None:
  *         if nintervals == 0: # just use a and b             # <<<<<<<<<<<<<<
@@ -5915,7 +6122,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_6lcquad(CYTHON_UNUSED PyObje
  */
     }
 
-    /* "lintegrate/lintegrate.pyx":442
+    /* "lintegrate/lintegrate.pyx":453
  *             nintervals = 1
  * 
  *         assert nintervals > 0, "Number of intervals must be positive"             # <<<<<<<<<<<<<<
@@ -5924,24 +6131,24 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_6lcquad(CYTHON_UNUSED PyObje
  */
     #ifndef CYTHON_WITHOUT_ASSERTIONS
     if (unlikely(!Py_OptimizeFlag)) {
-      __pyx_t_3 = PyObject_RichCompare(__pyx_v_nintervals, __pyx_int_0, Py_GT); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 442, __pyx_L1_error)
-      __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 442, __pyx_L1_error)
+      __pyx_t_3 = PyObject_RichCompare(__pyx_v_nintervals, __pyx_int_0, Py_GT); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 453, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 453, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       if (unlikely(!__pyx_t_1)) {
         PyErr_SetObject(PyExc_AssertionError, __pyx_kp_s_Number_of_intervals_must_be_posi);
-        __PYX_ERR(0, 442, __pyx_L1_error)
+        __PYX_ERR(0, 453, __pyx_L1_error)
       }
     }
     #endif
 
-    /* "lintegrate/lintegrate.pyx":444
+    /* "lintegrate/lintegrate.pyx":455
  *         assert nintervals > 0, "Number of intervals must be positive"
  * 
  *         if intervaltype.lower() == 'linear':             # <<<<<<<<<<<<<<
  *             intervals = np.linspace(a, b, nintervals+1)
  *         elif intervaltype.lower() == 'log':
  */
-    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_intervaltype, __pyx_n_s_lower); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 444, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_intervaltype, __pyx_n_s_lower); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 455, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __pyx_t_7 = NULL;
     if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_6))) {
@@ -5955,26 +6162,26 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_6lcquad(CYTHON_UNUSED PyObje
     }
     __pyx_t_3 = (__pyx_t_7) ? __Pyx_PyObject_CallOneArg(__pyx_t_6, __pyx_t_7) : __Pyx_PyObject_CallNoArg(__pyx_t_6);
     __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 444, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 455, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    __pyx_t_1 = (__Pyx_PyString_Equals(__pyx_t_3, __pyx_n_s_linear, Py_EQ)); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 444, __pyx_L1_error)
+    __pyx_t_1 = (__Pyx_PyString_Equals(__pyx_t_3, __pyx_n_s_linear, Py_EQ)); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 455, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     if (__pyx_t_1) {
 
-      /* "lintegrate/lintegrate.pyx":445
+      /* "lintegrate/lintegrate.pyx":456
  * 
  *         if intervaltype.lower() == 'linear':
  *             intervals = np.linspace(a, b, nintervals+1)             # <<<<<<<<<<<<<<
  *         elif intervaltype.lower() == 'log':
  *             intervals = np.logspace(log(a), log(b), nintervals+1, base=exp(1.))
  */
-      __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_np); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 445, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_np); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 456, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
-      __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_linspace); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 445, __pyx_L1_error)
+      __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_linspace); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 456, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-      __pyx_t_6 = __Pyx_PyInt_AddObjC(__pyx_v_nintervals, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 445, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_PyInt_AddObjC(__pyx_v_nintervals, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 456, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __pyx_t_8 = NULL;
       __pyx_t_9 = 0;
@@ -5991,7 +6198,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_6lcquad(CYTHON_UNUSED PyObje
       #if CYTHON_FAST_PYCALL
       if (PyFunction_Check(__pyx_t_7)) {
         PyObject *__pyx_temp[4] = {__pyx_t_8, __pyx_v_a, __pyx_v_b, __pyx_t_6};
-        __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_7, __pyx_temp+1-__pyx_t_9, 3+__pyx_t_9); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 445, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_7, __pyx_temp+1-__pyx_t_9, 3+__pyx_t_9); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 456, __pyx_L1_error)
         __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
         __Pyx_GOTREF(__pyx_t_3);
         __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
@@ -6000,14 +6207,14 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_6lcquad(CYTHON_UNUSED PyObje
       #if CYTHON_FAST_PYCCALL
       if (__Pyx_PyFastCFunction_Check(__pyx_t_7)) {
         PyObject *__pyx_temp[4] = {__pyx_t_8, __pyx_v_a, __pyx_v_b, __pyx_t_6};
-        __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_7, __pyx_temp+1-__pyx_t_9, 3+__pyx_t_9); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 445, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_7, __pyx_temp+1-__pyx_t_9, 3+__pyx_t_9); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 456, __pyx_L1_error)
         __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
         __Pyx_GOTREF(__pyx_t_3);
         __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       } else
       #endif
       {
-        __pyx_t_10 = PyTuple_New(3+__pyx_t_9); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 445, __pyx_L1_error)
+        __pyx_t_10 = PyTuple_New(3+__pyx_t_9); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 456, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_10);
         if (__pyx_t_8) {
           __Pyx_GIVEREF(__pyx_t_8); PyTuple_SET_ITEM(__pyx_t_10, 0, __pyx_t_8); __pyx_t_8 = NULL;
@@ -6021,7 +6228,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_6lcquad(CYTHON_UNUSED PyObje
         __Pyx_GIVEREF(__pyx_t_6);
         PyTuple_SET_ITEM(__pyx_t_10, 2+__pyx_t_9, __pyx_t_6);
         __pyx_t_6 = 0;
-        __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_7, __pyx_t_10, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 445, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_7, __pyx_t_10, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 456, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
       }
@@ -6029,7 +6236,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_6lcquad(CYTHON_UNUSED PyObje
       __Pyx_DECREF_SET(__pyx_v_intervals, __pyx_t_3);
       __pyx_t_3 = 0;
 
-      /* "lintegrate/lintegrate.pyx":444
+      /* "lintegrate/lintegrate.pyx":455
  *         assert nintervals > 0, "Number of intervals must be positive"
  * 
  *         if intervaltype.lower() == 'linear':             # <<<<<<<<<<<<<<
@@ -6039,14 +6246,14 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_6lcquad(CYTHON_UNUSED PyObje
       goto __pyx_L13;
     }
 
-    /* "lintegrate/lintegrate.pyx":446
+    /* "lintegrate/lintegrate.pyx":457
  *         if intervaltype.lower() == 'linear':
  *             intervals = np.linspace(a, b, nintervals+1)
  *         elif intervaltype.lower() == 'log':             # <<<<<<<<<<<<<<
  *             intervals = np.logspace(log(a), log(b), nintervals+1, base=exp(1.))
  *         elif intervaltype.lower() == 'log10':
  */
-    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_v_intervaltype, __pyx_n_s_lower); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 446, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_v_intervaltype, __pyx_n_s_lower); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 457, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __pyx_t_10 = NULL;
     if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_7))) {
@@ -6060,34 +6267,34 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_6lcquad(CYTHON_UNUSED PyObje
     }
     __pyx_t_3 = (__pyx_t_10) ? __Pyx_PyObject_CallOneArg(__pyx_t_7, __pyx_t_10) : __Pyx_PyObject_CallNoArg(__pyx_t_7);
     __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 446, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 457, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-    __pyx_t_1 = (__Pyx_PyString_Equals(__pyx_t_3, __pyx_n_s_log, Py_EQ)); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 446, __pyx_L1_error)
+    __pyx_t_1 = (__Pyx_PyString_Equals(__pyx_t_3, __pyx_n_s_log, Py_EQ)); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 457, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     if (__pyx_t_1) {
 
-      /* "lintegrate/lintegrate.pyx":447
+      /* "lintegrate/lintegrate.pyx":458
  *             intervals = np.linspace(a, b, nintervals+1)
  *         elif intervaltype.lower() == 'log':
  *             intervals = np.logspace(log(a), log(b), nintervals+1, base=exp(1.))             # <<<<<<<<<<<<<<
  *         elif intervaltype.lower() == 'log10':
  *             intervals = np.logspace(log10(a), log10(b), nintervals+1)
  */
-      __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 447, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 458, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_logspace); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 447, __pyx_L1_error)
+      __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_logspace); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 458, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      __pyx_t_11 = __pyx_PyFloat_AsDouble(__pyx_v_a); if (unlikely((__pyx_t_11 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 447, __pyx_L1_error)
-      __pyx_t_3 = PyFloat_FromDouble(log(__pyx_t_11)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 447, __pyx_L1_error)
+      __pyx_t_11 = __pyx_PyFloat_AsDouble(__pyx_v_a); if (unlikely((__pyx_t_11 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 458, __pyx_L1_error)
+      __pyx_t_3 = PyFloat_FromDouble(log(__pyx_t_11)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 458, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_11 = __pyx_PyFloat_AsDouble(__pyx_v_b); if (unlikely((__pyx_t_11 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 447, __pyx_L1_error)
-      __pyx_t_10 = PyFloat_FromDouble(log(__pyx_t_11)); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 447, __pyx_L1_error)
+      __pyx_t_11 = __pyx_PyFloat_AsDouble(__pyx_v_b); if (unlikely((__pyx_t_11 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 458, __pyx_L1_error)
+      __pyx_t_10 = PyFloat_FromDouble(log(__pyx_t_11)); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 458, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
-      __pyx_t_6 = __Pyx_PyInt_AddObjC(__pyx_v_nintervals, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 447, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_PyInt_AddObjC(__pyx_v_nintervals, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 458, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
-      __pyx_t_8 = PyTuple_New(3); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 447, __pyx_L1_error)
+      __pyx_t_8 = PyTuple_New(3); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 458, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
       __Pyx_GIVEREF(__pyx_t_3);
       PyTuple_SET_ITEM(__pyx_t_8, 0, __pyx_t_3);
@@ -6098,13 +6305,13 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_6lcquad(CYTHON_UNUSED PyObje
       __pyx_t_3 = 0;
       __pyx_t_10 = 0;
       __pyx_t_6 = 0;
-      __pyx_t_6 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 447, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 458, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
-      __pyx_t_10 = PyFloat_FromDouble(exp(1.)); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 447, __pyx_L1_error)
+      __pyx_t_10 = PyFloat_FromDouble(exp(1.)); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 458, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
-      if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_base, __pyx_t_10) < 0) __PYX_ERR(0, 447, __pyx_L1_error)
+      if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_base, __pyx_t_10) < 0) __PYX_ERR(0, 458, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-      __pyx_t_10 = __Pyx_PyObject_Call(__pyx_t_7, __pyx_t_8, __pyx_t_6); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 447, __pyx_L1_error)
+      __pyx_t_10 = __Pyx_PyObject_Call(__pyx_t_7, __pyx_t_8, __pyx_t_6); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 458, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
@@ -6112,7 +6319,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_6lcquad(CYTHON_UNUSED PyObje
       __Pyx_DECREF_SET(__pyx_v_intervals, __pyx_t_10);
       __pyx_t_10 = 0;
 
-      /* "lintegrate/lintegrate.pyx":446
+      /* "lintegrate/lintegrate.pyx":457
  *         if intervaltype.lower() == 'linear':
  *             intervals = np.linspace(a, b, nintervals+1)
  *         elif intervaltype.lower() == 'log':             # <<<<<<<<<<<<<<
@@ -6122,14 +6329,14 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_6lcquad(CYTHON_UNUSED PyObje
       goto __pyx_L13;
     }
 
-    /* "lintegrate/lintegrate.pyx":448
+    /* "lintegrate/lintegrate.pyx":459
  *         elif intervaltype.lower() == 'log':
  *             intervals = np.logspace(log(a), log(b), nintervals+1, base=exp(1.))
  *         elif intervaltype.lower() == 'log10':             # <<<<<<<<<<<<<<
  *             intervals = np.logspace(log10(a), log10(b), nintervals+1)
  *         else:
  */
-    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_intervaltype, __pyx_n_s_lower); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 448, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_intervaltype, __pyx_n_s_lower); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 459, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __pyx_t_8 = NULL;
     if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_6))) {
@@ -6143,32 +6350,32 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_6lcquad(CYTHON_UNUSED PyObje
     }
     __pyx_t_10 = (__pyx_t_8) ? __Pyx_PyObject_CallOneArg(__pyx_t_6, __pyx_t_8) : __Pyx_PyObject_CallNoArg(__pyx_t_6);
     __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
-    if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 448, __pyx_L1_error)
+    if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 459, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    __pyx_t_1 = (__Pyx_PyString_Equals(__pyx_t_10, __pyx_n_s_log10, Py_EQ)); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 448, __pyx_L1_error)
+    __pyx_t_1 = (__Pyx_PyString_Equals(__pyx_t_10, __pyx_n_s_log10, Py_EQ)); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 459, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
     if (likely(__pyx_t_1)) {
 
-      /* "lintegrate/lintegrate.pyx":449
+      /* "lintegrate/lintegrate.pyx":460
  *             intervals = np.logspace(log(a), log(b), nintervals+1, base=exp(1.))
  *         elif intervaltype.lower() == 'log10':
  *             intervals = np.logspace(log10(a), log10(b), nintervals+1)             # <<<<<<<<<<<<<<
  *         else:
  *             raise ValueError("Interval type must be 'linear', 'log', or 'log10'")
  */
-      __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_np); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 449, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_np); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 460, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
-      __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_logspace); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 449, __pyx_L1_error)
+      __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_logspace); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 460, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-      __pyx_t_11 = __pyx_PyFloat_AsDouble(__pyx_v_a); if (unlikely((__pyx_t_11 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 449, __pyx_L1_error)
-      __pyx_t_6 = PyFloat_FromDouble(log10(__pyx_t_11)); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 449, __pyx_L1_error)
+      __pyx_t_11 = __pyx_PyFloat_AsDouble(__pyx_v_a); if (unlikely((__pyx_t_11 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 460, __pyx_L1_error)
+      __pyx_t_6 = PyFloat_FromDouble(log10(__pyx_t_11)); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 460, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
-      __pyx_t_11 = __pyx_PyFloat_AsDouble(__pyx_v_b); if (unlikely((__pyx_t_11 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 449, __pyx_L1_error)
-      __pyx_t_7 = PyFloat_FromDouble(log10(__pyx_t_11)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 449, __pyx_L1_error)
+      __pyx_t_11 = __pyx_PyFloat_AsDouble(__pyx_v_b); if (unlikely((__pyx_t_11 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 460, __pyx_L1_error)
+      __pyx_t_7 = PyFloat_FromDouble(log10(__pyx_t_11)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 460, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
-      __pyx_t_3 = __Pyx_PyInt_AddObjC(__pyx_v_nintervals, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 449, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyInt_AddObjC(__pyx_v_nintervals, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 460, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __pyx_t_12 = NULL;
       __pyx_t_9 = 0;
@@ -6185,7 +6392,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_6lcquad(CYTHON_UNUSED PyObje
       #if CYTHON_FAST_PYCALL
       if (PyFunction_Check(__pyx_t_8)) {
         PyObject *__pyx_temp[4] = {__pyx_t_12, __pyx_t_6, __pyx_t_7, __pyx_t_3};
-        __pyx_t_10 = __Pyx_PyFunction_FastCall(__pyx_t_8, __pyx_temp+1-__pyx_t_9, 3+__pyx_t_9); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 449, __pyx_L1_error)
+        __pyx_t_10 = __Pyx_PyFunction_FastCall(__pyx_t_8, __pyx_temp+1-__pyx_t_9, 3+__pyx_t_9); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 460, __pyx_L1_error)
         __Pyx_XDECREF(__pyx_t_12); __pyx_t_12 = 0;
         __Pyx_GOTREF(__pyx_t_10);
         __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
@@ -6196,7 +6403,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_6lcquad(CYTHON_UNUSED PyObje
       #if CYTHON_FAST_PYCCALL
       if (__Pyx_PyFastCFunction_Check(__pyx_t_8)) {
         PyObject *__pyx_temp[4] = {__pyx_t_12, __pyx_t_6, __pyx_t_7, __pyx_t_3};
-        __pyx_t_10 = __Pyx_PyCFunction_FastCall(__pyx_t_8, __pyx_temp+1-__pyx_t_9, 3+__pyx_t_9); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 449, __pyx_L1_error)
+        __pyx_t_10 = __Pyx_PyCFunction_FastCall(__pyx_t_8, __pyx_temp+1-__pyx_t_9, 3+__pyx_t_9); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 460, __pyx_L1_error)
         __Pyx_XDECREF(__pyx_t_12); __pyx_t_12 = 0;
         __Pyx_GOTREF(__pyx_t_10);
         __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
@@ -6205,7 +6412,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_6lcquad(CYTHON_UNUSED PyObje
       } else
       #endif
       {
-        __pyx_t_13 = PyTuple_New(3+__pyx_t_9); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 449, __pyx_L1_error)
+        __pyx_t_13 = PyTuple_New(3+__pyx_t_9); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 460, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_13);
         if (__pyx_t_12) {
           __Pyx_GIVEREF(__pyx_t_12); PyTuple_SET_ITEM(__pyx_t_13, 0, __pyx_t_12); __pyx_t_12 = NULL;
@@ -6219,7 +6426,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_6lcquad(CYTHON_UNUSED PyObje
         __pyx_t_6 = 0;
         __pyx_t_7 = 0;
         __pyx_t_3 = 0;
-        __pyx_t_10 = __Pyx_PyObject_Call(__pyx_t_8, __pyx_t_13, NULL); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 449, __pyx_L1_error)
+        __pyx_t_10 = __Pyx_PyObject_Call(__pyx_t_8, __pyx_t_13, NULL); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 460, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_10);
         __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
       }
@@ -6227,7 +6434,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_6lcquad(CYTHON_UNUSED PyObje
       __Pyx_DECREF_SET(__pyx_v_intervals, __pyx_t_10);
       __pyx_t_10 = 0;
 
-      /* "lintegrate/lintegrate.pyx":448
+      /* "lintegrate/lintegrate.pyx":459
  *         elif intervaltype.lower() == 'log':
  *             intervals = np.logspace(log(a), log(b), nintervals+1, base=exp(1.))
  *         elif intervaltype.lower() == 'log10':             # <<<<<<<<<<<<<<
@@ -6237,7 +6444,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_6lcquad(CYTHON_UNUSED PyObje
       goto __pyx_L13;
     }
 
-    /* "lintegrate/lintegrate.pyx":451
+    /* "lintegrate/lintegrate.pyx":462
  *             intervals = np.logspace(log10(a), log10(b), nintervals+1)
  *         else:
  *             raise ValueError("Interval type must be 'linear', 'log', or 'log10'")             # <<<<<<<<<<<<<<
@@ -6245,15 +6452,15 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_6lcquad(CYTHON_UNUSED PyObje
  *         if isinstance(intervals, np.ndarray) or isinstance(intervals, list):
  */
     /*else*/ {
-      __pyx_t_10 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__8, NULL); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 451, __pyx_L1_error)
+      __pyx_t_10 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__8, NULL); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 462, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
       __Pyx_Raise(__pyx_t_10, 0, 0, 0);
       __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-      __PYX_ERR(0, 451, __pyx_L1_error)
+      __PYX_ERR(0, 462, __pyx_L1_error)
     }
     __pyx_L13:;
 
-    /* "lintegrate/lintegrate.pyx":438
+    /* "lintegrate/lintegrate.pyx":449
  *     cdef gsl_integration_cquad_workspace *w = gsl_integration_cquad_workspace_alloc(wsintervals)
  * 
  *     if intervals is None:             # <<<<<<<<<<<<<<
@@ -6263,7 +6470,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_6lcquad(CYTHON_UNUSED PyObje
     goto __pyx_L11;
   }
 
-  /* "lintegrate/lintegrate.pyx":453
+  /* "lintegrate/lintegrate.pyx":464
  *             raise ValueError("Interval type must be 'linear', 'log', or 'log10'")
  *     else:
  *         if isinstance(intervals, np.ndarray) or isinstance(intervals, list):             # <<<<<<<<<<<<<<
@@ -6284,23 +6491,23 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_6lcquad(CYTHON_UNUSED PyObje
     __pyx_L15_bool_binop_done:;
     if (__pyx_t_1) {
 
-      /* "lintegrate/lintegrate.pyx":454
+      /* "lintegrate/lintegrate.pyx":465
  *     else:
  *         if isinstance(intervals, np.ndarray) or isinstance(intervals, list):
  *             intervals = np.array(sorted(intervals)) # make sure array is in ascending order             # <<<<<<<<<<<<<<
  * 
  *     for i in xrange(len(intervals)-1):
  */
-      __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_np); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 454, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_np); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 465, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
-      __pyx_t_13 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_array); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 454, __pyx_L1_error)
+      __pyx_t_13 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_array); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 465, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_13);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-      __pyx_t_3 = PySequence_List(__pyx_v_intervals); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 454, __pyx_L1_error)
+      __pyx_t_3 = PySequence_List(__pyx_v_intervals); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 465, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __pyx_t_8 = ((PyObject*)__pyx_t_3);
       __pyx_t_3 = 0;
-      __pyx_t_14 = PyList_Sort(__pyx_t_8); if (unlikely(__pyx_t_14 == ((int)-1))) __PYX_ERR(0, 454, __pyx_L1_error)
+      __pyx_t_14 = PyList_Sort(__pyx_t_8); if (unlikely(__pyx_t_14 == ((int)-1))) __PYX_ERR(0, 465, __pyx_L1_error)
       __pyx_t_3 = NULL;
       if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_13))) {
         __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_13);
@@ -6314,13 +6521,13 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_6lcquad(CYTHON_UNUSED PyObje
       __pyx_t_10 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_13, __pyx_t_3, __pyx_t_8) : __Pyx_PyObject_CallOneArg(__pyx_t_13, __pyx_t_8);
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-      if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 454, __pyx_L1_error)
+      if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 465, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
       __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
       __Pyx_DECREF_SET(__pyx_v_intervals, __pyx_t_10);
       __pyx_t_10 = 0;
 
-      /* "lintegrate/lintegrate.pyx":453
+      /* "lintegrate/lintegrate.pyx":464
  *             raise ValueError("Interval type must be 'linear', 'log', or 'log10'")
  *     else:
  *         if isinstance(intervals, np.ndarray) or isinstance(intervals, list):             # <<<<<<<<<<<<<<
@@ -6331,26 +6538,26 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_6lcquad(CYTHON_UNUSED PyObje
   }
   __pyx_L11:;
 
-  /* "lintegrate/lintegrate.pyx":456
+  /* "lintegrate/lintegrate.pyx":467
  *             intervals = np.array(sorted(intervals)) # make sure array is in ascending order
  * 
  *     for i in xrange(len(intervals)-1):             # <<<<<<<<<<<<<<
  *         suc = lintegration_cquad(lintegrate_callback, <void*>func, <void*>args, intervals[i], intervals[i+1], epsabs, epsrel, w, &result, &abserr, &nevaltmp)
  *         assert suc == 0, "'lintegration_cquad' failed"
  */
-  __pyx_t_15 = PyObject_Length(__pyx_v_intervals); if (unlikely(__pyx_t_15 == ((Py_ssize_t)-1))) __PYX_ERR(0, 456, __pyx_L1_error)
-  __pyx_t_10 = PyInt_FromSsize_t((__pyx_t_15 - 1)); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 456, __pyx_L1_error)
+  __pyx_t_15 = PyObject_Length(__pyx_v_intervals); if (unlikely(__pyx_t_15 == ((Py_ssize_t)-1))) __PYX_ERR(0, 467, __pyx_L1_error)
+  __pyx_t_10 = PyInt_FromSsize_t((__pyx_t_15 - 1)); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 467, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
-  __pyx_t_13 = __Pyx_PyObject_CallOneArg(__pyx_builtin_xrange, __pyx_t_10); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 456, __pyx_L1_error)
+  __pyx_t_13 = __Pyx_PyObject_CallOneArg(__pyx_builtin_xrange, __pyx_t_10); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 467, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_13);
   __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
   if (likely(PyList_CheckExact(__pyx_t_13)) || PyTuple_CheckExact(__pyx_t_13)) {
     __pyx_t_10 = __pyx_t_13; __Pyx_INCREF(__pyx_t_10); __pyx_t_15 = 0;
     __pyx_t_16 = NULL;
   } else {
-    __pyx_t_15 = -1; __pyx_t_10 = PyObject_GetIter(__pyx_t_13); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 456, __pyx_L1_error)
+    __pyx_t_15 = -1; __pyx_t_10 = PyObject_GetIter(__pyx_t_13); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 467, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
-    __pyx_t_16 = Py_TYPE(__pyx_t_10)->tp_iternext; if (unlikely(!__pyx_t_16)) __PYX_ERR(0, 456, __pyx_L1_error)
+    __pyx_t_16 = Py_TYPE(__pyx_t_10)->tp_iternext; if (unlikely(!__pyx_t_16)) __PYX_ERR(0, 467, __pyx_L1_error)
   }
   __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
   for (;;) {
@@ -6358,17 +6565,17 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_6lcquad(CYTHON_UNUSED PyObje
       if (likely(PyList_CheckExact(__pyx_t_10))) {
         if (__pyx_t_15 >= PyList_GET_SIZE(__pyx_t_10)) break;
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_13 = PyList_GET_ITEM(__pyx_t_10, __pyx_t_15); __Pyx_INCREF(__pyx_t_13); __pyx_t_15++; if (unlikely(0 < 0)) __PYX_ERR(0, 456, __pyx_L1_error)
+        __pyx_t_13 = PyList_GET_ITEM(__pyx_t_10, __pyx_t_15); __Pyx_INCREF(__pyx_t_13); __pyx_t_15++; if (unlikely(0 < 0)) __PYX_ERR(0, 467, __pyx_L1_error)
         #else
-        __pyx_t_13 = PySequence_ITEM(__pyx_t_10, __pyx_t_15); __pyx_t_15++; if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 456, __pyx_L1_error)
+        __pyx_t_13 = PySequence_ITEM(__pyx_t_10, __pyx_t_15); __pyx_t_15++; if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 467, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_13);
         #endif
       } else {
         if (__pyx_t_15 >= PyTuple_GET_SIZE(__pyx_t_10)) break;
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_13 = PyTuple_GET_ITEM(__pyx_t_10, __pyx_t_15); __Pyx_INCREF(__pyx_t_13); __pyx_t_15++; if (unlikely(0 < 0)) __PYX_ERR(0, 456, __pyx_L1_error)
+        __pyx_t_13 = PyTuple_GET_ITEM(__pyx_t_10, __pyx_t_15); __Pyx_INCREF(__pyx_t_13); __pyx_t_15++; if (unlikely(0 < 0)) __PYX_ERR(0, 467, __pyx_L1_error)
         #else
-        __pyx_t_13 = PySequence_ITEM(__pyx_t_10, __pyx_t_15); __pyx_t_15++; if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 456, __pyx_L1_error)
+        __pyx_t_13 = PySequence_ITEM(__pyx_t_10, __pyx_t_15); __pyx_t_15++; if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 467, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_13);
         #endif
       }
@@ -6378,7 +6585,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_6lcquad(CYTHON_UNUSED PyObje
         PyObject* exc_type = PyErr_Occurred();
         if (exc_type) {
           if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-          else __PYX_ERR(0, 456, __pyx_L1_error)
+          else __PYX_ERR(0, 467, __pyx_L1_error)
         }
         break;
       }
@@ -6387,29 +6594,29 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_6lcquad(CYTHON_UNUSED PyObje
     __Pyx_XDECREF_SET(__pyx_v_i, __pyx_t_13);
     __pyx_t_13 = 0;
 
-    /* "lintegrate/lintegrate.pyx":457
+    /* "lintegrate/lintegrate.pyx":468
  * 
  *     for i in xrange(len(intervals)-1):
  *         suc = lintegration_cquad(lintegrate_callback, <void*>func, <void*>args, intervals[i], intervals[i+1], epsabs, epsrel, w, &result, &abserr, &nevaltmp)             # <<<<<<<<<<<<<<
  *         assert suc == 0, "'lintegration_cquad' failed"
  *         sumres = logplus(sumres, result)
  */
-    __pyx_t_13 = __Pyx_PyObject_GetItem(__pyx_v_intervals, __pyx_v_i); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 457, __pyx_L1_error)
+    __pyx_t_13 = __Pyx_PyObject_GetItem(__pyx_v_intervals, __pyx_v_i); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 468, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_13);
-    __pyx_t_11 = __pyx_PyFloat_AsDouble(__pyx_t_13); if (unlikely((__pyx_t_11 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 457, __pyx_L1_error)
+    __pyx_t_11 = __pyx_PyFloat_AsDouble(__pyx_t_13); if (unlikely((__pyx_t_11 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 468, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
-    __pyx_t_13 = __Pyx_PyInt_AddObjC(__pyx_v_i, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 457, __pyx_L1_error)
+    __pyx_t_13 = __Pyx_PyInt_AddObjC(__pyx_v_i, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 468, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_13);
-    __pyx_t_8 = __Pyx_PyObject_GetItem(__pyx_v_intervals, __pyx_t_13); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 457, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyObject_GetItem(__pyx_v_intervals, __pyx_t_13); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 468, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
-    __pyx_t_17 = __pyx_PyFloat_AsDouble(__pyx_t_8); if (unlikely((__pyx_t_17 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 457, __pyx_L1_error)
+    __pyx_t_17 = __pyx_PyFloat_AsDouble(__pyx_t_8); if (unlikely((__pyx_t_17 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 468, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    __pyx_t_18 = __pyx_PyFloat_AsDouble(__pyx_v_epsabs); if (unlikely((__pyx_t_18 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 457, __pyx_L1_error)
-    __pyx_t_19 = __pyx_PyFloat_AsDouble(__pyx_v_epsrel); if (unlikely((__pyx_t_19 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 457, __pyx_L1_error)
+    __pyx_t_18 = __pyx_PyFloat_AsDouble(__pyx_v_epsabs); if (unlikely((__pyx_t_18 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 468, __pyx_L1_error)
+    __pyx_t_19 = __pyx_PyFloat_AsDouble(__pyx_v_epsrel); if (unlikely((__pyx_t_19 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 468, __pyx_L1_error)
     __pyx_v_suc = lintegration_cquad(__pyx_f_10lintegrate_10lintegrate_lintegrate_callback, ((void *)__pyx_v_func), ((void *)__pyx_v_args), __pyx_t_11, __pyx_t_17, __pyx_t_18, __pyx_t_19, __pyx_v_w, (&__pyx_v_result), (&__pyx_v_abserr), (&__pyx_v_nevaltmp));
 
-    /* "lintegrate/lintegrate.pyx":458
+    /* "lintegrate/lintegrate.pyx":469
  *     for i in xrange(len(intervals)-1):
  *         suc = lintegration_cquad(lintegrate_callback, <void*>func, <void*>args, intervals[i], intervals[i+1], epsabs, epsrel, w, &result, &abserr, &nevaltmp)
  *         assert suc == 0, "'lintegration_cquad' failed"             # <<<<<<<<<<<<<<
@@ -6420,38 +6627,38 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_6lcquad(CYTHON_UNUSED PyObje
     if (unlikely(!Py_OptimizeFlag)) {
       if (unlikely(!((__pyx_v_suc == 0) != 0))) {
         PyErr_SetObject(PyExc_AssertionError, __pyx_kp_s_lintegration_cquad_failed);
-        __PYX_ERR(0, 458, __pyx_L1_error)
+        __PYX_ERR(0, 469, __pyx_L1_error)
       }
     }
     #endif
 
-    /* "lintegrate/lintegrate.pyx":459
+    /* "lintegrate/lintegrate.pyx":470
  *         suc = lintegration_cquad(lintegrate_callback, <void*>func, <void*>args, intervals[i], intervals[i+1], epsabs, epsrel, w, &result, &abserr, &nevaltmp)
  *         assert suc == 0, "'lintegration_cquad' failed"
  *         sumres = logplus(sumres, result)             # <<<<<<<<<<<<<<
  *         sumabserr = logplus(sumabserr, abserr)
  *         neval += nevaltmp
  */
-    __pyx_t_8 = __pyx_f_10lintegrate_10lintegrate_logplus(__pyx_v_sumres, __pyx_v_result); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 459, __pyx_L1_error)
+    __pyx_t_8 = __pyx_f_10lintegrate_10lintegrate_logplus(__pyx_v_sumres, __pyx_v_result); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 470, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
-    __pyx_t_19 = __pyx_PyFloat_AsDouble(__pyx_t_8); if (unlikely((__pyx_t_19 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 459, __pyx_L1_error)
+    __pyx_t_19 = __pyx_PyFloat_AsDouble(__pyx_t_8); if (unlikely((__pyx_t_19 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 470, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
     __pyx_v_sumres = __pyx_t_19;
 
-    /* "lintegrate/lintegrate.pyx":460
+    /* "lintegrate/lintegrate.pyx":471
  *         assert suc == 0, "'lintegration_cquad' failed"
  *         sumres = logplus(sumres, result)
  *         sumabserr = logplus(sumabserr, abserr)             # <<<<<<<<<<<<<<
  *         neval += nevaltmp
  *     result = sumres
  */
-    __pyx_t_8 = __pyx_f_10lintegrate_10lintegrate_logplus(__pyx_v_sumabserr, __pyx_v_abserr); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 460, __pyx_L1_error)
+    __pyx_t_8 = __pyx_f_10lintegrate_10lintegrate_logplus(__pyx_v_sumabserr, __pyx_v_abserr); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 471, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
-    __pyx_t_19 = __pyx_PyFloat_AsDouble(__pyx_t_8); if (unlikely((__pyx_t_19 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 460, __pyx_L1_error)
+    __pyx_t_19 = __pyx_PyFloat_AsDouble(__pyx_t_8); if (unlikely((__pyx_t_19 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 471, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
     __pyx_v_sumabserr = __pyx_t_19;
 
-    /* "lintegrate/lintegrate.pyx":461
+    /* "lintegrate/lintegrate.pyx":472
  *         sumres = logplus(sumres, result)
  *         sumabserr = logplus(sumabserr, abserr)
  *         neval += nevaltmp             # <<<<<<<<<<<<<<
@@ -6460,7 +6667,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_6lcquad(CYTHON_UNUSED PyObje
  */
     __pyx_v_neval = (__pyx_v_neval + __pyx_v_nevaltmp);
 
-    /* "lintegrate/lintegrate.pyx":456
+    /* "lintegrate/lintegrate.pyx":467
  *             intervals = np.array(sorted(intervals)) # make sure array is in ascending order
  * 
  *     for i in xrange(len(intervals)-1):             # <<<<<<<<<<<<<<
@@ -6470,7 +6677,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_6lcquad(CYTHON_UNUSED PyObje
   }
   __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
 
-  /* "lintegrate/lintegrate.pyx":462
+  /* "lintegrate/lintegrate.pyx":473
  *         sumabserr = logplus(sumabserr, abserr)
  *         neval += nevaltmp
  *     result = sumres             # <<<<<<<<<<<<<<
@@ -6479,7 +6686,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_6lcquad(CYTHON_UNUSED PyObje
  */
   __pyx_v_result = __pyx_v_sumres;
 
-  /* "lintegrate/lintegrate.pyx":463
+  /* "lintegrate/lintegrate.pyx":474
  *         neval += nevaltmp
  *     result = sumres
  *     abserr = sumabserr             # <<<<<<<<<<<<<<
@@ -6488,7 +6695,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_6lcquad(CYTHON_UNUSED PyObje
  */
   __pyx_v_abserr = __pyx_v_sumabserr;
 
-  /* "lintegrate/lintegrate.pyx":465
+  /* "lintegrate/lintegrate.pyx":476
  *     abserr = sumabserr
  * 
  *     gsl_integration_cquad_workspace_free(w)             # <<<<<<<<<<<<<<
@@ -6497,7 +6704,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_6lcquad(CYTHON_UNUSED PyObje
  */
   gsl_integration_cquad_workspace_free(__pyx_v_w);
 
-  /* "lintegrate/lintegrate.pyx":467
+  /* "lintegrate/lintegrate.pyx":478
  *     gsl_integration_cquad_workspace_free(w)
  * 
  *     return (result, abserr, neval)             # <<<<<<<<<<<<<<
@@ -6505,13 +6712,13 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_6lcquad(CYTHON_UNUSED PyObje
  * 
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_10 = PyFloat_FromDouble(__pyx_v_result); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 467, __pyx_L1_error)
+  __pyx_t_10 = PyFloat_FromDouble(__pyx_v_result); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 478, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
-  __pyx_t_8 = PyFloat_FromDouble(__pyx_v_abserr); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 467, __pyx_L1_error)
+  __pyx_t_8 = PyFloat_FromDouble(__pyx_v_abserr); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 478, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
-  __pyx_t_13 = __Pyx_PyInt_FromSize_t(__pyx_v_neval); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 467, __pyx_L1_error)
+  __pyx_t_13 = __Pyx_PyInt_FromSize_t(__pyx_v_neval); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 478, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_13);
-  __pyx_t_3 = PyTuple_New(3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 467, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 478, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_10);
   PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_10);
@@ -6526,7 +6733,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_6lcquad(CYTHON_UNUSED PyObje
   __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "lintegrate/lintegrate.pyx":370
+  /* "lintegrate/lintegrate.pyx":381
  * 
  * 
  * def lcquad(func, a, b, args=(), epsabs=1.49e-8, epsrel=1.49e-8, wsintervals=100, intervals=None, nintervals=0, intervaltype='linear'):             # <<<<<<<<<<<<<<
@@ -6555,7 +6762,7 @@ static PyObject *__pyx_pf_10lintegrate_10lintegrate_6lcquad(CYTHON_UNUSED PyObje
   return __pyx_r;
 }
 
-/* "lintegrate/lintegrate.pyx":472
+/* "lintegrate/lintegrate.pyx":483
  * # callback function to allow python functions to be passed to C lintegration functions
  * # (see e.g. https://github.com/cython/cython/tree/master/Demos/callback)
  * cdef double lintegrate_callback(double x, void *f, void *args):             # <<<<<<<<<<<<<<
@@ -6577,12 +6784,12 @@ static double __pyx_f_10lintegrate_10lintegrate_lintegrate_callback(double __pyx
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("lintegrate_callback", 0);
 
-  /* "lintegrate/lintegrate.pyx":473
+  /* "lintegrate/lintegrate.pyx":484
  * # (see e.g. https://github.com/cython/cython/tree/master/Demos/callback)
  * cdef double lintegrate_callback(double x, void *f, void *args):
  *     return (<object>f)(x, <object>args)             # <<<<<<<<<<<<<<
  */
-  __pyx_t_2 = PyFloat_FromDouble(__pyx_v_x); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 473, __pyx_L1_error)
+  __pyx_t_2 = PyFloat_FromDouble(__pyx_v_x); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 484, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(((PyObject *)__pyx_v_f));
   __pyx_t_3 = ((PyObject *)__pyx_v_f); __pyx_t_4 = NULL;
@@ -6600,7 +6807,7 @@ static double __pyx_f_10lintegrate_10lintegrate_lintegrate_callback(double __pyx
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_3)) {
     PyObject *__pyx_temp[3] = {__pyx_t_4, __pyx_t_2, ((PyObject *)__pyx_v_args)};
-    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_5, 2+__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 473, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_5, 2+__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 484, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -6609,14 +6816,14 @@ static double __pyx_f_10lintegrate_10lintegrate_lintegrate_callback(double __pyx
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_3)) {
     PyObject *__pyx_temp[3] = {__pyx_t_4, __pyx_t_2, ((PyObject *)__pyx_v_args)};
-    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_5, 2+__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 473, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_5, 2+__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 484, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   } else
   #endif
   {
-    __pyx_t_6 = PyTuple_New(2+__pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 473, __pyx_L1_error)
+    __pyx_t_6 = PyTuple_New(2+__pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 484, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     if (__pyx_t_4) {
       __Pyx_GIVEREF(__pyx_t_4); PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_4); __pyx_t_4 = NULL;
@@ -6627,17 +6834,17 @@ static double __pyx_f_10lintegrate_10lintegrate_lintegrate_callback(double __pyx
     __Pyx_GIVEREF(((PyObject *)__pyx_v_args));
     PyTuple_SET_ITEM(__pyx_t_6, 1+__pyx_t_5, ((PyObject *)__pyx_v_args));
     __pyx_t_2 = 0;
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_6, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 473, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_6, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 484, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   }
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_7 = __pyx_PyFloat_AsDouble(__pyx_t_1); if (unlikely((__pyx_t_7 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 473, __pyx_L1_error)
+  __pyx_t_7 = __pyx_PyFloat_AsDouble(__pyx_t_1); if (unlikely((__pyx_t_7 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 484, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_r = __pyx_t_7;
   goto __pyx_L0;
 
-  /* "lintegrate/lintegrate.pyx":472
+  /* "lintegrate/lintegrate.pyx":483
  * # callback function to allow python functions to be passed to C lintegration functions
  * # (see e.g. https://github.com/cython/cython/tree/master/Demos/callback)
  * cdef double lintegrate_callback(double x, void *f, void *args):             # <<<<<<<<<<<<<<
@@ -6658,7 +6865,7 @@ static double __pyx_f_10lintegrate_10lintegrate_lintegrate_callback(double __pyx
   return __pyx_r;
 }
 
-/* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":734
+/* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":735
  * ctypedef npy_cdouble     complex_t
  * 
  * cdef inline object PyArray_MultiIterNew1(a):             # <<<<<<<<<<<<<<
@@ -6675,7 +6882,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew1(PyObject *__
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("PyArray_MultiIterNew1", 0);
 
-  /* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":735
+  /* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":736
  * 
  * cdef inline object PyArray_MultiIterNew1(a):
  *     return PyArray_MultiIterNew(1, <void*>a)             # <<<<<<<<<<<<<<
@@ -6683,13 +6890,13 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew1(PyObject *__
  * cdef inline object PyArray_MultiIterNew2(a, b):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyArray_MultiIterNew(1, ((void *)__pyx_v_a)); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 735, __pyx_L1_error)
+  __pyx_t_1 = PyArray_MultiIterNew(1, ((void *)__pyx_v_a)); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 736, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":734
+  /* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":735
  * ctypedef npy_cdouble     complex_t
  * 
  * cdef inline object PyArray_MultiIterNew1(a):             # <<<<<<<<<<<<<<
@@ -6708,7 +6915,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew1(PyObject *__
   return __pyx_r;
 }
 
-/* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":737
+/* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":738
  *     return PyArray_MultiIterNew(1, <void*>a)
  * 
  * cdef inline object PyArray_MultiIterNew2(a, b):             # <<<<<<<<<<<<<<
@@ -6725,7 +6932,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew2(PyObject *__
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("PyArray_MultiIterNew2", 0);
 
-  /* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":738
+  /* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":739
  * 
  * cdef inline object PyArray_MultiIterNew2(a, b):
  *     return PyArray_MultiIterNew(2, <void*>a, <void*>b)             # <<<<<<<<<<<<<<
@@ -6733,13 +6940,13 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew2(PyObject *__
  * cdef inline object PyArray_MultiIterNew3(a, b, c):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyArray_MultiIterNew(2, ((void *)__pyx_v_a), ((void *)__pyx_v_b)); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 738, __pyx_L1_error)
+  __pyx_t_1 = PyArray_MultiIterNew(2, ((void *)__pyx_v_a), ((void *)__pyx_v_b)); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 739, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":737
+  /* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":738
  *     return PyArray_MultiIterNew(1, <void*>a)
  * 
  * cdef inline object PyArray_MultiIterNew2(a, b):             # <<<<<<<<<<<<<<
@@ -6758,7 +6965,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew2(PyObject *__
   return __pyx_r;
 }
 
-/* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":740
+/* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":741
  *     return PyArray_MultiIterNew(2, <void*>a, <void*>b)
  * 
  * cdef inline object PyArray_MultiIterNew3(a, b, c):             # <<<<<<<<<<<<<<
@@ -6775,7 +6982,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew3(PyObject *__
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("PyArray_MultiIterNew3", 0);
 
-  /* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":741
+  /* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":742
  * 
  * cdef inline object PyArray_MultiIterNew3(a, b, c):
  *     return PyArray_MultiIterNew(3, <void*>a, <void*>b, <void*> c)             # <<<<<<<<<<<<<<
@@ -6783,13 +6990,13 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew3(PyObject *__
  * cdef inline object PyArray_MultiIterNew4(a, b, c, d):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyArray_MultiIterNew(3, ((void *)__pyx_v_a), ((void *)__pyx_v_b), ((void *)__pyx_v_c)); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 741, __pyx_L1_error)
+  __pyx_t_1 = PyArray_MultiIterNew(3, ((void *)__pyx_v_a), ((void *)__pyx_v_b), ((void *)__pyx_v_c)); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 742, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":740
+  /* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":741
  *     return PyArray_MultiIterNew(2, <void*>a, <void*>b)
  * 
  * cdef inline object PyArray_MultiIterNew3(a, b, c):             # <<<<<<<<<<<<<<
@@ -6808,7 +7015,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew3(PyObject *__
   return __pyx_r;
 }
 
-/* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":743
+/* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":744
  *     return PyArray_MultiIterNew(3, <void*>a, <void*>b, <void*> c)
  * 
  * cdef inline object PyArray_MultiIterNew4(a, b, c, d):             # <<<<<<<<<<<<<<
@@ -6825,7 +7032,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew4(PyObject *__
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("PyArray_MultiIterNew4", 0);
 
-  /* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":744
+  /* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":745
  * 
  * cdef inline object PyArray_MultiIterNew4(a, b, c, d):
  *     return PyArray_MultiIterNew(4, <void*>a, <void*>b, <void*>c, <void*> d)             # <<<<<<<<<<<<<<
@@ -6833,13 +7040,13 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew4(PyObject *__
  * cdef inline object PyArray_MultiIterNew5(a, b, c, d, e):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyArray_MultiIterNew(4, ((void *)__pyx_v_a), ((void *)__pyx_v_b), ((void *)__pyx_v_c), ((void *)__pyx_v_d)); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 744, __pyx_L1_error)
+  __pyx_t_1 = PyArray_MultiIterNew(4, ((void *)__pyx_v_a), ((void *)__pyx_v_b), ((void *)__pyx_v_c), ((void *)__pyx_v_d)); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 745, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":743
+  /* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":744
  *     return PyArray_MultiIterNew(3, <void*>a, <void*>b, <void*> c)
  * 
  * cdef inline object PyArray_MultiIterNew4(a, b, c, d):             # <<<<<<<<<<<<<<
@@ -6858,7 +7065,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew4(PyObject *__
   return __pyx_r;
 }
 
-/* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":746
+/* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":747
  *     return PyArray_MultiIterNew(4, <void*>a, <void*>b, <void*>c, <void*> d)
  * 
  * cdef inline object PyArray_MultiIterNew5(a, b, c, d, e):             # <<<<<<<<<<<<<<
@@ -6875,7 +7082,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew5(PyObject *__
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("PyArray_MultiIterNew5", 0);
 
-  /* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":747
+  /* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":748
  * 
  * cdef inline object PyArray_MultiIterNew5(a, b, c, d, e):
  *     return PyArray_MultiIterNew(5, <void*>a, <void*>b, <void*>c, <void*> d, <void*> e)             # <<<<<<<<<<<<<<
@@ -6883,13 +7090,13 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew5(PyObject *__
  * cdef inline tuple PyDataType_SHAPE(dtype d):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyArray_MultiIterNew(5, ((void *)__pyx_v_a), ((void *)__pyx_v_b), ((void *)__pyx_v_c), ((void *)__pyx_v_d), ((void *)__pyx_v_e)); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 747, __pyx_L1_error)
+  __pyx_t_1 = PyArray_MultiIterNew(5, ((void *)__pyx_v_a), ((void *)__pyx_v_b), ((void *)__pyx_v_c), ((void *)__pyx_v_d), ((void *)__pyx_v_e)); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 748, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":746
+  /* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":747
  *     return PyArray_MultiIterNew(4, <void*>a, <void*>b, <void*>c, <void*> d)
  * 
  * cdef inline object PyArray_MultiIterNew5(a, b, c, d, e):             # <<<<<<<<<<<<<<
@@ -6908,7 +7115,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew5(PyObject *__
   return __pyx_r;
 }
 
-/* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":749
+/* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":750
  *     return PyArray_MultiIterNew(5, <void*>a, <void*>b, <void*>c, <void*> d, <void*> e)
  * 
  * cdef inline tuple PyDataType_SHAPE(dtype d):             # <<<<<<<<<<<<<<
@@ -6922,7 +7129,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyDataType_SHAPE(PyArray_Descr *__
   int __pyx_t_1;
   __Pyx_RefNannySetupContext("PyDataType_SHAPE", 0);
 
-  /* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":750
+  /* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":751
  * 
  * cdef inline tuple PyDataType_SHAPE(dtype d):
  *     if PyDataType_HASSUBARRAY(d):             # <<<<<<<<<<<<<<
@@ -6932,7 +7139,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyDataType_SHAPE(PyArray_Descr *__
   __pyx_t_1 = (PyDataType_HASSUBARRAY(__pyx_v_d) != 0);
   if (__pyx_t_1) {
 
-    /* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":751
+    /* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":752
  * cdef inline tuple PyDataType_SHAPE(dtype d):
  *     if PyDataType_HASSUBARRAY(d):
  *         return <tuple>d.subarray.shape             # <<<<<<<<<<<<<<
@@ -6944,7 +7151,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyDataType_SHAPE(PyArray_Descr *__
     __pyx_r = ((PyObject*)__pyx_v_d->subarray->shape);
     goto __pyx_L0;
 
-    /* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":750
+    /* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":751
  * 
  * cdef inline tuple PyDataType_SHAPE(dtype d):
  *     if PyDataType_HASSUBARRAY(d):             # <<<<<<<<<<<<<<
@@ -6953,7 +7160,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyDataType_SHAPE(PyArray_Descr *__
  */
   }
 
-  /* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":753
+  /* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":754
  *         return <tuple>d.subarray.shape
  *     else:
  *         return ()             # <<<<<<<<<<<<<<
@@ -6967,7 +7174,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyDataType_SHAPE(PyArray_Descr *__
     goto __pyx_L0;
   }
 
-  /* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":749
+  /* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":750
  *     return PyArray_MultiIterNew(5, <void*>a, <void*>b, <void*>c, <void*> d, <void*> e)
  * 
  * cdef inline tuple PyDataType_SHAPE(dtype d):             # <<<<<<<<<<<<<<
@@ -6982,7 +7189,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyDataType_SHAPE(PyArray_Descr *__
   return __pyx_r;
 }
 
-/* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":868
+/* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":931
  *     int _import_umath() except -1
  * 
  * cdef inline void set_array_base(ndarray arr, object base):             # <<<<<<<<<<<<<<
@@ -6994,7 +7201,7 @@ static CYTHON_INLINE void __pyx_f_5numpy_set_array_base(PyArrayObject *__pyx_v_a
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("set_array_base", 0);
 
-  /* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":869
+  /* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":932
  * 
  * cdef inline void set_array_base(ndarray arr, object base):
  *     Py_INCREF(base) # important to do this before stealing the reference below!             # <<<<<<<<<<<<<<
@@ -7003,7 +7210,7 @@ static CYTHON_INLINE void __pyx_f_5numpy_set_array_base(PyArrayObject *__pyx_v_a
  */
   Py_INCREF(__pyx_v_base);
 
-  /* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":870
+  /* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":933
  * cdef inline void set_array_base(ndarray arr, object base):
  *     Py_INCREF(base) # important to do this before stealing the reference below!
  *     PyArray_SetBaseObject(arr, base)             # <<<<<<<<<<<<<<
@@ -7012,7 +7219,7 @@ static CYTHON_INLINE void __pyx_f_5numpy_set_array_base(PyArrayObject *__pyx_v_a
  */
   (void)(PyArray_SetBaseObject(__pyx_v_arr, __pyx_v_base));
 
-  /* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":868
+  /* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":931
  *     int _import_umath() except -1
  * 
  * cdef inline void set_array_base(ndarray arr, object base):             # <<<<<<<<<<<<<<
@@ -7024,7 +7231,7 @@ static CYTHON_INLINE void __pyx_f_5numpy_set_array_base(PyArrayObject *__pyx_v_a
   __Pyx_RefNannyFinishContext();
 }
 
-/* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":872
+/* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":935
  *     PyArray_SetBaseObject(arr, base)
  * 
  * cdef inline object get_array_base(ndarray arr):             # <<<<<<<<<<<<<<
@@ -7039,7 +7246,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_get_array_base(PyArrayObject *__py
   int __pyx_t_1;
   __Pyx_RefNannySetupContext("get_array_base", 0);
 
-  /* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":873
+  /* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":936
  * 
  * cdef inline object get_array_base(ndarray arr):
  *     base = PyArray_BASE(arr)             # <<<<<<<<<<<<<<
@@ -7048,7 +7255,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_get_array_base(PyArrayObject *__py
  */
   __pyx_v_base = PyArray_BASE(__pyx_v_arr);
 
-  /* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":874
+  /* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":937
  * cdef inline object get_array_base(ndarray arr):
  *     base = PyArray_BASE(arr)
  *     if base is NULL:             # <<<<<<<<<<<<<<
@@ -7058,7 +7265,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_get_array_base(PyArrayObject *__py
   __pyx_t_1 = ((__pyx_v_base == NULL) != 0);
   if (__pyx_t_1) {
 
-    /* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":875
+    /* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":938
  *     base = PyArray_BASE(arr)
  *     if base is NULL:
  *         return None             # <<<<<<<<<<<<<<
@@ -7069,7 +7276,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_get_array_base(PyArrayObject *__py
     __pyx_r = Py_None; __Pyx_INCREF(Py_None);
     goto __pyx_L0;
 
-    /* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":874
+    /* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":937
  * cdef inline object get_array_base(ndarray arr):
  *     base = PyArray_BASE(arr)
  *     if base is NULL:             # <<<<<<<<<<<<<<
@@ -7078,7 +7285,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_get_array_base(PyArrayObject *__py
  */
   }
 
-  /* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":876
+  /* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":939
  *     if base is NULL:
  *         return None
  *     return <object>base             # <<<<<<<<<<<<<<
@@ -7090,7 +7297,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_get_array_base(PyArrayObject *__py
   __pyx_r = ((PyObject *)__pyx_v_base);
   goto __pyx_L0;
 
-  /* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":872
+  /* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":935
  *     PyArray_SetBaseObject(arr, base)
  * 
  * cdef inline object get_array_base(ndarray arr):             # <<<<<<<<<<<<<<
@@ -7105,7 +7312,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_get_array_base(PyArrayObject *__py
   return __pyx_r;
 }
 
-/* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":880
+/* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":943
  * # Versions of the import_* functions which are more suitable for
  * # Cython code.
  * cdef inline int import_array() except -1:             # <<<<<<<<<<<<<<
@@ -7129,7 +7336,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_array(void) {
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("import_array", 0);
 
-  /* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":881
+  /* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":944
  * # Cython code.
  * cdef inline int import_array() except -1:
  *     try:             # <<<<<<<<<<<<<<
@@ -7145,16 +7352,16 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_array(void) {
     __Pyx_XGOTREF(__pyx_t_3);
     /*try:*/ {
 
-      /* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":882
+      /* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":945
  * cdef inline int import_array() except -1:
  *     try:
  *         __pyx_import_array()             # <<<<<<<<<<<<<<
  *     except Exception:
  *         raise ImportError("numpy.core.multiarray failed to import")
  */
-      __pyx_t_4 = _import_array(); if (unlikely(__pyx_t_4 == ((int)-1))) __PYX_ERR(1, 882, __pyx_L3_error)
+      __pyx_t_4 = _import_array(); if (unlikely(__pyx_t_4 == ((int)-1))) __PYX_ERR(1, 945, __pyx_L3_error)
 
-      /* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":881
+      /* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":944
  * # Cython code.
  * cdef inline int import_array() except -1:
  *     try:             # <<<<<<<<<<<<<<
@@ -7168,7 +7375,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_array(void) {
     goto __pyx_L8_try_end;
     __pyx_L3_error:;
 
-    /* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":883
+    /* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":946
  *     try:
  *         __pyx_import_array()
  *     except Exception:             # <<<<<<<<<<<<<<
@@ -7178,28 +7385,28 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_array(void) {
     __pyx_t_4 = __Pyx_PyErr_ExceptionMatches(((PyObject *)(&((PyTypeObject*)PyExc_Exception)[0])));
     if (__pyx_t_4) {
       __Pyx_AddTraceback("numpy.import_array", __pyx_clineno, __pyx_lineno, __pyx_filename);
-      if (__Pyx_GetException(&__pyx_t_5, &__pyx_t_6, &__pyx_t_7) < 0) __PYX_ERR(1, 883, __pyx_L5_except_error)
+      if (__Pyx_GetException(&__pyx_t_5, &__pyx_t_6, &__pyx_t_7) < 0) __PYX_ERR(1, 946, __pyx_L5_except_error)
       __Pyx_GOTREF(__pyx_t_5);
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_GOTREF(__pyx_t_7);
 
-      /* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":884
+      /* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":947
  *         __pyx_import_array()
  *     except Exception:
  *         raise ImportError("numpy.core.multiarray failed to import")             # <<<<<<<<<<<<<<
  * 
  * cdef inline int import_umath() except -1:
  */
-      __pyx_t_8 = __Pyx_PyObject_Call(__pyx_builtin_ImportError, __pyx_tuple__10, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(1, 884, __pyx_L5_except_error)
+      __pyx_t_8 = __Pyx_PyObject_Call(__pyx_builtin_ImportError, __pyx_tuple__10, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(1, 947, __pyx_L5_except_error)
       __Pyx_GOTREF(__pyx_t_8);
       __Pyx_Raise(__pyx_t_8, 0, 0, 0);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-      __PYX_ERR(1, 884, __pyx_L5_except_error)
+      __PYX_ERR(1, 947, __pyx_L5_except_error)
     }
     goto __pyx_L5_except_error;
     __pyx_L5_except_error:;
 
-    /* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":881
+    /* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":944
  * # Cython code.
  * cdef inline int import_array() except -1:
  *     try:             # <<<<<<<<<<<<<<
@@ -7214,7 +7421,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_array(void) {
     __pyx_L8_try_end:;
   }
 
-  /* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":880
+  /* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":943
  * # Versions of the import_* functions which are more suitable for
  * # Cython code.
  * cdef inline int import_array() except -1:             # <<<<<<<<<<<<<<
@@ -7237,7 +7444,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_array(void) {
   return __pyx_r;
 }
 
-/* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":886
+/* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":949
  *         raise ImportError("numpy.core.multiarray failed to import")
  * 
  * cdef inline int import_umath() except -1:             # <<<<<<<<<<<<<<
@@ -7261,7 +7468,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_umath(void) {
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("import_umath", 0);
 
-  /* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":887
+  /* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":950
  * 
  * cdef inline int import_umath() except -1:
  *     try:             # <<<<<<<<<<<<<<
@@ -7277,16 +7484,16 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_umath(void) {
     __Pyx_XGOTREF(__pyx_t_3);
     /*try:*/ {
 
-      /* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":888
+      /* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":951
  * cdef inline int import_umath() except -1:
  *     try:
  *         _import_umath()             # <<<<<<<<<<<<<<
  *     except Exception:
  *         raise ImportError("numpy.core.umath failed to import")
  */
-      __pyx_t_4 = _import_umath(); if (unlikely(__pyx_t_4 == ((int)-1))) __PYX_ERR(1, 888, __pyx_L3_error)
+      __pyx_t_4 = _import_umath(); if (unlikely(__pyx_t_4 == ((int)-1))) __PYX_ERR(1, 951, __pyx_L3_error)
 
-      /* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":887
+      /* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":950
  * 
  * cdef inline int import_umath() except -1:
  *     try:             # <<<<<<<<<<<<<<
@@ -7300,7 +7507,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_umath(void) {
     goto __pyx_L8_try_end;
     __pyx_L3_error:;
 
-    /* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":889
+    /* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":952
  *     try:
  *         _import_umath()
  *     except Exception:             # <<<<<<<<<<<<<<
@@ -7310,28 +7517,28 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_umath(void) {
     __pyx_t_4 = __Pyx_PyErr_ExceptionMatches(((PyObject *)(&((PyTypeObject*)PyExc_Exception)[0])));
     if (__pyx_t_4) {
       __Pyx_AddTraceback("numpy.import_umath", __pyx_clineno, __pyx_lineno, __pyx_filename);
-      if (__Pyx_GetException(&__pyx_t_5, &__pyx_t_6, &__pyx_t_7) < 0) __PYX_ERR(1, 889, __pyx_L5_except_error)
+      if (__Pyx_GetException(&__pyx_t_5, &__pyx_t_6, &__pyx_t_7) < 0) __PYX_ERR(1, 952, __pyx_L5_except_error)
       __Pyx_GOTREF(__pyx_t_5);
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_GOTREF(__pyx_t_7);
 
-      /* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":890
+      /* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":953
  *         _import_umath()
  *     except Exception:
  *         raise ImportError("numpy.core.umath failed to import")             # <<<<<<<<<<<<<<
  * 
  * cdef inline int import_ufunc() except -1:
  */
-      __pyx_t_8 = __Pyx_PyObject_Call(__pyx_builtin_ImportError, __pyx_tuple__11, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(1, 890, __pyx_L5_except_error)
+      __pyx_t_8 = __Pyx_PyObject_Call(__pyx_builtin_ImportError, __pyx_tuple__11, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(1, 953, __pyx_L5_except_error)
       __Pyx_GOTREF(__pyx_t_8);
       __Pyx_Raise(__pyx_t_8, 0, 0, 0);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-      __PYX_ERR(1, 890, __pyx_L5_except_error)
+      __PYX_ERR(1, 953, __pyx_L5_except_error)
     }
     goto __pyx_L5_except_error;
     __pyx_L5_except_error:;
 
-    /* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":887
+    /* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":950
  * 
  * cdef inline int import_umath() except -1:
  *     try:             # <<<<<<<<<<<<<<
@@ -7346,7 +7553,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_umath(void) {
     __pyx_L8_try_end:;
   }
 
-  /* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":886
+  /* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":949
  *         raise ImportError("numpy.core.multiarray failed to import")
  * 
  * cdef inline int import_umath() except -1:             # <<<<<<<<<<<<<<
@@ -7369,7 +7576,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_umath(void) {
   return __pyx_r;
 }
 
-/* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":892
+/* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":955
  *         raise ImportError("numpy.core.umath failed to import")
  * 
  * cdef inline int import_ufunc() except -1:             # <<<<<<<<<<<<<<
@@ -7393,7 +7600,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_ufunc(void) {
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("import_ufunc", 0);
 
-  /* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":893
+  /* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":956
  * 
  * cdef inline int import_ufunc() except -1:
  *     try:             # <<<<<<<<<<<<<<
@@ -7409,16 +7616,16 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_ufunc(void) {
     __Pyx_XGOTREF(__pyx_t_3);
     /*try:*/ {
 
-      /* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":894
+      /* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":957
  * cdef inline int import_ufunc() except -1:
  *     try:
  *         _import_umath()             # <<<<<<<<<<<<<<
  *     except Exception:
  *         raise ImportError("numpy.core.umath failed to import")
  */
-      __pyx_t_4 = _import_umath(); if (unlikely(__pyx_t_4 == ((int)-1))) __PYX_ERR(1, 894, __pyx_L3_error)
+      __pyx_t_4 = _import_umath(); if (unlikely(__pyx_t_4 == ((int)-1))) __PYX_ERR(1, 957, __pyx_L3_error)
 
-      /* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":893
+      /* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":956
  * 
  * cdef inline int import_ufunc() except -1:
  *     try:             # <<<<<<<<<<<<<<
@@ -7432,7 +7639,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_ufunc(void) {
     goto __pyx_L8_try_end;
     __pyx_L3_error:;
 
-    /* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":895
+    /* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":958
  *     try:
  *         _import_umath()
  *     except Exception:             # <<<<<<<<<<<<<<
@@ -7442,28 +7649,28 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_ufunc(void) {
     __pyx_t_4 = __Pyx_PyErr_ExceptionMatches(((PyObject *)(&((PyTypeObject*)PyExc_Exception)[0])));
     if (__pyx_t_4) {
       __Pyx_AddTraceback("numpy.import_ufunc", __pyx_clineno, __pyx_lineno, __pyx_filename);
-      if (__Pyx_GetException(&__pyx_t_5, &__pyx_t_6, &__pyx_t_7) < 0) __PYX_ERR(1, 895, __pyx_L5_except_error)
+      if (__Pyx_GetException(&__pyx_t_5, &__pyx_t_6, &__pyx_t_7) < 0) __PYX_ERR(1, 958, __pyx_L5_except_error)
       __Pyx_GOTREF(__pyx_t_5);
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_GOTREF(__pyx_t_7);
 
-      /* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":896
+      /* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":959
  *         _import_umath()
  *     except Exception:
  *         raise ImportError("numpy.core.umath failed to import")             # <<<<<<<<<<<<<<
  * 
  * cdef extern from *:
  */
-      __pyx_t_8 = __Pyx_PyObject_Call(__pyx_builtin_ImportError, __pyx_tuple__11, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(1, 896, __pyx_L5_except_error)
+      __pyx_t_8 = __Pyx_PyObject_Call(__pyx_builtin_ImportError, __pyx_tuple__11, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(1, 959, __pyx_L5_except_error)
       __Pyx_GOTREF(__pyx_t_8);
       __Pyx_Raise(__pyx_t_8, 0, 0, 0);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-      __PYX_ERR(1, 896, __pyx_L5_except_error)
+      __PYX_ERR(1, 959, __pyx_L5_except_error)
     }
     goto __pyx_L5_except_error;
     __pyx_L5_except_error:;
 
-    /* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":893
+    /* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":956
  * 
  * cdef inline int import_ufunc() except -1:
  *     try:             # <<<<<<<<<<<<<<
@@ -7478,7 +7685,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_ufunc(void) {
     __pyx_L8_try_end:;
   }
 
-  /* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":892
+  /* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":955
  *         raise ImportError("numpy.core.umath failed to import")
  * 
  * cdef inline int import_ufunc() except -1:             # <<<<<<<<<<<<<<
@@ -7498,6 +7705,180 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_ufunc(void) {
   __pyx_r = -1;
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":969
+ * 
+ * 
+ * cdef inline bint is_timedelta64_object(object obj):             # <<<<<<<<<<<<<<
+ *     """
+ *     Cython equivalent of `isinstance(obj, np.timedelta64)`
+ */
+
+static CYTHON_INLINE int __pyx_f_5numpy_is_timedelta64_object(PyObject *__pyx_v_obj) {
+  int __pyx_r;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("is_timedelta64_object", 0);
+
+  /* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":981
+ *     bool
+ *     """
+ *     return PyObject_TypeCheck(obj, &PyTimedeltaArrType_Type)             # <<<<<<<<<<<<<<
+ * 
+ * 
+ */
+  __pyx_r = PyObject_TypeCheck(__pyx_v_obj, (&PyTimedeltaArrType_Type));
+  goto __pyx_L0;
+
+  /* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":969
+ * 
+ * 
+ * cdef inline bint is_timedelta64_object(object obj):             # <<<<<<<<<<<<<<
+ *     """
+ *     Cython equivalent of `isinstance(obj, np.timedelta64)`
+ */
+
+  /* function exit code */
+  __pyx_L0:;
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":984
+ * 
+ * 
+ * cdef inline bint is_datetime64_object(object obj):             # <<<<<<<<<<<<<<
+ *     """
+ *     Cython equivalent of `isinstance(obj, np.datetime64)`
+ */
+
+static CYTHON_INLINE int __pyx_f_5numpy_is_datetime64_object(PyObject *__pyx_v_obj) {
+  int __pyx_r;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("is_datetime64_object", 0);
+
+  /* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":996
+ *     bool
+ *     """
+ *     return PyObject_TypeCheck(obj, &PyDatetimeArrType_Type)             # <<<<<<<<<<<<<<
+ * 
+ * 
+ */
+  __pyx_r = PyObject_TypeCheck(__pyx_v_obj, (&PyDatetimeArrType_Type));
+  goto __pyx_L0;
+
+  /* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":984
+ * 
+ * 
+ * cdef inline bint is_datetime64_object(object obj):             # <<<<<<<<<<<<<<
+ *     """
+ *     Cython equivalent of `isinstance(obj, np.datetime64)`
+ */
+
+  /* function exit code */
+  __pyx_L0:;
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":999
+ * 
+ * 
+ * cdef inline npy_datetime get_datetime64_value(object obj) nogil:             # <<<<<<<<<<<<<<
+ *     """
+ *     returns the int64 value underlying scalar numpy datetime64 object
+ */
+
+static CYTHON_INLINE npy_datetime __pyx_f_5numpy_get_datetime64_value(PyObject *__pyx_v_obj) {
+  npy_datetime __pyx_r;
+
+  /* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":1006
+ *     also needed.  That can be found using `get_datetime64_unit`.
+ *     """
+ *     return (<PyDatetimeScalarObject*>obj).obval             # <<<<<<<<<<<<<<
+ * 
+ * 
+ */
+  __pyx_r = ((PyDatetimeScalarObject *)__pyx_v_obj)->obval;
+  goto __pyx_L0;
+
+  /* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":999
+ * 
+ * 
+ * cdef inline npy_datetime get_datetime64_value(object obj) nogil:             # <<<<<<<<<<<<<<
+ *     """
+ *     returns the int64 value underlying scalar numpy datetime64 object
+ */
+
+  /* function exit code */
+  __pyx_L0:;
+  return __pyx_r;
+}
+
+/* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":1009
+ * 
+ * 
+ * cdef inline npy_timedelta get_timedelta64_value(object obj) nogil:             # <<<<<<<<<<<<<<
+ *     """
+ *     returns the int64 value underlying scalar numpy timedelta64 object
+ */
+
+static CYTHON_INLINE npy_timedelta __pyx_f_5numpy_get_timedelta64_value(PyObject *__pyx_v_obj) {
+  npy_timedelta __pyx_r;
+
+  /* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":1013
+ *     returns the int64 value underlying scalar numpy timedelta64 object
+ *     """
+ *     return (<PyTimedeltaScalarObject*>obj).obval             # <<<<<<<<<<<<<<
+ * 
+ * 
+ */
+  __pyx_r = ((PyTimedeltaScalarObject *)__pyx_v_obj)->obval;
+  goto __pyx_L0;
+
+  /* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":1009
+ * 
+ * 
+ * cdef inline npy_timedelta get_timedelta64_value(object obj) nogil:             # <<<<<<<<<<<<<<
+ *     """
+ *     returns the int64 value underlying scalar numpy timedelta64 object
+ */
+
+  /* function exit code */
+  __pyx_L0:;
+  return __pyx_r;
+}
+
+/* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":1016
+ * 
+ * 
+ * cdef inline NPY_DATETIMEUNIT get_datetime64_unit(object obj) nogil:             # <<<<<<<<<<<<<<
+ *     """
+ *     returns the unit part of the dtype for a numpy datetime64 object.
+ */
+
+static CYTHON_INLINE NPY_DATETIMEUNIT __pyx_f_5numpy_get_datetime64_unit(PyObject *__pyx_v_obj) {
+  NPY_DATETIMEUNIT __pyx_r;
+
+  /* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":1020
+ *     returns the unit part of the dtype for a numpy datetime64 object.
+ *     """
+ *     return <NPY_DATETIMEUNIT>(<PyDatetimeScalarObject*>obj).obmeta.base             # <<<<<<<<<<<<<<
+ */
+  __pyx_r = ((NPY_DATETIMEUNIT)((PyDatetimeScalarObject *)__pyx_v_obj)->obmeta.base);
+  goto __pyx_L0;
+
+  /* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":1016
+ * 
+ * 
+ * cdef inline NPY_DATETIMEUNIT get_datetime64_unit(object obj) nogil:             # <<<<<<<<<<<<<<
+ *     """
+ *     returns the unit part of the dtype for a numpy datetime64 object.
+ */
+
+  /* function exit code */
+  __pyx_L0:;
   return __pyx_r;
 }
 
@@ -7571,6 +7952,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_b, __pyx_k_b, sizeof(__pyx_k_b), 0, 0, 1, 1},
   {&__pyx_n_s_base, __pyx_k_base, sizeof(__pyx_k_base), 0, 0, 1, 1},
   {&__pyx_n_s_cline_in_traceback, __pyx_k_cline_in_traceback, sizeof(__pyx_k_cline_in_traceback), 0, 0, 1, 1},
+  {&__pyx_n_s_disable_checks, __pyx_k_disable_checks, sizeof(__pyx_k_disable_checks), 0, 0, 1, 1},
   {&__pyx_n_s_e, __pyx_k_e, sizeof(__pyx_k_e), 0, 0, 1, 1},
   {&__pyx_n_s_epsabs, __pyx_k_epsabs, sizeof(__pyx_k_epsabs), 0, 0, 1, 1},
   {&__pyx_n_s_epsrel, __pyx_k_epsrel, sizeof(__pyx_k_epsrel), 0, 0, 1, 1},
@@ -7593,7 +7975,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_linear, __pyx_k_linear, sizeof(__pyx_k_linear), 0, 0, 1, 1},
   {&__pyx_n_s_linspace, __pyx_k_linspace, sizeof(__pyx_k_linspace), 0, 0, 1, 1},
   {&__pyx_n_s_lintegrate_lintegrate, __pyx_k_lintegrate_lintegrate, sizeof(__pyx_k_lintegrate_lintegrate), 0, 0, 1, 1},
-  {&__pyx_kp_s_lintegrate_lintegrate_pyx, __pyx_k_lintegrate_lintegrate_pyx, sizeof(__pyx_k_lintegrate_lintegrate_pyx), 0, 0, 1, 0},
+  {&__pyx_kp_s_lintegrate_pyx, __pyx_k_lintegrate_pyx, sizeof(__pyx_k_lintegrate_pyx), 0, 0, 1, 0},
   {&__pyx_kp_s_lintegration_cquad_failed, __pyx_k_lintegration_cquad_failed, sizeof(__pyx_k_lintegration_cquad_failed), 0, 0, 1, 0},
   {&__pyx_kp_s_lintegration_qag_failed, __pyx_k_lintegration_qag_failed, sizeof(__pyx_k_lintegration_qag_failed), 0, 0, 1, 0},
   {&__pyx_kp_s_lintegration_qng_failed, __pyx_k_lintegration_qng_failed, sizeof(__pyx_k_lintegration_qng_failed), 0, 0, 1, 0},
@@ -7630,16 +8012,16 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
 };
 static CYTHON_SMALL_CODE int __Pyx_InitCachedBuiltins(void) {
   __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 61, __pyx_L1_error)
-  __pyx_builtin_zip = __Pyx_GetBuiltinName(__pyx_n_s_zip); if (!__pyx_builtin_zip) __PYX_ERR(0, 138, __pyx_L1_error)
-  __pyx_builtin_TypeError = __Pyx_GetBuiltinName(__pyx_n_s_TypeError); if (!__pyx_builtin_TypeError) __PYX_ERR(0, 148, __pyx_L1_error)
-  __pyx_builtin_RuntimeError = __Pyx_GetBuiltinName(__pyx_n_s_RuntimeError); if (!__pyx_builtin_RuntimeError) __PYX_ERR(0, 158, __pyx_L1_error)
-  __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_n_s_ValueError); if (!__pyx_builtin_ValueError) __PYX_ERR(0, 248, __pyx_L1_error)
+  __pyx_builtin_zip = __Pyx_GetBuiltinName(__pyx_n_s_zip); if (!__pyx_builtin_zip) __PYX_ERR(0, 143, __pyx_L1_error)
+  __pyx_builtin_TypeError = __Pyx_GetBuiltinName(__pyx_n_s_TypeError); if (!__pyx_builtin_TypeError) __PYX_ERR(0, 155, __pyx_L1_error)
+  __pyx_builtin_RuntimeError = __Pyx_GetBuiltinName(__pyx_n_s_RuntimeError); if (!__pyx_builtin_RuntimeError) __PYX_ERR(0, 166, __pyx_L1_error)
+  __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_n_s_ValueError); if (!__pyx_builtin_ValueError) __PYX_ERR(0, 259, __pyx_L1_error)
   #if PY_MAJOR_VERSION >= 3
-  __pyx_builtin_xrange = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_xrange) __PYX_ERR(0, 253, __pyx_L1_error)
+  __pyx_builtin_xrange = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_xrange) __PYX_ERR(0, 264, __pyx_L1_error)
   #else
-  __pyx_builtin_xrange = __Pyx_GetBuiltinName(__pyx_n_s_xrange); if (!__pyx_builtin_xrange) __PYX_ERR(0, 253, __pyx_L1_error)
+  __pyx_builtin_xrange = __Pyx_GetBuiltinName(__pyx_n_s_xrange); if (!__pyx_builtin_xrange) __PYX_ERR(0, 264, __pyx_L1_error)
   #endif
-  __pyx_builtin_ImportError = __Pyx_GetBuiltinName(__pyx_n_s_ImportError); if (!__pyx_builtin_ImportError) __PYX_ERR(1, 884, __pyx_L1_error)
+  __pyx_builtin_ImportError = __Pyx_GetBuiltinName(__pyx_n_s_ImportError); if (!__pyx_builtin_ImportError) __PYX_ERR(1, 947, __pyx_L1_error)
   return 0;
   __pyx_L1_error:;
   return -1;
@@ -7649,158 +8031,158 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
-  /* "lintegrate/lintegrate.pyx":141
+  /* "lintegrate/lintegrate.pyx":146
  * 
- *             # perform trapezium rule (internal logtrapzC function is faster than using scipy logsumexp)
- *             return logtrapzC(zp[:,1], zp[:,0])             # <<<<<<<<<<<<<<
- *         elif isinstance(x, float):
- *             assert x > 0., "Evaluation spacings must be positive"
+ *                 # perform trapezium rule (internal logtrapzC function is faster than using scipy logsumexp)
+ *                 return logtrapzC(zp[:,1], zp[:,0])             # <<<<<<<<<<<<<<
+ *             else:
+ *                 return logtrapzC(np.array(f), np.array(x))
  */
-  __pyx_slice_ = PySlice_New(Py_None, Py_None, Py_None); if (unlikely(!__pyx_slice_)) __PYX_ERR(0, 141, __pyx_L1_error)
+  __pyx_slice_ = PySlice_New(Py_None, Py_None, Py_None); if (unlikely(!__pyx_slice_)) __PYX_ERR(0, 146, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_slice_);
   __Pyx_GIVEREF(__pyx_slice_);
-  __pyx_tuple__2 = PyTuple_Pack(2, __pyx_slice_, __pyx_int_1); if (unlikely(!__pyx_tuple__2)) __PYX_ERR(0, 141, __pyx_L1_error)
+  __pyx_tuple__2 = PyTuple_Pack(2, __pyx_slice_, __pyx_int_1); if (unlikely(!__pyx_tuple__2)) __PYX_ERR(0, 146, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__2);
   __Pyx_GIVEREF(__pyx_tuple__2);
-  __pyx_tuple__3 = PyTuple_Pack(2, __pyx_slice_, __pyx_int_0); if (unlikely(!__pyx_tuple__3)) __PYX_ERR(0, 141, __pyx_L1_error)
+  __pyx_tuple__3 = PyTuple_Pack(2, __pyx_slice_, __pyx_int_0); if (unlikely(!__pyx_tuple__3)) __PYX_ERR(0, 146, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__3);
   __Pyx_GIVEREF(__pyx_tuple__3);
 
-  /* "lintegrate/lintegrate.pyx":148
+  /* "lintegrate/lintegrate.pyx":155
  *             return logtrapzC(f, np.array([x]))
  *         else:
  *             raise TypeError('Error... value of "x" must be a numpy array or a float')             # <<<<<<<<<<<<<<
  *     elif callable(f): # f is a function
  *         if isinstance(x, np.ndarray) or isinstance(x, list):
  */
-  __pyx_tuple__4 = PyTuple_Pack(1, __pyx_kp_s_Error_value_of_x_must_be_a_numpy); if (unlikely(!__pyx_tuple__4)) __PYX_ERR(0, 148, __pyx_L1_error)
+  __pyx_tuple__4 = PyTuple_Pack(1, __pyx_kp_s_Error_value_of_x_must_be_a_numpy); if (unlikely(!__pyx_tuple__4)) __PYX_ERR(0, 155, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__4);
   __Pyx_GIVEREF(__pyx_tuple__4);
 
-  /* "lintegrate/lintegrate.pyx":166
- *             return logtrapzC(zp[:,1], zp[:,0])
+  /* "lintegrate/lintegrate.pyx":177
+ *                 return logtrapzC(vs, np.array(x))
  *         else:
  *             raise TypeError('Error... "x" must be a numpy array or list')             # <<<<<<<<<<<<<<
  *     else:
  *         raise RuntimeError('Error... "f" must be a numpy array, list, or callable function')
  */
-  __pyx_tuple__5 = PyTuple_Pack(1, __pyx_kp_s_Error_x_must_be_a_numpy_array_or); if (unlikely(!__pyx_tuple__5)) __PYX_ERR(0, 166, __pyx_L1_error)
+  __pyx_tuple__5 = PyTuple_Pack(1, __pyx_kp_s_Error_x_must_be_a_numpy_array_or); if (unlikely(!__pyx_tuple__5)) __PYX_ERR(0, 177, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__5);
   __Pyx_GIVEREF(__pyx_tuple__5);
 
-  /* "lintegrate/lintegrate.pyx":168
+  /* "lintegrate/lintegrate.pyx":179
  *             raise TypeError('Error... "x" must be a numpy array or list')
  *     else:
  *         raise RuntimeError('Error... "f" must be a numpy array, list, or callable function')             # <<<<<<<<<<<<<<
  * 
  * 
  */
-  __pyx_tuple__6 = PyTuple_Pack(1, __pyx_kp_s_Error_f_must_be_a_numpy_array_li); if (unlikely(!__pyx_tuple__6)) __PYX_ERR(0, 168, __pyx_L1_error)
+  __pyx_tuple__6 = PyTuple_Pack(1, __pyx_kp_s_Error_f_must_be_a_numpy_array_li); if (unlikely(!__pyx_tuple__6)) __PYX_ERR(0, 179, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__6);
   __Pyx_GIVEREF(__pyx_tuple__6);
 
-  /* "lintegrate/lintegrate.pyx":223
+  /* "lintegrate/lintegrate.pyx":234
  * 
  *     if not callable(func):
  *         raise RuntimeError('"func" must be a callable function')             # <<<<<<<<<<<<<<
  * 
  *     assert b > a or intervals is not None or (nintervals != 0 and b > a), "Integral range must have b > a"
  */
-  __pyx_tuple__7 = PyTuple_Pack(1, __pyx_kp_s_func_must_be_a_callable_functio); if (unlikely(!__pyx_tuple__7)) __PYX_ERR(0, 223, __pyx_L1_error)
+  __pyx_tuple__7 = PyTuple_Pack(1, __pyx_kp_s_func_must_be_a_callable_functio); if (unlikely(!__pyx_tuple__7)) __PYX_ERR(0, 234, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__7);
   __Pyx_GIVEREF(__pyx_tuple__7);
 
-  /* "lintegrate/lintegrate.pyx":248
+  /* "lintegrate/lintegrate.pyx":259
  *             intervals = np.logspace(log10(a), log10(b), nintervals+1)
  *         else:
  *             raise ValueError("Interval type must be 'linear', 'log', or 'log10'")             # <<<<<<<<<<<<<<
  *     else:
  *         if isinstance(intervals, np.ndarray) or isinstance(intervals, list):
  */
-  __pyx_tuple__8 = PyTuple_Pack(1, __pyx_kp_s_Interval_type_must_be_linear_log); if (unlikely(!__pyx_tuple__8)) __PYX_ERR(0, 248, __pyx_L1_error)
+  __pyx_tuple__8 = PyTuple_Pack(1, __pyx_kp_s_Interval_type_must_be_linear_log); if (unlikely(!__pyx_tuple__8)) __PYX_ERR(0, 259, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__8);
   __Pyx_GIVEREF(__pyx_tuple__8);
 
-  /* "lintegrate/lintegrate.pyx":326
+  /* "lintegrate/lintegrate.pyx":337
  * 
  *     if intkey not in [1, 2, 3, 4, 5, 6]:
  *         raise ValueError('"intkey" must be 1, 2, 3, 4, 5, or 6')             # <<<<<<<<<<<<<<
  * 
  *     if isinstance(intkey, float):
  */
-  __pyx_tuple__9 = PyTuple_Pack(1, __pyx_kp_s_intkey_must_be_1_2_3_4_5_or_6); if (unlikely(!__pyx_tuple__9)) __PYX_ERR(0, 326, __pyx_L1_error)
+  __pyx_tuple__9 = PyTuple_Pack(1, __pyx_kp_s_intkey_must_be_1_2_3_4_5_or_6); if (unlikely(!__pyx_tuple__9)) __PYX_ERR(0, 337, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__9);
   __Pyx_GIVEREF(__pyx_tuple__9);
 
-  /* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":884
+  /* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":947
  *         __pyx_import_array()
  *     except Exception:
  *         raise ImportError("numpy.core.multiarray failed to import")             # <<<<<<<<<<<<<<
  * 
  * cdef inline int import_umath() except -1:
  */
-  __pyx_tuple__10 = PyTuple_Pack(1, __pyx_kp_s_numpy_core_multiarray_failed_to); if (unlikely(!__pyx_tuple__10)) __PYX_ERR(1, 884, __pyx_L1_error)
+  __pyx_tuple__10 = PyTuple_Pack(1, __pyx_kp_s_numpy_core_multiarray_failed_to); if (unlikely(!__pyx_tuple__10)) __PYX_ERR(1, 947, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__10);
   __Pyx_GIVEREF(__pyx_tuple__10);
 
-  /* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":890
+  /* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":953
  *         _import_umath()
  *     except Exception:
  *         raise ImportError("numpy.core.umath failed to import")             # <<<<<<<<<<<<<<
  * 
  * cdef inline int import_ufunc() except -1:
  */
-  __pyx_tuple__11 = PyTuple_Pack(1, __pyx_kp_s_numpy_core_umath_failed_to_impor); if (unlikely(!__pyx_tuple__11)) __PYX_ERR(1, 890, __pyx_L1_error)
+  __pyx_tuple__11 = PyTuple_Pack(1, __pyx_kp_s_numpy_core_umath_failed_to_impor); if (unlikely(!__pyx_tuple__11)) __PYX_ERR(1, 953, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__11);
   __Pyx_GIVEREF(__pyx_tuple__11);
 
   /* "lintegrate/lintegrate.pyx":107
  * Simple function to perform trapezium rule integration of a function when given its natural log
  * """
- * def logtrapz(f, x, args=()):             # <<<<<<<<<<<<<<
+ * def logtrapz(f, x, disable_checks=False, args=()):             # <<<<<<<<<<<<<<
  *     """
  *     Given the natural logarithm "f" of some function "g" (i.e., f = log(g)), compute the natural logarithm of the
  */
-  __pyx_tuple__12 = PyTuple_Pack(6, __pyx_n_s_f, __pyx_n_s_x, __pyx_n_s_args, __pyx_n_s_zp, __pyx_n_s_vs, __pyx_n_s_e); if (unlikely(!__pyx_tuple__12)) __PYX_ERR(0, 107, __pyx_L1_error)
+  __pyx_tuple__12 = PyTuple_Pack(7, __pyx_n_s_f, __pyx_n_s_x, __pyx_n_s_disable_checks, __pyx_n_s_args, __pyx_n_s_zp, __pyx_n_s_vs, __pyx_n_s_e); if (unlikely(!__pyx_tuple__12)) __PYX_ERR(0, 107, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__12);
   __Pyx_GIVEREF(__pyx_tuple__12);
-  __pyx_codeobj__13 = (PyObject*)__Pyx_PyCode_New(3, 0, 6, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__12, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_lintegrate_lintegrate_pyx, __pyx_n_s_logtrapz, 107, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__13)) __PYX_ERR(0, 107, __pyx_L1_error)
+  __pyx_codeobj__13 = (PyObject*)__Pyx_PyCode_New(4, 0, 7, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__12, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_lintegrate_pyx, __pyx_n_s_logtrapz, 107, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__13)) __PYX_ERR(0, 107, __pyx_L1_error)
 
-  /* "lintegrate/lintegrate.pyx":171
+  /* "lintegrate/lintegrate.pyx":182
  * 
  * 
  * def lqng(func, a=0., b=0., args=(), epsabs=1.49e-8, epsrel=1.49e-8, intervals=None, nintervals=0, intervaltype='linear'):             # <<<<<<<<<<<<<<
  *     """
  *     Python wrapper to the :func:`lintegration_qng` function. This will integrate `exp(func)`, whilst staying
  */
-  __pyx_tuple__14 = PyTuple_Pack(17, __pyx_n_s_func, __pyx_n_s_a, __pyx_n_s_b, __pyx_n_s_args, __pyx_n_s_epsabs, __pyx_n_s_epsrel, __pyx_n_s_intervals, __pyx_n_s_nintervals, __pyx_n_s_intervaltype, __pyx_n_s_result, __pyx_n_s_sumres, __pyx_n_s_abserr, __pyx_n_s_sumabserr, __pyx_n_s_neval, __pyx_n_s_nevaltmp, __pyx_n_s_suc, __pyx_n_s_i); if (unlikely(!__pyx_tuple__14)) __PYX_ERR(0, 171, __pyx_L1_error)
+  __pyx_tuple__14 = PyTuple_Pack(17, __pyx_n_s_func, __pyx_n_s_a, __pyx_n_s_b, __pyx_n_s_args, __pyx_n_s_epsabs, __pyx_n_s_epsrel, __pyx_n_s_intervals, __pyx_n_s_nintervals, __pyx_n_s_intervaltype, __pyx_n_s_result, __pyx_n_s_sumres, __pyx_n_s_abserr, __pyx_n_s_sumabserr, __pyx_n_s_neval, __pyx_n_s_nevaltmp, __pyx_n_s_suc, __pyx_n_s_i); if (unlikely(!__pyx_tuple__14)) __PYX_ERR(0, 182, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__14);
   __Pyx_GIVEREF(__pyx_tuple__14);
-  __pyx_codeobj__15 = (PyObject*)__Pyx_PyCode_New(9, 0, 17, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__14, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_lintegrate_lintegrate_pyx, __pyx_n_s_lqng, 171, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__15)) __PYX_ERR(0, 171, __pyx_L1_error)
+  __pyx_codeobj__15 = (PyObject*)__Pyx_PyCode_New(9, 0, 17, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__14, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_lintegrate_pyx, __pyx_n_s_lqng, 182, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__15)) __PYX_ERR(0, 182, __pyx_L1_error)
 
-  /* "lintegrate/lintegrate.pyx":265
+  /* "lintegrate/lintegrate.pyx":276
  * 
  * 
  * def lqag(func, a=0., b=0., args=(), epsabs=1.49e-8, epsrel=1.49e-8, limit=50, intkey=1, intervals=None, nintervals=0, intervaltype='linear'):             # <<<<<<<<<<<<<<
  *     """
  *     Python wrapper to the :func:`lintegration_qag` function. This will integrate `exp(func)`, whilst staying
  */
-  __pyx_tuple__16 = PyTuple_Pack(19, __pyx_n_s_func, __pyx_n_s_a, __pyx_n_s_b, __pyx_n_s_args, __pyx_n_s_epsabs, __pyx_n_s_epsrel, __pyx_n_s_limit, __pyx_n_s_intkey, __pyx_n_s_intervals, __pyx_n_s_nintervals, __pyx_n_s_intervaltype, __pyx_n_s_intket, __pyx_n_s_result, __pyx_n_s_sumres, __pyx_n_s_abserr, __pyx_n_s_sumabserr, __pyx_n_s_suc, __pyx_n_s_w, __pyx_n_s_i); if (unlikely(!__pyx_tuple__16)) __PYX_ERR(0, 265, __pyx_L1_error)
+  __pyx_tuple__16 = PyTuple_Pack(19, __pyx_n_s_func, __pyx_n_s_a, __pyx_n_s_b, __pyx_n_s_args, __pyx_n_s_epsabs, __pyx_n_s_epsrel, __pyx_n_s_limit, __pyx_n_s_intkey, __pyx_n_s_intervals, __pyx_n_s_nintervals, __pyx_n_s_intervaltype, __pyx_n_s_intket, __pyx_n_s_result, __pyx_n_s_sumres, __pyx_n_s_abserr, __pyx_n_s_sumabserr, __pyx_n_s_suc, __pyx_n_s_w, __pyx_n_s_i); if (unlikely(!__pyx_tuple__16)) __PYX_ERR(0, 276, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__16);
   __Pyx_GIVEREF(__pyx_tuple__16);
-  __pyx_codeobj__17 = (PyObject*)__Pyx_PyCode_New(11, 0, 19, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__16, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_lintegrate_lintegrate_pyx, __pyx_n_s_lqag, 265, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__17)) __PYX_ERR(0, 265, __pyx_L1_error)
+  __pyx_codeobj__17 = (PyObject*)__Pyx_PyCode_New(11, 0, 19, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__16, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_lintegrate_pyx, __pyx_n_s_lqag, 276, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__17)) __PYX_ERR(0, 276, __pyx_L1_error)
 
-  /* "lintegrate/lintegrate.pyx":370
+  /* "lintegrate/lintegrate.pyx":381
  * 
  * 
  * def lcquad(func, a, b, args=(), epsabs=1.49e-8, epsrel=1.49e-8, wsintervals=100, intervals=None, nintervals=0, intervaltype='linear'):             # <<<<<<<<<<<<<<
  *     """
  *     Python wrapper to the :func:`lintegration_cquad` function. This will integrate `exp(func)`, whilst staying
  */
-  __pyx_tuple__18 = PyTuple_Pack(19, __pyx_n_s_func, __pyx_n_s_a, __pyx_n_s_b, __pyx_n_s_args, __pyx_n_s_epsabs, __pyx_n_s_epsrel, __pyx_n_s_wsintervals, __pyx_n_s_intervals, __pyx_n_s_nintervals, __pyx_n_s_intervaltype, __pyx_n_s_result, __pyx_n_s_sumres, __pyx_n_s_abserr, __pyx_n_s_sumabserr, __pyx_n_s_neval, __pyx_n_s_nevaltmp, __pyx_n_s_suc, __pyx_n_s_w, __pyx_n_s_i); if (unlikely(!__pyx_tuple__18)) __PYX_ERR(0, 370, __pyx_L1_error)
+  __pyx_tuple__18 = PyTuple_Pack(19, __pyx_n_s_func, __pyx_n_s_a, __pyx_n_s_b, __pyx_n_s_args, __pyx_n_s_epsabs, __pyx_n_s_epsrel, __pyx_n_s_wsintervals, __pyx_n_s_intervals, __pyx_n_s_nintervals, __pyx_n_s_intervaltype, __pyx_n_s_result, __pyx_n_s_sumres, __pyx_n_s_abserr, __pyx_n_s_sumabserr, __pyx_n_s_neval, __pyx_n_s_nevaltmp, __pyx_n_s_suc, __pyx_n_s_w, __pyx_n_s_i); if (unlikely(!__pyx_tuple__18)) __PYX_ERR(0, 381, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__18);
   __Pyx_GIVEREF(__pyx_tuple__18);
-  __pyx_codeobj__19 = (PyObject*)__Pyx_PyCode_New(10, 0, 19, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__18, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_lintegrate_lintegrate_pyx, __pyx_n_s_lcquad, 370, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__19)) __PYX_ERR(0, 370, __pyx_L1_error)
+  __pyx_codeobj__19 = (PyObject*)__Pyx_PyCode_New(10, 0, 19, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__18, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_lintegrate_pyx, __pyx_n_s_lcquad, 381, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__19)) __PYX_ERR(0, 381, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -7887,18 +8269,38 @@ static int __Pyx_modinit_type_import_code(void) {
   __Pyx_ImportType_CheckSize_Warn);
    if (!__pyx_ptype_7cpython_4type_type) __PYX_ERR(2, 9, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyImport_ImportModule("numpy"); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 199, __pyx_L1_error)
+  __pyx_t_1 = PyImport_ImportModule("numpy"); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 200, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_ptype_5numpy_dtype = __Pyx_ImportType(__pyx_t_1, "numpy", "dtype", sizeof(PyArray_Descr), __Pyx_ImportType_CheckSize_Ignore);
-   if (!__pyx_ptype_5numpy_dtype) __PYX_ERR(1, 199, __pyx_L1_error)
+   if (!__pyx_ptype_5numpy_dtype) __PYX_ERR(1, 200, __pyx_L1_error)
   __pyx_ptype_5numpy_flatiter = __Pyx_ImportType(__pyx_t_1, "numpy", "flatiter", sizeof(PyArrayIterObject), __Pyx_ImportType_CheckSize_Ignore);
-   if (!__pyx_ptype_5numpy_flatiter) __PYX_ERR(1, 222, __pyx_L1_error)
+   if (!__pyx_ptype_5numpy_flatiter) __PYX_ERR(1, 223, __pyx_L1_error)
   __pyx_ptype_5numpy_broadcast = __Pyx_ImportType(__pyx_t_1, "numpy", "broadcast", sizeof(PyArrayMultiIterObject), __Pyx_ImportType_CheckSize_Ignore);
-   if (!__pyx_ptype_5numpy_broadcast) __PYX_ERR(1, 226, __pyx_L1_error)
+   if (!__pyx_ptype_5numpy_broadcast) __PYX_ERR(1, 227, __pyx_L1_error)
   __pyx_ptype_5numpy_ndarray = __Pyx_ImportType(__pyx_t_1, "numpy", "ndarray", sizeof(PyArrayObject), __Pyx_ImportType_CheckSize_Ignore);
-   if (!__pyx_ptype_5numpy_ndarray) __PYX_ERR(1, 238, __pyx_L1_error)
+   if (!__pyx_ptype_5numpy_ndarray) __PYX_ERR(1, 239, __pyx_L1_error)
+  __pyx_ptype_5numpy_generic = __Pyx_ImportType(__pyx_t_1, "numpy", "generic", sizeof(PyObject), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5numpy_generic) __PYX_ERR(1, 771, __pyx_L1_error)
+  __pyx_ptype_5numpy_number = __Pyx_ImportType(__pyx_t_1, "numpy", "number", sizeof(PyObject), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5numpy_number) __PYX_ERR(1, 773, __pyx_L1_error)
+  __pyx_ptype_5numpy_integer = __Pyx_ImportType(__pyx_t_1, "numpy", "integer", sizeof(PyObject), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5numpy_integer) __PYX_ERR(1, 775, __pyx_L1_error)
+  __pyx_ptype_5numpy_signedinteger = __Pyx_ImportType(__pyx_t_1, "numpy", "signedinteger", sizeof(PyObject), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5numpy_signedinteger) __PYX_ERR(1, 777, __pyx_L1_error)
+  __pyx_ptype_5numpy_unsignedinteger = __Pyx_ImportType(__pyx_t_1, "numpy", "unsignedinteger", sizeof(PyObject), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5numpy_unsignedinteger) __PYX_ERR(1, 779, __pyx_L1_error)
+  __pyx_ptype_5numpy_inexact = __Pyx_ImportType(__pyx_t_1, "numpy", "inexact", sizeof(PyObject), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5numpy_inexact) __PYX_ERR(1, 781, __pyx_L1_error)
+  __pyx_ptype_5numpy_floating = __Pyx_ImportType(__pyx_t_1, "numpy", "floating", sizeof(PyObject), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5numpy_floating) __PYX_ERR(1, 783, __pyx_L1_error)
+  __pyx_ptype_5numpy_complexfloating = __Pyx_ImportType(__pyx_t_1, "numpy", "complexfloating", sizeof(PyObject), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5numpy_complexfloating) __PYX_ERR(1, 785, __pyx_L1_error)
+  __pyx_ptype_5numpy_flexible = __Pyx_ImportType(__pyx_t_1, "numpy", "flexible", sizeof(PyObject), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5numpy_flexible) __PYX_ERR(1, 787, __pyx_L1_error)
+  __pyx_ptype_5numpy_character = __Pyx_ImportType(__pyx_t_1, "numpy", "character", sizeof(PyObject), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5numpy_character) __PYX_ERR(1, 789, __pyx_L1_error)
   __pyx_ptype_5numpy_ufunc = __Pyx_ImportType(__pyx_t_1, "numpy", "ufunc", sizeof(PyUFuncObject), __Pyx_ImportType_CheckSize_Ignore);
-   if (!__pyx_ptype_5numpy_ufunc) __PYX_ERR(1, 764, __pyx_L1_error)
+   if (!__pyx_ptype_5numpy_ufunc) __PYX_ERR(1, 827, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_RefNannyFinishContext();
   return 0;
@@ -8166,7 +8568,7 @@ if (!__Pyx_RefNanny) {
   /* "lintegrate/lintegrate.pyx":107
  * Simple function to perform trapezium rule integration of a function when given its natural log
  * """
- * def logtrapz(f, x, args=()):             # <<<<<<<<<<<<<<
+ * def logtrapz(f, x, disable_checks=False, args=()):             # <<<<<<<<<<<<<<
  *     """
  *     Given the natural logarithm "f" of some function "g" (i.e., f = log(g)), compute the natural logarithm of the
  */
@@ -8175,40 +8577,40 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_logtrapz, __pyx_t_2) < 0) __PYX_ERR(0, 107, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "lintegrate/lintegrate.pyx":171
+  /* "lintegrate/lintegrate.pyx":182
  * 
  * 
  * def lqng(func, a=0., b=0., args=(), epsabs=1.49e-8, epsrel=1.49e-8, intervals=None, nintervals=0, intervaltype='linear'):             # <<<<<<<<<<<<<<
  *     """
  *     Python wrapper to the :func:`lintegration_qng` function. This will integrate `exp(func)`, whilst staying
  */
-  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_10lintegrate_10lintegrate_3lqng, NULL, __pyx_n_s_lintegrate_lintegrate); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 171, __pyx_L1_error)
+  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_10lintegrate_10lintegrate_3lqng, NULL, __pyx_n_s_lintegrate_lintegrate); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 182, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_lqng, __pyx_t_2) < 0) __PYX_ERR(0, 171, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_lqng, __pyx_t_2) < 0) __PYX_ERR(0, 182, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "lintegrate/lintegrate.pyx":265
+  /* "lintegrate/lintegrate.pyx":276
  * 
  * 
  * def lqag(func, a=0., b=0., args=(), epsabs=1.49e-8, epsrel=1.49e-8, limit=50, intkey=1, intervals=None, nintervals=0, intervaltype='linear'):             # <<<<<<<<<<<<<<
  *     """
  *     Python wrapper to the :func:`lintegration_qag` function. This will integrate `exp(func)`, whilst staying
  */
-  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_10lintegrate_10lintegrate_5lqag, NULL, __pyx_n_s_lintegrate_lintegrate); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 265, __pyx_L1_error)
+  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_10lintegrate_10lintegrate_5lqag, NULL, __pyx_n_s_lintegrate_lintegrate); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 276, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_lqag, __pyx_t_2) < 0) __PYX_ERR(0, 265, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_lqag, __pyx_t_2) < 0) __PYX_ERR(0, 276, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "lintegrate/lintegrate.pyx":370
+  /* "lintegrate/lintegrate.pyx":381
  * 
  * 
  * def lcquad(func, a, b, args=(), epsabs=1.49e-8, epsrel=1.49e-8, wsintervals=100, intervals=None, nintervals=0, intervaltype='linear'):             # <<<<<<<<<<<<<<
  *     """
  *     Python wrapper to the :func:`lintegration_cquad` function. This will integrate `exp(func)`, whilst staying
  */
-  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_10lintegrate_10lintegrate_7lcquad, NULL, __pyx_n_s_lintegrate_lintegrate); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 370, __pyx_L1_error)
+  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_10lintegrate_10lintegrate_7lcquad, NULL, __pyx_n_s_lintegrate_lintegrate); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 381, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_lcquad, __pyx_t_2) < 0) __PYX_ERR(0, 370, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_lcquad, __pyx_t_2) < 0) __PYX_ERR(0, 381, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "lintegrate/lintegrate.pyx":1
@@ -8221,12 +8623,12 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_test, __pyx_t_2) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "../../miniconda3/envs/cwinpy/lib/python3.8/site-packages/numpy/__init__.pxd":892
- *         raise ImportError("numpy.core.umath failed to import")
+  /* "../../../miniconda3/envs/lintegrate/lib/python3.7/site-packages/numpy/__init__.pxd":1016
  * 
- * cdef inline int import_ufunc() except -1:             # <<<<<<<<<<<<<<
- *     try:
- *         _import_umath()
+ * 
+ * cdef inline NPY_DATETIMEUNIT get_datetime64_unit(object obj) nogil:             # <<<<<<<<<<<<<<
+ *     """
+ *     returns the unit part of the dtype for a numpy datetime64 object.
  */
 
   /*--- Wrapped vars code ---*/
