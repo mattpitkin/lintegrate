@@ -104,7 +104,7 @@ cdef logplus(double x, double y):
 """
 Simple function to perform trapezium rule integration of a function when given its natural log
 """
-def logtrapz(f, x, args=()):
+def logtrapz(f, x, disable_checks=False, args=()):
     """
     Given the natural logarithm "f" of some function "g" (i.e., f = log(g)), compute the natural logarithm of the
     integral of that function using the trapezium rule.
@@ -118,6 +118,9 @@ def logtrapz(f, x, args=()):
         An array of values at which `f` has been evaluated, or is to be evaluated at. Or, provided
         `f` is also an array, a single value giving the spacing between evaluation points (if the
         function has been evaluated on an evenly spaced grid).
+    disable_checks : bool
+        Set this to True to disable checks, such as making sure x values are in ascending order.
+        Defaults to False.
     args : tuple
         A tuple of any additional parameters required by the function `f` (to be unpacked within
         the function).
@@ -132,13 +135,17 @@ def logtrapz(f, x, args=()):
     if isinstance(f, np.ndarray) or isinstance(f, list):
         if isinstance(x, np.ndarray) or isinstance(x, list):
             # check arrays are the same length
-            assert len(f) == len(x) and len(x) > 1, "Function and function evaluation points are not the same length"
+            if not disable_checks:
+                assert len(f) == len(x) and len(x) > 1, "Function and function evaluation points are not the same length"
 
-            # make sure x values are in ascending order (keeping f values associated to their x evaluation points)
-            zp = np.array(sorted(zip(x, f)))
+            if not disable_checks:
+                # make sure x values are in ascending order (keeping f values associated to their x evaluation points)
+                zp = np.array(sorted(zip(x, f)))
 
-            # perform trapezium rule (internal logtrapzC function is faster than using scipy logsumexp)
-            return logtrapzC(zp[:,1], zp[:,0])
+                # perform trapezium rule (internal logtrapzC function is faster than using scipy logsumexp)
+                return logtrapzC(zp[:,1], zp[:,0])
+            else:
+                return logtrapzC(np.array(f), np.array(x))
         elif isinstance(x, float):
             assert x > 0., "Evaluation spacings must be positive"
 
@@ -148,7 +155,8 @@ def logtrapz(f, x, args=()):
             raise TypeError('Error... value of "x" must be a numpy array or a float')
     elif callable(f): # f is a function
         if isinstance(x, np.ndarray) or isinstance(x, list):
-            assert len(x) > 1, "Function must be evaluated at more than one point"
+            if not disable_checks:
+                assert len(x) > 1, "Function must be evaluated at more than one point"
 
             try:
                 if not isinstance(args, tuple):
@@ -157,11 +165,14 @@ def logtrapz(f, x, args=()):
             except Exception as e:
                 raise RuntimeError('Error... could not evaluate function "f": {}'.format(e))
 
-            # make sure x values are in ascending order (keeping f values associated to their x evaluation points)
-            zp = np.array(sorted(zip(x, vs)))
+            if not disable_checks:
+                # make sure x values are in ascending order (keeping f values associated to their x evaluation points)
+                zp = np.array(sorted(zip(x, vs)))
 
-            # perform trapezium rule (internal logtrapzC function is faster than using scipy logsumexp)
-            return logtrapzC(zp[:,1], zp[:,0])
+                # perform trapezium rule (internal logtrapzC function is faster than using scipy logsumexp)
+                return logtrapzC(zp[:,1], zp[:,0])
+            else:
+                return logtrapzC(vs, np.array(x))
         else:
             raise TypeError('Error... "x" must be a numpy array or list')
     else:
