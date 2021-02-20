@@ -7,3 +7,6 @@ include LICENSE
 include requirements.txt
 include gsl-config.bat
 include pyproject.toml
+prune .github
+prune conda
+exclude .git*
