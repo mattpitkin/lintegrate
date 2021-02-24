@@ -31,7 +31,7 @@ jobs:
       run: |
         conda install -n test -q -y c-compiler cython gsl numpy pip pytest setuptools
         python -m pip install -r requirements.txt
-        python -m pip install -e .
+        python -m pip install -e . -vv
     - name: Conda information
       run: |
         conda info --all
