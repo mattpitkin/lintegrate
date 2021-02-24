@@ -11,28 +11,22 @@ on:
 
 jobs:
   build:
-
-    runs-on: ubuntu-20.04
     strategy:
       matrix:
+        os: [ubuntu-20.04, macos-latest, windows-latest]
         python-version: [3.6, 3.7, 3.8, 3.9]
+    runs-on: ${{ matrix.os }}
 
     steps:
     - uses: actions/checkout@v2
-    - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v2
+    - uses: conda-incubator/setup-miniconda@v2
       with:
         python-version: ${{ matrix.python-version }}
-    - name: Update Ubuntu packages
-      run: |
-        sudo apt-get -qq update
-        sudo apt-get install -y --no-install-recommends libgslcblas0 libgsl-dev
     - name: Install dependencies
       run: |
-        python -m pip install --upgrade pip
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-        pip install pytest
-        pip install -e .
+        conda install -q -y cython gsl numpy pip pytest setuptools
+        python -m pip install -r requirements.txt
+        python -m pip install -e .
     - name: Run test suite
       run: |
-        pytest
+        python -m pytest
