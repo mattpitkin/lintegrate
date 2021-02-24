@@ -9,6 +9,7 @@ import numpy
 import re
 import platform
 import distutils
+import subprocess
 
 
 """
@@ -27,21 +28,27 @@ def readfile(filename):
         filecontents = fp.read()
     return filecontents
 
-# check for Windows
-WINDOWS = platform.system().lower() == "windows"
 
-# check whether user has Cython
-try:
-    import Cython
-except ImportError:
-    have_cython = False
-else:
-    have_cython = True
+def gsl_config(*args, **kwargs):
+    """Run gsl-config and return pre-formatted output
+    """
+    return subprocess.check_output(
+        ["gsl-config"] + list(args),
+        **kwargs,
+    ).decode("utf-8").strip()
 
-extra_compile_args = ["-Wall", "-DHAVE_PYTHON_LINTEGRATE"]
 
-if WINDOWS:
-    extra_compile_args += ["-O2", "-DGSL_DLL", "-DWIN32"]
+# define ext_modules
+extra_compile_args = [
+    "-Wall",
+    "-DHAVE_PYTHON_LINTEGRATE",
+]
+if platform.system().lower() == "windows":
+    extra_compile_args += [
+        "-O2",
+        "-DGSL_DLL",
+        "-DWIN32",
+    ]
 else:
     extra_compile_args += [
         "-O3",
@@ -52,52 +59,35 @@ else:
         "-march=native",
         "-funroll-loops",
     ]
-
-if have_cython:
+ext_modules = [
+    Extension(
+        "lintegrate.lintegrate",
+        sources=[
+            "lintegrate/lintegrate.pyx",
+            "src/lintegrate_qag.c",
+            "src/lintegrate_qng.c",
+            "src/lintegrate_cquad.c",
+        ],
+        include_dirs=[
+            numpy.get_include(),
+            gsl_config("--cflags")[2:],
+            "src",
+        ],
+        library_dirs=[
+            gsl_config("--libs").split(" ")[0][2:],
+        ],
+        libraries=[
+            "gsl",
+        ],
+        extra_compile_args=extra_compile_args,
+    ),
+]
+try:
     from Cython.Build import cythonize
-
-    ext_modules = [
-        Extension(
-            "lintegrate.lintegrate",
-            sources=[
-                "lintegrate/lintegrate.pyx",
-                "src/lintegrate_qag.c",
-                "src/lintegrate_qng.c",
-                "src/lintegrate_cquad.c",
-            ],
-            include_dirs=[
-                numpy.get_include(),
-                ".",
-                os.popen("gsl-config --cflags").read()[2:-1],
-                "src",
-            ],
-            library_dirs=[".", os.popen("gsl-config --libs").read().split()[0][2:]],
-            libraries=["gsl", "gslcblas"],
-            extra_compile_args=extra_compile_args,
-        )
-    ]
-    ext_modules = cythonize(ext_modules)
+except ImportError:  # no cython
+    pass
 else:
-    ext_modules = [
-        Extension(
-            "lintegrate.lintegrate",
-            sources=[
-                "lintegrate/lintegrate.c",
-                "src/lintegrate_qag.c",
-                "src/lintegrate_qng.c",
-                "src/lintegrate_cquad.c",
-            ],
-            include_dirs=[
-                numpy.get_include(),
-                ".",
-                os.popen("gsl-config --cflags").read()[2:-1],
-                "src",
-            ],
-            library_dirs=[".", os.popen("gsl-config --libs").read().split()[0][2:]],
-            libraries=["gsl", "gslcblas"],
-            extra_compile_args=extra_compile_args,
-        )
-    ]
+    ext_modules = cythonize(ext_modules)
 
 
 # get version string for pyx file (see e.g. https://packaging.python.org/single_source_version/)
