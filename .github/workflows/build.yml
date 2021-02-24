@@ -11,28 +11,33 @@ on:
 
 jobs:
   build:
-
-    runs-on: ubuntu-20.04
     strategy:
       matrix:
+        os: [ubuntu-20.04, macos-latest, windows-latest]
         python-version: [3.6, 3.7, 3.8, 3.9]
+    runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        shell: bash -l {0}
 
     steps:
     - uses: actions/checkout@v2
-    - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v2
+    - uses: conda-incubator/setup-miniconda@v2
       with:
+        activate-environment: test
+        channels: conda-forge
         python-version: ${{ matrix.python-version }}
-    - name: Update Ubuntu packages
-      run: |
-        sudo apt-get -qq update
-        sudo apt-get install -y --no-install-recommends libgslcblas0 libgsl-dev
     - name: Install dependencies
       run: |
-        python -m pip install --upgrade pip
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-        pip install pytest
-        pip install -e .
+        conda install -n test -q -y c-compiler cython gsl numpy pip pytest setuptools
+        python -m pip install -r requirements.txt
+    - name: Conda information
+      run: |
+        conda info --all
+        conda list -n test
+    - name: Install lintegrate
+      run: |
+        python -m pip install -e . -vv --no-build-isolation
     - name: Run test suite
       run: |
-        pytest
+        python -m pytest
