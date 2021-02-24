@@ -7,7 +7,6 @@ $ python setup.py sdist
 
 import distutils
 import os
-import platform
 import re
 import subprocess
 from pathlib import Path
@@ -22,6 +21,7 @@ import numpy
 from Cython.Build import cythonize
 
 ROOT = Path(__file__).parent
+WINDOWS = os.name == "nt"
 
 
 def readfile(filename):
@@ -32,10 +32,12 @@ def readfile(filename):
 def gsl_config(*args, **kwargs):
     """Run gsl-config and return pre-formatted output
     """
-    return subprocess.check_output(
-        ["gsl-config"] + list(args),
-        **kwargs,
-    ).decode("utf-8").strip()
+    if WINDOWS:
+        cmd = "gsl-config {}".format(" ".join(args))
+        kwargs.setdefault("shell", True)
+    else:
+        cmd = ["gsl-config"] + list(args)
+    return subprocess.check_output(cmd, **kwargs).decode("utf-8").strip()
 
 
 def find_version():
@@ -57,7 +59,7 @@ extra_compile_args = [
     "-Wall",
     "-DHAVE_PYTHON_LINTEGRATE",
 ]
-if platform.system().lower() == "windows":
+if WINDOWS:
     extra_compile_args += [
         "-O2",
         "-DGSL_DLL",
