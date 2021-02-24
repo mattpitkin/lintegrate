@@ -19,6 +19,8 @@ from setuptools import (
 
 import numpy
 
+from Cython.Build import cythonize
+
 ROOT = Path(__file__).parent
 
 
@@ -108,7 +110,7 @@ setup(
     packages=find_packages(),
     python_requires=">=3.6",
     setup_requires=["numpy", "cython", "setuptools_scm"],
-    install_requires=readfile(ROOT / "requirements.txt").split(),
+    install_requires=readfile(ROOT / "requirements.txt").split("\n"),
     ext_modules=ext_modules,
     license="GPL-3.0-or-later",
     classifiers=[
