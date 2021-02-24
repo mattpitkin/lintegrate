@@ -1,32 +1,30 @@
-#!/usr/bin/env python
-
-from setuptools import setup, find_packages
-from setuptools import Extension
-
-import os
-import sys
-import numpy
-import re
-import platform
-import distutils
-import subprocess
-
+# -*- coding: utf-8 -*-
 
 """
 When making a new distribution use:
 $ python setup.py sdist
 """
 
+import distutils
+import os
+import platform
+import re
+import subprocess
+from pathlib import Path
+from setuptools import (
+    Extension,
+    find_packages,
+    setup,
+)
 
-MAJOR, MINOR1, MINOR2, RELEASE, SERIAL = sys.version_info
+import numpy
 
-READFILE_KWARGS = {"encoding": "utf-8"} if MAJOR >= 3 else {}
+ROOT = Path(__file__).parent
 
 
 def readfile(filename):
-    with open(filename, **READFILE_KWARGS) as fp:
-        filecontents = fp.read()
-    return filecontents
+    with open(filename, encoding="utf-8") as fp:
+        return fp.read()
 
 
 def gsl_config(*args, **kwargs):
@@ -36,6 +34,20 @@ def gsl_config(*args, **kwargs):
         ["gsl-config"] + list(args),
         **kwargs,
     ).decode("utf-8").strip()
+
+
+def find_version():
+    """Get version string for pyx file
+
+    see e.g. https://packaging.python.org/single_source_version/
+    """
+    fp = open("lintegrate/__init__.py", "r")
+    version_file = fp.read()
+    fp.close()
+    version_match = re.search(r"^__version__ = ['\"]([^'\"]*)['\"]", version_file, re.M)
+    if version_match:
+        return version_match.group(1)
+    raise RuntimeError("Unable to find version string.")
 
 
 # define ext_modules
@@ -59,7 +71,7 @@ else:
         "-march=native",
         "-funroll-loops",
     ]
-ext_modules = [
+ext_modules = cythonize([
     Extension(
         "lintegrate.lintegrate",
         sources=[
@@ -81,43 +93,24 @@ ext_modules = [
         ],
         extra_compile_args=extra_compile_args,
     ),
-]
-try:
-    from Cython.Build import cythonize
-except ImportError:  # no cython
-    pass
-else:
-    ext_modules = cythonize(ext_modules)
+])
 
-
-# get version string for pyx file (see e.g. https://packaging.python.org/single_source_version/)
-def find_version():
-    fp = open("lintegrate/__init__.py", "r")
-    version_file = fp.read()
-    fp.close()
-    version_match = re.search(r"^__version__ = ['\"]([^'\"]*)['\"]", version_file, re.M)
-    if version_match:
-        return version_match.group(1)
-    raise RuntimeError("Unable to find version string.")
-
-
-with open("requirements.txt") as requires_file:
-    requirements = requires_file.read().split("\n")
 
 setup(
     name="lintegrate",
     version=find_version(),
     url="https://github.com/mattpitkin/lintegrate",
     description="Python functions implementing numerical integration of functions in log-space.",
-    long_description=readfile(os.path.join(os.path.dirname(__file__), "README.md")),
+    long_description=readfile(ROOT / "README.md"),
     long_description_content_type="text/markdown",
     author="Matthew Pitkin",
     author_email="m.pitkin@lancaster.ac.uk",
     packages=find_packages(),
+    python_requires=">=3.6",
     setup_requires=["numpy", "cython", "setuptools_scm"],
-    install_requires=requirements,
+    install_requires=readfile(ROOT / "requirements.txt").split(),
     ext_modules=ext_modules,
-    license="GPL",
+    license="GPL-3.0-or-later",
     classifiers=[
         "Intended Audience :: Science/Research",
         "License :: OSI Approved :: GNU General Public License (GPL)",
