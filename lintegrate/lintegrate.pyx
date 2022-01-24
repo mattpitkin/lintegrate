@@ -41,6 +41,9 @@ cdef extern from "lintegrate.h":
     int lintegration_cquad (pylintfunc f, void *funcdata, void *args, double a, double b, double epsabs, double epsrel, gsl_integration_cquad_workspace * ws, double *result, double *abserr, size_t * nevals)
 
 
+# call import_array() https://cython.readthedocs.io/en/latest/src/tutorial/numpy.html#adding-types
+np.import_array()
+
 DTYPE = np.float64
 ctypedef np.float64_t DTYPE_t
 
