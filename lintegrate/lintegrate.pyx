@@ -140,12 +140,12 @@ def logtrapz(f, x, disable_checks=False, args=()):
 
             if not disable_checks:
                 # make sure x values are in ascending order (keeping f values associated to their x evaluation points)
-                zp = np.array(sorted(zip(x, f)), type=np.float64)
+                zp = np.array(sorted(zip(x, f)), dtype=np.float64)
 
                 # perform trapezium rule (internal logtrapzC function is faster than using scipy logsumexp)
                 return logtrapzC(zp[:,1], zp[:,0])
             else:
-                return logtrapzC(np.array(f, type=np.float64), np.array(x, type=np.float64))
+                return logtrapzC(np.array(f, dtype=np.float64), np.array(x, dtype=np.float64))
         elif isinstance(x, float):
             assert x > 0., "Evaluation spacings must be positive"
 
@@ -161,18 +161,18 @@ def logtrapz(f, x, disable_checks=False, args=()):
             try:
                 if not isinstance(args, tuple):
                     args = (args,)
-                vs = f(np.array(x, type=np.float64), args) # make sure x is an array when passed to function
+                vs = f(np.array(x, dtype=np.float64), args) # make sure x is an array when passed to function
             except Exception as e:
                 raise RuntimeError('Error... could not evaluate function "f": {}'.format(e))
 
             if not disable_checks:
                 # make sure x values are in ascending order (keeping f values associated to their x evaluation points)
-                zp = np.array(sorted(zip(x, vs)), type=np.float64)
+                zp = np.array(sorted(zip(x, vs)), dtype=np.float64)
 
                 # perform trapezium rule (internal logtrapzC function is faster than using scipy logsumexp)
                 return logtrapzC(zp[:,1], zp[:,0])
             else:
-                return logtrapzC(vs, np.array(x, type=np.float64))
+                return logtrapzC(vs, np.array(x, dtype=np.float64))
         else:
             raise TypeError('Error... "x" must be a numpy array or list')
     else:
