@@ -22,6 +22,7 @@ from Cython.Build import cythonize
 
 ROOT = Path(__file__).parent
 WINDOWS = os.name == "nt"
+CONDA = os.environ.get("CONDA_BUILD", 0)
 
 
 def readfile(filename):
@@ -64,6 +65,10 @@ if WINDOWS:
         "-O2",
         "-DGSL_DLL",
         "-DWIN32",
+    ]
+elif CONDA:
+    extra_compile_args += [
+        "-O3",
     ]
 else:
     extra_compile_args += [
