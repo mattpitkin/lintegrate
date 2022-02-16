@@ -41,7 +41,7 @@ extensions = [
     "sphinx.ext.mathjax",
     "sphinx.ext.intersphinx",
     "sphinxext.remoteliteralinclude",
-    "sphinxcontrib.napoleon",
+    "sphinx.ext.napoleon",
     "sphinx_panels",
 ]
 
