@@ -223,7 +223,7 @@ def lqng(func, a=0., b=0., args=(), epsabs=1.49e-8, epsrel=1.49e-8, intervals=No
         used, for example, if you have a very tightly peaked function and require small intervals
         around the peak).
     nintervals : int, optional
-        If `intervals` is not given then split the range between `a` and `b` into `nintervals'
+        If `intervals` is not given then split the range between `a` and `b` into `nintervals`
         intervals
     intervaltype : string, optional
         If splitting into `nintervals` intervals then choose whether to split the range in equal
@@ -318,7 +318,7 @@ def lqag(func, a=0., b=0., args=(), epsabs=1.49e-8, epsrel=1.49e-8, limit=50, in
         used, for example, if you have a very tightly peaked function and require small intervals
         around the peak).
     nintervals : int, optional
-        If `intervals` is not given then split the range between `a` and `b` into `nintervals'
+        If `intervals` is not given then split the range between `a` and `b` into `nintervals`
         intervals
     intervaltype : string, optional
         If splitting into `nintervals` intervals then choose whether to split the range in equal
@@ -422,7 +422,7 @@ def lcquad(func, a, b, args=(), epsabs=1.49e-8, epsrel=1.49e-8, wsintervals=100,
         used, for example, if you have a very tightly peaked function and require small intervals
         around the peak).
     nintervals : int, optional
-        If `intervals` is not given then split the range between `a` and `b` into `nintervals'
+        If `intervals` is not given then split the range between `a` and `b` into `nintervals`
         intervals
     intervaltype : string, optional
         If splitting into `nintervals` intervals then choose whether to split the range in equal
