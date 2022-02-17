@@ -60,7 +60,7 @@ likelihood:
 \end{equation}
 
 lintegrate allows you to calculate the logarithm of $Z$ in \autoref{eq:Z}, while working with the
-natural logarthim of integrands such as in \autoref{eq:lnlikelihood} integrands
+natural logarthim of integrands such as in \autoref{eq:lnlikelihood}.
 
 lintegrate was originally developed to marginalise probability distributions for the hierarchical
 Bayesian inference of pulsar ellipticity distributions in `@Pitkin:2008`. In `@Nash:2019` and
