@@ -48,7 +48,7 @@ range. In these cases, if you wanted to marginalise (i.e., integrate) over some 
 parameters $\vec{\theta}$, e.g., 
 
 \begin{equation}\label{eq:Z}
-Z = \int_{\theta_1} L(\vec{\theta}) \pi(\theta_1) {\rm d}\theta_1,
+Z = \int^{\theta_1} L(\vec{\theta}) \pi(\theta_1) {\rm d}\theta_1,
 \end{equation}
 
 where $\pi(\theta_1)$ is the prior probability distribution for the parameter $\theta_1$, you cannot
