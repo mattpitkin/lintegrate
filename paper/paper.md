@@ -20,11 +20,11 @@ bibliography: paper.bib
 
 There are many situation in which the integral of a function must be evaluated numerically between
 given limits. For C code there are a range of numerical integration (sometimes called numerical
-quadrature) functions provided within the GSL library [@GSL]. However, in situations where the
-integrand has an extremely large dynamic range these GSL functions can fail due to numerical
-instability. One way to get around numerical instability issues is to work with the natural
-logarithm of the function. You cannot simply integrate the logarithm of the function as this will
-not give the integral of the original function. lintegrate provides a range of C integration
+quadrature) functions provided within the GNU Scientific Library (GSL) [@GSL]. However, in
+situations where the integrand has an extremely large dynamic range these GSL functions can fail due
+to numerical instability. One way to get around numerical instability issues is to work with the
+natural logarithm of the function. You cannot simply integrate the logarithm of the function as this
+will not give the integral of the original function. lintegrate provides a range of C integration
 functions, equivalent to functions in GSL, that allow you to integrate a function when only working
 with the natural logarithm of the function is computationally practical. The result returned is the
 natural logarithm of the integral of the underlying function. lintegrate also provides a Python
@@ -69,7 +69,8 @@ against values learned or inferred through other methods as a form of validation
 
 # Acknowledgements
 
-We thank Luiz Max F. Carvalho for adding an example of accessing the Python module through R. We
-thank Duncan Macleod for help with packaging the library for distribution via conda.
+We thank [Luiz Max F. Carvalho](https://github.com/maxbiostat) for adding an example of accessing
+the Python module through R. We thank [Duncan Macleod](https://github.com/duncanmmacleod) for help
+with packaging the library for distribution via conda.
 
 # References
