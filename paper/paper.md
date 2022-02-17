@@ -63,13 +63,13 @@ lintegrate allows you to calculate the logarithm of $Z$ in \autoref{eq:Z}, while
 natural logarthim of integrands such as in \autoref{eq:lnlikelihood}.
 
 lintegrate was originally developed to marginalise probability distributions for the hierarchical
-Bayesian inference of pulsar ellipticity distributions in @Pitkin:2008. In @Nash:2019 and
-@Strauss:2021, lintegrate has been used to calculate "true" value of integrals to compare against
-values learned or inferred through other methods as a form of validation.
+Bayesian inference of pulsar ellipticity distributions in @Pitkin:2018. In @Nash:2019 and
+@Strauss:2021, lintegrate has been used to calculate the "true" value of integrals to compare
+against values learned or inferred through other methods as a form of validation.
 
 # Acknowledgements
 
-We thank Luiz Max F. Carvalho for adding an example of accessing the library through R. We thank
-Duncan Macleod for help with packaging the library for distribution via conda.
+We thank Luiz Max F. Carvalho for adding an example of accessing the Python module through R. We
+thank Duncan Macleod for help with packaging the library for distribution via conda.
 
 # References
