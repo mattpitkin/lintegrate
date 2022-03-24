@@ -15,10 +15,10 @@ jobs:
       matrix:
         os: [ubuntu-20.04, macos-latest, windows-latest]
         python-version: [3.7, 3.8, 3.9]
-        ccompiler: c-compiler
+        ccompiler: "c-compiler"
         include:
           - os: macos-latest
-            ccompiler: 'clang>=12.0.1'
+            ccompiler: "'clang>=12.0.1'"
     runs-on: ${{ matrix.os }}
     defaults:
       run:
