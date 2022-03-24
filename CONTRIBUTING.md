@@ -1,0 +1,1 @@
+Contributions to lintegrate, either to the C library or the Python wrapper, are welcome. Issues can be raised via the GitHub [issue tracker](https://github.com/mattpitkin/lintegrate/issues) and [pull requests](https://github.com/mattpitkin/lintegrate/pulls) are encouraged.
