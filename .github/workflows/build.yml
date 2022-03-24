@@ -15,6 +15,10 @@ jobs:
       matrix:
         os: [ubuntu-20.04, macos-latest, windows-latest]
         python-version: [3.7, 3.8, 3.9]
+        ccompiler: c-compiler
+        include:
+          - os: macos-latest
+            ccompiler: 'clang>=12.0.1'
     runs-on: ${{ matrix.os }}
     defaults:
       run:
@@ -29,7 +33,7 @@ jobs:
         python-version: ${{ matrix.python-version }}
     - name: Install dependencies
       run: |
-        conda install -n test -q -y c-compiler cython gsl numpy pip pytest setuptools
+        conda install -n test -q -y ${{ matrix.ccompiler }} cython gsl numpy pip pytest setuptools
     - name: Conda information
       run: |
         conda info --all
