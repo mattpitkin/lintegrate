@@ -21,7 +21,7 @@ jobs:
           - os: windows-latest
             ccompiler: "c-compiler"
           - os: macos-latest
-            ccompiler: "compilers 'clang>=12.0.1'"
+            ccompiler: "c-compiler 'clang>=12.0.1'"
     runs-on: ${{ matrix.os }}
     defaults:
       run:
