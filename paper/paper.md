@@ -18,17 +18,17 @@ bibliography: paper.bib
 
 # Summary
 
-There are many situation in which the integral of a function must be evaluated numerically between
-given limits. For C code there are a range of numerical integration (sometimes called numerical
+There are many situations in which the integral of a function must be evaluated numerically between
+given limits. For C codes, there are a range of numerical integration (sometimes called numerical
 quadrature) functions provided within the GNU Scientific Library (GSL) [@GSL]. However, in
 situations where the integrand has an extremely large dynamic range these GSL functions can fail due
 to numerical instability. One way to get around numerical instability issues is to work with the
 natural logarithm of the function. You cannot simply integrate the logarithm of the function as this
-will not give the integral of the original function. lintegrate provides a range of C integration
-functions, equivalent to functions in GSL, that allow you to integrate a function when only working
-with the natural logarithm of the function is computationally practical. The result returned is the
-natural logarithm of the integral of the underlying function. lintegrate also provides a Python
-module for accessing some of these functions in Python.
+will not produce the logarithm of the integral of the original function. lintegrate provides a range
+of C integration functions, equivalent to functions in GSL, that allow you to integrate a function
+when only working with the natural logarithm of the function is computationally practical. The
+result that is returned is the natural logarithm of the integral of the underlying function.
+lintegrate also provides a Python module for accessing some of these functions in Python.
 
 # Statement of need
 
@@ -52,7 +52,7 @@ Z = \int^{\theta_1} L(\vec{\theta}) \pi(\theta_1) {\rm d}\theta_1,
 \end{equation}
 
 where $\pi(\theta_1)$ is the prior probability distribution for the parameter $\theta_1$, you cannot
-work directly with \autoref{eq:likelihood}. Instead you must work with the natural logarithm of the
+work directly with \autoref{eq:likelihood}. Instead, it helps to work with the natural logarithm of the
 likelihood:
 
 \begin{equation}\label{eq:lnlikelihood}
