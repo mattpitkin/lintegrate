@@ -18,6 +18,8 @@ respectively. These can be useful when, e.g., you can calculate the natural loga
 
 The functions `lintegrate_qag`, `lintegrate_qng`, and `lintegrate_cquad`, all have wrappers functions (with `_split` appended to their names) that allow the user to specify a set of intervals that the integrals will be split into when performing the calculation. The intervals could, for example, be spaced evenly in log-space, for cases where the integral function has a very pronounced peak as it approaches zero.
 
+The full API documentation and examples can be found [here](https://lintegrate.readthedocs.io/).
+
 ## Example
 
 An [example](example/example.c) of the use the functions is:
@@ -193,5 +195,6 @@ lint$lqag(py_func(integrand), r_to_py(mmin), r_to_py(mmax), c(mu, sig))
 [![Build Status](https://github.com/mattpitkin/lintegrate/workflows/build/badge.svg)](https://github.com/mattpitkin/lintegrate/actions?query=workflow%3Abuild)
 [![PyPI version](https://badge.fury.io/py/lintegrate.svg)](https://badge.fury.io/py/lintegrate)
 [![Anaconda-Server Badge](https://anaconda.org/conda-forge/lintegrate/badges/version.svg)](https://anaconda.org/conda-forge/lintegrate)
+[![Documentation Status](https://readthedocs.org/projects/lintegrate/badge/?version=latest)](http://lintegrate.readthedocs.io/en/latest/?badge=latest)
 
 &copy; 2017 Matthew Pitkin

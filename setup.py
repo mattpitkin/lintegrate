@@ -5,14 +5,12 @@ When making a new distribution use:
 $ python setup.py sdist
 """
 
-import distutils
 import os
 import re
 import subprocess
 from pathlib import Path
 from setuptools import (
     Extension,
-    find_packages,
     setup,
 )
 
@@ -22,6 +20,7 @@ from Cython.Build import cythonize
 
 ROOT = Path(__file__).parent
 WINDOWS = os.name == "nt"
+CONDA = os.environ.get("CONDA_BUILD", 0)
 
 
 def readfile(filename):
@@ -65,6 +64,10 @@ if WINDOWS:
         "-DGSL_DLL",
         "-DWIN32",
     ]
+elif CONDA:
+    extra_compile_args += [
+        "-O3",
+    ]
 else:
     extra_compile_args += [
         "-O3",
@@ -101,30 +104,6 @@ ext_modules = cythonize([
 
 
 setup(
-    name="lintegrate",
     version=find_version(),
-    url="https://github.com/mattpitkin/lintegrate",
-    description="Python functions implementing numerical integration of functions in log-space.",
-    long_description=readfile(ROOT / "README.md"),
-    long_description_content_type="text/markdown",
-    author="Matthew Pitkin",
-    author_email="m.pitkin@lancaster.ac.uk",
-    packages=find_packages(),
-    python_requires=">=3.6",
-    setup_requires=["numpy", "cython", "setuptools_scm"],
-    install_requires=readfile(ROOT / "requirements.txt").split("\n"),
     ext_modules=ext_modules,
-    license="GPL-3.0-or-later",
-    classifiers=[
-        "Intended Audience :: Science/Research",
-        "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
-        "Natural Language :: English",
-        "Operating System :: POSIX :: Linux",
-        "Programming Language :: C",
-        "Programming Language :: Python",
-        "Programming Language :: Python :: 3.6",
-        "Programming Language :: Python :: 3.7",
-        "Programming Language :: Python :: 3.8",
-        "Programming Language :: Python :: 3.9",
-    ],
 )

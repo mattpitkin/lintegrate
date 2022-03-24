@@ -140,17 +140,17 @@ def logtrapz(f, x, disable_checks=False, args=()):
 
             if not disable_checks:
                 # make sure x values are in ascending order (keeping f values associated to their x evaluation points)
-                zp = np.array(sorted(zip(x, f)))
+                zp = np.array(sorted(zip(x, f)), dtype=np.float64)
 
                 # perform trapezium rule (internal logtrapzC function is faster than using scipy logsumexp)
                 return logtrapzC(zp[:,1], zp[:,0])
             else:
-                return logtrapzC(np.array(f), np.array(x))
+                return logtrapzC(np.array(f, dtype=np.float64), np.array(x, dtype=np.float64))
         elif isinstance(x, float):
             assert x > 0., "Evaluation spacings must be positive"
 
             # perform trapezium rule
-            return logtrapzC(f, np.array([x]))
+            return logtrapzC(f.astype(np.float64), np.array([x]))
         else:
             raise TypeError('Error... value of "x" must be a numpy array or a float')
     elif callable(f): # f is a function
@@ -161,18 +161,18 @@ def logtrapz(f, x, disable_checks=False, args=()):
             try:
                 if not isinstance(args, tuple):
                     args = (args,)
-                vs = f(np.array(x), args) # make sure x is an array when passed to function
+                vs = f(np.array(x, dtype=np.float64), args) # make sure x is an array when passed to function
             except Exception as e:
                 raise RuntimeError('Error... could not evaluate function "f": {}'.format(e))
 
             if not disable_checks:
                 # make sure x values are in ascending order (keeping f values associated to their x evaluation points)
-                zp = np.array(sorted(zip(x, vs)))
+                zp = np.array(sorted(zip(x, vs)), dtype=np.float64)
 
                 # perform trapezium rule (internal logtrapzC function is faster than using scipy logsumexp)
                 return logtrapzC(zp[:,1], zp[:,0])
             else:
-                return logtrapzC(vs, np.array(x))
+                return logtrapzC(vs, np.array(x, dtype=np.float64))
         else:
             raise TypeError('Error... "x" must be a numpy array or list')
     else:
@@ -223,7 +223,7 @@ def lqng(func, a=0., b=0., args=(), epsabs=1.49e-8, epsrel=1.49e-8, intervals=No
         used, for example, if you have a very tightly peaked function and require small intervals
         around the peak).
     nintervals : int, optional
-        If `intervals` is not given then split the range between `a` and `b` into `nintervals'
+        If `intervals` is not given then split the range between `a` and `b` into `nintervals`
         intervals
     intervaltype : string, optional
         If splitting into `nintervals` intervals then choose whether to split the range in equal
@@ -318,7 +318,7 @@ def lqag(func, a=0., b=0., args=(), epsabs=1.49e-8, epsrel=1.49e-8, limit=50, in
         used, for example, if you have a very tightly peaked function and require small intervals
         around the peak).
     nintervals : int, optional
-        If `intervals` is not given then split the range between `a` and `b` into `nintervals'
+        If `intervals` is not given then split the range between `a` and `b` into `nintervals`
         intervals
     intervaltype : string, optional
         If splitting into `nintervals` intervals then choose whether to split the range in equal
@@ -422,7 +422,7 @@ def lcquad(func, a, b, args=(), epsabs=1.49e-8, epsrel=1.49e-8, wsintervals=100,
         used, for example, if you have a very tightly peaked function and require small intervals
         around the peak).
     nintervals : int, optional
-        If `intervals` is not given then split the range between `a` and `b` into `nintervals'
+        If `intervals` is not given then split the range between `a` and `b` into `nintervals`
         intervals
     intervaltype : string, optional
         If splitting into `nintervals` intervals then choose whether to split the range in equal
