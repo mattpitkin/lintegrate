@@ -15,8 +15,11 @@ jobs:
       matrix:
         os: [ubuntu-20.04, macos-latest, windows-latest]
         python-version: [3.7, 3.8, 3.9]
-        ccompiler: "c-compiler"
         include:
+          - os: ubuntu-20.04
+            ccompiler: "c-compiler"
+          - os: windows-latest
+            ccompiler: "c-compiler"
           - os: macos-latest
             ccompiler: "'clang>=12.0.1'"
     runs-on: ${{ matrix.os }}
