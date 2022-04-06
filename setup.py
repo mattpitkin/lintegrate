@@ -29,8 +29,7 @@ def readfile(filename):
 
 
 def gsl_config(*args, **kwargs):
-    """Run gsl-config and return pre-formatted output
-    """
+    """Run gsl-config and return pre-formatted output"""
     if WINDOWS:
         cmd = "gsl-config {}".format(" ".join(args))
         kwargs.setdefault("shell", True)
@@ -78,29 +77,33 @@ else:
         "-march=native",
         "-funroll-loops",
     ]
-ext_modules = cythonize([
-    Extension(
-        "lintegrate.lintegrate",
-        sources=[
-            "lintegrate/lintegrate.pyx",
-            "src/lintegrate_qag.c",
-            "src/lintegrate_qng.c",
-            "src/lintegrate_cquad.c",
-        ],
-        include_dirs=[
-            numpy.get_include(),
-            gsl_config("--cflags")[2:],
-            "src",
-        ],
-        library_dirs=[
-            gsl_config("--libs").split(" ")[0][2:],
-        ],
-        libraries=[
-            "gsl",
-        ],
-        extra_compile_args=extra_compile_args,
-    ),
-])
+ext_modules = cythonize(
+    [
+        Extension(
+            "lintegrate.lintegrate",
+            sources=[
+                "lintegrate/lintegrate.pyx",
+                "src/lintegrate_qag.c",
+                "src/lintegrate_qng.c",
+                "src/lintegrate_cquad.c",
+            ],
+            include_dirs=[
+                numpy.get_include(),
+                gsl_config("--cflags")[2:],
+                "src",
+                "lintegrate",
+            ],
+            library_dirs=[
+                gsl_config("--libs").split(" ")[0][2:],
+            ],
+            libraries=[
+                "gsl",
+            ],
+            extra_compile_args=extra_compile_args,
+        ),
+    ],
+    language_level="3",
+)
 
 
 setup(
