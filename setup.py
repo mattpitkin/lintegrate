@@ -91,6 +91,7 @@ ext_modules = cythonize([
             numpy.get_include(),
             gsl_config("--cflags")[2:],
             "src",
+            "lintegrate",
         ],
         library_dirs=[
             gsl_config("--libs").split(" ")[0][2:],
