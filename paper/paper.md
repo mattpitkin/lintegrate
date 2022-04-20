@@ -71,7 +71,7 @@ against values learned or inferred through other methods as a form of validation
 
 lintegrate is open source code, released under a GPL-3.0 license. The source code is publically hosted on
 [GitHub](https://github.com/mattpitkin/lintegrate), while release versions of the Python library are
-availble through [PyPI](https://pypi.org/project/lintegrate/) and [conda-forge](https://anaconda.org/conda-forge/lintegrate). Documentation of the C library functions and Python interface can be
+available through [PyPI](https://pypi.org/project/lintegrate/) and [conda-forge](https://anaconda.org/conda-forge/lintegrate). Documentation of the C library functions and Python interface can be
 found on [Read the Docs](https://lintegrate.readthedocs.io/en/latest/), including the API and example usage.
 
 Contributions to the code are welcome via the GitHub
