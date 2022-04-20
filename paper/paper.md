@@ -67,6 +67,17 @@ Bayesian inference of pulsar ellipticity distributions in @Pitkin:2018. In @Nash
 @Strauss:2021, lintegrate has been used to calculate the "true" value of integrals to compare
 against values learned or inferred through other methods as a form of validation.
 
+# Availability and development
+
+lintegrate is open source code, released under a GPL-3.0 license. The source code is publically hosted on
+[GitHub](https://github.com/mattpitkin/lintegrate), while release versions of the Python library are
+availble through [PyPI](https://pypi.org/project/lintegrate/) and [conda-forge](https://anaconda.org/conda-forge/lintegrate). Documentation of the C library functions and Python interface can be
+found on [Read the Docs](https://lintegrate.readthedocs.io/en/latest/), including the API and example usage.
+
+Contributions to the code are welcome via the GitHub
+[issues tracker](https://github.com/mattpitkin/lintegrate/issues) or [Pull Requests](https://github.com/mattpitkin/lintegrate/pulls). Continuous integration
+is set up to run a test suite on the code when any changes are made.
+
 # Acknowledgements
 
 We thank [Luiz Max F. Carvalho](https://github.com/maxbiostat) for adding an example of accessing
