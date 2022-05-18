@@ -19,7 +19,7 @@ bibliography: paper.bib
 # Summary
 
 There are many situations in which the integral of a function must be evaluated numerically between
-given limits. For C codes, there are a range of numerical integration (sometimes called numerical
+given limits. For C codes, there is a range of numerical integration (sometimes called numerical
 quadrature) functions provided within the GNU Scientific Library (GSL) [@GSL]. However, in
 situations where the integrand has an extremely large dynamic range these GSL functions can fail due
 to numerical instability. One way to get around numerical instability issues is to work with the
