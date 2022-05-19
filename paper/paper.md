@@ -45,7 +45,7 @@ L(\vec{\theta}) \propto \exp{\left(-\sum_{i=1}^N \frac{(d_i - m_i(\vec{\theta}))
 where $\sigma_i^2$ is an estimate of the noise variance for point $i$. Evaluating the exponent for a
 range of $\vec{\theta}$ values will often lead to a numbers that breach the limits of values that
 are storable as double precision floating point numbers and/or have an extremely large dynamic
-range. In these cases, performing marginalisation (i.e., integration) over some subset of the
+range. In these cases, when performing marginalisation (i.e., integration) over some subset of the
 parameters $\vec{\theta}$, e.g., 
 
 \begin{equation}\label{eq:Z}
