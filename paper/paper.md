@@ -23,8 +23,8 @@ given limits. For C codes, there is a range of numerical integration (sometimes 
 quadrature) functions provided within the GNU Scientific Library (GSL) [@GSL]. However, in
 situations where the integrand has an extremely large dynamic range these GSL functions can fail due
 to numerical instability. One way to get around numerical instability issues is to work with the
-natural logarithm of the function. The logarithm of the function can be 
-simply integrated as this
+natural logarithm of the function. The logarithm of the function cannot
+simply be integrated as this
 will not produce the logarithm of the integral of the original function. lintegrate provides a range
 of C integration functions, equivalent to functions in GSL, that allow the integration of a function
 when only working with the natural logarithm of the function is computationally practical. The
