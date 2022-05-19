@@ -23,12 +23,13 @@ given limits. For C codes, there is a range of numerical integration (sometimes 
 quadrature) functions provided within the GNU Scientific Library (GSL) [@GSL]. However, in
 situations where the integrand has an extremely large dynamic range these GSL functions can fail due
 to numerical instability. One way to get around numerical instability issues is to work with the
-natural logarithm of the function. You cannot simply integrate the logarithm of the function as this
+natural logarithm of the function. The logarithm of the function can be 
+simply integrated as this
 will not produce the logarithm of the integral of the original function. lintegrate provides a range
-of C integration functions, equivalent to functions in GSL, that allow you to integrate a function
+of C integration functions, equivalent to functions in GSL, that allow the integration of a function
 when only working with the natural logarithm of the function is computationally practical. The
 result that is returned is the natural logarithm of the integral of the underlying function.
-lintegrate also provides a Python module for accessing some of these functions in Python.
+lintegrate also provides a Python [@vanrossum1995python] module for accessing some of these functions in Python.
 
 # Statement of need
 
@@ -44,14 +45,14 @@ L(\vec{\theta}) \propto \exp{\left(-\sum_{i=1}^N \frac{(d_i - m_i(\vec{\theta}))
 where $\sigma_i^2$ is an estimate of the noise variance for point $i$. Evaluating the exponent for a
 range of $\vec{\theta}$ values will often lead to a numbers that breach the limits of values that
 are storable as double precision floating point numbers and/or have an extremely large dynamic
-range. In these cases, if you wanted to marginalise (i.e., integrate) over some subset of the
+range. In these cases, performing marginalisation (i.e., integration) over some subset of the
 parameters $\vec{\theta}$, e.g., 
 
 \begin{equation}\label{eq:Z}
 Z = \int^{\theta_1} L(\vec{\theta}) \pi(\theta_1) {\rm d}\theta_1,
 \end{equation}
 
-where $\pi(\theta_1)$ is the prior probability distribution for the parameter $\theta_1$, you cannot
+where $\pi(\theta_1)$ is the prior probability distribution for the parameter $\theta_1$, it is not possible to
 work directly with \autoref{eq:likelihood}. Instead, it helps to work with the natural logarithm of the
 likelihood:
 
@@ -59,7 +60,7 @@ likelihood:
 \ln{L(\vec{\theta})} = C - \sum_{i=1}^N \frac{(d_i - m_i(\vec{\theta}))^2}{2\sigma_i^2}.
 \end{equation}
 
-lintegrate allows you to calculate the logarithm of $Z$ in \autoref{eq:Z}, while working with the
+lintegrate allows the calculation of the logarithm of $Z$ in \autoref{eq:Z}, while working with the
 natural logarthim of integrands such as in \autoref{eq:lnlikelihood}.
 
 lintegrate was originally developed to marginalise probability distributions for the hierarchical
