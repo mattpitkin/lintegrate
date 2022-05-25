@@ -18,14 +18,37 @@ accessed in a similar way to the SciPy :func:`~scipy.integrate.quad` function.
    Python API <pythonapi>
    Examples <examples>
 
+Citation
+~~~~~~~~
+
+If using lintegrate within you research, I would be grateful if you cite the associated `JOSS paper <https://joss.theoj.org/papers/10.21105/joss.04231>`_ for the software. The following BibTeX citation can be used:
+
+.. code-block:: bibtex
+
+   @article{Pitkin2022,
+     doi = {10.21105/joss.04231},
+     url = {https://doi.org/10.21105/joss.04231},
+     year = {2022},
+     publisher = {The Open Journal},
+     volume = {7},
+     number = {73},
+     pages = {4231},
+     author = {Matthew Pitkin},
+     title = {lintegrate: A C/Python numerical integration library for working in log-space},
+     journal = {Journal of Open Source Software}
+   }
+
+You may also want to cite the `GSL <https://www.gnu.org/software/gsl/>`__ reference "*M. Galassi et al, GNU Scientific Library Reference Manual (3rd Ed.), ISBN 0954612078*" and the URL http://www.gnu.org/software/gsl/.
+
+
 Indices and tables
 ==================
 
 * :ref:`genindex`
 * :ref:`search`
 
-.. image:: https://zenodo.org/badge/DOI/10.5281/zenodo.5913234.svg
-   :target: https://doi.org/10.5281/zenodo.5913234
+.. image:: https://joss.theoj.org/papers/10.21105/joss.04231/status.svg
+   :target: https://doi.org/10.21105/joss.04231
 
 .. image:: https://badge.fury.io/py/lintegrate.svg
    :target: https://badge.fury.io/py/lintegrate

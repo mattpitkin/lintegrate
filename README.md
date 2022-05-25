@@ -191,6 +191,28 @@ mmax <- 10
 lint$lqag(py_func(integrand), r_to_py(mmin), r_to_py(mmax), c(mu, sig))
 ```
 
+## Citation
+
+If using `lintegrate` in your research, I would be grateful if you cite the associated [JOSS paper](https://joss.theoj.org/papers/10.21105/joss.04231) for the software. The following BibTeX citation can be used:
+
+```bibtex
+@article{Pitkin2022,
+  doi = {10.21105/joss.04231},
+  url = {https://doi.org/10.21105/joss.04231},
+  year = {2022},
+  publisher = {The Open Journal},
+  volume = {7},
+  number = {73},
+  pages = {4231},
+  author = {Matthew Pitkin},
+  title = {lintegrate: A C/Python numerical integration library for working in log-space},
+  journal = {Journal of Open Source Software}
+}
+```
+
+You may also want to cite the [GSL](https://www.gnu.org/software/gsl/) reference "_M. Galassi et al, GNU Scientific Library Reference Manual (3rd Ed.), ISBN 0954612078_" and the URL http://www.gnu.org/software/gsl/.
+
+
 [![DOI](https://joss.theoj.org/papers/10.21105/joss.04231/status.svg)](https://doi.org/10.21105/joss.04231)
 [![Build Status](https://github.com/mattpitkin/lintegrate/workflows/build/badge.svg)](https://github.com/mattpitkin/lintegrate/actions?query=workflow%3Abuild)
 [![PyPI version](https://badge.fury.io/py/lintegrate.svg)](https://badge.fury.io/py/lintegrate)
