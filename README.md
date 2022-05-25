@@ -191,7 +191,7 @@ mmax <- 10
 lint$lqag(py_func(integrand), r_to_py(mmin), r_to_py(mmax), c(mu, sig))
 ```
 
-[![DOI](https://zenodo.org/badge/93165960.svg)](https://zenodo.org/badge/latestdoi/93165960)
+[![DOI](https://joss.theoj.org/papers/10.21105/joss.04231/status.svg)](https://doi.org/10.21105/joss.04231)
 [![Build Status](https://github.com/mattpitkin/lintegrate/workflows/build/badge.svg)](https://github.com/mattpitkin/lintegrate/actions?query=workflow%3Abuild)
 [![PyPI version](https://badge.fury.io/py/lintegrate.svg)](https://badge.fury.io/py/lintegrate)
 [![Anaconda-Server Badge](https://anaconda.org/conda-forge/lintegrate/badges/version.svg)](https://anaconda.org/conda-forge/lintegrate)
