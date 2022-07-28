@@ -74,7 +74,6 @@ else:
         "-m64",
         "-ffast-math",
         "-fno-finite-math-only",
-        "-march=native",
         "-funroll-loops",
     ]
 ext_modules = cythonize(
