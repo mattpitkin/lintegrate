@@ -18,18 +18,23 @@ jobs:
         include:
           - os: ubuntu-20.04
             ccompiler: "c-compiler"
+            condainstall: "numpy pip pytest setuptools"
           - os: ubuntu-22.04
-            ccompiler: "c-compiler"
+            ccompiler: "numpy pip pytest setuptools"
           - os: windows-latest
-            ccompiler: "c-compiler"
+            condainstall: "c-compiler cython gsl numpy pip pytest setuptools"
           - os: macos-latest
-            ccompiler: "c-compiler 'clang>=12.0.1'"
+            condainstall: "c-compiler 'clang>=12.0.1' cython gsl numpy pip pytest setuptools"
     runs-on: ${{ matrix.os }}
     defaults:
       run:
         shell: bash -l {0}
 
     steps:
+    - if: ${{ matrix.os }} == 'ubuntu-20.04' || ${{ matrix.os }} == 'ubuntu-22.04'
+      run: |
+        apt install libgsl-dev
+        apt list --installed | grep gsl
     - uses: actions/checkout@v2
     - uses: conda-incubator/setup-miniconda@v2
       with:
@@ -38,7 +43,7 @@ jobs:
         python-version: ${{ matrix.python-version }}
     - name: Install dependencies
       run: |
-        conda install -n test -q -y ${{ matrix.ccompiler }} cython gsl numpy pip pytest setuptools
+        conda install -n test -q -y ${{ matrix.condainstall }}
     - name: Conda information
       run: |
         conda info --all
