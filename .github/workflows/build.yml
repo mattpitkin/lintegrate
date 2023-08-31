@@ -17,10 +17,9 @@ jobs:
         python-version: [3.7, 3.8, 3.9, "3.10"]
         include:
           - os: ubuntu-20.04
-            ccompiler: "c-compiler"
             condainstall: "numpy pip pytest setuptools"
           - os: ubuntu-22.04
-            ccompiler: "numpy pip pytest setuptools"
+            condainstall: "numpy pip pytest setuptools"
           - os: windows-latest
             condainstall: "c-compiler cython gsl numpy pip pytest setuptools"
           - os: macos-latest
