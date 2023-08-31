@@ -18,6 +18,8 @@ jobs:
         include:
           - os: ubuntu-20.04
             ccompiler: "c-compiler"
+          - os: ubuntu-22.04
+            ccompiler: "c-compiler"
           - os: windows-latest
             ccompiler: "c-compiler"
           - os: macos-latest
