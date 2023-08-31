@@ -473,6 +473,6 @@ def lcquad(func, a, b, args=(), epsabs=1.49e-8, epsrel=1.49e-8, wsintervals=100,
 
 # callback function to allow python functions to be passed to C lintegration functions
 # (see e.g. https://github.com/cython/cython/tree/master/Demos/callback)
-cdef double lintegrate_callback(double x, void *f, void *args):
+cdef double lintegrate_callback(double x, void *f, void *args) noexcept:
     return (<object>f)(x, <object>args)
 
