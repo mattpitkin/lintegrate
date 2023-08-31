@@ -31,7 +31,7 @@ jobs:
         shell: bash -l {0}
 
     steps:
-    - if: ${{ matrix.os }} == 'ubuntu-20.04' || ${{ matrix.os }} == 'ubuntu-22.04'
+    - if: ${{ matrix.os == 'ubuntu-20.04' || matrix.os == 'ubuntu-22.04' }}
       run: |
         apt install libgsl-dev
         apt list --installed | grep gsl
