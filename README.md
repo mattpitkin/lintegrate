@@ -119,11 +119,11 @@ sudo scons
 sudo scons install
 ```
 
-A Python module containing wrappers to the functions can be built by running, e.g.:
+A Python module containing wrappers to the functions can be built and installed from source for the user by running, e.g.:
+```bash
+pip install .
 ```
-sudo python setup.py install
-```
-for a system-wide install (add `--user` and remove `sudo` if just wanting to install for a single user, and using `--prefix=INSTALLPATH` if wanting to specify this install location).
+from within the repository directory.
 
 The Python module can also be installed from [PyPI](https://pypi.org/project/lintegrate/) using pip with:
 ```bash
