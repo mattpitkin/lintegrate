@@ -96,7 +96,7 @@ ext_modules = cythonize(
                 gsl_config("--libs").split(" ")[0][2:],
             ],
             libraries=[
-                "gsl",
+                l.replace("-l", "") for l in gsl_config("--libs").split()[1:]
             ],
             extra_compile_args=extra_compile_args,
         ),
