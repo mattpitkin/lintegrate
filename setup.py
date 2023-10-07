@@ -93,10 +93,10 @@ ext_modules = cythonize(
                 "lintegrate",
             ],
             library_dirs=[
-                gsl_config("--libs").split(" ")[0][2:],
+                gsl_config("--libs-without-cblas").split(" ")[0][2:],
             ],
             libraries=[
-                l.replace("-l", "") for l in gsl_config("--libs").split()[1:]
+                l.replace("-l", "") for l in gsl_config("--libs-without-cblas").split()[1:]
             ],
             extra_compile_args=extra_compile_args,
         ),
