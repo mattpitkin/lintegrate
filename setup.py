@@ -38,20 +38,6 @@ def gsl_config(*args, **kwargs):
     return subprocess.check_output(cmd, **kwargs).decode("utf-8").strip()
 
 
-def find_version():
-    """Get version string for pyx file
-
-    see e.g. https://packaging.python.org/single_source_version/
-    """
-    fp = open("lintegrate/__init__.py", "r")
-    version_file = fp.read()
-    fp.close()
-    version_match = re.search(r"^__version__ = ['\"]([^'\"]*)['\"]", version_file, re.M)
-    if version_match:
-        return version_match.group(1)
-    raise RuntimeError("Unable to find version string.")
-
-
 # define ext_modules
 extra_compile_args = [
     "-Wall",
@@ -106,6 +92,6 @@ ext_modules = cythonize(
 
 
 setup(
-    version=find_version(),
     ext_modules=ext_modules,
 )
+

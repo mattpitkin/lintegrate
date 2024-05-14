@@ -2,7 +2,10 @@ import os
 
 from .lintegrate import *
 
-__version__ = "0.1.16"
+try:
+    from ._version import version as __version__
+except ModuleNotFoundError:
+    __version__ = ""
 
 
 def get_include():
