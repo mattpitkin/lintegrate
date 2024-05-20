@@ -17,13 +17,13 @@ jobs:
         python-version: [3.9, "3.10", "3.11"]
         include:
           - os: ubuntu-20.04
-            condainstall: "pip pytest setuptools"
+            condainstall: "cython numpy pip pytest setuptools"
           - os: ubuntu-22.04
-            condainstall: "pip pytest setuptools"
+            condainstall: "cython numpy pip pytest setuptools"
           - os: windows-latest
-            condainstall: "c-compiler gsl pip pytest setuptools"
+            condainstall: "c-compiler gsl cython numpy pip pytest setuptools"
           - os: macos-latest
-            condainstall: "c-compiler 'clang>=12.0.1' gsl pip pytest setuptools"
+            condainstall: "c-compiler 'clang>=12.0.1' gsl cython numpy pip pytest setuptools"
     runs-on: ${{ matrix.os }}
     defaults:
       run:
@@ -43,8 +43,8 @@ jobs:
         use-mamba: true
     - name: Install dependencies
       run: |
+        mamba config --add channels conda-forge/label/numpy_rc
         mamba install -n test -q -y ${{ matrix.condainstall }}
-        python -m pip install Cython numpy
     - name: Conda information
       run: |
         conda info --all
