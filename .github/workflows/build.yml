@@ -43,7 +43,7 @@ jobs:
         use-mamba: true
     - name: Install dependencies
       run: |
-        mamba config --add channels conda-forge/label/numpy_rc
+        conda config --add channels conda-forge/label/numpy_rc
         mamba install -n test -q -y ${{ matrix.condainstall }}
     - name: Conda information
       run: |
