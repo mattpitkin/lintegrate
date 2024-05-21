@@ -16,16 +16,10 @@ from setuptools import (
 
 import numpy
 
-from Cython.Build import cythonize
 
 ROOT = Path(__file__).parent
 WINDOWS = os.name == "nt"
 CONDA = os.environ.get("CONDA_BUILD", 0)
-
-
-def readfile(filename):
-    with open(filename, encoding="utf-8") as fp:
-        return fp.read()
 
 
 def gsl_config(*args, **kwargs):
@@ -62,34 +56,35 @@ else:
         "-fno-finite-math-only",
         "-funroll-loops",
     ]
-ext_modules = cythonize(
-    [
-        Extension(
-            "lintegrate.lintegrate",
-            sources=[
-                "lintegrate/lintegrate.pyx",
-                "src/lintegrate_qag.c",
-                "src/lintegrate_qng.c",
-                "src/lintegrate_cquad.c",
-            ],
-            include_dirs=[
-                numpy.get_include(),
-                gsl_config("--cflags")[2:],
-                "src",
-                "lintegrate",
-            ],
-            library_dirs=[
-                gsl_config("--libs-without-cblas").split(" ")[0][2:],
-            ],
-            libraries=[
-                l.replace("-l", "") for l in gsl_config("--libs-without-cblas").split()[1:]
-            ],
-            extra_compile_args=extra_compile_args,
-        ),
-    ],
-    language_level="3",
-)
 
+ext_modules = [
+    Extension(
+        "lintegrate.lintegrate",
+        sources=[
+            "lintegrate/lintegrate.pyx",
+            "src/lintegrate_qag.c",
+            "src/lintegrate_qng.c",
+            "src/lintegrate_cquad.c",
+        ],
+        include_dirs=[
+            numpy.get_include(),
+            gsl_config("--cflags")[2:],
+            "src",
+            "lintegrate",
+        ],
+        library_dirs=[
+            gsl_config("--libs-without-cblas").split(" ")[0][2:],
+        ],
+        libraries=[
+            l.replace("-l", "") for l in gsl_config("--libs-without-cblas").split()[1:]
+        ],
+        extra_compile_args=extra_compile_args,
+    ),
+]
+
+
+for e in ext_modules:
+    e.cython_directives = {"language_level": "3"}
 
 setup(
     ext_modules=ext_modules,
