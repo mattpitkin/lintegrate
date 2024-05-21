@@ -59,9 +59,9 @@ else:
 
 ext_modules = [
     Extension(
-        "lintegrate.lintegrate",
+        "lintegrate",
         sources=[
-            "lintegrate/lintegrate.pyx",
+            "src/lintegrate.pyx",
             "src/lintegrate_qag.c",
             "src/lintegrate_qng.c",
             "src/lintegrate_cquad.c",
@@ -70,7 +70,6 @@ ext_modules = [
             numpy.get_include(),
             gsl_config("--cflags")[2:],
             "src",
-            "lintegrate",
         ],
         library_dirs=[
             gsl_config("--libs-without-cblas").split(" ")[0][2:],

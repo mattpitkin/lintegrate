@@ -1,10 +1,10 @@
 [build-system]
 requires = [
+    "cython>=3",
+    "numpy>=2.0.0rc1",
     "setuptools>=61",
     "setuptools_scm[toml]>=6.2",
-    "cython>=3",
     "wheel",
-    "numpy>=2.0.0rc1",
 ]
 build-backend = "setuptools.build_meta"
 
@@ -47,11 +47,13 @@ docs = [
 ]
 
 [tools.setuptools.packages.find]
-where = ["."]
+include = [
+    "lintegrate*",
+]
 
 [tools.setuptools.package-data]
 lintegrate = ["*.pyx"]
 
 [tools.setuptools_scm]
-write_to = "lintegrate/_version.py"
+write_to = "src/_version.py"
 
