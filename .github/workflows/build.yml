@@ -21,9 +21,9 @@ jobs:
           - os: ubuntu-22.04
             condainstall: "cython numpy pip pytest setuptools"
           - os: windows-latest
-            condainstall: "c-compiler cython gsl numpy pip pytest setuptools"
+            condainstall: "c-compiler gsl cython numpy pip pytest setuptools"
           - os: macos-latest
-            condainstall: "c-compiler 'clang>=12.0.1' cython gsl numpy pip pytest setuptools"
+            condainstall: "c-compiler 'clang>=12.0.1' gsl cython numpy pip pytest setuptools"
     runs-on: ${{ matrix.os }}
     defaults:
       run:
@@ -43,6 +43,7 @@ jobs:
         use-mamba: true
     - name: Install dependencies
       run: |
+        conda config --add channels conda-forge/label/numpy_rc
         mamba install -n test -q -y ${{ matrix.condainstall }}
     - name: Conda information
       run: |
