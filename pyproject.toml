@@ -1,4 +1,58 @@
 [build-system]
-# Minimum requirements for the build system to execute.
-requires = ["setuptools >= 40.6.0", "cython", "wheel", "oldest-supported-numpy"]
+requires = [
+    "cython>=3",
+    "numpy>=2.0.0rc1",
+    "setuptools>=61",
+    "setuptools_scm[toml]>=6.2",
+    "wheel",
+]
 build-backend = "setuptools.build_meta"
+
+[project]
+name = "lintegrate"
+authors = [{name = "Matthew Pitkin", email = "m@ttpitk.in"}]
+urls = {Homepage = "https://github.com/mattpitkin/lintegrate", Documentation = "https://lintegrate.readthedocs.io/"}
+description = "Python functions implementing numerical integration of functions in log-space."
+license = {text = "GPLv3"}
+readme = "README.md"
+classifiers = [
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+    "Natural Language :: English",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: C",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+
+dynamic = [
+    "version",
+]
+
+requires-python = ">=3.9, <4"
+dependencies = [
+    "numpy",
+]
+
+[project.optional-dependencies]
+docs = [
+    "autodoc",
+    "pydata-sphinx-theme",
+    "sphinx >= 2.0",
+    "sphinx-panels",
+    "sphinxcontrib-napoleon",
+    "sphinxext-remoteliteralinclude",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["lintegrate*"]
+
+[tool.setuptools.package-data]
+lintegrate = ["*.pyx"]
+
+[tool.setuptools_scm]
+write_to = "src/lintegrate/_version.py"
+
