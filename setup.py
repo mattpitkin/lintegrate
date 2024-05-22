@@ -59,9 +59,9 @@ else:
 
 ext_modules = [
     Extension(
-        "lintegrate",
+        "lintegrate.lintegrate",
         sources=[
-            "src/lintegrate.pyx",
+            "src/lintegrate/lintegrate.pyx",
             "src/lintegrate_qag.c",
             "src/lintegrate_qng.c",
             "src/lintegrate_cquad.c",

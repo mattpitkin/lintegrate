@@ -1,7 +1,7 @@
 include src/*.h
 include src/*.c
-include src/*.pyx
-include src/*.py
+include src/lintegrate/*.pyx
+include src/lintegrate/*.py
 include LICENSE
 include gsl-config.bat
 include pyproject.toml

@@ -46,14 +46,13 @@ docs = [
     "sphinxext-remoteliteralinclude",
 ]
 
-[tools.setuptools.packages.find]
-include = [
-    "lintegrate*",
-]
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["lintegrate*"]
 
-[tools.setuptools.package-data]
+[tool.setuptools.package-data]
 lintegrate = ["*.pyx"]
 
-[tools.setuptools_scm]
-write_to = "src/_version.py"
+[tool.setuptools_scm]
+write_to = "src/lintegrate/_version.py"
 
