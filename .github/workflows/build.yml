@@ -35,7 +35,7 @@ jobs:
         apt install libgsl-dev
         apt list --installed | grep gsl
     - uses: actions/checkout@v2
-    - uses: conda-incubator/setup-miniconda@v2
+    - uses: conda-incubator/setup-miniconda@v4
       with:
         activate-environment: test
         miniforge-variant: Mambaforge
