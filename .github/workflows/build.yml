@@ -16,14 +16,14 @@ jobs:
         os: [ubuntu-22.04, ubuntu-24.04, macos-latest, windows-latest]
         python-version: [3.9, "3.10", "3.11", "3.12", "3.13"]
         include:
-          - os: ubuntu-20.04
-            condainstall: "cython numpy pip pytest setuptools"
           - os: ubuntu-22.04
-            condainstall: "cython numpy pip pytest setuptools"
+            condainstall: "cython numpy pip pytest setuptools setuptools_scm"
+          - os: ubuntu-24.04
+            condainstall: "cython numpy pip pytest setuptools setuptools_scm"
           - os: windows-latest
-            condainstall: "c-compiler gsl cython numpy pip pytest setuptools"
+            condainstall: "c-compiler gsl cython numpy pip pytest setuptools setuptools_scm"
           - os: macos-latest
-            condainstall: "c-compiler 'clang>=12.0.1' gsl cython numpy pip pytest setuptools"
+            condainstall: "c-compiler 'clang>=12.0.1' gsl cython numpy pip pytest setuptools setuptools_scm"
     runs-on: ${{ matrix.os }}
     defaults:
       run:
