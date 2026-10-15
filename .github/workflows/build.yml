@@ -39,20 +39,16 @@ jobs:
         python-version: ${{ matrix.python-version }}
         use-mamba: true
     - name: Install dependencies
-      shell: ${{ matrix.os == 'windows-latest' && 'pwsh' || 'bash -el {0}' }}
       run: |
         conda config --add channels conda-forge/label/numpy_rc
         mamba install -p "$CONDA_PREFIX" -q -y ${{ matrix.condainstall }}
     - name: Conda information
-      shell: ${{ matrix.os == 'windows-latest' && 'pwsh' || 'bash -el {0}' }}
       run: |
         conda info --all
         conda list -n test
     - name: Install lintegrate
-      shell: ${{ matrix.os == 'windows-latest' && 'pwsh' || 'bash -el {0}' }}
       run: |
         python -m pip install -e . -vv --no-build-isolation
     - name: Run test suite
-      shell: ${{ matrix.os == 'windows-latest' && 'pwsh' || 'bash -el {0}' }}
       run: |
         python -m pytest
