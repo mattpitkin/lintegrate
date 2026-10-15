@@ -27,7 +27,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     defaults:
       run:
-        shell: bash -l {0}
+        shell: pwsh
 
     steps:
     - if: ${{ matrix.os == 'ubuntu-22.04' || matrix.os == 'ubuntu-24.04' }}
@@ -35,7 +35,7 @@ jobs:
         sudo apt install libgsl-dev
         apt list --installed | grep gsl
     - uses: actions/checkout@v2
-    - uses: conda-incubator/setup-miniconda@v2
+    - uses: conda-incubator/setup-miniconda@v4
       with:
         activate-environment: test
         miniforge-version: latest
