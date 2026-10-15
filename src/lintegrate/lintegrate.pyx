@@ -19,8 +19,7 @@
 import numpy as np
 cimport numpy as np
 
-from numpy.math cimport LOGE2, INFINITY
-from libc.math cimport exp, sqrt, log, log10, isinf, fabs
+from libc.math cimport INFINITY, M_LN2, exp, sqrt, log, log10, isinf, fabs
 
 
 cdef extern from "gsl/gsl_integration.h":
@@ -68,7 +67,7 @@ cdef double logtrapzC(np.ndarray[DTYPE_t, ndim=1] lx, np.ndarray[DTYPE_t, ndim=1
 
         B = logplus(B,z)
 
-    B -= LOGE2
+    B -= M_LN2
 
     if len(t) > 1:
         return B
@@ -96,7 +95,7 @@ cdef double logplus(double x, double y):
     cdef double z = INFINITY
     cdef double tmp = x - y
     if x == y or fabs(tmp) < 1e3*GSL_DBL_EPSILON:
-        z = x + LOGE2
+        z = x + M_LN2
     elif x > y:
         z = x + gsl_sf_log_1plusx(exp(-tmp))
     elif x <= y:
